@@ -1,0 +1,18 @@
+{
+  "name": "Abdul Samad — Cloud Data Engineering Student & Full Stack Developer",
+  "short_name": "Abdul Samad",
+  "description": "Portfolio of Abdul Samad — Cloud Data Engineering student and Full Stack Developer building fast, scalable and modern digital experiences.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#FFFFFF",
+  "theme_color": "#FFFFFF",
+  "lang": "en",
+  "categories": ["portfolio", "web", "development"],
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

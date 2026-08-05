@@ -1,0 +1,254 @@
+/* ============================================================
+   base.css — design tokens, reset, typography, focus, utilities
+   ============================================================ */
+
+:root {
+  /* Color palette — every color in the site lives here */
+  --color-bg: #ffffff;
+  --color-surface: #ffffff;
+  --color-surface-soft: #fafafa;
+  --color-accent: #ffb6c1;
+  --color-accent-hover: #ffa9b7;
+  --color-accent-soft: #fff1f4;
+  --color-accent-strong: #f26d86;
+  --color-text: #222222;
+  --color-text-soft: #4a4a4a;
+  --color-text-muted: #8c8c8c;
+  --color-border: #ececec;
+  --color-border-strong: #dcdcdc;
+  --color-success: #16a34a;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-white: #ffffff;
+
+  /* Typography */
+  --font-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(34, 34, 34, 0.04), 0 4px 12px rgba(34, 34, 34, 0.05);
+  --shadow-md: 0 6px 16px rgba(34, 34, 34, 0.06), 0 16px 40px rgba(34, 34, 34, 0.07);
+  --shadow-lg: 0 12px 28px rgba(34, 34, 34, 0.08), 0 28px 72px rgba(34, 34, 34, 0.1);
+  --shadow-accent: 0 8px 20px rgba(255, 182, 193, 0.45);
+
+  /* Layout */
+  --nav-width: 60px;
+  --social-rail-width: 64px;
+  --content-max: 1060px;
+
+  /* Motion */
+  --transition-fast: 150ms;
+  --transition-base: 250ms;
+  --transition-slow: 400ms;
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 24px;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+img,
+picture {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* ---------- Typography ---------- */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+
+h1 {
+  font-size: clamp(2.6rem, 5.5vw, 4.4rem);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+p {
+  color: var(--color-text-soft);
+}
+
+strong {
+  color: var(--color-text);
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-text);
+}
+
+/* ---------- Scrollbar ---------- */
+@media (pointer: fine) {
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-surface-soft);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-border-strong);
+    border-radius: var(--radius-full);
+    border: 2px solid var(--color-surface-soft);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent);
+  }
+}
+
+/* ---------- Focus ---------- */
+:focus-visible {
+  outline: 2px solid var(--color-accent-strong);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------- Skip link ---------- */
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 16px;
+  z-index: 200;
+  padding: 10px 18px;
+  background: var(--color-text);
+  color: var(--color-white);
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 600;
+  transition: top var(--transition-fast) var(--ease-out);
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+/* ---------- Utility ---------- */
+.section {
+  padding-block: clamp(64px, 8vw, 104px);
+  scroll-margin-top: 0;
+}
+
+.section__inner {
+  max-width: var(--content-max);
+  margin-inline: auto;
+}
+
+.section-heading {
+  max-width: 720px;
+  margin-bottom: 48px;
+}
+
+.section-heading__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent-strong);
+  margin-bottom: 12px;
+}
+
+.section-heading__eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 2px;
+  border-radius: var(--radius-full);
+  background: var(--color-accent);
+}
+
+.section-heading__title {
+  margin-bottom: 12px;
+}
+
+.section-heading__description {
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+}
+
+.section-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 48px;
+}
+
+/* ---------- Focus visible accessibility helpers ---------- */
+button:focus-visible,
+a:focus-visible {
+  outline-offset: 3px;
+}

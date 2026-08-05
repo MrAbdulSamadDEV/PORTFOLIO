@@ -1,0 +1,43 @@
+{
+  "name": "abdul-samad-portfolio",
+  "version": "1.0.0",
+  "description": "Premium production-quality personal portfolio for Abdul Samad — Cloud Data Engineering Student & Full Stack Developer. SSR with Express, offline MAX AI assistant, clean SEO-friendly URLs.",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "author": "Abdul Samad",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "dev": "tsx watch server/app.ts",
+    "build": "npm run build:server && npm run build:client",
+    "build:server": "tsc -p tsconfig.server.json",
+    "build:client": "tsc -p tsconfig.client.json",
+    "start": "node dist/server/app.js",
+    "typecheck": "tsc -p tsconfig.server.json --noEmit && tsc -p tsconfig.client.json --noEmit",
+    "assets": "node scripts/generate-assets.mjs",
+    "smoke": "node scripts/smoke.mjs",
+    "test": "npm run build && node scripts/smoke.mjs",
+    "test:browser": "node scripts/browser-audit.mjs"
+  },
+  "dependencies": {
+    "compression": "^1.8.1",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^7.3.1",
+    "@types/compression": "^1.8.1",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.0.0",
+    "puppeteer-core": "^25.5.0",
+    "sharp": "^0.35.3",
+    "tsx": "^4.20.0",
+    "typescript": "^5.8.0"
+  },
+  "allowScripts": {
+    "esbuild@0.28.1": true,
+    "sharp@0.34.5": true
+  }
+}

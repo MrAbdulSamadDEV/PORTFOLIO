@@ -1,0 +1,197 @@
+{
+  "site": {
+    "name": "Abdul Samad",
+    "shortName": "AS",
+    "domain": "https://www.abdulsamad.dev",
+    "tagline": "Building Fast, Scalable and Modern Digital Experiences.",
+    "author": "Abdul Samad",
+    "email": "mr.abdulsamadabdullah@gmail.com",
+    "phoneDisplay": "+92 370 8033443",
+    "phoneHref": "tel:+923708033443",
+    "location": "Lahore, Pakistan",
+    "language": "en",
+    "themeColor": "#FFFFFF",
+    "logo": "/assets/logos/logo.svg",
+    "logoAlt": "Abdul Samad monogram logo",
+    "profileImage": "/assets/profile/profile.webp",
+    "profileImagePng": "/assets/profile/profile.png",
+    "profileImageAlt": "Portrait of Abdul Samad, Cloud Data Engineering student and Full Stack Developer",
+    "profileImageWidth": 480,
+    "profileImageHeight": 480,
+    "ogImage": "/assets/og-image.webp",
+    "ogImagePng": "/assets/og-image.png",
+    "yearStarted": 2022,
+    "keywords": "Abdul Samad, Cloud Data Engineering, Full Stack Developer, TypeScript, Node.js, Express, Portfolio, Web Developer Pakistan"
+  },
+  "pages": {
+    "home": {
+      "title": "Abdul Samad — Cloud Data Engineering Student & Full Stack Developer",
+      "description": "I'm Abdul Samad, a Cloud Data Engineering student and Full Stack Developer building fast, scalable and modern digital experiences with TypeScript, Node.js and Express. Explore my projects, skills and journey.",
+      "keywords": "Abdul Samad portfolio, Cloud Data Engineering student, Full Stack Developer, TypeScript developer, Node.js developer, web developer Pakistan"
+    },
+    "projects": {
+      "title": "Projects — Abdul Samad | Full Stack Developer",
+      "description": "Explore the projects of Abdul Samad: e-commerce platforms, AI assistant web apps, weather dashboards, student portals and more — built with TypeScript, Node.js, Express and modern frontend engineering.",
+      "keywords": "Abdul Samad projects, portfolio projects, full stack projects, TypeScript projects, Node.js projects, Express projects"
+    },
+    "contact": {
+      "title": "Contact — Abdul Samad | Let's Work Together",
+      "description": "Get in touch with Abdul Samad — Cloud Data Engineering student and Full Stack Developer. Available for internships, freelance projects and collaboration. Email, phone and social links included.",
+      "keywords": "contact Abdul Samad, hire web developer, freelance developer, full stack developer contact"
+    }
+  },
+  "nav": [
+    { "label": "Home", "url": "/", "section": "home", "icon": "fa-solid fa-house", "action": "page" },
+    { "label": "About", "url": "/#about", "section": "about", "icon": "fa-solid fa-user", "action": "scroll" },
+    { "label": "Skills", "url": "/#skills", "section": "skills", "icon": "fa-solid fa-code", "action": "scroll" },
+    { "label": "Projects", "url": "/projects", "section": "projects-page", "icon": "fa-solid fa-folder-open", "action": "page" },
+    { "label": "Contact", "url": "/contact", "section": "contact-page", "icon": "fa-solid fa-envelope", "action": "page" },
+    { "label": "AI Assistant", "url": "#", "section": "ai", "icon": "fa-solid fa-robot", "action": "ai" }
+  ],
+  "socials": [
+    { "name": "GitHub", "url": "https://github.com/MrAbdulSamadDEV", "icon": "fa-brands fa-github" },
+    { "name": "LinkedIn", "url": "https://www.linkedin.com/in/abdulsamadabdullah/", "icon": "fa-brands fa-linkedin" },
+    { "name": "X", "url": "https://x.com/ABDULSAMAD8492", "icon": "fa-brands fa-x-twitter" },
+    { "name": "YouTube", "url": "https://www.youtube.com/@ABDULSAMADABDULLAHCODE", "icon": "fa-brands fa-youtube" },
+    { "name": "Email", "url": "mailto:mr.abdulsamadabdullah@gmail.com", "icon": "fa-solid fa-envelope" },
+    { "name": "Phone", "url": "tel:+923708033443", "icon": "fa-solid fa-phone" }
+  ],
+  "hero": {
+    "greeting": "Hello, I'm",
+    "name": "Abdul Samad",
+    "roles": ["Cloud Data Engineering Student", "Full Stack Developer"],
+    "description": "I build modern, fast and scalable web applications with a strong focus on clean code, exceptional user experience, accessibility, performance and maintainability. I enjoy learning new technologies and solving real-world problems through software engineering.",
+    "primaryButton": { "label": "View Projects", "url": "/projects", "icon": "fa-solid fa-folder-open" },
+    "secondaryButton": { "label": "Contact Me", "url": "/contact", "icon": "fa-solid fa-envelope" },
+    "floatingBadges": [
+      { "label": "TypeScript", "icon": "fa-solid fa-file-code" },
+      { "label": "Node.js", "icon": "fa-brands fa-node-js" },
+      { "label": "Cloud", "icon": "fa-solid fa-cloud" }
+    ]
+  },
+  "about": {
+    "eyebrow": "About Me",
+    "heading": "A developer who cares about the details",
+    "whoIAm": "I'm Abdul Samad, a passionate Cloud Data Engineering student and Full Stack Developer. I design and build clean, modern and high-performance web applications using TypeScript, Node.js and Express. My focus is on writing maintainable code, delivering exceptional user experiences and following accessibility and performance best practices on every project.",
+    "myJourney": "My journey started with curiosity about how websites work, which quickly grew into a deep interest in programming, data and cloud technologies. I have spent the last few years building real projects, learning modern tools and sharpening my engineering skills through hands-on practice and continuous study.",
+    "myGoals": "My goal is to become a world-class engineer who bridges the gap between data engineering and full stack development — building intelligent, scalable systems that solve real-world problems. I'm always exploring new technologies and I'm open to internships, freelance work and exciting collaborations.",
+    "statistics": [
+      { "value": "10+", "label": "Projects Completed", "icon": "fa-solid fa-diagram-project" },
+      { "value": "25+", "label": "Technologies Learned", "icon": "fa-solid fa-layer-group" },
+      { "value": "4+", "label": "Certificates Earned", "icon": "fa-solid fa-award" },
+      { "value": "3+", "label": "Years of Learning", "icon": "fa-solid fa-clock" }
+    ],
+    "journey": [
+      {
+        "title": "Discovered Programming",
+        "period": "2022",
+        "icon": "fa-solid fa-code",
+        "description": "Wrote my first lines of HTML, CSS and JavaScript and fell in love with building things for the web."
+      },
+      {
+        "title": "First Real Projects",
+        "period": "2023",
+        "icon": "fa-solid fa-diagram-project",
+        "description": "Built my first full projects including a furniture e-commerce site and a weather dashboard, learning Node.js and Express along the way."
+      },
+      {
+        "title": "Deep Dive into TypeScript & Cloud",
+        "period": "2024",
+        "icon": "fa-solid fa-cloud",
+        "description": "Adopted TypeScript for all new projects and started studying cloud data engineering, Linux and modern DevOps practices."
+      },
+      {
+        "title": "Building for the Real World",
+        "period": "2025 — Present",
+        "icon": "fa-solid fa-rocket",
+        "description": "Currently shipping production-quality applications, contributing to open source and preparing for a career in cloud and full stack engineering."
+      }
+    ]
+  },
+  "skills": {
+    "eyebrow": "My Skills",
+    "heading": "Technologies I work with every day",
+    "description": "A practical, hands-on toolkit built through real projects — from pixel-perfect frontends to scalable Node.js backends and cloud data workflows.",
+    "groups": [
+      {
+        "title": "Frontend",
+        "icon": "fa-solid fa-laptop-code",
+        "skills": [
+          { "name": "HTML5", "level": 95, "icon": "fa-brands fa-html5" },
+          { "name": "CSS3", "level": 92, "icon": "fa-brands fa-css3-alt" },
+          { "name": "JavaScript", "level": 88, "icon": "fa-brands fa-js" },
+          { "name": "TypeScript", "level": 84, "icon": "fa-solid fa-file-code" }
+        ]
+      },
+      {
+        "title": "Backend",
+        "icon": "fa-solid fa-server",
+        "skills": [
+          { "name": "Node.js", "level": 86, "icon": "fa-brands fa-node-js" },
+          { "name": "Express", "level": 82, "icon": "fa-solid fa-route" }
+        ]
+      },
+      {
+        "title": "Programming",
+        "icon": "fa-solid fa-terminal",
+        "skills": [
+          { "name": "Python", "level": 78, "icon": "fa-brands fa-python" },
+          { "name": "C++", "level": 68, "icon": "fa-solid fa-code" },
+          { "name": "C#", "level": 62, "icon": "fa-solid fa-hashtag" }
+        ]
+      },
+      {
+        "title": "Cloud & Tools",
+        "icon": "fa-solid fa-cloud",
+        "skills": [
+          { "name": "Cloud Data Engineering", "level": 74, "icon": "fa-solid fa-cloud-arrow-up" },
+          { "name": "Linux", "level": 76, "icon": "fa-brands fa-linux" },
+          { "name": "Git & GitHub", "level": 88, "icon": "fa-brands fa-github" },
+          { "name": "VS Code", "level": 90, "icon": "fa-solid fa-code" },
+          { "name": "OpenCode CLI", "level": 70, "icon": "fa-solid fa-terminal" }
+        ]
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "heading": "Let's build something great together",
+    "description": "Have a project in mind, an internship opportunity, or just want to say hello? My inbox is always open — I'll get back to you as soon as I can.",
+    "cards": [
+      { "label": "Email Me", "value": "mr.abdulsamadabdullah@gmail.com", "href": "mailto:mr.abdulsamadabdullah@gmail.com", "icon": "fa-solid fa-envelope" },
+      { "label": "Call Me", "value": "+92 370 8033443", "href": "tel:+923708033443", "icon": "fa-solid fa-phone" },
+      { "label": "Location", "value": "Lahore, Pakistan", "href": "https://maps.google.com/?q=Lahore,Pakistan", "icon": "fa-solid fa-location-dot" }
+    ],
+    "form": {
+      "nameLabel": "Your Name",
+      "emailLabel": "Your Email",
+      "messageLabel": "Your Message",
+      "submitLabel": "Send Message",
+      "submitIcon": "fa-solid fa-paper-plane",
+      "successTitle": "Message ready to send",
+      "successText": "Your email client has been opened with your message. If it didn't open, email me directly at mr.abdulsamadabdullah@gmail.com.",
+      "errorText": "Something went wrong while preparing your message. Please try again."
+    }
+  },
+  "footer": {
+    "description": "Cloud Data Engineering student and Full Stack Developer building fast, scalable and modern digital experiences with clean code and careful attention to detail.",
+    "quickLinksHeading": "Quick Links",
+    "contactHeading": "Get In Touch",
+    "rights": "All rights reserved.",
+    "credit": "Designed & Developed by Abdul Samad",
+    "backToTopLabel": "Back to top"
+  },
+  "ai": {
+    "title": "Meet MAX AI",
+    "subtitle": "Your Personal Portfolio Assistant",
+    "buttonLabel": "Ask MAX",
+    "tooltip": "Meet MAX AI",
+    "placeholder": "Ask MAX anything...",
+    "openLabel": "Open chat with MAX AI",
+    "closeLabel": "Close chat",
+    "clearLabel": "Clear conversation",
+    "searchLabel": "Search conversation",
+    "copyLabel": "Copy response",
+    "suggestionsHeading": "Try asking"
+  }
+}

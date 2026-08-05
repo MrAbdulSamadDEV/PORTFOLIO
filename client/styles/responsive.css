@@ -1,0 +1,266 @@
+/* ============================================================
+   responsive.css — fluid behavior across all common viewports
+   ============================================================ */
+
+/* ---------- Large desktop (1440+) ---------- */
+@media (min-width: 1600px) {
+  :root {
+    --content-max: 1120px;
+  }
+}
+
+/* ---------- Desktop / laptop ---------- */
+@media (max-width: 1280px) {
+  .hero {
+    gap: 32px;
+  }
+
+  .social-rail {
+    right: 12px;
+    width: 56px;
+    padding: 8px 6px;
+  }
+
+  .social-rail__link {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+/* ---------- Short viewports ---------- */
+@media (max-height: 560px) {
+  .site-nav {
+    overflow-y: auto;
+  }
+}
+
+/* ---------- Tablet landscape ---------- */
+@media (max-width: 1100px) {
+  .hero__badge:nth-of-type(2) {
+    right: -2%;
+  }
+}
+
+/* ---------- Tablet / nav switch ---------- */
+@media (max-width: 1024px) {
+  .site-nav {
+    display: none;
+  }
+
+  .site-shell {
+    margin-left: 0;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .back-to-top {
+    left: 20px;
+  }
+
+  .site-main {
+    padding: 0 clamp(20px, 5vw, 48px);
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: 104px;
+  }
+
+  .hero__scroll {
+    display: none;
+  }
+
+  .about-grid,
+  .skills-grid,
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ---------- Tablet portrait ---------- */
+@media (max-width: 900px) {
+  .about-grid,
+  .skills-grid,
+  .projects-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .site-footer__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+}
+
+/* ---------- Large phone ---------- */
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding-top: 96px;
+    padding-bottom: 64px;
+    text-align: center;
+  }
+
+  .hero__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero__description {
+    margin-inline: auto;
+  }
+
+  .hero__actions,
+  .hero__socials {
+    justify-content: center;
+  }
+
+  .hero__visual {
+    order: -1;
+  }
+
+  .hero__photo-frame {
+    width: min(300px, 78vw);
+  }
+
+  .hero__badge:nth-of-type(1) {
+    left: -4%;
+  }
+
+  .hero__badge:nth-of-type(2) {
+    right: -4%;
+  }
+
+  .social-rail {
+    display: none;
+  }
+
+  .site-footer__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .site-footer__bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contact-form__row {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form-wrap {
+    padding: 24px 20px;
+  }
+}
+
+/* ---------- Phone ---------- */
+@media (max-width: 600px) {
+  .section {
+    padding-block: 56px;
+  }
+
+  .section-heading {
+    margin-bottom: 32px;
+  }
+
+  .about-stats {
+    gap: 12px;
+  }
+
+  .about-stat {
+    padding: 20px 12px;
+  }
+
+  .projects-filter {
+    gap: 8px;
+  }
+
+  .projects-filter__btn {
+    padding: 8px 14px;
+    font-size: 12.5px;
+  }
+
+  .project-card__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .project-card__details {
+    margin-left: 0;
+  }
+
+  .projects-cta {
+    padding: 36px 20px;
+  }
+
+  .not-found__actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  /* MAX AI becomes a full-screen experience on phones */
+  .ai-widget {
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .ai-chat {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    width: 100dvw;
+    height: 100vh;
+    height: 100dvh;
+    border-radius: 0;
+    border: none;
+  }
+
+  .ai-chat__header {
+    border-radius: 0;
+    padding-top: max(14px, env(safe-area-inset-top));
+  }
+
+  .ai-chat__composer {
+    padding-bottom: max(14px, env(safe-area-inset-bottom));
+  }
+}
+
+/* ---------- Small phone ---------- */
+@media (max-width: 420px) {
+  .btn {
+    padding: 12px 18px;
+    font-size: 14px;
+  }
+
+  .hero__name {
+    font-size: clamp(2.4rem, 10vw, 3rem);
+  }
+
+  .ai-widget__toggle .ai-widget__label {
+    display: none;
+  }
+
+  .ai-widget__toggle {
+    padding: 14px;
+  }
+}
+
+/* ---------- Short viewports ---------- */
+@media (max-height: 620px) and (min-width: 1025px) {
+  .hero {
+    min-height: auto;
+    padding-block: 72px 96px;
+  }
+}

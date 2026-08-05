@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="%%HTML_LANG%%">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>%%PAGE_TITLE%%</title>
+  <meta name="description" content="%%PAGE_DESCRIPTION%%">
+  <meta name="keywords" content="%%PAGE_KEYWORDS%%">
+  <meta name="author" content="%%PAGE_AUTHOR%%">
+  <meta name="robots" content="%%PAGE_ROBOTS%%">
+  <meta name="theme-color" content="%%THEME_COLOR%%">
+  <link rel="canonical" href="%%PAGE_CANONICAL%%">
+
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="%%THEME_COLOR%%">
+  <meta name="msapplication-config" content="/browserconfig.xml">
+
+  <meta property="og:type" content="%%OG_TYPE%%">
+  <meta property="og:site_name" content="%%OG_SITE_NAME%%">
+  <meta property="og:title" content="%%OG_TITLE%%">
+  <meta property="og:description" content="%%OG_DESCRIPTION%%">
+  <meta property="og:url" content="%%PAGE_CANONICAL%%">
+  <meta property="og:image" content="%%OG_IMAGE%%">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="%%OG_LOCALE%%">
+  <meta property="og:author" content="%%PAGE_AUTHOR%%">
+  <meta property="article:author" content="%%PAGE_AUTHOR%%">
+  <meta name="pinterest-rich-pin" content="false">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="%%OG_TITLE%%">
+  <meta name="twitter:description" content="%%OG_DESCRIPTION%%">
+  <meta name="twitter:image" content="%%OG_IMAGE%%">
+  <meta name="twitter:creator" content="%%PAGE_AUTHOR%%">
+
+  <link rel="preload" href="/fonts/inter-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/space-grotesk-latin-600.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" href="/css/fonts.css">
+  <link rel="stylesheet" href="/css/fontawesome.min.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/sections.css">
+  <link rel="stylesheet" href="/css/effects.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+
+  <script type="application/ld+json">%%PAGE_JSONLD%%</script>
+</head>
+<body class="%%BODY_CLASS%%">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="site-background" aria-hidden="true">
+    <div class="site-background__glow site-background__glow--one"></div>
+    <div class="site-background__glow site-background__glow--two"></div>
+    <div class="site-background__glow site-background__glow--three"></div>
+    <canvas id="particle-canvas" width="0" height="0"></canvas>
+  </div>
+
+  %%NAV%%
+
+  %%MOBILE_DRAWER%%
+
+  <div class="site-shell">
+    <main id="main-content" class="site-main">
+      %%MAIN_CONTENT%%
+    </main>
+
+    %%FOOTER%%
+  </div>
+
+  %%SOCIAL_RAIL%%
+
+  %%BACK_TO_TOP%%
+
+  %%AI_WIDGET%%
+
+  <div id="custom-cursor" class="custom-cursor" aria-hidden="true"></div>
+
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>

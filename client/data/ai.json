@@ -1,0 +1,783 @@
+{
+  "welcome": "Hi, I'm MAX AI.\n\nI'm your personal portfolio assistant.\n\nI can answer questions about Abdul Samad, his projects, skills, experience, education, certifications and contact information.\n\nHow can I help you today?",
+  "unknown": "I couldn't find that information yet. Try asking about my projects, skills, experience, education or contact details.",
+  "suggestions": [
+    "Who are you?",
+    "What technologies do you know?",
+    "Show your projects",
+    "How can I contact you?"
+  ],
+  "synonyms": {
+    "technologies": ["tech", "stacks", "stack", "tools", "skills"],
+    "projects": ["project", "work", "portfolio items", "applications", "apps"],
+    "github": ["source code", "repository", "repositories", "code", "repo", "git"],
+    "email": ["mail", "e-mail", "mail address", "email address", "email id"],
+    "phone": ["mobile", "mobile number", "phone number", "call", "contact number", "whatsapp number", "whatsapp", "number"],
+    "portfolio": ["website", "personal website", "portfolio link", "site", "web portfolio"],
+    "contact": ["reach", "contact details", "get in touch", "connect", "ways to contact"],
+    "education": ["study", "university", "college", "studies", "degree"],
+    "experience": ["career", "work history", "jobs", "professional experience"],
+    "certificates": ["certifications", "credentials", "certificate", "certification"],
+    "hire": ["hire me", "hiring", "employ", "employment", "recruit"],
+    "skills": ["abilities", "capabilities", "expertise"]
+  },
+  "intents": {
+    "contact": ["contact", "email", "mail", "phone", "call", "reach", "whatsapp", "number", "connect", "message"],
+    "projects": ["project", "projects", "built", "build", "portfolio items", "work", "apps", "applications", "demo"],
+    "skills": ["skill", "skills", "know", "technologies", "tech", "tools", "stack", "languages", "libraries"],
+    "education": ["study", "education", "university", "college", "school", "degree", "academic"],
+    "experience": ["experience", "job", "jobs", "work history", "career", "worked"],
+    "about": ["who", "about", "intro", "introduce", "biography", "bio", "yourself", "samad"]
+  },
+  "faqs": [
+    {
+      "id": "full-name",
+      "category": "about",
+      "question": "What is your full name?",
+      "answer": "My full name is Abdul Samad.",
+      "keywords": ["full name", "your name", "what is your name", "name please", "tell me your name", "real name"]
+    },
+    {
+      "id": "who-are-you",
+      "category": "about",
+      "question": "Who are you?",
+      "answer": "I'm Abdul Samad, a Cloud Data Engineering student and Full Stack Developer. I build fast, scalable and modern digital experiences with a strong focus on clean code, user experience and performance.",
+      "keywords": ["who are you", "who is abdul samad", "about you", "about abdul samad", "introduce yourself", "tell me about yourself", "introduction", "your introduction", "who is this", "yourself"]
+    },
+    {
+      "id": "short-intro",
+      "category": "about",
+      "question": "Give me a short introduction",
+      "answer": "Hello, I'm Abdul Samad. I'm passionate about Cloud Data Engineering, Full Stack Development and creating clean, modern and high-performance web applications. I enjoy solving real-world problems through technology and continuously learning new skills.",
+      "keywords": ["short introduction", "short intro", "brief introduction", "introduce briefly", "say something about yourself"]
+    },
+    {
+      "id": "biography",
+      "category": "about",
+      "question": "Tell me your biography",
+      "answer": "Abdul Samad is a Computer Science student specializing in Cloud Data Engineering, currently working as a Full Stack Developer. He started coding in 2022 with HTML, CSS and JavaScript, then grew into TypeScript, Node.js and Express. He has built 10+ real projects including e-commerce platforms, dashboards and AI assistant apps, and he is continuously studying cloud technologies, Linux and modern engineering practices.",
+      "keywords": ["biography", "bio", "life story", "story about you", "background about you"]
+    },
+    {
+      "id": "what-do-you-do",
+      "category": "about",
+      "question": "What do you do?",
+      "answer": "I study Cloud Data Engineering and work as a Full Stack Developer. I design and build modern web applications with TypeScript, Node.js and Express — handling everything from responsive interfaces to clean APIs and deployment.",
+      "keywords": ["what do you do", "what do you work on", "what do you do for a living", "your profession", "your job"]
+    },
+    {
+      "id": "tagline",
+      "category": "about",
+      "question": "What is your tagline?",
+      "answer": "My tagline is: Building Fast, Scalable and Modern Digital Experiences.",
+      "keywords": ["tagline", "motto", "slogan", "catchphrase"]
+    },
+    {
+      "id": "skills-overview",
+      "category": "skills",
+      "question": "What are your skills?",
+      "answer": "Here's a quick overview of my skills:\n\n• Frontend: HTML5, CSS3, JavaScript, TypeScript\n• Backend: Node.js, Express\n• Programming: Python, C++, C#\n• Cloud & Tools: Cloud Data Engineering, Linux, Git, GitHub, VS Code, OpenCode CLI",
+      "keywords": ["your skills", "what are your skills", "skill set", "skills overview", "what skills do you have", "list your skills", "main skills"]
+    },
+    {
+      "id": "technical-skills",
+      "category": "skills",
+      "question": "What are your technical skills?",
+      "answer": "My technical skills include:\n\n• Frontend development with HTML5, CSS3, JavaScript and TypeScript\n• Backend development with Node.js and Express\n• Programming in Python, C++ and C#\n• Cloud data engineering fundamentals, Linux and version control with Git & GitHub",
+      "keywords": ["technical skills", "tech skills", "technical stack", "technical expertise", "engineering skills"]
+    },
+    {
+      "id": "soft-skills",
+      "category": "skills",
+      "question": "What are your soft skills?",
+      "answer": "Beyond code, I bring:\n\n• Problem solving and analytical thinking\n• Clear communication and teamwork\n• Self-discipline and time management\n• Curiosity and a habit of continuous learning\n• Attention to detail and user-focused mindset",
+      "keywords": ["soft skills", "personal skills", "interpersonal skills", "qualities", "strengths"]
+    },
+    {
+      "id": "frontend-skills",
+      "category": "skills",
+      "question": "Which frontend technologies do you know?",
+      "answer": "I build interfaces with HTML5, CSS3, JavaScript and TypeScript. I focus on responsive layouts, accessibility, animations, performance and modern browser APIs.",
+      "keywords": ["frontend", "front end", "front-end", "frontend skills", "frontend technologies", "frontend stack", "html", "css", "javascript", "web design skills"]
+    },
+    {
+      "id": "backend-skills",
+      "category": "skills",
+      "question": "Which backend technologies do you know?",
+      "answer": "On the backend I use Node.js with Express and TypeScript to build fast, reliable REST APIs and server-rendered applications.",
+      "keywords": ["backend", "back end", "back-end", "backend skills", "backend technologies", "backend stack", "node", "express", "api", "server side"]
+    },
+    {
+      "id": "programming-languages",
+      "category": "skills",
+      "question": "Which programming languages do you know?",
+      "answer": "I work with TypeScript and JavaScript as my main languages, and I also know Python, C++ and C#. I'm always learning more.",
+      "keywords": ["programming languages", "languages you know", "which languages", "coding languages", "python", "c++", "c plus plus", "c sharp", "c#"]
+    },
+    {
+      "id": "typescript-level",
+      "category": "skills",
+      "question": "How good are you with TypeScript?",
+      "answer": "TypeScript is my primary language. I use it for both frontend and backend development with strict typing, reusable types and modular architecture.",
+      "keywords": ["typescript", "ts", "type script", "typescript level"]
+    },
+    {
+      "id": "databases",
+      "category": "skills",
+      "question": "Do you use databases?",
+      "answer": "I'm currently focused on backend and frontend engineering with Node.js and Express, and I'm actively learning database concepts as part of my cloud data engineering studies. The projects in this portfolio don't use a database — data is managed through local JSON files.",
+      "keywords": ["databases", "database", "sql", "nosql", "mongodb", "mysql", "do you use a database"]
+    },
+    {
+      "id": "cloud-skills",
+      "category": "skills",
+      "question": "What do you know about cloud?",
+      "answer": "I'm studying Cloud Data Engineering, which covers data pipelines, cloud platforms, Linux systems and data processing. I'm building hands-on projects to strengthen these skills.",
+      "keywords": ["cloud", "cloud skills", "cloud computing", "cloud technologies", "cloud data engineering", "aws", "azure", "gcp"]
+    },
+    {
+      "id": "tools",
+      "category": "skills",
+      "question": "Which tools do you use?",
+      "answer": "My daily toolkit includes VS Code for development, Git and GitHub for version control, Linux for system work, and the OpenCode CLI for AI-assisted development workflows.",
+      "keywords": ["tools", "which tools", "development tools", "favorite tools", "editor", "ide", "vs code", "vscode", "opencode"]
+    },
+    {
+      "id": "frameworks",
+      "category": "skills",
+      "question": "Which frameworks do you use?",
+      "answer": "My primary framework is Express on Node.js. I build the frontend with clean, modern TypeScript and CSS, and I'm comfortable with server-side rendering patterns.",
+      "keywords": ["frameworks", "framework", "which frameworks", "libraries"]
+    },
+    {
+      "id": "learning-journey",
+      "category": "learning",
+      "question": "What is your learning journey?",
+      "answer": "My journey started in 2022 with HTML, CSS and JavaScript. In 2023 I built my first real projects and learned Node.js and Express. In 2024 I adopted TypeScript and began studying cloud data engineering and Linux. Today I'm shipping production-quality apps and preparing for a career in cloud and full stack engineering.",
+      "keywords": ["learning journey", "journey", "your story", "how did you start", "how you started coding", "coding journey", "background"]
+    },
+    {
+      "id": "what-learning-now",
+      "category": "learning",
+      "question": "What are you currently learning?",
+      "answer": "Right now I'm deepening my knowledge of Cloud Data Engineering — data pipelines, cloud platforms, Linux administration — while refining my TypeScript and full stack engineering skills.",
+      "keywords": ["currently learning", "what are you learning", "learning now", "studying now", "currently studying", "what are you studying"]
+    },
+    {
+      "id": "why-development",
+      "category": "learning",
+      "question": "Why did you choose web development?",
+      "answer": "I chose web development because it lets me combine creativity with engineering — turning ideas into fast, useful products that people actually use. The constant evolution of the web keeps me curious and always learning.",
+      "keywords": ["why development", "why web development", "why coding", "why programming", "why did you choose", "inspiration"]
+    },
+    {
+      "id": "education-overview",
+      "category": "education",
+      "question": "Where do you study?",
+      "answer": "I'm pursuing a Bachelor of Computer Science with a focus on Cloud Data Engineering (2022 – 2026). My studies cover data structures, algorithms, databases, operating systems, networks and software engineering alongside cloud and data technologies.",
+      "keywords": ["where do you study", "study", "university", "college", "education", "degree", "institute", "where do you go to school", "your university"]
+    },
+    {
+      "id": "education-details",
+      "category": "education",
+      "question": "Tell me about your education",
+      "answer": "I completed FSc Pre-Engineering (2020 – 2022) and I'm currently completing a Bachelor of Computer Science focused on Cloud Data Engineering (2022 – 2026).",
+      "keywords": ["education details", "academic background", "academic history", "your studies", "educational background"]
+    },
+    {
+      "id": "study-major",
+      "category": "education",
+      "question": "What is your major?",
+      "answer": "My major is Computer Science with a specialization track in Cloud Data Engineering.",
+      "keywords": ["major", "specialization", "field of study", "course of study", "concentration"]
+    },
+    {
+      "id": "graduation",
+      "category": "education",
+      "question": "When will you graduate?",
+      "answer": "I'm expected to graduate in 2026. Until then I'm balancing my degree with hands-on projects and continuous learning.",
+      "keywords": ["graduate", "graduation", "when do you graduate", "graduation year", "when will you finish"]
+    },
+    {
+      "id": "experience-overview",
+      "category": "experience",
+      "question": "What is your experience?",
+      "answer": "I have hands-on experience building 10+ full stack applications, contributing to open source, tutoring web development, and completing cloud data engineering projects. I work as a freelance full stack developer on personal and client projects.",
+      "keywords": ["experience", "work experience", "professional experience", "job experience", "career", "your experience"]
+    },
+    {
+      "id": "experience-details",
+      "category": "experience",
+      "question": "Tell me about your work experience",
+      "answer": "My experience includes:\n\n• Full Stack Developer — freelance and personal projects (2024 – Present)\n• Open Source Contributor — GitHub community (2023 – Present)\n• Cloud Data Engineering Projects — academic and self-study (2024 – Present)\n• Web Development Tutor — campus tech community (2023 – 2024)",
+      "keywords": ["work experience", "jobs", "job history", "worked where", "previous work", "career history", "where did you work"]
+    },
+    {
+      "id": "open-source",
+      "category": "experience",
+      "question": "Do you contribute to open source?",
+      "answer": "Yes! I contribute to open source on GitHub. It's a great way to learn modern workflows, code review and collaboration with developers around the world.",
+      "keywords": ["open source", "contribute", "contributions", "oss", "open source projects"]
+    },
+    {
+      "id": "projects-overview",
+      "category": "projects",
+      "question": "Show your projects",
+      "answer": "I've built a variety of projects including a personal portfolio website, a furniture e-commerce platform, an AI assistant web app, a keyboard tester, a task manager, a weather dashboard, a student portal, a notes app, a URL shortener API and a real estate listing site.\n\nYou can explore all of them on the Projects page.",
+      "keywords": ["show your projects", "your projects", "projects list", "portfolio projects", "view projects", "what projects have you built", "list of projects", "see projects", "sample work"]
+    },
+    {
+      "id": "featured-projects",
+      "category": "projects",
+      "question": "What are your featured projects?",
+      "answer": "My featured projects are:\n\n• Personal Portfolio Website — a production-quality portfolio with an AI assistant\n• Furniture E-commerce — a complete storefront with catalog and cart\n• AI Assistant Web App — a chat assistant powered by a local knowledge base\n• Weather Dashboard — live forecasts with search and geolocation\n\nExplore them on the Projects page.",
+      "keywords": ["featured projects", "best projects", "top projects", "favorite projects", "highlighted projects"]
+    },
+    {
+      "id": "project-portfolio",
+      "category": "projects",
+      "question": "Tell me about the portfolio website project",
+      "answer": "The Personal Portfolio Website is a premium production-quality site built with TypeScript, Node.js and Express. It features server-side rendering, an AI assistant called MAX AI, clean SEO-friendly URLs, accessibility support and a fully responsive design.\n\n• Technologies: HTML5, CSS3, TypeScript, Node.js, Express\n• Source: https://github.com/MrAbdulSamadDEV\n• Live: this site",
+      "keywords": ["portfolio website", "portfolio project", "portfolio site", "personal portfolio", "this website", "this site", "the site you are on"]
+    },
+    {
+      "id": "project-ecommerce",
+      "category": "projects",
+      "question": "Tell me about the furniture e-commerce project",
+      "answer": "The Furniture E-commerce platform is a complete online store with a modern storefront, product catalog, search and cart experience, built with a responsive interface and a Node.js API.\n\n• Technologies: HTML5, CSS3, TypeScript, Node.js, Express\n• Source: https://github.com/MrAbdulSamadDEV\n• Live: this site",
+      "keywords": ["furniture ecommerce", "ecommerce project", "e-commerce", "furniture store", "online store", "shopping site", "shop project"]
+    },
+    {
+      "id": "project-ai-assistant",
+      "category": "projects",
+      "question": "Tell me about the AI assistant project",
+      "answer": "The AI Assistant web app is an intelligent chat assistant powered by a local knowledge base. It uses keyword ranking, synonym matching and intent detection to answer instantly — no external services required.\n\n• Technologies: TypeScript, HTML5, CSS3, Node.js, Express\n• Source: https://github.com/MrAbdulSamadDEV\n• Live: this site",
+      "keywords": ["ai assistant project", "chatbot", "chat bot", "chat assistant", "ai app", "bot project", "assistant app"]
+    },
+    {
+      "id": "project-keyboard-tester",
+      "category": "projects",
+      "question": "Tell me about the keyboard tester project",
+      "answer": "Keyboard Tester Pro is a real-time keyboard testing tool that visualizes every key press with live feedback, anti-ghosting detection, custom themes and a typing statistics dashboard.\n\n• Technologies: TypeScript, HTML5, CSS3, Modern Browser APIs\n• Source: https://github.com/MrAbdulSamadDEV\n• Live: this site",
+      "keywords": ["keyboard tester", "keyboard test", "keyboard project", "key tester", "typing tool"]
+    },
+    {
+      "id": "project-task-manager",
+      "category": "projects",
+      "question": "Tell me about the task manager project",
+      "answer": "The Task Manager is a clean productivity app with drag-and-drop boards, priorities, due dates, local persistence and a distraction-free interface.\n\n• Technologies: TypeScript, HTML5, CSS3, Node.js, Express\n• Source: https://github.com/MrAbdulSamadDEV\n• Live: this site",
+      "keywords": ["task manager", "todo app", "todo", "task app", "productivity app", "kanban", "task project"]
+    },
+    {
+      "id": "project-weather",
+      "category": "projects",
+      "question": "Tell me about the weather dashboard project",
+      "answer": "The Weather Dashboard shows live forecasts, hourly trends and weekly outlooks with search by city, geolocation support and a fully responsive layout.\n\n• Technologies: JavaScript, HTML5, CSS3, Node.js, Express\n• Source: https://github.com/MrAbdulSamadDEV\n• Live: this site",
+      "keywords": ["weather dashboard", "weather app", "weather project", "forecast app", "weather site"]
+    },
+    {
+      "id": "project-student-portal",
+      "category": "projects",
+      "question": "Tell me about the student portal project",
+      "answer": "The Student Portal is a campus application with course information, timetable views, result summaries and announcements — designed with a focus on usability and clean data presentation.\n\n• Technologies: HTML5, CSS3, TypeScript, Node.js, Express\n• Source: https://github.com/MrAbdulSamadDEV\n• Live: this site",
+      "keywords": ["student portal", "portal project", "campus app", "timetable app", "student app"]
+    },
+    {
+      "id": "project-notes",
+      "category": "projects",
+      "question": "Tell me about the notes app project",
+      "answer": "The Markdown Notes App is a lightweight note-taking tool with live Markdown preview, syntax highlighting, tag organization and instant search across all your notes.\n\n• Technologies: TypeScript, HTML5, CSS3, Node.js, Express\n• Source: https://github.com/MrAbdulSamadDEV\n• Live: this site",
+      "keywords": ["notes app", "notes project", "markdown app", "note taking", "notes"]
+    },
+    {
+      "id": "project-url-shortener",
+      "category": "projects",
+      "question": "Tell me about the URL shortener project",
+      "answer": "The URL Shortener API is a fast link-shortening service with a clean REST API, custom aliases, click analytics and a minimal web interface built on Express with TypeScript.\n\n• Technologies: TypeScript, Node.js, Express\n• Source: https://github.com/MrAbdulSamadDEV\n• Live: this site",
+      "keywords": ["url shortener", "link shortener", "shorten links", "short url", "api project"]
+    },
+    {
+      "id": "project-real-estate",
+      "category": "projects",
+      "question": "Tell me about the real estate project",
+      "answer": "The Real Estate Listing Site is a modern property platform with property listings, advanced filtering, search functionality and responsive card-based browsing with optimized images.\n\n• Technologies: HTML5, CSS3, TypeScript, Node.js, Express\n• Source: https://github.com/MrAbdulSamadDEV\n• Live: this site",
+      "keywords": ["real estate", "property site", "listing site", "houses", "properties project", "real estate project"]
+    },
+    {
+      "id": "github",
+      "category": "contact",
+      "question": "What is your GitHub?",
+      "answer": "You can find all my code and repositories on GitHub: https://github.com/MrAbdulSamadDEV",
+      "keywords": ["github", "github link", "github profile", "github account", "source code", "repository", "repositories", "your code", "where is your code"]
+    },
+    {
+      "id": "linkedin",
+      "category": "contact",
+      "question": "What is your LinkedIn?",
+      "answer": "Connect with me professionally on LinkedIn: https://www.linkedin.com/in/abdulsamadabdullah/",
+      "keywords": ["linkedin", "linkedin link", "linkedin profile", "linkedin account", "professional profile"]
+    },
+    {
+      "id": "twitter",
+      "category": "contact",
+      "question": "What is your X (Twitter) account?",
+      "answer": "You can follow me on X (Twitter): https://x.com/ABDULSAMAD8492",
+      "keywords": ["twitter", "x account", "x profile", "x twitter", "twitter link", "tweets"]
+    },
+    {
+      "id": "youtube",
+      "category": "contact",
+      "question": "What is your YouTube channel?",
+      "answer": "My YouTube channel is: https://www.youtube.com/@ABDULSAMADABDULLAHCODE",
+      "keywords": ["youtube", "youtube channel", "youtube link", "videos", "channel"]
+    },
+    {
+      "id": "portfolio-link",
+      "category": "contact",
+      "question": "What is your portfolio website?",
+      "answer": "This website is my portfolio — you're looking at it right now.",
+      "keywords": ["portfolio", "portfolio link", "website", "personal website", "portfolio site", "web address", "url", "your site"]
+    },
+    {
+      "id": "email",
+      "category": "contact",
+      "question": "What is your email?",
+      "answer": "You can email me at: mr.abdulsamadabdullah@gmail.com",
+      "keywords": ["email", "mail", "email address", "mail address", "contact email", "email id", "e mail"]
+    },
+    {
+      "id": "phone",
+      "category": "contact",
+      "question": "What is your phone number?",
+      "answer": "You can reach me by phone or WhatsApp at: +92 370 8033443",
+      "keywords": ["phone", "phone number", "mobile", "mobile number", "call", "call you", "contact number", "whatsapp", "whatsapp number", "telephone", "number"]
+    },
+    {
+      "id": "location",
+      "category": "contact",
+      "question": "Where are you located?",
+      "answer": "I'm based in Lahore, Pakistan.",
+      "keywords": ["location", "where are you", "where do you live", "city", "country", "based in", "address", "timezone"]
+    },
+    {
+      "id": "contact-methods",
+      "category": "contact",
+      "question": "How can I contact you?",
+      "answer": "There are several ways to reach me:\n\n• Email: mr.abdulsamadabdullah@gmail.com\n• Phone / WhatsApp: +92 370 8033443\n• LinkedIn: https://www.linkedin.com/in/abdulsamadabdullah/\n• GitHub: https://github.com/MrAbdulSamadDEV\n\nYou can also use the contact form on my website.",
+      "keywords": ["how can i contact you", "contact you", "contact details", "get in touch", "reach you", "how to contact", "ways to contact", "contact info"]
+    },
+    {
+      "id": "availability",
+      "category": "contact",
+      "question": "Are you available for work?",
+      "answer": "Yes! I'm open to internships, freelance projects, open source contributions and collaboration. The best way to reach me is email at mr.abdulsamadabdullah@gmail.com.",
+      "keywords": ["available", "availability", "available for work", "open to work", "looking for work", "hire me", "can i hire you"]
+    },
+    {
+      "id": "services",
+      "category": "services",
+      "question": "What services do you provide?",
+      "answer": "I provide the following services:\n\n• Modern, responsive website design and development\n• Full stack web applications with Node.js and Express\n• Frontend development with TypeScript and modern CSS\n• REST API design and development\n• Performance, SEO and accessibility optimization\n• Data engineering and cloud learning projects",
+      "keywords": ["services", "what services", "provide services", "offer", "what do you offer", "service list", "web services"]
+    },
+    {
+      "id": "freelancing",
+      "category": "services",
+      "question": "Do you take freelance work?",
+      "answer": "Yes, I'm open to freelance projects. I work on modern web applications, landing pages, dashboards and API development. Email me at mr.abdulsamadabdullah@gmail.com with your project details.",
+      "keywords": ["freelance", "freelancing", "freelancer", "take projects", "client work", "paid work"]
+    },
+    {
+      "id": "career-goals",
+      "category": "services",
+      "question": "What are your career goals?",
+      "answer": "My goal is to become a world-class engineer who bridges data engineering and full stack development — building intelligent, scalable systems that solve real problems. I aim to grow into cloud engineering and lead meaningful projects.",
+      "keywords": ["career goals", "goals", "ambitions", "future plans", "aspirations", "dream job", "future goals", "plans for future"]
+    },
+    {
+      "id": "cv-resume",
+      "category": "contact",
+      "question": "Can I get your resume?",
+      "answer": "Of course! Send me a message through the contact form or email me directly at mr.abdulsamadabdullah@gmail.com and I'll share my resume with you.",
+      "keywords": ["resume", "cv", "curriculum vitae", "resume link", "download resume", "your cv"]
+    },
+    {
+      "id": "certificates-list",
+      "category": "certificates",
+      "question": "What certificates do you have?",
+      "answer": "I hold several certifications:\n\n• JavaScript Algorithms & Data Structures — freeCodeCamp\n• Responsive Web Design — freeCodeCamp\n• Node.js Backend Development — online certification\n• Cloud Foundations — AWS Educate",
+      "keywords": ["certificates", "certifications", "credentials", "certificate list", "courses completed", "awards"]
+    },
+    {
+      "id": "projects-count",
+      "category": "projects",
+      "question": "How many projects have you built?",
+      "answer": "I've built 10+ projects so far — including e-commerce platforms, dashboards, tools and full stack applications — and I'm always adding more.",
+      "keywords": ["how many projects", "projects count", "number of projects", "how many apps", "count of projects"]
+    },
+    {
+      "id": "interests",
+      "category": "about",
+      "question": "What are your interests?",
+      "answer": "I'm deeply interested in web development, cloud computing, data engineering, AI tools and open source. I also enjoy learning about UI/UX design, performance engineering and how great products are built.",
+      "keywords": ["interests", "what are you interested in", "interests outside work", "what do you like"]
+    },
+    {
+      "id": "hobbies",
+      "category": "about",
+      "question": "What are your hobbies?",
+      "answer": "In my free time I build side projects, explore new technologies and tools, solve programming challenges, and create learning content about development.",
+      "keywords": ["hobbies", "free time", "what do you do for fun", "hobby", "pastime", "spare time"]
+    },
+    {
+      "id": "best-project",
+      "category": "projects",
+      "question": "Which is your best project?",
+      "answer": "I'm most proud of my Personal Portfolio Website — this site you're on right now! It combines server-side rendering, an intelligent assistant called MAX AI, clean URLs and premium design into one production-quality product.",
+      "keywords": ["best project", "favorite project", "proudest project", "favourite project", "which project is best"]
+    },
+    {
+      "id": "what-is-max-ai",
+      "category": "about",
+      "question": "What is MAX AI?",
+      "answer": "MAX AI is my personal portfolio assistant — the assistant you're chatting with right now! I can answer questions about Abdul Samad's projects, skills, experience, education, certifications and contact information. Just ask me anything.",
+      "keywords": ["max ai", "max", "who are you really", "are you a bot", "are you ai", "what is max", "who made you", "what are you"]
+    },
+    {
+      "id": "how-max-ai-works",
+      "category": "about",
+      "question": "How does MAX AI work?",
+      "answer": "I work entirely on your device using a curated knowledge base of questions and answers about Abdul Samad. I recognize questions through keyword, synonym and partial matching, then rank the best answer instantly — so I'm fast, private and always available.",
+      "keywords": ["how does max work", "how do you work", "how are you built", "your engine", "how do you answer"]
+    },
+    {
+      "id": "hire-process",
+      "category": "services",
+      "question": "How can I hire you?",
+      "answer": "Hiring me is simple:\n\n1. Email me at mr.abdulsamadabdullah@gmail.com with your project details\n2. We discuss requirements and timeline\n3. I deliver a high-quality result on time\n\nYou can also use the contact form on my website.",
+      "keywords": ["how can i hire you", "hire process", "hiring process", "how to hire", "work with you", "start a project with you"]
+    },
+    {
+      "id": "pricing",
+      "category": "services",
+      "question": "How much do you charge?",
+      "answer": "Pricing depends on the scope and complexity of the project. For an accurate quote, email me at mr.abdulsamadabdullah@gmail.com with your project details and requirements.",
+      "keywords": ["pricing", "price", "cost", "how much", "charges", "rates", "budget", "fees"]
+    },
+    {
+      "id": "response-time",
+      "category": "contact",
+      "question": "How fast do you respond?",
+      "answer": "I usually respond to emails within 24 hours. For urgent matters, WhatsApp is the fastest way to reach me at +92 370 8033443.",
+      "keywords": ["response time", "how fast do you reply", "reply time", "how quickly", "response"]
+    },
+    {
+      "id": "work-process",
+      "category": "services",
+      "question": "What is your development process?",
+      "answer": "My process is simple and effective:\n\n1. Understand the requirements and goals\n2. Design the structure and user experience\n3. Build with clean, maintainable code\n4. Test, optimize for performance and accessibility\n5. Deploy and support",
+      "keywords": ["work process", "development process", "how do you build", "your approach", "methodology", "how do you work on projects"]
+    },
+    {
+      "id": "stack-summary",
+      "category": "skills",
+      "question": "What is your tech stack?",
+      "answer": "My core stack is:\n\n• Frontend: TypeScript, HTML5, CSS3, Modern Browser APIs\n• Backend: Node.js, Express, TypeScript\n• Tools: Git, GitHub, VS Code, Linux, OpenCode CLI\n\nI keep my stack focused, modern and dependency-light.",
+      "keywords": ["tech stack", "stack", "technology stack", "what stack", "tech used", "full stack"]
+    },
+    {
+      "id": "frontend-vs-backend",
+      "category": "skills",
+      "question": "Do you prefer frontend or backend?",
+      "answer": "I enjoy both! Frontend lets me craft great user experiences, while backend challenges my engineering and architecture thinking. Being full stack means I can build a complete product from start to finish.",
+      "keywords": ["frontend or backend", "prefer frontend", "prefer backend", "frontend vs backend", "favorite side"]
+    },
+    {
+      "id": "fun-fact",
+      "category": "about",
+      "question": "Tell me a fun fact",
+      "answer": "This website you're browsing right now runs on a completely self-contained backend — the AI assistant you're chatting with answers instantly from a knowledge base without any cloud service. Fast, private and always available.",
+      "keywords": ["fun fact", "interesting fact", "fun fact about you", "something interesting"]
+    },
+    {
+      "id": "typing-speed",
+      "category": "about",
+      "question": "What is your typing speed?",
+      "answer": "I'm a fast, accurate typist — great for pair programming sessions and long documentation days. My keyboard tester project says everything!",
+      "keywords": ["typing speed", "wpm", "typing", "fast typer"]
+    },
+    {
+      "id": "thanks",
+      "category": "about",
+      "question": "Thank you",
+      "answer": "You're welcome! If you have any other questions about Abdul Samad, his projects, skills or contact details, just ask. I'm always happy to help.",
+      "keywords": ["thank you", "thanks", "thx", "thank", "appreciate it"]
+    },
+    {
+      "id": "hello",
+      "category": "about",
+      "question": "Hello",
+      "answer": "Hello! Welcome to Abdul Samad's portfolio. I'm MAX AI, your personal portfolio assistant. Ask me about his projects, skills, experience or contact information.",
+      "keywords": ["hello", "hi", "hey", "salam", "assalam o alaikum", "good morning", "good afternoon", "good evening", "yo"]
+    },
+    {
+      "id": "how-are-you",
+      "category": "about",
+      "question": "How are you?",
+      "answer": "I'm doing great, thank you for asking! Ready to answer any questions about Abdul Samad's work. How can I help you today?",
+      "keywords": ["how are you", "how are you doing", "how's it going", "how do you feel", "are you okay"]
+    },
+    {
+      "id": "what-can-you-do",
+      "category": "about",
+      "question": "What can you do?",
+      "answer": "I can tell you everything about Abdul Samad:\n\n• His skills and technologies\n• His projects and what they do\n• His education and experience\n• His certificates\n• His contact information and social links\n\nTry asking: \"Show your projects\" or \"How can I contact you?\"",
+      "keywords": ["what can you do", "what do you know", "your features", "what can i ask", "help me", "what should i ask", "capabilities"]
+    },
+    {
+      "id": "developer-type",
+      "category": "about",
+      "question": "What kind of developer are you?",
+      "answer": "I'm a full stack developer with a focus on cloud data engineering. I build complete products — responsive frontends, solid backends and clean architecture — while growing into cloud and data technologies.",
+      "keywords": ["what kind of developer", "developer type", "what type of developer", "developer profile", "your role"]
+    },
+    {
+      "id": "write-code-quality",
+      "category": "skills",
+      "question": "What is your approach to code quality?",
+      "answer": "I follow strict TypeScript with meaningful names, modular architecture, clean comments and no dead code. I treat code quality as a feature — it makes projects maintainable and scalable.",
+      "keywords": ["code quality", "clean code", "best practices", "code style", "your standards", "quality code"]
+    },
+    {
+      "id": "what-next",
+      "category": "learning",
+      "question": "What are your plans for the future?",
+      "answer": "Next on my roadmap: mastering cloud data pipelines, deepening my backend architecture skills, growing my open source presence and landing an impactful internship or role in cloud/full stack engineering.",
+      "keywords": ["future plans", "what next", "roadmap", "next steps", "coming next", "future"]
+    },
+    {
+      "id": "recommend-projects",
+      "category": "projects",
+      "question": "Which projects should I look at first?",
+      "answer": "Start with the featured ones:\n\n• Personal Portfolio Website (this site)\n• Furniture E-commerce\n• AI Assistant Web App\n• Weather Dashboard\n\nThey best demonstrate the range of my frontend, backend and product skills. Visit the Projects page.",
+      "keywords": ["which projects", "recommend projects", "where to start", "look at first", "suggest projects"]
+    },
+    {
+      "id": "teamwork",
+      "category": "skills",
+      "question": "Do you like working in teams?",
+      "answer": "Absolutely. I enjoy collaboration, code reviews and learning from other developers. Open source has taught me how powerful good teamwork is.",
+      "keywords": ["teamwork", "team", "collaboration", "working with others", "team player"]
+    },
+    {
+      "id": "tools-favorites",
+      "category": "skills",
+      "question": "What is your favorite tool?",
+      "answer": "VS Code is my home base, but I'm also a big fan of the OpenCode CLI for AI-assisted development — it makes me dramatically more productive.",
+      "keywords": ["favorite tool", "favourite tool", "best tool", "favorite software", "favorite editor"]
+    },
+    {
+      "id": "learning-style",
+      "category": "learning",
+      "question": "How do you learn new technologies?",
+      "answer": "I learn by building. I pick a real project, research best practices, build it, break it, and fix it. Documentation, tutorials and open source code are my best teachers.",
+      "keywords": ["how do you learn", "learning style", "study method", "how to learn", "learning approach"]
+    },
+    {
+      "id": "start-recommendation",
+      "category": "learning",
+      "question": "How should I start learning web development?",
+      "answer": "My advice: start with HTML and CSS, then JavaScript, then a backend like Node.js. Build small projects early — a personal page, a todo app, a weather app. Practice beats theory, and consistency beats intensity.",
+      "keywords": ["start learning", "beginner advice", "how to start", "web dev for beginners", "learning web development", "recommendation for beginners"]
+    },
+    {
+      "id": "projects-updates",
+      "category": "projects",
+      "question": "Do you update your projects often?",
+      "answer": "Yes — I regularly improve existing projects and add new ones. The best way to follow updates is GitHub (https://github.com/MrAbdulSamadDEV) or the Projects page.",
+      "keywords": ["update projects", "new projects", "latest projects", "recent work", "new work"]
+    },
+    {
+      "id": "internship",
+      "category": "contact",
+      "question": "Are you looking for an internship?",
+      "answer": "Yes! I'm actively looking for internship opportunities in web development, software engineering and cloud/data engineering. Email me at mr.abdulsamadabdullah@gmail.com — I'd love to hear about your program.",
+      "keywords": ["internship", "intern", "looking for internship", "internship opportunity", "trainee", "student job"]
+    },
+    {
+      "id": "remote-work",
+      "category": "services",
+      "question": "Do you work remotely?",
+      "answer": "Yes, I'm fully set up for remote work — reliable internet, proper workspace and a flexible schedule.",
+      "keywords": ["remote", "remote work", "work from home", "online work", "remote collaboration"]
+    },
+    {
+      "id": "time-availability",
+      "category": "contact",
+      "question": "When are you available?",
+      "answer": "I'm available evenings and weekends for projects, and flexible around my study schedule. For urgent matters, WhatsApp me at +92 370 8033443.",
+      "keywords": ["when available", "available times", "working hours", "schedule", "timings"]
+    },
+    {
+      "id": "tech-latest",
+      "category": "learning",
+      "question": "What new technologies are you exploring?",
+      "answer": "I'm exploring cloud data pipelines, Linux administration, advanced TypeScript patterns, server-side rendering and AI-assisted development workflows with the OpenCode CLI.",
+      "keywords": ["new technologies", "latest tech", "exploring", "trending tech", "new skills"]
+    },
+    {
+      "id": "problem-solving",
+      "category": "skills",
+      "question": "How do you approach problem solving?",
+      "answer": "I break problems into small pieces: understand the requirements, research the best approach, build an incremental solution, test it, and refine. Debugging is a skill I've sharpened on real projects.",
+      "keywords": ["problem solving", "approach to problems", "how do you solve problems", "debugging", "troubleshooting"]
+    },
+    {
+      "id": "meet-in-person",
+      "category": "contact",
+      "question": "Can we meet in person?",
+      "answer": "I'm based in Lahore, Pakistan, so yes — happy to meet in person if you're nearby. For everyone else, I'm fully available online via email, WhatsApp or LinkedIn.",
+      "keywords": ["meet in person", "meet up", "meeting", "in person"]
+    },
+    {
+      "id": "favorite-language",
+      "category": "skills",
+      "question": "What is your favorite programming language?",
+      "answer": "TypeScript, without a doubt. It gives me the safety of strong typing with the flexibility of JavaScript — and it works beautifully on both frontend and backend.",
+      "keywords": ["favorite language", "favourite language", "best language", "preferred language", "which language do you prefer"]
+    },
+    {
+      "id": "inspiration",
+      "category": "about",
+      "question": "Who inspires you?",
+      "answer": "I'm inspired by the open source community, engineers who share their knowledge, and products that make complex things feel simple. Every great developer I follow has taught me something new.",
+      "keywords": ["inspires", "inspiration", "role model", "influenced", "who do you admire"]
+    },
+    {
+      "id": "certificates-more",
+      "category": "certificates",
+      "question": "Are you planning more certifications?",
+      "answer": "Yes — cloud and data certifications are next on my list as part of my cloud data engineering track. I'll share them on my website and LinkedIn as soon as they're earned.",
+      "keywords": ["more certificates", "next certification", "planned certifications", "future certificates", "new certifications"]
+    },
+    {
+      "id": "content-creation",
+      "category": "about",
+      "question": "Do you create content?",
+      "answer": "Yes! I share coding content on my YouTube channel (https://www.youtube.com/@ABDULSAMADABDULLAHCODE) — tutorials, project walkthroughs and learning tips for developers.",
+      "keywords": ["content", "content creator", "youtube videos", "tutorials", "teaching", "share knowledge"]
+    },
+    {
+      "id": "english-level",
+      "category": "about",
+      "question": "What is your English level?",
+      "answer": "I'm fluent in English — both written and spoken — which makes remote collaboration and communication easy.",
+      "keywords": ["english", "english level", "language skills", "communication skills", "fluent"]
+    },
+    {
+      "id": "stress-work",
+      "category": "skills",
+      "question": "How do you handle pressure?",
+      "answer": "I stay calm and organized: clear priorities, realistic timelines and honest communication. Tight deadlines are motivating — they keep me focused on what matters most.",
+      "keywords": ["pressure", "stress", "deadlines", "tight schedule", "handle pressure", "deadline"]
+    },
+    {
+      "id": "first-project",
+      "category": "projects",
+      "question": "What was your first project?",
+      "answer": "My first real project was a weather dashboard — it taught me how to connect a frontend to data, handle user input and ship something useful. Since then I've built 10+ projects.",
+      "keywords": ["first project", "first app", "first website", "initial project", "first build"]
+    },
+    {
+      "id": "project-scope",
+      "category": "services",
+      "question": "What kind of projects do you take?",
+      "answer": "I take projects like landing pages, business websites, e-commerce stores, dashboards, web tools and API development. If it can be built for the web, I'm interested!",
+      "keywords": ["what kind of projects", "project scope", "types of projects", "what projects do you take", "small projects", "website types"]
+    },
+    {
+      "id": "security-practice",
+      "category": "skills",
+      "question": "Do you care about security?",
+      "answer": "Absolutely. I follow security best practices: secure headers, input validation, safe external links and no exposed secrets. Security is not an afterthought — it's part of engineering.",
+      "keywords": ["security", "web security", "secure code", "hacking", "vulnerabilities", "best practices security"]
+    },
+    {
+      "id": "seo-practice",
+      "category": "skills",
+      "question": "Do you know SEO?",
+      "answer": "Yes! I build SEO-first: semantic HTML, clean URLs, meta tags, structured data (JSON-LD), sitemaps and performance optimization. Search engines should love your site out of the box.",
+      "keywords": ["seo", "search engine", "google ranking", "seo optimization", "rank on google", "seo practice"]
+    },
+    {
+      "id": "accessibility-practice",
+      "category": "skills",
+      "question": "Do you care about accessibility?",
+      "answer": "Yes — I follow WCAG AA standards: keyboard navigation, visible focus, ARIA labels, proper contrast and screen reader support. A website should be usable by everyone.",
+      "keywords": ["accessibility", "wcag", "a11y", "screen reader", "disabled users", "inclusive design"]
+    },
+    {
+      "id": "performance-practice",
+      "category": "skills",
+      "question": "How do you optimize performance?",
+      "answer": "I optimize Core Web Vitals: fast LCP with optimized images and fonts, zero layout shift with reserved image space, and minimal JavaScript. I target 100 Lighthouse scores on every project.",
+      "keywords": ["performance", "speed", "fast website", "lighthouse", "core web vitals", "optimization"]
+    },
+    {
+      "id": "day-in-life",
+      "category": "about",
+      "question": "What does your day look like?",
+      "answer": "A typical day mixes university coursework, coding projects, learning cloud concepts and sharing knowledge. I try to ship something small every day — consistency compounds!",
+      "keywords": ["day in life", "daily routine", "typical day", "daily schedule", "your day"]
+    },
+    {
+      "id": "operating-system",
+      "category": "skills",
+      "question": "Which operating system do you use?",
+      "answer": "I use Windows for daily development and Linux for server, scripting and cloud data work — the best of both worlds.",
+      "keywords": ["operating system", "os", "windows", "linux", "mac", "which os"]
+    },
+    {
+      "id": "browser-tools",
+      "category": "skills",
+      "question": "Which browser tools do you use?",
+      "answer": "DevTools is my best friend — for debugging, performance profiling, accessibility checks and responsive testing across all viewport sizes.",
+      "keywords": ["browser", "devtools", "chrome", "developer tools", "inspect"]
+    },
+    {
+      "id": "test-process",
+      "category": "skills",
+      "question": "How do you test your work?",
+      "answer": "I test every build: routes and status codes with smoke tests, responsiveness across devices, accessibility with keyboard and screen readers, and performance with Lighthouse.",
+      "keywords": ["testing", "test", "qa", "how do you test", "quality assurance", "testing process"]
+    },
+    {
+      "id": "contribution-idea",
+      "category": "experience",
+      "question": "How can I contribute to your projects?",
+      "answer": "Great question! Star my repositories, open issues for bugs, suggest features, or submit pull requests. Every contribution helps: https://github.com/MrAbdulSamadDEV",
+      "keywords": ["contribute to your projects", "contribution", "star repo", "pull request", "report bug", "suggest feature"]
+    },
+    {
+      "id": "network",
+      "category": "contact",
+      "question": "Can we connect on LinkedIn?",
+      "answer": "Absolutely — let's connect! https://www.linkedin.com/in/abdulsamadabdullah/",
+      "keywords": ["connect linkedin", "linkedin connect", "network", "professional network", "add me on linkedin"]
+    },
+    {
+      "id": "portfolio-tech",
+      "category": "projects",
+      "question": "What tech does this portfolio use?",
+      "answer": "This portfolio is built with TypeScript on both sides: a Node.js + Express server with server-side rendering, clean SEO-friendly URLs, security headers, and a client layer for the AI assistant, custom cursor and animations. No heavy frameworks — just fast, clean engineering.",
+      "keywords": ["portfolio tech", "this site built with", "what tech is this site", "how was this built", "this website stack", "built with"]
+    },
+    {
+      "id": "max-ai-created-by",
+      "category": "about",
+      "question": "Who created MAX AI?",
+      "answer": "Abdul Samad designed and built MAX AI as part of his portfolio website — an assistant that answers questions instantly with a curated knowledge base. I'm his creation!",
+      "keywords": ["who created max ai", "who made max ai", "max ai developer", "max ai builder"]
+    }
+  ]
+}
