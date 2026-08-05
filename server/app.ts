@@ -1,6 +1,7 @@
 import compression from "compression";
 import express, { type NextFunction, type Request, type Response } from "express";
 import helmet from "helmet";
+import { pathToFileURL } from "node:url";
 import { IS_PRODUCTION, PATHS, PORT } from "./config/env.js";
 import { cacheControl, canonicalRedirects } from "./middleware/seo.js";
 import { pagesRouter } from "./routes/pages.routes.js";
@@ -60,7 +61,15 @@ app.use((err: unknown, _req: Request, res: Response, _next: NextFunction) => {
   res.status(500).type("html").send("Internal server error. Please try again later.");
 });
 
-app.listen(PORT, () => {
-  console.log(`[server] ${IS_PRODUCTION ? "production" : "development"} mode`);
-  console.log(`[server] Abdul Samad portfolio running at http://localhost:${PORT}`);
-});
+const isDirectRun =
+  process.argv[1] !== undefined &&
+  pathToFileURL(process.argv[1]).href === import.meta.url;
+
+if (isDirectRun) {
+  app.listen(PORT, () => {
+    console.log(`[server] ${IS_PRODUCTION ? "production" : "development"} mode`);
+    console.log(`[server] Abdul Samad portfolio running at http://localhost:${PORT}`);
+  });
+}
+
+export default app;

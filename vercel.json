@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "dist/server/app.js",
+      "use": "@vercel/node",
+      "includeFiles": ["client/**/*"]
+    }
+  ],
+  "routes": [{ "src": "/(.*)", "dest": "dist/server/app.js" }]
+}
