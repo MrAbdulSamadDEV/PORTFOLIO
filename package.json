@@ -11,7 +11,7 @@
   },
   "scripts": {
     "dev": "tsx watch server/app.ts",
-    "build": "npm run build:server && npm run build:client",
+    "build": "node scripts/build-kb.mjs && npm run build:server && npm run build:client",
     "build:server": "tsc -p tsconfig.server.json",
     "build:client": "tsc -p tsconfig.client.json",
     "start": "node dist/server/app.js",

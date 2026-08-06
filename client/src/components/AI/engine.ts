@@ -28,7 +28,11 @@ export const INTENT_FALLBACKS: Record<string, string> = {
   projects: "projects-overview",
   education: "education-overview",
   experience: "experience-overview",
+  certificates: "certificates-list",
   contact: "contact-methods",
+  services: "services",
+  learning: "learning-journey",
+  misc: "what-can-you-do",
 };
 
 /** High-frequency words that carry no topic meaning for ranking. */
@@ -79,13 +83,17 @@ export function levenshtein(a: string, b: string, bound: number): number {
     let rowMin = curr[0];
     for (let j = 1; j <= lb; j += 1) {
       const cost = a.charCodeAt(i - 1) === b.charCodeAt(j - 1) ? 0 : 1;
-      curr[j] = Math.min(prev[j] + 1, curr[j - 1] + 1, prev[j - 1] + cost);
-      if (curr[j] < rowMin) rowMin = curr[j];
+      const del = prev[j] ?? lb + 1;
+      const ins = curr[j - 1] ?? lb + 1;
+      const sub = prev[j - 1] ?? lb + 1;
+      curr[j] = Math.min(del + 1, ins + 1, sub + cost);
+      const cell = curr[j] ?? lb + 1;
+      if (cell < rowMin) rowMin = cell;
     }
     if (rowMin > bound) return bound + 1;
     [prev, curr] = [curr, prev];
   }
-  return prev[lb];
+  return prev[lb] ?? lb;
 }
 
 /** Maximum acceptable Levenshtein distance for typo-tolerant single-token matches. */
@@ -112,7 +120,9 @@ function tokenize(query: string): Set<string> {
 }
 
 export function normalize(text: string): string {
-  return text
+  const cached = normalizeCache.get(text);
+  if (cached !== undefined) return cached;
+  const value = text
     .toLowerCase()
     .normalize("NFKD")
     .replace(/[\u2018\u2019']/g, "")
@@ -121,7 +131,13 @@ export function normalize(text: string): string {
     .replace(/[^a-z0-9\s+@.\-]/g, " ")
     .replace(/\s+/g, " ")
     .trim();
+  if (normalizeCache.size > 10000) normalizeCache.clear();
+  normalizeCache.set(text, value);
+  return value;
 }
+
+/** LRU-ish memo so large knowledge bases normalize each keyword only once. */
+const normalizeCache = new Map<string, string>();
 
 export function expandSynonyms(query: string, kb: AiKnowledgeBase): string {
   let expanded = query;

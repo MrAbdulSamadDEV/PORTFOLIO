@@ -1,0 +1,95 @@
+{
+  "category": "education",
+  "faqs": [
+    {
+      "id": "education-overview",
+      "question": "Where do you study?",
+      "answer": "Abdul Samad is pursuing a Bachelor of Computer Science with a focus on Cloud Data Engineering (2022 – 2026). His studies cover data structures, algorithms, databases, operating systems, networks and software engineering alongside cloud and data technologies.",
+      "keywords": ["where do you study", "where does he study", "study", "university", "college", "education", "degree", "institute", "where do you go to school", "your university", "his university", "what university does he attend", "school"]
+    },
+    {
+      "id": "education-details",
+      "question": "Tell me about your education",
+      "answer": "He completed FSc Pre-Engineering (2020 – 2022) and is currently completing a Bachelor of Computer Science focused on Cloud Data Engineering (2022 – 2026).",
+      "keywords": ["education details", "academic background", "academic history", "your studies", "his studies", "educational background", "education history", "academics", "study background"]
+    },
+    {
+      "id": "study-major",
+      "question": "What is your major?",
+      "answer": "His major is Computer Science with a specialization track in Cloud Data Engineering.",
+      "keywords": ["major", "specialization", "field of study", "course of study", "concentration", "his major", "what is he studying", "his field", "speciality", "subject"]
+    },
+    {
+      "id": "graduation",
+      "question": "When will you graduate?",
+      "answer": "He is expected to graduate in 2026. Until then he's balancing his degree with hands-on projects and continuous learning.",
+      "keywords": ["graduate", "graduation", "when do you graduate", "when does he graduate", "graduation year", "when will you finish", "finish degree", "graduating"]
+    },
+    {
+      "id": "fsc-details",
+      "question": "What is FSc Pre-Engineering?",
+      "answer": "FSc Pre-Engineering is his intermediate (higher secondary) education completed between 2020 and 2022 — it gave him a strong foundation in mathematics and physics before his Computer Science degree.",
+      "keywords": ["fsc", "pre engineering", "fsc pre engineering", "intermediate", "higher secondary", "fsc details", "matric", "12th", "pre med", "college studies"]
+    },
+    {
+      "id": "coursework",
+      "question": "What subjects do you study?",
+      "answer": "His coursework includes data structures and algorithms, databases, operating systems, computer networks, software engineering, discrete mathematics — plus cloud and data technologies as part of his Cloud Data Engineering track.",
+      "keywords": ["coursework", "subjects", "courses", "classes", "what subjects does he study", "curriculum", "what do you study", "what does he study", "syllabus", "university courses"]
+    },
+    {
+      "id": "gpa",
+      "question": "What is your GPA?",
+      "answer": "Abdul maintains a strong academic record alongside his development work, but the exact figure is best shared directly by him — message him and he'll be happy to discuss it.",
+      "keywords": ["gpa", "grades", "marks", "cgpa", "academic performance", "result", "transcript", "how are his grades"]
+    },
+    {
+      "id": "study-work-balance",
+      "question": "How do you balance study and work?",
+      "answer": "He plans his week with fixed study blocks and fixed development blocks. University builds his fundamentals; projects build his portfolio — and each makes the other stronger.",
+      "keywords": ["balance study and work", "study and work", "how do you balance", "time between study and work", "university and projects", "juggling", "schedule balance"]
+    },
+    {
+      "id": "online-courses",
+      "question": "Do you take online courses?",
+      "answer": "Yes — beyond university, he constantly learns from online platforms. His certificates from freeCodeCamp and AWS Educate are part of his continuous learning routine.",
+      "keywords": ["online courses", "online learning", "courses", "freecodecamp", "coursera", "udemy", "online classes", "does he take online courses", "self study", "distance learning"]
+    },
+    {
+      "id": "why-cloud-data",
+      "question": "Why did you choose Cloud Data Engineering?",
+      "answer": "He chose it because data is the engine behind every modern product — and cloud platforms are how that engine runs at scale. Combining data engineering with full stack development lets him build complete, intelligent systems.",
+      "keywords": ["why cloud", "why data engineering", "why cloud data", "why did you choose cloud", "why this degree", "choice of major", "cloud specialization", "why data", "why this field"]
+    },
+    {
+      "id": "academic-projects",
+      "question": "Do you build projects for university?",
+      "answer": "Yes — university assignments and semester projects have pushed him into areas like data structures, database design and system development, which complement his personal projects.",
+      "keywords": ["academic projects", "university projects", "semester projects", "class projects", "assignments", "college projects", "course projects"]
+    },
+    {
+      "id": "education-website",
+      "question": "What is the website of your university?",
+      "answer": "He prefers to share university details directly. For any verification or academic queries, email him at mr.abdulsamadabdullah@gmail.com and he'll be glad to help.",
+      "keywords": ["university website", "college website", "institute website", "university name", "college name", "which university", "institute name", "official site of university"]
+    },
+    {
+      "id": "back-to-school-advice",
+      "question": "Is university worth it for developers?",
+      "answer": "He believes university builds strong fundamentals — algorithms, systems and theory — while self-learning builds practical skills. He does both: degree for the foundation, projects for the craft.",
+      "keywords": ["is university worth it", "university worth", "college worth it", "degree value", "do you need a degree", "university vs self taught", "degree for developers", "should i go to university"]
+    },
+    {
+      "id": "mathematics-level",
+      "question": "Are you good at mathematics?",
+      "answer": "Yes — his Pre-Engineering background and Computer Science coursework gave him solid mathematics: discrete math, logic, probability and algorithm analysis, all essential for good engineering.",
+      "keywords": ["mathematics", "math", "maths", "is he good at math", "math skills", "calculus", "discrete math", "mathematical ability", "algorithms math"]
+    },
+    {
+      "id": "data-structures",
+      "question": "Do you know data structures and algorithms?",
+      "answer": "Yes — DSA is core to his Computer Science degree. He's comfortable with arrays, linked lists, stacks, queues, trees, graphs, hashing and common algorithms, and applies them in real projects.",
+      "keywords": ["data structures", "algorithms", "dsa", "does he know dsa", "data structures and algorithms", "trees", "graphs", "linked lists", "sorting algorithms", "problem solving in cs"]
+    }
+  ]
+}

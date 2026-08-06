@@ -161,10 +161,6 @@ export function renderHero(site: SiteSettings): string {
           ${badges}
         </div>
       </div>
-      <a class="hero__scroll" href="/#about" data-nav-scroll="about" aria-label="Scroll to the About section">
-        <span class="hero__scroll-mouse" aria-hidden="true"></span>
-        <span class="hero__scroll-text">Scroll to explore</span>
-      </a>
     </section>`;
 }
 

@@ -1,0 +1,113 @@
+{
+  "category": "learning",
+  "faqs": [
+    {
+      "id": "learning-journey",
+      "question": "What is your learning journey?",
+      "answer": "His journey started in 2022 with HTML, CSS and JavaScript. In 2023 he built his first real projects and learned Node.js and Express. In 2024 he adopted TypeScript and React and began studying cloud data engineering and Linux. Today he ships production-quality apps and is preparing for a career in cloud and full stack engineering.",
+      "keywords": ["learning journey", "journey", "your story", "his story", "how did you start", "how you started coding", "coding journey", "background", "development journey", "path so far"]
+    },
+    {
+      "id": "what-learning-now",
+      "question": "What are you currently learning?",
+      "answer": "Right now he's deepening his knowledge of Cloud Data Engineering — data pipelines, cloud platforms, MongoDB and Linux administration — while refining his TypeScript and full stack engineering skills.",
+      "keywords": ["currently learning", "what are you learning", "what is he learning", "learning now", "studying now", "currently studying", "what are you studying", "what is he studying", "learning currently"]
+    },
+    {
+      "id": "what-next",
+      "question": "What are your plans for the future?",
+      "answer": "Next on his roadmap: mastering cloud data pipelines, deepening backend architecture skills, growing his open source presence and landing an impactful internship or role in cloud/full stack engineering.",
+      "keywords": ["future plans", "what next", "roadmap", "next steps", "coming next", "future", "his plans", "whats next for him", "plan ahead", "next goal"]
+    },
+    {
+      "id": "start-recommendation",
+      "question": "How should I start learning web development?",
+      "answer": "His advice: start with HTML and CSS, then JavaScript, then a backend like Node.js. Build small projects early — a personal page, a todo app, a weather app. Practice beats theory, and consistency beats intensity.",
+      "keywords": ["start learning", "beginner advice", "how to start", "web dev for beginners", "learning web development", "recommendation for beginners", "where should i start", "first steps", "start coding", "advice for beginners"]
+    },
+    {
+      "id": "learning-resources",
+      "question": "What resources do you recommend?",
+      "answer": "He recommends freeCodeCamp for structured foundations, MDN for web documentation, official docs for frameworks, and building real projects. YouTube tutorials are great to start — but building is what makes you a developer.",
+      "keywords": ["learning resources", "resources", "recommended resources", "best resources", "where to learn", "best websites to learn", "free resources", "recommended courses", "learning materials"]
+    },
+    {
+      "id": "roadmap-advice",
+      "question": "What roadmap would you recommend?",
+      "answer": "A practical roadmap:\n\n1. HTML & CSS — build static pages\n2. JavaScript — the language of the web\n3. Git & GitHub — version control\n4. Node.js & Express — backend basics\n5. A framework like React\n6. Databases like MongoDB\n7. Deployment & cloud basics\n\nThen specialize: data engineering, devops or frontend architecture.",
+      "keywords": ["roadmap", "road map", "learning roadmap", "path to full stack", "roadmap for developers", "full stack roadmap", "recommended path", "step by step plan", "curriculum"]
+    },
+    {
+      "id": "how-long-to-learn",
+      "question": "How long does it take to learn web development?",
+      "answer": "It took him consistent daily practice — you can learn the basics in 3–6 months of focused effort, and become job-ready in 1–2 years with real projects. The key is consistency and building.",
+      "keywords": ["how long to learn", "time to learn", "how long does it take", "learn web dev time", "months to learn", "when will i be ready", "how fast can i learn"]
+    },
+    {
+      "id": "self-taught-vs-degree",
+      "question": "Self-taught or a degree?",
+      "answer": "Both work! He does both: a Computer Science degree for fundamentals plus self-learning for practical skills. For most developers, your portfolio and projects matter more than where you studied.",
+      "keywords": ["self taught vs degree", "degree or self taught", "self taught developer", "do i need a degree", "college or self study", "which is better", "education or experience"]
+    },
+    {
+      "id": "tech-latest",
+      "question": "What new technologies are you exploring?",
+      "answer": "He's exploring cloud data pipelines, Linux administration, MongoDB, advanced TypeScript patterns, server-side rendering and AI-assisted development workflows with the OpenCode CLI.",
+      "keywords": ["new technologies", "latest tech", "exploring", "trending tech", "new skills", "what is he exploring", "trending technologies", "upcoming tech"]
+    },
+    {
+      "id": "daily-learning-habit",
+      "question": "How do you study every day?",
+      "answer": "He keeps a daily habit of at least 30–60 minutes of focused learning — reading docs, watching a tutorial, solving a challenge or building a feature. Small daily progress compounds.",
+      "keywords": ["daily learning", "study habit", "daily habit", "how much does he study", "learning routine", "daily practice", "study routine"]
+    },
+    {
+      "id": "challenge-overcome",
+      "question": "What was your hardest learning challenge?",
+      "answer": "Understanding async JavaScript and backend architecture took him the longest — promises, callbacks, error handling and thinking server-side. He overcame it by building real APIs and debugging them relentlessly.",
+      "keywords": ["hardest challenge", "hardest part", "most difficult to learn", "toughest skill", "challenges learning", "what was hard", "difficult concept", "async struggle"]
+    },
+    {
+      "id": "code-challenges",
+      "question": "Do you solve coding challenges?",
+      "answer": "Yes — he practices algorithms and data structures on platforms like freeCodeCamp, sharpening the problem-solving skills his CS degree emphasizes.",
+      "keywords": ["coding challenges", "code challenges", "leetcode", "hackerrank", "algorithms practice", "problem solving practice", "competitive programming", "coding practice"]
+    },
+    {
+      "id": "learn-in-public",
+      "question": "Do you learn in public?",
+      "answer": "Yes — he shares his learning through his YouTube channel and open source work. Explaining what you learn is one of the fastest ways to truly learn it.",
+      "keywords": ["learn in public", "learning in public", "sharing learning", "teaching while learning", "shares his journey", "documenting learning"]
+    },
+    {
+      "id": "mentor",
+      "question": "Do you have a mentor?",
+      "answer": "His mentors are indirect: open source maintainers, tutorial creators and the developers he follows online. He also learns a lot by mentoring beginners — teaching sharpens his own skills.",
+      "keywords": ["mentor", "mentors", "does he have a mentor", "guidance", "who guides him", "mentorship", "coach"]
+    },
+    {
+      "id": "learning-balance",
+      "question": "How do you balance learning and building?",
+      "answer": "The 70/30 rule: about 70% of his time goes to building real projects, and 30% to structured learning. You learn most by building — study just enough to unblock the next build.",
+      "keywords": ["learning balance", "balance learning and building", "learn vs build", "learning ratio", "how much to learn", "learning strategy"]
+    },
+    {
+      "id": "tech-books",
+      "question": "Do you read tech books?",
+      "answer": "Yes — he reads technical books and deep documentation for topics like JavaScript, TypeScript and cloud engineering, and follows docs as the source of truth for frameworks.",
+      "keywords": ["tech books", "books", "reading", "documentation", "docs", "best tech books", "recommended books", "javascript book"]
+    },
+    {
+      "id": "future-skill-goals",
+      "question": "What skills do you want to learn next?",
+      "answer": "His skill roadmap: advanced cloud architecture and data pipelines, infrastructure automation, deeper React and TypeScript patterns, and system design for scalable applications.",
+      "keywords": ["future skills", "skills to learn", "want to learn", "skill goals", "upcoming skills", "learning goals", "next skills", "skills he wants"]
+    },
+    {
+      "id": "failures-learning",
+      "question": "What failures taught you the most?",
+      "answer": "His failed deployments and broken builds taught him the most — debugging production issues, writing tests, and reading error messages carefully. Every failure became a lesson in his toolkit.",
+      "keywords": ["failures", "failed", "mistakes", "what taught him most", "lessons from failures", "bugs taught him", "his mistakes", "what went wrong"]
+    }
+  ]
+}

@@ -10,7 +10,7 @@ import { findBestAnswer, formatAnswer } from "./engine.js";
  */
 
 const FALLBACK_UNKNOWN =
-  "I couldn't find that information yet. Try asking about my projects, skills, experience, education or contact details.";
+  "I couldn't find an exact answer to that yet. Try asking about Abdul's projects, skills, experience, education, certificates or contact details.";
 
 function currentTime(): string {
   return new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });

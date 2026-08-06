@@ -1,0 +1,113 @@
+{
+  "category": "misc",
+  "faqs": [
+    {
+      "id": "help-max",
+      "question": "Help me use MAX AI",
+      "answer": "I'm glad you're here! You can ask me anything about Abdul Samad:\n\n• \"Who is Abdul Samad?\"\n• \"What are his skills?\"\n• \"Show his projects\"\n• \"Tell me about his education\"\n• \"What are his certificates?\"\n• \"How can I contact him?\"\n\nJust type your question below and press Enter!",
+      "keywords": ["help me use max", "how to use this chat", "how do i use max", "help with max", "instructions", "guide", "how to ask", "chat instructions", "using this assistant"]
+    },
+    {
+      "id": "privacy",
+      "question": "Is this AI private?",
+      "answer": "Yes — MAX AI runs entirely in your browser from a local knowledge base. No questions, messages or data are sent to any server or third party. Your conversations never leave your device.",
+      "keywords": ["privacy", "is this private", "private chat", "data collection", "does this track me", "privacy policy", "secure chat", "is my data safe", "offline", "no data"]
+    },
+    {
+      "id": "offline",
+      "question": "Does MAX AI work offline?",
+      "answer": "Yes — once the knowledge base file is loaded, MAX AI answers instantly from local data with no network requests. It's fast, private and always available.",
+      "keywords": ["offline", "works offline", "without internet", "no internet", "does this need internet", "offline mode", "network required"]
+    },
+    {
+      "id": "who-made-website",
+      "question": "Who made this website?",
+      "answer": "Abdul Samad designed and developed this entire website himself — server, design, content and the MAX AI assistant. It's one of his proudest projects.",
+      "keywords": ["who made this website", "who built this site", "who created this site", "website developer", "who coded this", "made by", "built by", "site author"]
+    },
+    {
+      "id": "feedback",
+      "question": "Can I give feedback?",
+      "answer": "Of course! Abdul welcomes feedback, suggestions and ideas. Email him at mr.abdulsamadabdullah@gmail.com or use the contact form on this website.",
+      "keywords": ["feedback", "give feedback", "suggestions", "ideas", "complaints", "improve the site", "review", "tell him what i think"]
+    },
+    {
+      "id": "report-issue",
+      "question": "I found a bug on the website",
+      "answer": "Thanks for reporting! Please email Abdul at mr.abdulsamadabdullah@gmail.com with the page, what you did, and what happened. Or open an issue on GitHub: https://github.com/MrAbdulSamadDEV",
+      "keywords": ["report bug", "found a bug", "issue", "problem with site", "broken page", "website error", "doesn't work", "glitch", "bug report"]
+    },
+    {
+      "id": "site-license",
+      "question": "Can I use your code?",
+      "answer": "This portfolio is released under the MIT License — you're welcome to learn from it, adapt it and build your own. Check the LICENSE file in the repository.",
+      "keywords": ["license", "mit", "use his code", "can i copy", "reuse code", "copyright", "legal", "terms of use", "open license"]
+    },
+    {
+      "id": "version-info",
+      "question": "What version is this website?",
+      "answer": "This portfolio is at version 1.0.0 — a premium production build with SSR, the MAX AI assistant and full SEO support.",
+      "keywords": ["version", "website version", "version number", "what version", "release", "v1", "build version"]
+    },
+    {
+      "id": "time",
+      "question": "What time is it?",
+      "answer": "My knowledge base doesn't track the clock, but Abdul is in Pakistan Standard Time (UTC+5). If you need a call, he'll confirm the right time with you.",
+      "keywords": ["what time is it", "current time", "clock", "time now", "whats the time", "time"]
+    },
+    {
+      "id": "weather",
+      "question": "What's the weather like?",
+      "answer": "I don't track weather, but Abdul lives in Lahore, Pakistan — a warm city with hot summers and mild winters. If you need a weather app, he built one as one of his early projects!",
+      "keywords": ["weather", "weather in lahore", "temperature", "climate", "whats the weather", "raining", "hot or cold"]
+    },
+    {
+      "id": "developer-tools-recommendation",
+      "question": "What developer tools do you recommend?",
+      "answer": "Abdul's top recommendations: VS Code for editing, Git and GitHub for version control, Chrome DevTools for debugging, the OpenCode CLI for AI-assisted coding, and MongoDB for data.",
+      "keywords": ["developer tools", "recommended tools", "best tools", "tools to use", "recommended software", "developer setup", "top tools"]
+    },
+    {
+      "id": "about-project-source",
+      "question": "Is the source of this website public?",
+      "answer": "Yes — the codebase is available on GitHub: https://github.com/MrAbdulSamadDEV. You can explore the architecture, server and client code, and even the knowledge base powering me.",
+      "keywords": ["website source", "is the code public", "source of this site", "github of this site", "open source website", "this site repo", "source code of portfolio"]
+    },
+    {
+      "id": "max-personality",
+      "question": "Do you have a personality?",
+      "answer": "I try my best! I'm friendly, helpful and a little playful — but my real job is answering your questions about Abdul Samad accurately and fast.",
+      "keywords": ["personality", "are you friendly", "do you have feelings", "are you alive", "are you smart", "your personality", "do you think"]
+    },
+    {
+      "id": "max-limit",
+      "question": "What questions can't you answer?",
+      "answer": "I can answer everything about Abdul Samad's portfolio — but I can't answer questions about other topics, current events or things outside his knowledge base. Ask me anything about him!",
+      "keywords": ["cant answer", "can't answer", "what don't you know", "your limits", "what can't you do", "out of scope", "unknown questions", "don't know"]
+    },
+    {
+      "id": "recommendation-for-visitor",
+      "question": "What should I look at first?",
+      "answer": "Start with the About section to learn who Abdul is, then Skills, then his featured project Furnecher on the Projects page. And if you like what you see, head to Contact!",
+      "keywords": ["what should i look at", "where to start", "recommendation for visitors", "first visit", "what to see", "site tour", "navigate the site"]
+    },
+    {
+      "id": "site-map-help",
+      "question": "How do I navigate this website?",
+      "answer": "Use the navigation on the left: Home, About, Skills, Projects, Contact — and the MAX AI button to chat with me! On mobile, tap the menu icon in the corner.",
+      "keywords": ["navigate", "navigation", "how to use the site", "menu", "site map", "where is the menu", "how do i find", "page list"]
+    },
+    {
+      "id": "thanks-goodbye",
+      "question": "Goodbye",
+      "answer": "Goodbye! Thanks for visiting Abdul Samad's portfolio. If you have more questions later, MAX AI is always here — and don't forget to check his projects!",
+      "keywords": ["goodbye", "bye", "see you", "farewell", "later", "bye bye", "leaving", "gtg", "take care"]
+    },
+    {
+      "id": "yes-no",
+      "question": "Do you understand me?",
+      "answer": "I understand questions about Abdul Samad best! Try asking about his projects, skills, education or contact details — I'll do my best to answer instantly.",
+      "keywords": ["do you understand", "understand me", "can you hear me", "are you listening", "do you get me", "you there", "are you there"]
+    }
+  ]
+}

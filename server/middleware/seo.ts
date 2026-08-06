@@ -34,9 +34,15 @@ export function canonicalRedirects(req: Request, res: Response, next: NextFuncti
 const IMMUTABLE_PREFIXES = ["/assets/", "/js/", "/fonts/", "/webfonts/", "/favicon", "/apple-touch-icon", "/icon-", "/manifest", "/browserconfig", "/og-image", "/robots.txt", "/sitemap.xml"];
 const NO_CACHE_PREFIXES = ["/data/"];
 
-/** Long cache for hashed/immutable assets, no-cache for editable data and HTML. */
+/** Long cache for hashed/immutable assets, short cache for the generated AI bundle, no-cache for editable data and HTML. */
 export function cacheControl(req: Request, res: Response, next: NextFunction): void {
   const pathname = req.path;
+
+  if (pathname === "/data/ai.json") {
+    res.setHeader("Cache-Control", "public, max-age=3600");
+    next();
+    return;
+  }
 
   if (NO_CACHE_PREFIXES.some((prefix) => pathname.startsWith(prefix))) {
     res.setHeader("Cache-Control", "no-store");

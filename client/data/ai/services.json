@@ -1,0 +1,161 @@
+{
+  "category": "services",
+  "faqs": [
+    {
+      "id": "services",
+      "question": "What services do you provide?",
+      "answer": "Abdul Samad provides the following services:\n\n• Modern, responsive website design and development\n• Full stack web applications with Node.js, Express and React\n• Frontend development with TypeScript and modern CSS\n• REST API design and development\n• E-commerce and storefront development\n• Performance, SEO and accessibility optimization\n• Data engineering and cloud learning projects",
+      "keywords": ["services", "what services", "provide services", "offer", "what do you offer", "what does he offer", "service list", "web services", "what can he do for me", "services offered"]
+    },
+    {
+      "id": "pricing",
+      "question": "How much do you charge?",
+      "answer": "Pricing depends on the scope and complexity of the project. For an accurate quote, email him at mr.abdulsamadabdullah@gmail.com with your project details and requirements.",
+      "keywords": ["pricing", "price", "cost", "how much", "charges", "rates", "budget", "fees", "how much does he charge", "project cost", "quote", "estimate", "rates per project"]
+    },
+    {
+      "id": "work-process",
+      "question": "What is your development process?",
+      "answer": "His process is simple and effective:\n\n1. Understand the requirements and goals\n2. Design the structure and user experience\n3. Build with clean, maintainable code\n4. Test, optimize for performance and accessibility\n5. Deploy and support",
+      "keywords": ["work process", "development process", "how do you build", "his approach", "methodology", "how does he work on projects", "project workflow", "his process", "steps he follows"]
+    },
+    {
+      "id": "website-types",
+      "question": "What kind of websites do you build?",
+      "answer": "He builds landing pages, business websites, portfolios, e-commerce stores, dashboards, web tools, blogs and full web applications — anything that runs in the browser.",
+      "keywords": ["what kind of websites", "website types", "types of sites", "what can he build", "what kind of sites", "website categories", "which websites"]
+    },
+    {
+      "id": "project-timeline",
+      "question": "How long does a project take?",
+      "answer": "A landing page typically takes 1–2 weeks, a business website 2–4 weeks, and a full web application 4–8 weeks depending on scope. Timelines are agreed upfront before work starts.",
+      "keywords": ["how long does a project take", "project timeline", "delivery time", "how long", "duration", "timeframe", "how soon can he deliver", "project duration", "deadline"]
+    },
+    {
+      "id": "revisions",
+      "question": "Do you offer revisions?",
+      "answer": "Yes — revisions are included to make sure the final result matches your expectations. The number of revisions depends on the project scope and is agreed before starting.",
+      "keywords": ["revisions", "changes", "redo", "modifications", "edits", "do you offer revisions", "change requests", "rework", "update the design"]
+    },
+    {
+      "id": "support-after-launch",
+      "question": "Do you provide support after launch?",
+      "answer": "Yes — he provides a support period after launch for bug fixes and small adjustments, and can offer ongoing maintenance plans for larger projects.",
+      "keywords": ["support after launch", "post launch support", "maintenance", "after delivery", "ongoing support", "support period", "bug fixes", "maintenance plan", "care after delivery"]
+    },
+    {
+      "id": "payment",
+      "question": "How do payments work?",
+      "answer": "Payment terms are agreed per project — typically a deposit before starting and the remainder on delivery. He can work with the payment methods that suit your region.",
+      "keywords": ["payment", "payments", "how to pay", "payment terms", "deposit", "payment methods", "how does payment work", "pay him", "installments"]
+    },
+    {
+      "id": "contracts",
+      "question": "Do you sign contracts?",
+      "answer": "Yes — he's happy to work with a simple written agreement or contract covering scope, timeline and payment, so both sides know exactly what to expect.",
+      "keywords": ["contracts", "agreement", "contract signing", "terms", "written agreement", "scope of work", "sow", "contract document"]
+    },
+    {
+      "id": "redesign-existing",
+      "question": "Can you redesign my existing website?",
+      "answer": "Yes — he can redesign or rebuild existing websites: modernize the design, improve performance, fix responsiveness, upgrade the stack or migrate to a new platform.",
+      "keywords": ["redesign", "existing website", "rebuild my site", "improve my website", "modernize", "website makeover", "update my site", "fix my website"]
+    },
+    {
+      "id": "maintenance-plans",
+      "question": "Do you offer maintenance plans?",
+      "answer": "Yes — he offers ongoing maintenance: content updates, bug fixes, performance monitoring and small feature improvements on a monthly or per-project basis.",
+      "keywords": ["maintenance plans", "ongoing maintenance", "monthly maintenance", "care plans", "website upkeep", "regular updates", "maintenance service"]
+    },
+    {
+      "id": "frontend-service",
+      "question": "Do you offer frontend-only work?",
+      "answer": "Yes — he takes frontend-only projects: building responsive interfaces, design implementation, animations and frontend performance optimization with HTML, CSS, TypeScript and React.",
+      "keywords": ["frontend service", "frontend only", "ui work", "design implementation", "frontend project", "html css work", "frontend help"]
+    },
+    {
+      "id": "backend-service",
+      "question": "Do you offer backend-only work?",
+      "answer": "Yes — he takes backend projects: REST API development, server architecture, authentication, integrations and database design with Node.js, Express and MongoDB.",
+      "keywords": ["backend service", "backend only", "api work", "api development service", "server work", "backend project", "node.js service", "database work"]
+    },
+    {
+      "id": "ecommerce-service",
+      "question": "Can you build me an e-commerce website?",
+      "answer": "Yes — e-commerce is one of his specialties. His Furnecher project proves it: a complete storefront with catalog, product pages and checkout flow, built with React, Node.js and MongoDB.",
+      "keywords": ["ecommerce service", "e-commerce", "online store", "shopping website", "build me a store", "shop website", "sell online", "storefront development", "ecommerce website"]
+    },
+    {
+      "id": "business-website-service",
+      "question": "Can you build me a business website?",
+      "answer": "Absolutely — business websites, landing pages and portfolios are his bread and butter: fast, SEO-friendly, responsive and built to convert visitors into customers.",
+      "keywords": ["business website", "company website", "corporate site", "landing page", "business site", "small business website", "website for my business"]
+    },
+    {
+      "id": "tech-choices",
+      "question": "Which technologies do you use for client projects?",
+      "answer": "For client projects he uses his proven stack: TypeScript, React, HTML5 and CSS3 on the frontend; Node.js, Express and MongoDB on the backend; deployed on Vercel or similar platforms.",
+      "keywords": ["technologies for clients", "client stack", "what tech for projects", "which tech", "project technologies", "stack he uses", "for client work"]
+    },
+    {
+      "id": "communication-during-project",
+      "question": "How do you communicate during a project?",
+      "answer": "He communicates via email, WhatsApp and video calls. You get regular progress updates, milestone reviews and honest status reporting — no surprises.",
+      "keywords": ["communication during project", "progress updates", "updates during work", "how does he communicate", "status updates", "milestones", "project communication"]
+    },
+    {
+      "id": "rush-projects",
+      "question": "Can you handle rush projects?",
+      "answer": "He can handle short timelines for small projects when his schedule allows — message him early at mr.abdulsamadabdullah@gmail.com and he'll tell you honestly what's possible.",
+      "keywords": ["rush project", "urgent project", "fast delivery", "quick project", "short deadline", "express project", "asap", "emergency project"]
+    },
+    {
+      "id": "free-quote",
+      "question": "Is the quote free?",
+      "answer": "Yes — project quotes and initial consultations are completely free. Email mr.abdulsamadabdullah@gmail.com with your idea and he'll respond with an estimate.",
+      "keywords": ["free quote", "is the quote free", "free estimate", "quote cost", "consultation free", "free consultation", "estimates free"]
+    },
+    {
+      "id": "portfolio-for-clients",
+      "question": "Can you help me build a portfolio?",
+      "answer": "Yes — personal portfolios are a specialty! He builds premium portfolios like this one, with SEO, performance and even an AI assistant if you want one.",
+      "keywords": ["portfolio for clients", "build a portfolio", "personal portfolio service", "my own portfolio", "developer portfolio", "portfolio website service", "make me a portfolio"]
+    },
+    {
+      "id": "dashboard-development",
+      "question": "Do you build dashboards?",
+      "answer": "Yes — admin dashboards, analytics panels and data visualization interfaces with clean layouts, charts and real-time data.",
+      "keywords": ["dashboard", "admin panel", "analytics dashboard", "charts", "data visualization", "dashboard development", "control panel", "admin dashboard"]
+    },
+    {
+      "id": "api-service",
+      "question": "Can you build an API for my project?",
+      "answer": "Yes — he designs and builds REST APIs with Node.js, Express and TypeScript: clean routes, validation, authentication and documentation.",
+      "keywords": ["api service", "build an api", "rest api service", "backend api", "api for my app", "api development service", "make me an api"]
+    },
+    {
+      "id": "startup-support",
+      "question": "Can you help startups?",
+      "answer": "Yes — he loves working with startups and founders: MVPs, landing pages and early product iterations, built fast with clean engineering foundations.",
+      "keywords": ["startup", "startups", "mvp", "founder", "startup support", "mvp development", "early stage", "product prototype"]
+    },
+    {
+      "id": "no-code-alternative",
+      "question": "Do you work with no-code tools?",
+      "answer": "He focuses on custom code development — that's where he adds the most value. If your project fits a no-code tool better, he'll tell you honestly and point you in the right direction.",
+      "keywords": ["no code", "nocode", "wordpress", "wix", "squarespace", "website builders", "no-code tools", "do you use website builders"]
+    },
+    {
+      "id": "service-language",
+      "question": "Do you work with international clients?",
+      "answer": "Yes — he works with clients worldwide in English, across all time zones, using email, WhatsApp and video calls for communication.",
+      "keywords": ["international clients", "foreign clients", "clients abroad", "global clients", "works worldwide", "english speaking clients", "international work"]
+    },
+    {
+      "id": "what-to-ask",
+      "question": "What information do you need to start?",
+      "answer": "To start, share: the type of website or app you want, its goals, examples you like, your timeline and your budget range. That's enough for a free quote.",
+      "keywords": ["information to start", "what do you need from me", "requirements", "start a project", "what to provide", "project requirements", "getting started info"]
+    }
+  ]
+}

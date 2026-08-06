@@ -3,10 +3,7 @@
   "version": 2,
   "buildCommand": "npm run build",
   "outputDirectory": "client/public",
-  "functions": {
-    "api/index.ts": {
-      "includeFiles": "client/**/*"
-    }
-  },
-  "rewrites": [{ "source": "/(.*)", "destination": "/api" }]
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api" }
+  ]
 }

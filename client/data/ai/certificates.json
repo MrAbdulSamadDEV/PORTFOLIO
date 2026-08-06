@@ -1,0 +1,65 @@
+{
+  "category": "certificates",
+  "faqs": [
+    {
+      "id": "certificates-list",
+      "question": "What certificates do you have?",
+      "answer": "He holds several certifications:\n\n• JavaScript Algorithms & Data Structures — freeCodeCamp\n• Responsive Web Design — freeCodeCamp\n• Node.js Backend Development — online certification\n• Cloud Foundations — AWS Educate",
+      "keywords": ["certificates", "certifications", "credentials", "certificate list", "courses completed", "awards", "his certificates", "what certificates", "what certifications", "what courses has he done", "qualifications", "verified skills"]
+    },
+    {
+      "id": "certificate-freecodecamp",
+      "question": "What freeCodeCamp certificates do you have?",
+      "answer": "He earned two freeCodeCamp certificates:\n\n• Responsive Web Design\n• JavaScript Algorithms & Data Structures\n\nBoth cover practical, hands-on web development fundamentals.",
+      "keywords": ["freecodecamp", "free code camp", "freecodecamp certificates", "fcc", "freecodecamp courses", "responsive web design", "javascript algorithms", "free code camp certs"]
+    },
+    {
+      "id": "certificate-aws",
+      "question": "What AWS certificates do you have?",
+      "answer": "He earned the AWS Educate Cloud Foundations certificate, which covers core AWS services, cloud concepts, security and architecture fundamentals.",
+      "keywords": ["aws", "aws educate", "aws certificate", "cloud foundations", "amazon web services", "aws cert", "cloud certification", "amazon certificate"]
+    },
+    {
+      "id": "certificate-nodejs",
+      "question": "What Node.js certificates do you have?",
+      "answer": "He completed a Node.js Backend Development certification, covering servers, Express, APIs and backend engineering patterns.",
+      "keywords": ["nodejs certificate", "node certificate", "backend certificate", "node.js certification", "express certification", "backend certification"]
+    },
+    {
+      "id": "certificates-verify",
+      "question": "How can I verify your certificates?",
+      "answer": "Certificate details can be shared directly by Abdul Samad — email him at mr.abdulsamadabdullah@gmail.com and he'll gladly share verification links or credentials.",
+      "keywords": ["verify certificates", "certificate verification", "verify credentials", "are certificates real", "proof of certificates", "credential verification"]
+    },
+    {
+      "id": "certificates-more",
+      "question": "Are you planning more certifications?",
+      "answer": "Yes — cloud and data certifications are next on his list as part of his cloud data engineering track. He'll share them on his website and LinkedIn as soon as they're earned.",
+      "keywords": ["more certificates", "next certification", "planned certifications", "future certificates", "new certifications", "upcoming certifications", "certification plans"]
+    },
+    {
+      "id": "certificate-count",
+      "question": "How many certificates do you have?",
+      "answer": "He has earned 4+ certificates across web development, backend engineering and cloud foundations — including freeCodeCamp, AWS Educate and a Node.js certification.",
+      "keywords": ["how many certificates", "certificate count", "number of certificates", "how many certs", "total certificates", "certificates count"]
+    },
+    {
+      "id": "certificate-value",
+      "question": "What did you learn from your certificates?",
+      "answer": "The certificates built his foundations: responsive design and accessibility, algorithms and data structures, backend engineering, and cloud architecture concepts — all of which he applies daily.",
+      "keywords": ["what did you learn", "learned from certificates", "certificate value", "skills from certificates", "what the certs taught", "knowledge from courses"]
+    },
+    {
+      "id": "certificate-courses-ongoing",
+      "question": "What courses are you taking now?",
+      "answer": "He's currently deepening his Cloud Data Engineering skills — data pipelines, cloud platforms and Linux — alongside advanced TypeScript and full stack engineering practice.",
+      "keywords": ["courses now", "taking now", "current courses", "ongoing courses", "learning now", "current certification", "in progress courses"]
+    },
+    {
+      "id": "certificate-honesty",
+      "question": "Are your certificates really earned?",
+      "answer": "Yes — every certificate he lists was earned through completing the actual course work: projects, assessments and examinations. He values honesty and only lists genuine credentials.",
+      "keywords": ["are certificates real", "earned certificates", "genuine certificates", "did he actually earn", "legit certificates", "real certificates", "scam check"]
+    }
+  ]
+}
