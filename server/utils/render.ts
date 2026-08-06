@@ -79,17 +79,6 @@ export function renderMobileDrawer(site: SiteSettings): string {
     })
     .join("");
 
-  const socials = site.socials
-    .map(
-      (social) => `
-        <li>
-          <a class="mobile-drawer__social" href="${escapeAttr(social.url)}" aria-label="${escapeAttr(social.name)}" ${externalLinkAttrs()}>
-            ${icon(social.icon)}
-          </a>
-        </li>`,
-    )
-    .join("");
-
   return `
     <button type="button" class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-drawer">
       ${icon("fa-solid fa-bars")}
@@ -110,7 +99,6 @@ export function renderMobileDrawer(site: SiteSettings): string {
       </nav>
       <div class="mobile-drawer__footer">
         <p>${escapeHtml(site.site.tagline)}</p>
-        <ul class="mobile-drawer__socials" aria-label="Social links">${socials}</ul>
       </div>
     </aside>`;
 }
@@ -134,22 +122,6 @@ export function renderSocialRail(site: SiteSettings): string {
     </aside>`;
 }
 
-function renderHeroSocials(site: SiteSettings): string {
-  const allowed = ["GitHub", "LinkedIn", "X", "YouTube", "Email", "Phone"];
-  const links = site.socials
-    .filter((social) => allowed.includes(social.name))
-    .map(
-      (social) => `
-        <li>
-          <a class="hero__social" href="${escapeAttr(social.url)}" aria-label="${escapeAttr(social.name)} (opens in a new tab)" ${externalLinkAttrs()}>
-            ${icon(social.icon)}
-          </a>
-        </li>`,
-    )
-    .join("");
-  return `<ul class="hero__socials" aria-label="Social media links">${links}</ul>`;
-}
-
 export function renderHero(site: SiteSettings): string {
   const roles = site.hero.roles.map((role) => `<span class="hero__role">${escapeHtml(role)}</span>`).join('<span class="hero__role-separator" aria-hidden="true">•</span>');
   const badges = site.hero.floatingBadges
@@ -171,7 +143,6 @@ export function renderHero(site: SiteSettings): string {
             <span>${escapeHtml(site.hero.secondaryButton.label)}</span>${icon(site.hero.secondaryButton.icon)}
           </a>
         </div>
-        ${renderHeroSocials(site)}
       </div>
       <div class="hero__visual">
         <div class="hero__photo-frame">
@@ -432,17 +403,6 @@ export function renderFooter(site: SiteSettings): string {
     )
     .join("");
 
-  const socials = site.socials
-    .map(
-      (social) => `
-        <li>
-          <a class="footer__social" href="${escapeAttr(social.url)}" aria-label="${escapeAttr(social.name)} (opens in a new tab)" ${externalLinkAttrs()}>
-            ${icon(social.icon)}
-          </a>
-        </li>`,
-    )
-    .join("");
-
   const year = new Date().getFullYear();
 
   return `
@@ -466,10 +426,6 @@ export function renderFooter(site: SiteSettings): string {
             <li><a href="${escapeAttr(site.site.phoneHref)}">${icon("fa-solid fa-phone")}${escapeHtml(site.site.phoneDisplay)}</a></li>
             <li>${icon("fa-solid fa-location-dot")}${escapeHtml(site.site.location)}</li>
           </ul>
-        </div>
-        <div class="site-footer__col site-footer__col--social">
-          <h2 class="site-footer__heading">Follow Me</h2>
-          <ul class="site-footer__socials" aria-label="Social media links">${socials}</ul>
         </div>
       </div>
       <div class="site-footer__bottom">
@@ -608,21 +564,6 @@ export function renderContactPageContent(site: SiteSettings): string {
                   </a>`,
               )
               .join("")}
-            <div class="contact-socials reveal">
-              <h2 class="contact-socials__heading" id="contact-options-heading">Find me on social media</h2>
-              <ul class="contact-socials__list" aria-label="Social media links">
-                ${site.socials
-                  .map(
-                    (social) => `
-                      <li>
-                        <a class="contact-socials__link" href="${escapeAttr(social.url)}" aria-label="${escapeAttr(social.name)} (opens in a new tab)" ${externalLinkAttrs()}>
-                          ${icon(social.icon)}<span>${escapeHtml(social.name)}</span>
-                        </a>
-                      </li>`,
-                  )
-                  .join("")}
-              </ul>
-            </div>
           </div>
           <div class="contact-form-wrap reveal">
             ${renderContactForm(site)}

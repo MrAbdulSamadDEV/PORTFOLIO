@@ -14,6 +14,7 @@ const queries = [
   ["what are your goals", "faq"],
   ["what skills do you have in cloud", "faq"],
   ["email me", "faq"],
+  ["abdulsamad's skills", "faq"],
   ["random gibberish xyzzy", "intent-or-null"],
 ];
 

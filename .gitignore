@@ -26,3 +26,5 @@ Thumbs.db
 
 # Test artifacts
 screenshots/
+
+.vercel
