@@ -4,116 +4,294 @@
     {
       "id": "projects-overview",
       "question": "Show your projects",
-      "answer": "Abdul Samad has built a range of projects, including:\n\n• Furnecher — a modern furniture e-commerce platform (React, Node.js, MongoDB)\n• This portfolio website — a production-quality site with the MAX AI assistant\n\nYou can explore Furnecher on the Projects page, and its live demo runs at https://salaars-home.vercel.app/.",
-      "keywords": ["show your projects", "your projects", "his projects", "projects list", "project list", "portfolio projects", "view projects", "what projects have you built", "what projects has he built", "list of projects", "see projects", "sample work", "show projects", "his work", "show his work", "project"]
+      "answer": "Abdul Samad has built a range of projects, including:\n\n• SALAAR'S HOME (Furnecher) — a modern furniture e-commerce platform (React, Node.js, MongoDB)\n• This portfolio website — a production-quality site with the MAX AI assistant\n• An AI assistant web app with a local knowledge base\n• A weather dashboard with live forecasts\n• A student portal for campus information\n• A keyboard tester, task manager, Markdown notes app, URL shortener API and a real estate listing site\n\nYou can explore everything on the Projects page: https://www.abdulsamad.dev/projects",
+      "keywords": [
+        "project",
+        "show your projects",
+        "project list",
+        "portfolio projects",
+        "view projects",
+        "what projects have you built",
+        "see projects",
+        "sample work",
+        "his work"
+      ]
     },
     {
       "id": "featured-projects",
       "question": "What are your featured projects?",
-      "answer": "His featured project is:\n\n• Furnecher — a complete furniture e-commerce platform with a modern storefront, product catalog and shopping experience, built with React, Node.js and MongoDB.\n\nYou can explore it on the Projects page: https://salaars-home.vercel.app/",
-      "keywords": ["featured projects", "best projects", "top projects", "favorite projects", "highlighted projects", "featured project", "main project", "his best project"]
+      "answer": "His featured projects are:\n\n• SALAAR'S HOME (Furnecher) — a complete furniture e-commerce platform with a modern storefront, product catalog and shopping experience, built with React, Node.js and MongoDB.\n• The AI assistant web app with a private local knowledge base\n• The weather dashboard with live forecasts\n• This portfolio website with server-side rendering\n\nYou can explore them all on the Projects page: https://www.abdulsamad.dev/projects",
+      "keywords": [
+        "featured projects",
+        "best projects",
+        "top projects",
+        "favorite projects",
+        "highlighted projects",
+        "featured project",
+        "main project",
+        "his best project"
+      ]
     },
     {
       "id": "project-furnecher",
       "question": "Tell me about the Furnecher project",
       "answer": "Furnecher is a modern furniture e-commerce platform built with React, Node.js and MongoDB. It features a clean storefront, product catalog and a complete shopping experience.\n\n• Technologies: HTML5, CSS3, TypeScript, Node.js, Express (with React and MongoDB)\n• Source: https://github.com/MrAbdulSamadDEV/salaars-home-furnecher\n• Live demo: https://salaars-home.vercel.app/",
-      "keywords": ["furnecher", "furniture project", "furniture ecommerce", "ecommerce project", "e-commerce", "furniture store", "online store", "shopping site", "shop project", "salaars home", "salaar", "storefront", "what is furnecher", "tell me about furnecher"]
+      "keywords": [
+        "furnecher",
+        "furniture project",
+        "furniture ecommerce",
+        "ecommerce project",
+        "e-commerce",
+        "furniture store",
+        "online store",
+        "shopping site",
+        "shop project",
+        "salaars home",
+        "salaar",
+        "storefront",
+        "what is furnecher",
+        "tell me about furnecher"
+      ]
     },
     {
       "id": "project-portfolio",
       "question": "Tell me about the portfolio website project",
       "answer": "This portfolio website is a premium production-quality site built with TypeScript, Node.js and Express. It features server-side rendering, an AI assistant called MAX AI, clean SEO-friendly URLs, accessibility support and a fully responsive design.\n\n• Technologies: HTML5, CSS3, TypeScript, Node.js, Express\n• Live: this site",
-      "keywords": ["portfolio website", "portfolio project", "portfolio site", "personal portfolio", "this website", "this site", "the site you are on", "this project", "portfolio web app", "this site project"]
+      "keywords": [
+        "portfolio website",
+        "portfolio project",
+        "portfolio site",
+        "personal portfolio",
+        "this website",
+        "this site",
+        "the site you are on",
+        "this project",
+        "portfolio web app",
+        "this site project"
+      ]
     },
     {
       "id": "best-project",
       "question": "Which is your best project?",
       "answer": "He is most proud of two things: Furnecher, his full-stack e-commerce platform with React and MongoDB, and this portfolio website you're on right now — with its server-side rendering and intelligent MAX AI assistant.",
-      "keywords": ["best project", "favorite project", "proudest project", "favourite project", "which project is best", "which is his best", "most impressive project", "top project"]
+      "keywords": [
+        "best project",
+        "favorite project",
+        "proudest project",
+        "favourite project",
+        "which project is best",
+        "which is his best",
+        "most impressive project",
+        "top project"
+      ]
     },
     {
       "id": "projects-count",
       "question": "How many projects have you built?",
       "answer": "He has built a number of real projects, with Furnecher (his featured e-commerce platform) and this portfolio website as the flagship ones — plus more apps and tools he's actively developing.",
-      "keywords": ["how many projects", "projects count", "number of projects", "how many apps", "count of projects", "how many projects has he built", "total projects", "project count"]
+      "keywords": [
+        "how many projects",
+        "projects count",
+        "number of projects",
+        "how many apps",
+        "count of projects",
+        "how many projects has he built",
+        "total projects",
+        "project count"
+      ]
     },
     {
       "id": "first-project",
       "question": "What was your first project?",
       "answer": "His first real projects were beginner web apps built in 2023 with HTML, CSS and JavaScript — simple tools and pages that taught him how to structure, style and connect code to real users.",
-      "keywords": ["first project", "first app", "first website", "initial project", "first build", "his first project", "what was his first project"]
+      "keywords": [
+        "first project",
+        "first app",
+        "first website",
+        "initial project",
+        "first build",
+        "his first project",
+        "what was his first project"
+      ]
     },
     {
       "id": "latest-project",
       "question": "What is your latest project?",
       "answer": "His latest and most complete project is Furnecher — a furniture e-commerce platform built with React, Node.js and MongoDB, live at https://salaars-home.vercel.app/.",
-      "keywords": ["latest project", "most recent project", "newest project", "recent work", "new work", "last project", "most recent work"]
+      "keywords": [
+        "latest project",
+        "most recent project",
+        "newest project",
+        "recent work",
+        "new work",
+        "last project",
+        "most recent work"
+      ]
     },
     {
       "id": "recommend-projects",
       "question": "Which projects should I look at first?",
       "answer": "Start with Furnecher — his featured e-commerce platform. It best demonstrates his full stack skills: React frontend, Node.js backend, MongoDB data and a polished, responsive storefront.\n\nLive demo: https://salaars-home.vercel.app/",
-      "keywords": ["which projects", "recommend projects", "where to start", "look at first", "suggest projects", "what should i look at", "recommended project", "start with"]
+      "keywords": [
+        "which projects",
+        "recommend projects",
+        "where to start",
+        "look at first",
+        "suggest projects",
+        "what should i look at",
+        "recommended project",
+        "start with"
+      ]
     },
     {
       "id": "project-scope",
       "question": "What kind of projects do you take?",
       "answer": "He takes projects like landing pages, business websites, e-commerce stores, dashboards, web tools and API development. If it can be built for the web, he's interested!",
-      "keywords": ["what kind of projects", "project scope", "types of projects", "what projects do you take", "small projects", "website types", "what kind of work", "types of work"]
+      "keywords": [
+        "what kind of projects",
+        "project scope",
+        "types of projects",
+        "what projects do you take",
+        "small projects",
+        "website types",
+        "what kind of work",
+        "types of work"
+      ]
     },
     {
       "id": "projects-updates",
       "question": "Do you update your projects often?",
       "answer": "Yes — he regularly improves existing projects and adds new ones. The best way to follow updates is his GitHub (https://github.com/MrAbdulSamadDEV) or the Projects page.",
-      "keywords": ["update projects", "new projects", "latest projects", "recent work", "new work", "do you update your projects", "does he update his projects", "project updates"]
+      "keywords": [
+        "update projects",
+        "new projects",
+        "latest projects",
+        "recent work",
+        "new work",
+        "do you update your projects",
+        "does he update his projects",
+        "project updates"
+      ]
     },
     {
       "id": "project-tech-furnecher",
       "question": "What tech does Furnecher use?",
       "answer": "Furnecher is built with React, Node.js and MongoDB, with HTML5, CSS3 and TypeScript powering the frontend and Express serving the API.\n\nSource: https://github.com/MrAbdulSamadDEV/salaars-home-furnecher",
-      "keywords": ["furnecher tech", "furnecher stack", "what is furnecher built with", "furnecher technologies", "furnecher made with", "tech behind furnecher", "ecommerce tech"]
+      "keywords": [
+        "furnecher tech",
+        "furnecher stack",
+        "what is furnecher built with",
+        "furnecher technologies",
+        "furnecher made with",
+        "tech behind furnecher",
+        "ecommerce tech"
+      ]
     },
     {
       "id": "see-projects-live",
       "question": "Where can I see your projects live?",
       "answer": "You can explore his work in two places:\n\n• The Projects page on this website\n• Furnecher live demo: https://salaars-home.vercel.app/\n\nSource code for everything is on GitHub: https://github.com/MrAbdulSamadDEV",
-      "keywords": ["see projects live", "view projects", "live demo", "try projects", "see his work", "project links", "where can i see projects", "visit projects", "demo links"]
+      "keywords": [
+        "see projects live",
+        "view projects",
+        "live demo",
+        "try projects",
+        "see his work",
+        "project links",
+        "where can i see projects",
+        "visit projects",
+        "demo links"
+      ]
     },
     {
       "id": "source-code-all",
       "question": "Where is the source code for your projects?",
       "answer": "All source code is available on his GitHub profile: https://github.com/MrAbdulSamadDEV — including the Furnecher repository at https://github.com/MrAbdulSamadDEV/salaars-home-furnecher.",
-      "keywords": ["source code", "source", "where is the code", "code repository", "repo link", "github link", "all projects source", "open source projects", "code for projects"]
+      "keywords": [
+        "where is the code",
+        "code repository",
+        "repo link",
+        "all projects source",
+        "open source projects",
+        "code for projects"
+      ]
     },
     {
       "id": "project-challenges",
       "question": "What was your biggest project challenge?",
       "answer": "Building Furnecher end-to-end was his biggest challenge — designing a full e-commerce flow with a React frontend, Node.js API and MongoDB, then shipping it live on Vercel. It taught him to think like a product engineer.",
-      "keywords": ["biggest challenge", "project challenge", "hardest project", "most difficult project", "challenges faced", "obstacles", "what was hard", "lessons learned"]
+      "keywords": [
+        "biggest challenge",
+        "project challenge",
+        "hardest project",
+        "most difficult project",
+        "challenges faced",
+        "obstacles",
+        "what was hard",
+        "lessons learned"
+      ]
     },
     {
       "id": "project-future",
       "question": "What projects are you planning next?",
       "answer": "He's planning projects that combine cloud data engineering with full stack development — dashboards, data-driven apps and cloud-powered tools that showcase his growing data skills.",
-      "keywords": ["future projects", "upcoming projects", "planned projects", "next projects", "what's next", "whats next", "future work", "ideas", "planned work"]
+      "keywords": [
+        "future projects",
+        "upcoming projects",
+        "planned projects",
+        "next projects",
+        "what's next",
+        "whats next",
+        "future work",
+        "ideas",
+        "planned work"
+      ]
     },
     {
       "id": "project-list-short",
       "question": "List your projects",
-      "answer": "Here's the current project lineup:\n\n• Furnecher — furniture e-commerce platform (React, Node.js, MongoDB) — Live\n• This portfolio website — with the MAX AI assistant\n\nVisit /projects to see them all in one place.",
-      "keywords": ["list projects", "project list", "list of projects", "show me your projects", "show projects", "project lineup", "all projects", "portfolio items"]
+      "answer": "Here's the current project lineup:\n\n• SALAAR'S HOME (Furnecher) — furniture e-commerce platform (React, Node.js, MongoDB) — Live\n• This portfolio website — with the MAX AI assistant\n• AI Assistant Web App — local knowledge base chat\n• Weather Dashboard — live forecasts and trends\n• Student Portal — campus courses and timetable\n• Keyboard Tester Pro — key press visualizer\n• Task Manager — kanban-style boards\n• Markdown Notes App — editor with live preview\n• URL Shortener API — REST API with click analytics\n• Real Estate Listing Site — property listings and filtering\n\nVisit https://www.abdulsamad.dev/projects to see them all in one place.",
+      "keywords": [
+        "list projects",
+        "project list",
+        "list of projects",
+        "show me your projects",
+        "show projects",
+        "project lineup",
+        "all projects",
+        "portfolio items"
+      ]
     },
     {
       "id": "contribution-idea",
       "question": "How can I contribute to your projects?",
       "answer": "Great question! Star his repositories, open issues for bugs, suggest features, or submit pull requests. Every contribution helps: https://github.com/MrAbdulSamadDEV",
-      "keywords": ["contribute to your projects", "contribute to his projects", "contribution", "star repo", "pull request", "report bug", "suggest feature", "how can i contribute", "help with projects"]
+      "keywords": [
+        "contribute to your projects",
+        "contribute to his projects",
+        "contribution",
+        "star repo",
+        "pull request",
+        "report bug",
+        "suggest feature",
+        "how can i contribute",
+        "help with projects"
+      ]
     },
     {
       "id": "open-source-projects",
       "question": "Are your projects open source?",
       "answer": "Yes! His code is public on GitHub: https://github.com/MrAbdulSamadDEV. Anyone can read, learn from, fork or contribute to his repositories.",
-      "keywords": ["open source projects", "is the code public", "are projects open source", "open source", "public code", "free to use code", "fork", "learn from code"]
+      "keywords": [
+        "open source projects",
+        "is the code public",
+        "are projects open source",
+        "open source",
+        "public code",
+        "free to use code",
+        "fork",
+        "learn from code"
+      ]
     }
   ]
 }

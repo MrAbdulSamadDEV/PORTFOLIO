@@ -65,7 +65,9 @@ const isDirectRun =
   process.argv[1] !== undefined &&
   pathToFileURL(process.argv[1]).href === import.meta.url;
 
-if (isDirectRun) {
+const onVercel = process.env.VERCEL === "1";
+
+if (isDirectRun && !onVercel) {
   app.listen(PORT, () => {
     console.log(`[server] ${IS_PRODUCTION ? "production" : "development"} mode`);
     console.log(`[server] Abdul Samad portfolio running at http://localhost:${PORT}`);

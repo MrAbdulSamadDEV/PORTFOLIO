@@ -5,145 +5,398 @@
       "id": "contact-methods",
       "question": "How can I contact you?",
       "answer": "There are several ways to reach Abdul Samad:\n\n• Email: mr.abdulsamadabdullah@gmail.com\n• Phone / WhatsApp: +92 370 8033443\n• LinkedIn: https://www.linkedin.com/in/abdulsamadabdullah/\n• GitHub: https://github.com/MrAbdulSamadDEV\n\nYou can also use the contact form on this website.",
-      "keywords": ["how can i contact you", "how can i contact him", "contact you", "contact him", "contact details", "get in touch", "reach you", "reach him", "how to contact", "ways to contact", "contact info", "contact information", "contact"]
+      "keywords": [
+        "reach him",
+        "how can i contact you",
+        "contact details",
+        "get in touch",
+        "reach you",
+        "ways to contact",
+        "contact info",
+        "contact information"
+      ]
     },
     {
       "id": "email",
       "question": "What is your email?",
       "answer": "You can email Abdul Samad at: mr.abdulsamadabdullah@gmail.com",
-      "keywords": ["email", "mail", "email address", "mail address", "contact email", "email id", "e mail", "e-mail", "inbox", "his email", "email him", "send an email", "mail him", "your email", "what is the email"]
+      "keywords": [
+        "email",
+        "mail",
+        "email address",
+        "mail address",
+        "contact email",
+        "email id",
+        "e mail",
+        "e-mail",
+        "inbox",
+        "his email",
+        "email him",
+        "send an email",
+        "mail him",
+        "your email",
+        "what is the email"
+      ]
     },
     {
       "id": "phone",
       "question": "What is your phone number?",
       "answer": "You can reach him by phone or WhatsApp at: +92 370 8033443",
-      "keywords": ["phone", "phone number", "mobile", "mobile number", "call", "call you", "call him", "contact number", "whatsapp", "whatsapp number", "telephone", "number", "his number", "phone him", "mobile phone", "cell"]
+      "keywords": [
+        "phone",
+        "phone number",
+        "mobile",
+        "mobile number",
+        "call",
+        "call you",
+        "call him",
+        "contact number",
+        "whatsapp",
+        "whatsapp number",
+        "telephone",
+        "number",
+        "his number",
+        "phone him",
+        "mobile phone",
+        "cell"
+      ]
     },
     {
       "id": "location",
       "question": "Where are you located?",
       "answer": "Abdul Samad is based in Lahore, Pakistan.",
-      "keywords": ["location", "where are you", "where is he", "where do you live", "where does he live", "city", "country", "based in", "address", "timezone", "lahore", "pakistan", "located", "where are you based"]
+      "keywords": [
+        "location",
+        "where are you",
+        "where is he",
+        "where do you live",
+        "where does he live",
+        "city",
+        "country",
+        "based in",
+        "address",
+        "timezone",
+        "lahore",
+        "pakistan",
+        "located",
+        "where are you based"
+      ]
     },
     {
       "id": "timezone",
       "question": "What is your timezone?",
       "answer": "He works in Pakistan Standard Time (PKT, UTC+5). It's easy to schedule calls with most of Asia, Europe and the Middle East.",
-      "keywords": ["timezone", "time zone", "utc", "pkt", "gmt", "what time is it there", "time difference", "his timezone", "current time"]
+      "keywords": [
+        "timezone",
+        "time zone",
+        "utc",
+        "pkt",
+        "gmt",
+        "what time is it there",
+        "time difference",
+        "his timezone",
+        "current time"
+      ]
     },
     {
       "id": "github",
       "question": "What is your GitHub?",
       "answer": "You can find all his code and repositories on GitHub: https://github.com/MrAbdulSamadDEV",
-      "keywords": ["github", "github link", "github profile", "github account", "source code", "repository", "repositories", "your code", "his code", "where is your code", "git hub", "github username", "github handle", "github id"]
+      "keywords": [
+        "github",
+        "github link",
+        "github profile",
+        "github account",
+        "source code",
+        "repository",
+        "repositories",
+        "your code",
+        "his code",
+        "where is your code",
+        "git hub",
+        "github username",
+        "github handle",
+        "github id"
+      ]
     },
     {
       "id": "linkedin",
       "question": "What is your LinkedIn?",
       "answer": "Connect with Abdul professionally on LinkedIn: https://www.linkedin.com/in/abdulsamadabdullah/",
-      "keywords": ["linkedin", "linkedin link", "linkedin profile", "linkedin account", "professional profile", "linked in", "connect on linkedin", "add me on linkedin", "his linkedin"]
+      "keywords": [
+        "linkedin",
+        "linkedin link",
+        "linkedin profile",
+        "linkedin account",
+        "professional profile",
+        "linked in",
+        "connect on linkedin",
+        "add me on linkedin",
+        "his linkedin"
+      ]
     },
     {
       "id": "twitter",
       "question": "What is your X (Twitter) account?",
       "answer": "You can follow him on X (Twitter): https://x.com/ABDULSAMAD8492",
-      "keywords": ["twitter", "x account", "x profile", "x twitter", "twitter link", "tweets", "his x", "follow him on x", "his twitter", "social on x"]
+      "keywords": [
+        "twitter",
+        "x account",
+        "x profile",
+        "x twitter",
+        "twitter link",
+        "tweets",
+        "his x",
+        "follow him on x",
+        "his twitter",
+        "social on x"
+      ]
     },
     {
       "id": "youtube",
       "question": "What is your YouTube channel?",
       "answer": "His YouTube channel is: https://www.youtube.com/@ABDULSAMADABDULLAHCODE",
-      "keywords": ["youtube", "youtube channel", "youtube link", "videos", "channel", "his youtube", "subscribe", "video channel", "youtube handle"]
+      "keywords": [
+        "youtube",
+        "youtube channel",
+        "youtube link",
+        "videos",
+        "channel",
+        "his youtube",
+        "subscribe",
+        "video channel",
+        "youtube handle"
+      ]
     },
     {
       "id": "portfolio-link",
       "question": "What is your portfolio website?",
       "answer": "This website is his portfolio — you're looking at it right now.",
-      "keywords": ["portfolio", "portfolio link", "website", "personal website", "portfolio site", "web address", "url", "your site", "his site", "his website", "web portfolio", "homepage"]
+      "keywords": [
+        "portfolio",
+        "portfolio link",
+        "website",
+        "personal website",
+        "portfolio site",
+        "web address",
+        "url",
+        "your site",
+        "his site",
+        "his website",
+        "web portfolio",
+        "homepage"
+      ]
     },
     {
       "id": "availability",
       "question": "Are you available for work?",
       "answer": "Yes! He's open to internships, freelance projects, open source contributions and collaboration. The best way to reach him is email at mr.abdulsamadabdullah@gmail.com.",
-      "keywords": ["available", "availability", "available for work", "open to work", "looking for work", "hire me", "can i hire you", "is he available", "free for work", "taking work"]
+      "keywords": [
+        "available",
+        "availability",
+        "available for work",
+        "open to work",
+        "looking for work",
+        "hire me",
+        "can i hire you",
+        "is he available",
+        "free for work",
+        "taking work"
+      ]
     },
     {
       "id": "response-time",
       "question": "How fast do you respond?",
       "answer": "He usually responds to emails within 24 hours. For urgent matters, WhatsApp is the fastest way to reach him at +92 370 8033443.",
-      "keywords": ["response time", "how fast do you reply", "how fast does he reply", "reply time", "how quickly", "response", "email response", "how soon", "reply speed", "answer time"]
+      "keywords": [
+        "response time",
+        "how fast do you reply",
+        "how fast does he reply",
+        "reply time",
+        "how quickly",
+        "response",
+        "email response",
+        "how soon",
+        "reply speed",
+        "answer time"
+      ]
     },
     {
       "id": "cv-resume",
       "question": "Can I get your resume?",
       "answer": "Of course! Send Abdul Samad a message through the contact form or email him directly at mr.abdulsamadabdullah@gmail.com and he'll share his resume with you.",
-      "keywords": ["resume", "cv", "curriculum vitae", "resume link", "download resume", "your cv", "his cv", "get resume", "resume pdf", "portfolio pdf"]
+      "keywords": [
+        "resume",
+        "cv",
+        "curriculum vitae",
+        "resume link",
+        "download resume",
+        "your cv",
+        "his cv",
+        "get resume",
+        "resume pdf",
+        "portfolio pdf"
+      ]
     },
     {
       "id": "best-way-to-contact",
       "question": "What is the best way to reach you?",
       "answer": "Email is the most reliable: mr.abdulsamadabdullah@gmail.com. For urgent or quick matters, WhatsApp at +92 370 8033443 works best.",
-      "keywords": ["best way to contact", "best way to reach", "fastest way", "reliable contact", "preferred contact method", "which contact", "best method", "prefer email or phone"]
+      "keywords": [
+        "best way to contact",
+        "best way to reach",
+        "fastest way",
+        "reliable contact",
+        "preferred contact method",
+        "which contact",
+        "best method",
+        "prefer email or phone"
+      ]
     },
     {
       "id": "hire-process",
       "question": "How can I hire you?",
       "answer": "Hiring him is simple:\n\n1. Email him at mr.abdulsamadabdullah@gmail.com with your project details\n2. You discuss requirements and timeline\n3. He delivers a high-quality result on time\n\nYou can also use the contact form on this website.",
-      "keywords": ["how can i hire you", "how can i hire him", "hire process", "hiring process", "how to hire", "work with you", "work with him", "start a project with him", "get started with him"]
+      "keywords": [
+        "how can i hire you",
+        "how can i hire him",
+        "hire process",
+        "hiring process",
+        "how to hire",
+        "work with you",
+        "work with him",
+        "start a project with him",
+        "get started with him"
+      ]
     },
     {
       "id": "time-availability",
       "question": "When are you available?",
       "answer": "He's available evenings and weekends for projects, and flexible around his study schedule. For urgent matters, WhatsApp him at +92 370 8033443.",
-      "keywords": ["when available", "available times", "working hours", "schedule", "timings", "when is he available", "availability schedule", "free times"]
+      "keywords": [
+        "when available",
+        "available times",
+        "working hours",
+        "schedule",
+        "timings",
+        "when is he available",
+        "availability schedule",
+        "free times"
+      ]
     },
     {
       "id": "network",
       "question": "Can we connect on LinkedIn?",
       "answer": "Absolutely — let's connect! https://www.linkedin.com/in/abdulsamadabdullah/",
-      "keywords": ["connect linkedin", "linkedin connect", "network", "professional network", "add me on linkedin", "connect professionally", "linkedin request"]
+      "keywords": [
+        "connect linkedin",
+        "linkedin connect",
+        "network",
+        "professional network",
+        "add me on linkedin",
+        "connect professionally",
+        "linkedin request"
+      ]
     },
     {
       "id": "send-project-details",
       "question": "What should I include in my email?",
       "answer": "Include your project type, goals, rough timeline and budget if you have one. Clear details mean a faster, more accurate response from Abdul.",
-      "keywords": ["what to include in email", "email details", "project details to send", "what should i send", "information to provide", "brief requirements", "how to describe project"]
+      "keywords": [
+        "what to include in email",
+        "email details",
+        "project details to send",
+        "what should i send",
+        "information to provide",
+        "brief requirements",
+        "how to describe project"
+      ]
     },
     {
       "id": "interview",
       "question": "Can I schedule an interview or call?",
       "answer": "Yes! Email him at mr.abdulsamadabdullah@gmail.com with your availability and timezone, and he'll schedule a call or meeting — phone, video or in person in Lahore.",
-      "keywords": ["interview", "schedule call", "book a call", "meeting", "video call", "zoom", "schedule interview", "talk to him", "phone call"]
+      "keywords": [
+        "interview",
+        "schedule call",
+        "book a call",
+        "meeting",
+        "video call",
+        "zoom",
+        "schedule interview",
+        "talk to him",
+        "phone call"
+      ]
     },
     {
       "id": "social-media-all",
       "question": "Where can I find you on social media?",
       "answer": "You can find Abdul Samad on:\n\n• GitHub: https://github.com/MrAbdulSamadDEV\n• LinkedIn: https://www.linkedin.com/in/abdulsamadabdullah/\n• X: https://x.com/ABDULSAMAD8492\n• YouTube: https://www.youtube.com/@ABDULSAMADABDULLAHCODE",
-      "keywords": ["social media", "socials", "social profiles", "all links", "his socials", "find him online", "social links", "profiles", "follow him"]
+      "keywords": [
+        "social media",
+        "socials",
+        "social profiles",
+        "all links",
+        "his socials",
+        "find him online",
+        "social links",
+        "profiles",
+        "follow him"
+      ]
     },
     {
       "id": "contact-form-usage",
       "question": "How does the contact form work?",
       "answer": "The contact form on this website validates your message and then opens your email client with everything pre-filled — no backend needed, your message goes straight to his inbox.",
-      "keywords": ["contact form", "how does the form work", "form usage", "send message form", "contact page form", "does the form work", "form email"]
+      "keywords": [
+        "contact form",
+        "how does the form work",
+        "form usage",
+        "send message form",
+        "contact page form",
+        "does the form work",
+        "form email"
+      ]
     },
     {
       "id": "message-sent",
       "question": "I sent a message, did you get it?",
       "answer": "The contact form opens your own email client with the message pre-filled — so if you hit send there, it goes straight to mr.abdulsamadabdullah@gmail.com. He replies within 24 hours.",
-      "keywords": ["message sent", "did you get my message", "i sent an email", "email received", "did he reply", "my message", "did you receive"]
+      "keywords": [
+        "message sent",
+        "did you get my message",
+        "i sent an email",
+        "email received",
+        "did he reply",
+        "my message",
+        "did you receive"
+      ]
     },
     {
       "id": "location-visit",
       "question": "Can I visit you in Lahore?",
       "answer": "He's based in Lahore, Pakistan — happy to meet in person if you're nearby. Message him first at mr.abdulsamadabdullah@gmail.com to arrange a time.",
-      "keywords": ["visit lahore", "visit him", "meet in lahore", "lahore meetup", "visit pakistan", "come see him"]
+      "keywords": [
+        "visit lahore",
+        "visit him",
+        "meet in lahore",
+        "lahore meetup",
+        "visit pakistan",
+        "come see him"
+      ]
     },
     {
       "id": "call-hours",
       "question": "When can I call you?",
       "answer": "Evenings and weekends work best for calls (Pakistan Standard Time). Email him first to confirm a time, or WhatsApp at +92 370 8033443 for urgent matters.",
-      "keywords": ["call hours", "when to call", "call time", "best time to call", "phone hours", "calling time"]
+      "keywords": [
+        "call hours",
+        "when to call",
+        "call time",
+        "best time to call",
+        "phone hours",
+        "calling time"
+      ]
     }
   ]
 }

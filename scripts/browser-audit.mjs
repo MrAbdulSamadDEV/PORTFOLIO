@@ -139,7 +139,21 @@ async function main() {
 
     await page.type(".ai-chat__input", "where can I find your github?");
     await page.keyboard.press("Enter");
-    await sleep(2500);
+    /* Wait until the answer is fully typed and rendered (composer unlocked).
+       Fixed sleeps are flaky: headless/slow machines can stall the main thread. */
+    await page
+      .waitForFunction(
+        () => {
+          const msgs = Array.from(document.querySelectorAll(".ai-msg--bot"));
+          const last = msgs[msgs.length - 1];
+          const input = document.querySelector<HTMLTextAreaElement>(".ai-chat__input");
+          if (!last || !input) return false;
+          const text = last.querySelector(".ai-msg__bubble")?.textContent ?? "";
+          return /github/i.test(text) && input.disabled === false;
+        },
+        { timeout: 15000, polling: 200 },
+      )
+      .catch(() => {});
     const aiReply = await page.evaluate(() => {
       const msgs = Array.from(document.querySelectorAll(".ai-msg--bot .ai-msg__bubble"));
       return msgs[msgs.length - 1]?.textContent ?? "";

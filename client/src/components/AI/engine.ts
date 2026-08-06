@@ -39,11 +39,11 @@ export const INTENT_FALLBACKS: Record<string, string> = {
 export const STOPWORDS = new Set([
   "me", "my", "you", "your", "yours", "yourself", "are", "is", "am", "what", "who", "how", "why", "when",
   "where", "do", "does", "did", "can", "could", "would", "will", "shall", "should", "the", "a", "an", "of",
-  "to", "for", "with", "on", "at", "in", "and", "or", "about", "tell", "show", "please", "i", "we", "it",
+  "to", "for", "with", "on", "at", "in", "and", "or", "about", "tell", "please", "i", "we", "it",
   "this", "that", "these", "those", "have", "has", "had", "be", "been", "not", "so", "if", "as", "by", "from",
   "up", "out", "over", "under", "again", "more", "most", "other", "some", "such", "than", "then", "too",
   "very", "just", "get", "want", "know", "like", "there", "here", "into", "only", "own", "same", "us",
-  "them", "he", "she", "his", "her", "let", "etc",
+  "them", "he", "she", "his", "her", "let", "need", "anything", "everything", "etc",
 ]);
 
 /** Words whose trailing "s" is not a plural marker. */
@@ -99,15 +99,26 @@ export function levenshtein(a: string, b: string, bound: number): number {
 /** Maximum acceptable Levenshtein distance for typo-tolerant single-token matches. */
 function typoTolerance(len: number): number {
   if (len <= 4) return 1;
-  if (len <= 7) return 2;
-  return 3;
+  return 2;
 }
+
+/** LRU-ish memo so large knowledge bases normalize each keyword only once. */
+const normalizeCache = new Map<string, string>();
+
+/** Compiled phrase matchers: avoid recompiling 20K+ regexes per question. */
+const phraseRegexCache = new Map<string, RegExp>();
 
 /** Word-boundary phrase search (case-insensitive on already-normalized text). */
 function includesPhrase(text: string, phrase: string): boolean {
   if (phrase.length === 0) return false;
-  const escaped = phrase.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  return new RegExp(`(?:^|[^a-z0-9])${escaped}(?:$|[^a-z0-9])`, "i").test(text);
+  let regex = phraseRegexCache.get(phrase);
+  if (!regex) {
+    const escaped = phrase.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    regex = new RegExp(`(?:^|[^a-z0-9])${escaped}(?:$|[^a-z0-9])`, "i");
+    if (phraseRegexCache.size > 50000) phraseRegexCache.clear();
+    phraseRegexCache.set(phrase, regex);
+  }
+  return regex.test(text);
 }
 
 /** Word-boundary token set of the query, stemmed for plural comparison. */
@@ -127,7 +138,7 @@ export function normalize(text: string): string {
     .normalize("NFKD")
     .replace(/[\u2018\u2019']/g, "")
     .replace(/\bs\b(?=\s)/g, "")
-    .replace(/([a-z0-9])s\b/g, "$1")
+    .replace(/\b([a-z0-9]{4,})s\b/g, "$1")
     .replace(/[^a-z0-9\s+@.\-]/g, " ")
     .replace(/\s+/g, " ")
     .trim();
@@ -135,9 +146,6 @@ export function normalize(text: string): string {
   normalizeCache.set(text, value);
   return value;
 }
-
-/** LRU-ish memo so large knowledge bases normalize each keyword only once. */
-const normalizeCache = new Map<string, string>();
 
 export function expandSynonyms(query: string, kb: AiKnowledgeBase): string {
   let expanded = query;
@@ -164,7 +172,6 @@ function tokensMatch(queryToken: string, keywordToken: string): boolean {
   const minLen = Math.min(q.length, k.length);
   if (minLen >= 5) {
     if (q.startsWith(k) || k.startsWith(q)) return true;
-    if (q.endsWith(k.slice(-4)) && k.length >= 6) return true;
   }
   return false;
 }
@@ -198,6 +205,27 @@ export function detectIntent(query: string, kb: AiKnowledgeBase): string | null 
   return bestCount > 0 ? bestCategory : null;
 }
 
+interface KeywordInfo {
+  normalized: string;
+  tokens: string[];
+  meaningful: string[];
+}
+
+/** Tokenization of a keyword is stable; memoize it across questions. */
+const keywordInfoCache = new Map<string, KeywordInfo>();
+
+function keywordInfo(rawKeyword: string): KeywordInfo {
+  const cached = keywordInfoCache.get(rawKeyword);
+  if (cached) return cached;
+  const normalized = normalize(rawKeyword);
+  const tokens = normalized.split(" ").filter(Boolean);
+  const meaningful = tokens.filter((token) => token.length >= 2 && !STOPWORDS.has(stem(token)));
+  const info = { normalized, tokens, meaningful };
+  if (keywordInfoCache.size > 50000) keywordInfoCache.clear();
+  keywordInfoCache.set(rawKeyword, info);
+  return info;
+}
+
 export function findBestAnswer(rawQuestion: string, kb: AiKnowledgeBase): EngineResult {
   const query = normalize(rawQuestion);
   if (!query) return { intent: null };
@@ -210,31 +238,29 @@ export function findBestAnswer(rawQuestion: string, kb: AiKnowledgeBase): Engine
     let score = 0;
 
     for (const rawKeyword of faq.keywords) {
-      const keyword = normalize(rawKeyword);
-      if (keyword.length < 3) continue;
+      const { normalized: keyword, tokens, meaningful } = keywordInfo(rawKeyword);
+      if (keyword.length < 2) continue;
 
-      const tokens = keyword.split(" ").filter(Boolean);
-      const meaningful = tokens.filter((token) => token.length >= 2 && !STOPWORDS.has(stem(token)));
-      if (meaningful.length === 0) continue;
-
-      // 1) Exact phrase present in the query (strongest signal).
+      // 1) Exact phrase present in the query (strongest signal). Runs before
+      //    the token layers so stopword-only phrases like "where are you"
+      //    still score instead of being skipped.
       if (includesPhrase(query, keyword)) {
         score += 6 + tokens.length * 2;
         continue;
       }
 
-      // 2) Every token of the keyword appears (any order, plurals equalized).
+      if (meaningful.length === 0) continue;
       if (tokens.every((token) => queryTokens.has(stem(token)))) {
         score += 3 + tokens.length * 1.5;
         continue;
       }
 
-      // 3) Every meaningful token appears.
+      // 2) Every meaningful token appears.
       if (meaningful.length > 1 && meaningful.every((token) => queryTokens.has(stem(token)))) {
         score += 2 + meaningful.length;
       }
 
-      // 4) Fuzzy + partial token matches (typos, truncations, compounds).
+      // 3) Fuzzy + partial token matches (typos, truncations, compounds).
       let fuzzyHits = 0;
       let partialHits = 0;
       for (const keywordToken of meaningful) {

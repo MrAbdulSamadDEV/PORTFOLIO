@@ -5,307 +5,819 @@
       "id": "who-are-you",
       "question": "Who is Abdul Samad?",
       "answer": "Abdul Samad is a Cloud Data Engineering student and Full Stack Developer based in Lahore, Pakistan. He builds fast, scalable and modern digital experiences with a strong focus on clean code, user experience, accessibility and performance.",
-      "keywords": ["who are you", "who is abdul samad", "who is samad", "about you", "about abdul samad", "about him", "tell me about yourself", "tell me about abdul samad", "your introduction", "introduction", "introduce yourself", "who is this website about", "whose portfolio is this", "who made this website", "who created this site", "say something about yourself"]
+      "keywords": [
+        "who are you",
+        "who is abdul samad",
+        "who is samad",
+        "about you",
+        "about abdul samad",
+        "about him",
+        "tell me about yourself",
+        "tell me about abdul samad",
+        "your introduction",
+        "introduction",
+        "introduce yourself",
+        "who is this website about",
+        "whose portfolio is this",
+        "who made this website",
+        "who created this site",
+        "say something about yourself"
+      ]
     },
     {
       "id": "full-name",
       "question": "What is your full name?",
       "answer": "His full name is Abdul Samad.",
-      "keywords": ["full name", "your name", "what is your name", "his name", "what is his name", "name please", "tell me your name", "tell me his name", "real name", "actual name", "complete name", "what should i call you", "what do people call you"]
+      "keywords": [
+        "full name",
+        "your name",
+        "what is your name",
+        "his name",
+        "what is his name",
+        "name please",
+        "tell me your name",
+        "tell me his name",
+        "real name",
+        "actual name",
+        "complete name",
+        "what should i call you",
+        "what do people call you"
+      ]
     },
     {
       "id": "short-intro",
       "question": "Give me a short introduction",
       "answer": "Hello, I'm Abdul Samad. I'm passionate about Cloud Data Engineering and Full Stack Development, and I love creating clean, modern, high-performance web applications. I enjoy solving real-world problems with technology and learning something new every day.",
-      "keywords": ["short introduction", "short intro", "brief introduction", "brief intro", "introduce briefly", "one line about you", "summarize yourself", "quick intro", "short bio", "summary about him"]
+      "keywords": [
+        "short introduction",
+        "short intro",
+        "brief introduction",
+        "brief intro",
+        "introduce briefly",
+        "one line about you",
+        "summarize yourself",
+        "quick intro",
+        "short bio",
+        "summary about him"
+      ]
     },
     {
       "id": "biography",
       "question": "Tell me Abdul Samad's biography",
       "answer": "Abdul Samad is a Computer Science student specializing in Cloud Data Engineering, working as a Full Stack Developer. He started coding in 2022 with HTML, CSS and JavaScript, then grew into TypeScript, Node.js and Express. He has built real products including a furniture e-commerce platform and this very portfolio, and he is continuously studying cloud technologies, Linux and modern engineering practices.",
-      "keywords": ["biography", "bio", "life story", "story about you", "story about him", "background about you", "his background", "full story", "tell me your story", "his story", "journey of abdul samad", "who is he really"]
+      "keywords": [
+        "biography",
+        "bio",
+        "life story",
+        "story about you",
+        "story about him",
+        "background about you",
+        "his background",
+        "full story",
+        "tell me your story",
+        "his story",
+        "journey of abdul samad",
+        "who is he really"
+      ]
     },
     {
       "id": "what-do-you-do",
       "question": "What does Abdul Samad do?",
       "answer": "He studies Cloud Data Engineering and works as a Full Stack Developer. He designs and builds modern web applications with TypeScript, Node.js and Express — handling everything from responsive interfaces to clean APIs and deployment.",
-      "keywords": ["what do you do", "what do you work on", "what do you do for a living", "his profession", "his job", "what does he do", "what is your work", "what is his work", "what is your occupation", "profession", "occupation", "career"]
+      "keywords": [
+        "what do you do",
+        "what do you work on",
+        "what do you do for a living",
+        "his profession",
+        "his job",
+        "what does he do",
+        "what is your work",
+        "what is his work",
+        "what is your occupation",
+        "profession",
+        "occupation"
+      ]
     },
     {
       "id": "tagline",
       "question": "What is your tagline?",
       "answer": "His tagline is: Building Fast, Scalable and Modern Digital Experiences.",
-      "keywords": ["tagline", "motto", "slogan", "catchphrase", "mission statement", "what is your motto"]
+      "keywords": [
+        "tagline",
+        "motto",
+        "slogan",
+        "catchphrase",
+        "mission statement",
+        "what is your motto"
+      ]
     },
     {
       "id": "developer-type",
       "question": "What kind of developer is Abdul Samad?",
       "answer": "He is a full stack developer with a focus on cloud data engineering. He builds complete products — responsive frontends, solid backends and clean architecture — while growing into cloud and data technologies.",
-      "keywords": ["what kind of developer", "developer type", "what type of developer", "developer profile", "his role", "what is his role", "full stack", "fullstack", "frontend or backend developer", "is he a frontend developer", "is he a backend developer"]
+      "keywords": [
+        "what kind of developer",
+        "developer type",
+        "what type of developer",
+        "developer profile",
+        "his role",
+        "what is his role",
+        "full stack",
+        "fullstack",
+        "frontend or backend developer",
+        "is he a frontend developer",
+        "is he a backend developer"
+      ]
     },
     {
       "id": "interests",
       "question": "What are your interests?",
       "answer": "He is deeply interested in web development, cloud computing, data engineering, AI tools and open source. He also enjoys learning about UI/UX design, performance engineering and how great products are built.",
-      "keywords": ["interests", "what are you interested in", "what is he interested in", "interests outside work", "what do you like", "what does he like", "his interests", "areas of interest", "passions"]
+      "keywords": [
+        "interests",
+        "what are you interested in",
+        "what is he interested in",
+        "interests outside work",
+        "what do you like",
+        "what does he like",
+        "his interests",
+        "areas of interest",
+        "passions"
+      ]
     },
     {
       "id": "hobbies",
       "question": "What are your hobbies?",
       "answer": "In his free time he builds side projects, explores new technologies and tools, solves programming challenges, and creates learning content about development.",
-      "keywords": ["hobbies", "free time", "what do you do for fun", "what does he do for fun", "hobby", "pastime", "spare time", "what do you do in your free time"]
+      "keywords": [
+        "hobbies",
+        "free time",
+        "what do you do for fun",
+        "what does he do for fun",
+        "hobby",
+        "pastime",
+        "spare time",
+        "what do you do in your free time"
+      ]
     },
     {
       "id": "strengths",
       "question": "What are your greatest strengths?",
       "answer": "His greatest strengths are problem solving, discipline, attention to detail and the ability to learn quickly. He turns complex problems into clean, maintainable solutions and ships quality work consistently.",
-      "keywords": ["greatest strengths", "strengths", "strong points", "what are you good at", "what is he good at", "best qualities", "advantages", "why should i hire you", "why hire him", "what makes him special"]
+      "keywords": [
+        "greatest strengths",
+        "strengths",
+        "strong points",
+        "what are you good at",
+        "what is he good at",
+        "best qualities",
+        "advantages",
+        "why should i hire you",
+        "why hire him",
+        "what makes him special"
+      ]
     },
     {
       "id": "weaknesses",
       "question": "What are your weaknesses?",
       "answer": "He is honest about his weaknesses — he sometimes spends too long perfecting small details. He balances this by prioritizing scope and timeline, and he continuously works on his weak areas through deliberate practice.",
-      "keywords": ["weaknesses", "weak points", "what are you not good at", "flaws", "areas to improve", "what should he improve", "faults", "shortcomings"]
+      "keywords": [
+        "weaknesses",
+        "weak points",
+        "what are you not good at",
+        "flaws",
+        "areas to improve",
+        "what should he improve",
+        "faults",
+        "shortcomings"
+      ]
     },
     {
       "id": "values",
       "question": "What are your core values?",
       "answer": "His core values are honesty, craftsmanship, continuous learning and respect for users. He believes code should be clean, products should be accessible, and every project should leave the user better off.",
-      "keywords": ["core values", "values", "principles", "what do you believe in", "work ethic", "his beliefs", "philosophy", "what matters to you"]
+      "keywords": [
+        "core values",
+        "values",
+        "principles",
+        "what do you believe in",
+        "work ethic",
+        "his beliefs",
+        "philosophy",
+        "what matters to you"
+      ]
     },
     {
       "id": "fun-fact",
       "question": "Tell me a fun fact",
       "answer": "This website you're browsing right now runs on a completely self-contained backend — the AI assistant you're chatting with answers instantly from a local knowledge base without any cloud service. Fast, private and always available.",
-      "keywords": ["fun fact", "interesting fact", "fun fact about you", "something interesting", "fun fact about him", "surprising thing", "interesting thing about him", "cool fact"]
+      "keywords": [
+        "fun fact",
+        "interesting fact",
+        "fun fact about you",
+        "something interesting",
+        "fun fact about him",
+        "surprising thing",
+        "interesting thing about him",
+        "cool fact"
+      ]
     },
     {
       "id": "inspiration",
       "question": "Who inspires you?",
       "answer": "He is inspired by the open source community, engineers who share their knowledge, and products that make complex things feel simple. Every great developer he follows has taught him something new.",
-      "keywords": ["inspires", "inspiration", "role model", "influenced", "who do you admire", "who does he admire", "mentors", "heroes", "idols"]
+      "keywords": [
+        "inspires",
+        "inspiration",
+        "role model",
+        "influenced",
+        "who do you admire",
+        "who does he admire",
+        "mentors",
+        "heroes",
+        "idols"
+      ]
     },
     {
       "id": "why-development",
       "question": "Why did you choose web development?",
       "answer": "He chose web development because it lets him combine creativity with engineering — turning ideas into fast, useful products that people actually use. The constant evolution of the web keeps him curious and always learning.",
-      "keywords": ["why development", "why web development", "why coding", "why programming", "why did you choose", "why did he choose", "inspiration to code", "what made you start", "origin story"]
+      "keywords": [
+        "why development",
+        "why web development",
+        "why coding",
+        "why programming",
+        "why did you choose",
+        "why did he choose",
+        "inspiration to code",
+        "what made you start",
+        "origin story"
+      ]
     },
     {
       "id": "working-style",
       "question": "What is your working style?",
       "answer": "He works in focused blocks with clear priorities. He plans before he codes, writes clean modular code, tests as he goes and communicates progress honestly. Consistency and discipline define his daily workflow.",
-      "keywords": ["working style", "work style", "how do you work", "work habits", "daily routine", "workflow", "how does he work", "productivity", "work routine"]
+      "keywords": [
+        "working style",
+        "work style",
+        "how do you work",
+        "work habits",
+        "daily routine",
+        "workflow",
+        "how does he work",
+        "productivity",
+        "work routine"
+      ]
     },
     {
       "id": "day-in-life",
       "question": "What does your day look like?",
       "answer": "A typical day mixes university coursework, coding projects, learning cloud concepts and sharing knowledge. He tries to ship something small every day — consistency compounds!",
-      "keywords": ["day in life", "daily routine", "typical day", "daily schedule", "your day", "his day", "a day with abdul samad", "what does a normal day look like"]
+      "keywords": [
+        "day in life",
+        "daily routine",
+        "typical day",
+        "daily schedule",
+        "your day",
+        "his day",
+        "a day with abdul samad",
+        "what does a normal day look like"
+      ]
     },
     {
       "id": "english-level",
       "question": "What is your English level?",
       "answer": "He is fluent in English — both written and spoken — which makes remote collaboration and communication easy.",
-      "keywords": ["english", "english level", "language skills", "communication skills", "fluent", "does he speak english", "english fluency", "language", "does he know english"]
+      "keywords": [
+        "english",
+        "english level",
+        "language skills",
+        "communication skills",
+        "fluent",
+        "does he speak english",
+        "english fluency",
+        "language",
+        "does he know english"
+      ]
     },
     {
       "id": "typing-speed",
       "question": "What is your typing speed?",
       "answer": "He is a fast, accurate typist — great for pair programming sessions and long documentation days.",
-      "keywords": ["typing speed", "wpm", "typing", "fast typer", "how fast can he type", "words per minute", "keyboard skills"]
+      "keywords": [
+        "typing speed",
+        "wpm",
+        "typing",
+        "fast typer",
+        "how fast can he type",
+        "words per minute",
+        "keyboard skills"
+      ]
     },
     {
       "id": "stress-work",
       "question": "How do you handle pressure?",
       "answer": "He stays calm and organized: clear priorities, realistic timelines and honest communication. Tight deadlines are motivating — they keep him focused on what matters most.",
-      "keywords": ["pressure", "stress", "deadlines", "tight schedule", "handle pressure", "deadline", "how does he handle stress", "under pressure", "high pressure", "last minute"]
+      "keywords": [
+        "pressure",
+        "stress",
+        "deadlines",
+        "tight schedule",
+        "handle pressure",
+        "deadline",
+        "how does he handle stress",
+        "under pressure",
+        "high pressure",
+        "last minute"
+      ]
     },
     {
       "id": "teamwork",
       "question": "Do you like working in teams?",
       "answer": "Absolutely. He enjoys collaboration, code reviews and learning from other developers. Open source has taught him how powerful good teamwork is.",
-      "keywords": ["teamwork", "team", "collaboration", "working with others", "team player", "does he work well in teams", "group work", "collaborative", "solo or team"]
+      "keywords": [
+        "teamwork",
+        "team",
+        "collaboration",
+        "working with others",
+        "team player",
+        "does he work well in teams",
+        "group work",
+        "collaborative",
+        "solo or team"
+      ]
     },
     {
       "id": "meet-in-person",
       "question": "Can we meet in person?",
       "answer": "He is based in Lahore, Pakistan, so he's happy to meet in person if you're nearby. For everyone else, he's fully available online via email, WhatsApp or LinkedIn.",
-      "keywords": ["meet in person", "meet up", "meeting", "in person", "can we meet", "meet him", "coffee", "face to face"]
+      "keywords": [
+        "meet in person",
+        "meet up",
+        "meeting",
+        "in person",
+        "can we meet",
+        "meet him",
+        "coffee",
+        "face to face"
+      ]
     },
     {
       "id": "personality",
       "question": "How would you describe your personality?",
       "answer": "Calm, curious and dependable. He is detail-oriented, values honesty, enjoys helping others learn, and approaches problems with patience and structured thinking.",
-      "keywords": ["personality", "describe yourself", "describe him", "what is he like", "personality type", "his nature", "character", "temperament"]
+      "keywords": [
+        "personality",
+        "describe yourself",
+        "describe him",
+        "what is he like",
+        "personality type",
+        "his nature",
+        "character",
+        "temperament"
+      ]
     },
     {
       "id": "age",
       "question": "How old is Abdul Samad?",
       "answer": "Abdul Samad started his Computer Science degree in 2022, so he's a young developer in his early twenties — but his practical experience spans several years of real projects.",
-      "keywords": ["how old", "age", "his age", "how old is he", "born", "birth year", "young", "when was he born"]
+      "keywords": [
+        "how old",
+        "age",
+        "his age",
+        "how old is he",
+        "born",
+        "birth year",
+        "young",
+        "when was he born"
+      ]
     },
     {
       "id": "nationality",
       "question": "Where is Abdul Samad from?",
       "answer": "Abdul Samad is from Pakistan and is currently based in Lahore, Pakistan.",
-      "keywords": ["nationality", "where is he from", "what country", "where are you from", "his nationality", "pakistani", "origin", "homeland", "motherland"]
+      "keywords": [
+        "nationality",
+        "where is he from",
+        "what country",
+        "where are you from",
+        "his nationality",
+        "pakistani",
+        "origin",
+        "homeland",
+        "motherland"
+      ]
     },
     {
       "id": "languages-spoken",
       "question": "Which languages does Abdul Samad speak?",
       "answer": "He speaks English fluently and his native language is Urdu. He uses English daily for study, work and open source collaboration.",
-      "keywords": ["languages spoken", "speaks", "which languages", "urdu", "english speaker", "multilingual", "do you speak urdu", "does he speak urdu", "his languages"]
+      "keywords": [
+        "languages spoken",
+        "speaks",
+        "which languages",
+        "urdu",
+        "english speaker",
+        "multilingual",
+        "do you speak urdu",
+        "does he speak urdu",
+        "his languages"
+      ]
     },
     {
       "id": "career-goals",
       "question": "What are your career goals?",
       "answer": "His goal is to become a world-class engineer who bridges data engineering and full stack development — building intelligent, scalable systems that solve real problems. He aims to grow into cloud engineering and lead meaningful projects.",
-      "keywords": ["career goals", "goals", "ambitions", "future plans", "aspirations", "dream job", "future goals", "plans for future", "what are his plans", "long term goals", "vision"]
+      "keywords": [
+        "career goals",
+        "goals",
+        "ambitions",
+        "future plans",
+        "aspirations",
+        "dream job",
+        "future goals",
+        "plans for future",
+        "what are his plans",
+        "long term goals",
+        "vision"
+      ]
     },
     {
       "id": "what-is-max-ai",
       "question": "What is MAX AI?",
       "answer": "MAX AI is Abdul Samad's personal portfolio assistant — the assistant you're chatting with right now! I can answer questions about his projects, skills, experience, education, certifications and contact information. Just ask me anything.",
-      "keywords": ["max ai", "max", "who are you really", "are you a bot", "are you ai", "what is max", "who made you", "what are you", "are you a chatbot", "are you human", "is this ai", "the robot"]
+      "keywords": [
+        "max ai",
+        "max",
+        "who are you really",
+        "are you a bot",
+        "are you ai",
+        "what is max",
+        "who made you",
+        "what are you",
+        "are you a chatbot",
+        "are you human",
+        "is this ai",
+        "the robot"
+      ]
     },
     {
       "id": "how-max-ai-works",
       "question": "How does MAX AI work?",
       "answer": "I work entirely on the visitor's device using a curated knowledge base of questions and answers about Abdul Samad. I recognize questions through keyword, synonym and partial matching, then rank the best answer instantly — so I'm fast, private and always available.",
-      "keywords": ["how does max work", "how do you work", "how are you built", "your engine", "how do you answer", "how does this chatbot work", "how does the ai work", "how was max made", "how does this work"]
+      "keywords": [
+        "how does max work",
+        "how do you work",
+        "how are you built",
+        "your engine",
+        "how do you answer",
+        "how does this chatbot work",
+        "how does the ai work",
+        "how was max made",
+        "how does this work"
+      ]
     },
     {
       "id": "max-ai-created-by",
       "question": "Who created MAX AI?",
       "answer": "Abdul Samad designed and built MAX AI as part of his portfolio website — an assistant that answers questions instantly from a curated local knowledge base. I'm his creation!",
-      "keywords": ["who created max ai", "who made max ai", "max ai developer", "max ai builder", "who built you", "who coded you", "who programmed you", "who developed this assistant"]
+      "keywords": [
+        "who created max ai",
+        "who made max ai",
+        "max ai developer",
+        "max ai builder",
+        "who built you",
+        "who coded you",
+        "who programmed you",
+        "who developed this assistant"
+      ]
     },
     {
       "id": "portfolio-tech",
       "question": "What tech does this portfolio use?",
       "answer": "This portfolio is built with TypeScript on both sides: a Node.js + Express server with server-side rendering, clean SEO-friendly URLs, security headers, and a client layer for the AI assistant, custom cursor and animations. No heavy frameworks — just fast, clean engineering.",
-      "keywords": ["portfolio tech", "this site built with", "what tech is this site", "how was this built", "this website stack", "built with", "what is this site made of", "technologies of this website", "what powers this site", "is this react", "is this nextjs"]
+      "keywords": [
+        "portfolio tech",
+        "this site built with",
+        "what tech is this site",
+        "how was this built",
+        "this website stack",
+        "built with",
+        "what is this site made of",
+        "technologies of this website",
+        "what powers this site",
+        "is this react",
+        "is this nextjs"
+      ]
     },
     {
       "id": "operating-system",
       "question": "Which operating system do you use?",
       "answer": "He uses Windows for daily development and Linux for server, scripting and cloud data work — the best of both worlds.",
-      "keywords": ["operating system", "os", "windows", "linux", "mac", "which os", "what os does he use", "does he use mac", "does he use linux"]
+      "keywords": [
+        "operating system",
+        "os",
+        "windows",
+        "linux",
+        "mac",
+        "which os",
+        "what os does he use",
+        "does he use mac",
+        "does he use linux"
+      ]
     },
     {
       "id": "browser-tools",
       "question": "Which browser tools do you use?",
       "answer": "DevTools is his best friend — for debugging, performance profiling, accessibility checks and responsive testing across all viewport sizes.",
-      "keywords": ["browser", "devtools", "chrome", "developer tools", "inspect", "browser tools", "debugging tools", "how does he debug"]
+      "keywords": [
+        "browser",
+        "devtools",
+        "chrome",
+        "developer tools",
+        "inspect",
+        "browser tools",
+        "debugging tools",
+        "how does he debug"
+      ]
     },
     {
       "id": "content-creation",
       "question": "Do you create content?",
       "answer": "Yes! He shares coding content on his YouTube channel (https://www.youtube.com/@ABDULSAMADABDULLAHCODE) — tutorials, project walkthroughs and learning tips for developers.",
-      "keywords": ["content", "content creator", "youtube videos", "tutorials", "teaching", "share knowledge", "does he make videos", "does he teach", "blog", "write articles"]
+      "keywords": [
+        "content",
+        "content creator",
+        "youtube videos",
+        "tutorials",
+        "teaching",
+        "share knowledge",
+        "does he make videos",
+        "does he teach",
+        "blog",
+        "write articles"
+      ]
     },
     {
       "id": "first-program",
       "question": "What was your first program?",
       "answer": "His first lines of code were HTML, CSS and JavaScript in 2022 — building simple web pages that sparked his love for the web. From there he moved into Node.js, TypeScript and cloud technologies.",
-      "keywords": ["first program", "first code", "first lines of code", "hello world", "when did you first code", "when did he start coding", "first time coding"]
+      "keywords": [
+        "first program",
+        "first code",
+        "first lines of code",
+        "hello world",
+        "when did you first code",
+        "when did he start coding",
+        "first time coding"
+      ]
     },
     {
       "id": "favorite-part-of-job",
       "question": "What do you enjoy most about development?",
       "answer": "He enjoys the moment when a complex problem finally clicks — and shipping something real that people actually use. Building end-to-end products, from interface to deployment, is what he loves most.",
-      "keywords": ["enjoy most", "favorite part", "what do you love about coding", "best part of the job", "favourite part of development", "what excites him", "what does he enjoy"]
+      "keywords": [
+        "enjoy most",
+        "favorite part",
+        "what do you love about coding",
+        "best part of the job",
+        "favourite part of development",
+        "what excites him",
+        "what does he enjoy"
+      ]
     },
     {
       "id": "writing-code-quality",
       "question": "What is your approach to code quality?",
       "answer": "He follows strict TypeScript with meaningful names, modular architecture, clean comments and no dead code. He treats code quality as a feature — it makes projects maintainable and scalable.",
-      "keywords": ["code quality", "clean code", "best practices", "code style", "your standards", "quality code", "how does he write code", "code organization", "naming conventions", "comments"]
+      "keywords": [
+        "code quality",
+        "clean code",
+        "best practices",
+        "code style",
+        "your standards",
+        "quality code",
+        "how does he write code",
+        "code organization",
+        "naming conventions",
+        "comments"
+      ]
     },
     {
       "id": "problem-solving",
       "question": "How do you approach problem solving?",
       "answer": "He breaks problems into small pieces: understand the requirements, research the best approach, build an incremental solution, test it, and refine. Debugging is a skill he has sharpened on real projects.",
-      "keywords": ["problem solving", "approach to problems", "how do you solve problems", "how does he solve problems", "debugging", "troubleshooting", "his process for problems", "tackle problems", "solve difficult problems"]
+      "keywords": [
+        "problem solving",
+        "approach to problems",
+        "how do you solve problems",
+        "how does he solve problems",
+        "debugging",
+        "troubleshooting",
+        "his process for problems",
+        "tackle problems",
+        "solve difficult problems"
+      ]
     },
     {
       "id": "stress-management",
       "question": "How do you stay motivated?",
       "answer": "He stays motivated by shipping small wins, tracking progress and surrounding himself with people who push him forward. He also celebrates learning itself — every bug fixed is progress.",
-      "keywords": ["stay motivated", "motivation", "motivated", "how does he stay motivated", "burnout", "avoid burnout", "staying consistent", "discipline", "motivate yourself"]
+      "keywords": [
+        "stay motivated",
+        "motivation",
+        "motivated",
+        "how does he stay motivated",
+        "burnout",
+        "avoid burnout",
+        "staying consistent",
+        "discipline",
+        "motivate yourself"
+      ]
     },
     {
       "id": "role-model-qualities",
       "question": "What qualities do you admire in other developers?",
       "answer": "He admires clarity, humility and generosity — developers who write code anyone can read, admit what they don't know, and take time to help others grow.",
-      "keywords": ["admire in developers", "qualities in developers", "what he looks up to", "good developer qualities", "what makes a great developer"]
+      "keywords": [
+        "admire in developers",
+        "qualities in developers",
+        "what he looks up to",
+        "good developer qualities",
+        "what makes a great developer"
+      ]
     },
     {
       "id": "anime-interest",
       "question": "Does Abdul Samad like anime?",
       "answer": "Yes! Abdul enjoys anime — especially the focused, disciplined protagonist archetype seen in series like Solo Leveling. That determined mindset matches his approach to learning and building.",
-      "keywords": ["anime", "solo leveling", "sung jin woo", "jinwoo", "does he watch anime", "manga", "favorite anime", "anime fan", "otaku"]
+      "keywords": [
+        "anime",
+        "solo leveling",
+        "sung jin woo",
+        "jinwoo",
+        "does he watch anime",
+        "manga",
+        "favorite anime",
+        "anime fan",
+        "otaku"
+      ]
     },
     {
       "id": "gaming",
       "question": "Does Abdul Samad play games?",
       "answer": "He occasionally enjoys games, and he even built a Keyboard Tester Pro project to improve his gaming and typing setup. Mostly he spends his play-time building side projects.",
-      "keywords": ["gaming", "games", "does he play games", "gamer", "video games", "esports"]
+      "keywords": [
+        "gaming",
+        "games",
+        "does he play games",
+        "gamer",
+        "video games",
+        "esports"
+      ]
     },
     {
       "id": "music",
       "question": "What kind of music does Abdul Samad like?",
       "answer": "He prefers calm, focus-friendly music while coding — lo-fi, ambient and instrumental tracks help him enter deep work flow.",
-      "keywords": ["music", "what music", "favorite music", "does he like music", "lo fi", "lofi", "playlist", "songs"]
+      "keywords": [
+        "music",
+        "what music",
+        "favorite music",
+        "does he like music",
+        "lo fi",
+        "lofi",
+        "playlist",
+        "songs"
+      ]
     },
     {
       "id": "favorite-book",
       "question": "What books does Abdul Samad like?",
       "answer": "He loves technical books and docs — from JavaScript and TypeScript guides to cloud engineering resources — plus a few books on productivity and mindset.",
-      "keywords": ["favorite book", "books", "what does he read", "reading", "favourite book", "book recommendations", "docs"]
+      "keywords": [
+        "favorite book",
+        "books",
+        "what does he read",
+        "reading",
+        "favourite book",
+        "book recommendations",
+        "docs"
+      ]
     },
     {
       "id": "thanks",
       "question": "Thank you",
       "answer": "You're welcome! If you have any other questions about Abdul Samad, his projects, skills or contact details, just ask. I'm always happy to help.",
-      "keywords": ["thank you", "thanks", "thx", "thank", "appreciate it", "grateful", "much obliged"]
+      "keywords": [
+        "thank you",
+        "thanks",
+        "thx",
+        "thank",
+        "appreciate it",
+        "grateful",
+        "much obliged"
+      ]
     },
     {
       "id": "hello",
       "question": "Hello",
       "answer": "Hello! Welcome to Abdul Samad's portfolio. I'm MAX AI, your personal portfolio assistant. Ask me about his projects, skills, experience or contact information.",
-      "keywords": ["hello", "hi", "hey", "salam", "assalam o alaikum", "assalamu alaikum", "good morning", "good afternoon", "good evening", "yo", "sup", "greetings", "howdy"]
+      "keywords": [
+        "hello",
+        "hi",
+        "hey",
+        "salam",
+        "assalam o alaikum",
+        "assalamu alaikum",
+        "good morning",
+        "good afternoon",
+        "good evening",
+        "yo",
+        "sup",
+        "greetings",
+        "howdy"
+      ]
     },
     {
       "id": "how-are-you",
       "question": "How are you?",
       "answer": "I'm doing great, thank you for asking! Ready to answer any questions about Abdul Samad's work. How can I help you today?",
-      "keywords": ["how are you", "how are you doing", "how's it going", "how is it going", "how do you feel", "are you okay", "you alright", "whats up", "how have you been", "how are things"]
+      "keywords": [
+        "how are you",
+        "how are you doing",
+        "how's it going",
+        "how is it going",
+        "how do you feel",
+        "are you okay",
+        "you alright",
+        "whats up",
+        "how have you been",
+        "how are things"
+      ]
     },
     {
       "id": "what-can-you-do",
       "question": "What can you do?",
       "answer": "I can tell you everything about Abdul Samad:\n\n• His skills and technologies\n• His projects and what they do\n• His education and experience\n• His certificates\n• His contact information and social links\n\nTry asking: \"Show your projects\" or \"How can I contact you?\"",
-      "keywords": ["what can you do", "what do you know", "your features", "what can i ask", "help me", "what should i ask", "capabilities", "what questions can i ask", "what are you capable of", "how can you help"]
+      "keywords": [
+        "what can you do",
+        "what do you know",
+        "your features",
+        "what can i ask",
+        "help me",
+        "what should i ask",
+        "capabilities",
+        "what questions can i ask",
+        "what are you capable of",
+        "how can you help"
+      ]
     },
     {
       "id": "dont-understand",
       "question": "I don't understand",
       "answer": "No problem! Try asking in a simpler way, like:\n\n• \"Who is Abdul Samad?\"\n• \"What are his skills?\"\n• \"Show his projects\"\n• \"How can I contact him?\"",
-      "keywords": ["i don't understand", "dont understand", "didn't understand", "didnt understand", "not clear", "confused", "rephrase", "say it again", "repeat", "what did you say", "huh", "what"]
+      "keywords": [
+        "i don't understand",
+        "dont understand",
+        "didn't understand",
+        "didnt understand",
+        "not clear",
+        "confused",
+        "rephrase",
+        "say it again",
+        "repeat",
+        "what did you say",
+        "huh"
+      ]
     },
     {
       "id": "meaning-of-life",
       "question": "What is the meaning of life?",
       "answer": "That's a deep one! For Abdul Samad, it's about building things that matter, helping others, and growing a little every day. Now, back to his portfolio — can I tell you about his projects?",
-      "keywords": ["meaning of life", "purpose of life", "why do we exist", "deep question", "philosophy", "life purpose"]
+      "keywords": [
+        "meaning of life",
+        "purpose of life",
+        "why do we exist",
+        "deep question",
+        "philosophy",
+        "life purpose"
+      ]
     },
     {
       "id": "joke",
       "question": "Tell me a joke",
       "answer": "Why do programmers prefer dark mode? Because light attracts bugs! 🐞\n\nOkay, back to business — ask me about Abdul's projects, skills or contact details!",
-      "keywords": ["joke", "jokes", "funny", "make me laugh", "tell me something funny", "humor", "entertain me"]
+      "keywords": [
+        "joke",
+        "jokes",
+        "funny",
+        "make me laugh",
+        "tell me something funny",
+        "humor",
+        "entertain me"
+      ]
     }
   ]
 }

@@ -36,6 +36,56 @@ const PREFIXES = [
 const QUESTION_STARTERS =
   /^(what|who|how|why|when|where|which|do|does|is|are|can|could|would|should|will|shall|tell|show|list|give|please|thank|goodbye|hello|hi|hey|i|you|your|his|my|the|a|an|am|have|has|are|were|was)\b/;
 
+/** Matches the engine's runtime stopword list (client/src/components/AI/engine.ts). */
+const STOPWORDS = new Set([
+  "me", "my", "you", "your", "yours", "yourself", "are", "is", "am", "what", "who", "how", "why", "when",
+  "where", "do", "does", "did", "can", "could", "would", "will", "shall", "should", "the", "a", "an", "of",
+  "to", "for", "with", "on", "at", "in", "and", "or", "about", "tell", "please", "i", "we", "it",
+  "this", "that", "these", "those", "have", "has", "had", "be", "been", "not", "so", "if", "as", "by", "from",
+  "up", "out", "over", "under", "again", "more", "most", "other", "some", "such", "than", "then", "too",
+  "very", "just", "get", "want", "know", "like", "there", "here", "into", "only", "own", "same", "us",
+  "them", "he", "she", "his", "her", "let", "need", "anything", "everything", "etc",
+]);
+
+/** Rough singular/plural handling mirroring the engine's stem(). */
+function stemWord(word) {
+  const w = word.toLowerCase();
+  if (w.length <= 3) return w;
+  if (w.endsWith("ies") && w.length > 4) return `${w.slice(0, -3)}y`;
+  if (w.endsWith("es")) return w.slice(0, -2);
+  if (w.endsWith("s")) return w.slice(0, -1);
+  return w;
+}
+
+/**
+ * Signature of a keyword's *meaningful* tokens. Every formulaic variation of
+ * one phrase ("soft skills", "tell me soft skills", "please tell me soft skills", …)
+ * shares a signature, so only the first (canonical) variant is kept. This stops
+ * keyword-variant counts from drowning real matches in the fuzzy layer.
+ * Stopword-only phrases get an empty signature and are always kept.
+ */
+function signatureOf(keyword) {
+  return keyword
+    .split(" ")
+    .map(stemWord)
+    .filter((token) => token.length >= 2 && !STOPWORDS.has(token))
+    .sort()
+    .join(" ");
+}
+
+/** Removes formulaic duplicate variants, preserving the first (canonical) form. */
+function dedupeBySignature(keywords) {
+  const seen = new Set();
+  const out = [];
+  for (const keyword of keywords) {
+    const signature = signatureOf(keyword);
+    if (signature && seen.has(signature)) continue;
+    if (signature) seen.add(signature);
+    out.push(keyword);
+  }
+  return out;
+}
+
 /** Canonical category file order for the bundled faqs array. */
 const CATEGORY_ORDER = [
   "about",
@@ -119,7 +169,7 @@ async function main() {
       }
       seenQuestions.add(questionKey);
 
-      const keywords = expandKeywords(faq.keywords ?? []);
+      const keywords = dedupeBySignature(expandKeywords(faq.keywords ?? []));
       keywordCount += keywords.length;
 
       faqs.push({

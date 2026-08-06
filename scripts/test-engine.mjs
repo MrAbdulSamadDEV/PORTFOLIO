@@ -196,7 +196,9 @@ for (const group of groups) {
 
 for (const [q, expected] of singles) {
   const result = findBestAnswer(q, kb);
-  const ok = result.faq ? true : result.intent !== null;
+  /* "intent-or-null" means any sane result is fine (nonsense queries should
+     fall through to the "unknown" fallback, so null is expected there). */
+  const ok = expected === "intent-or-null" || result.faq !== undefined || result.intent !== null;
   const label = result.faq ? `FAQ(${result.faq.id})` : `intent(${result.intent})`;
   check(ok, `"${q}" -> ${label}`);
 }

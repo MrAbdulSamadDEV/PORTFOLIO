@@ -5,283 +5,763 @@
       "id": "skills-overview",
       "question": "What are your skills?",
       "answer": "Here's a quick overview of Abdul Samad's skills:\n\n• Frontend: HTML5, CSS3, JavaScript, TypeScript, React\n• Backend: Node.js, Express, REST APIs\n• Programming: Python, C++, C#\n• Data & Cloud: Cloud Data Engineering, MongoDB, Linux\n• Tools: Git, GitHub, VS Code, OpenCode CLI",
-      "keywords": ["your skills", "his skills", "what are your skills", "what are his skills", "skill set", "skills overview", "what skills do you have", "what skills does he have", "list your skills", "list his skills", "main skills", "my skills", "skill", "technical abilities"]
+      "keywords": [
+        "what are you skilled at",
+        "skill",
+        "skill set",
+        "skills overview",
+        "list your skills",
+        "main skills",
+        "technical abilities",
+        "what skills do you have"
+      ]
     },
     {
       "id": "technical-skills",
       "question": "What are your technical skills?",
       "answer": "His technical skills include:\n\n• Frontend development with HTML5, CSS3, JavaScript, TypeScript and React\n• Backend development with Node.js and Express\n• REST API design and integration\n• Programming in Python, C++ and C#\n• Cloud data engineering fundamentals, MongoDB and Linux\n• Version control with Git & GitHub",
-      "keywords": ["technical skills", "tech skills", "technical stack", "technical expertise", "engineering skills", "technologies he knows", "what technologies", "what technologies does he know", "tech stack", "technology stack"]
+      "keywords": [
+        "technical skills",
+        "tech skills",
+        "technical stack",
+        "technical expertise",
+        "engineering skills",
+        "technologies he knows",
+        "what technologies",
+        "what technologies does he know",
+        "tech stack",
+        "technology stack"
+      ]
     },
     {
       "id": "soft-skills",
       "question": "What are your soft skills?",
       "answer": "Beyond code, he brings:\n\n• Problem solving and analytical thinking\n• Clear communication and teamwork\n• Self-discipline and time management\n• Curiosity and a habit of continuous learning\n• Attention to detail and a user-focused mindset",
-      "keywords": ["soft skills", "personal skills", "interpersonal skills", "qualities", "strengths", "non technical skills", "people skills", "social skills", "character traits"]
+      "keywords": [
+        "soft skills",
+        "personal skills",
+        "interpersonal skills",
+        "qualities",
+        "strengths",
+        "non technical skills",
+        "people skills",
+        "social skills",
+        "character traits"
+      ]
     },
     {
       "id": "frontend-skills",
       "question": "Which frontend technologies do you know?",
       "answer": "He builds interfaces with HTML5, CSS3, JavaScript, TypeScript and React. He focuses on responsive layouts, accessibility, animations, performance and modern browser APIs.",
-      "keywords": ["frontend", "front end", "front-end", "frontend skills", "frontend technologies", "frontend stack", "web design skills", "client side", "ui development", "front end skills", "front end technologies"]
+      "keywords": [
+        "frontend",
+        "front end",
+        "front-end",
+        "frontend skills",
+        "frontend technologies",
+        "frontend stack",
+        "web design skills",
+        "client side",
+        "ui development",
+        "front end skills",
+        "front end technologies"
+      ]
     },
     {
       "id": "backend-skills",
       "question": "Which backend technologies do you know?",
       "answer": "On the backend he uses Node.js with Express and TypeScript to build fast, reliable REST APIs and server-rendered applications.",
-      "keywords": ["backend", "back end", "back-end", "backend skills", "backend technologies", "backend stack", "server side", "api development", "back end skills", "backend development", "server"]
+      "keywords": [
+        "backend",
+        "back end",
+        "back-end",
+        "backend skills",
+        "backend technologies",
+        "backend stack",
+        "server side",
+        "api development",
+        "back end skills",
+        "backend development",
+        "server"
+      ]
     },
     {
       "id": "programming-languages",
       "question": "Which programming languages do you know?",
       "answer": "He works with TypeScript and JavaScript as his main languages, and he also knows Python, C++ and C#. He's always learning more.",
-      "keywords": ["programming languages", "languages you know", "languages he knows", "which languages", "coding languages", "programming", "his languages", "what languages does he code in", "coding"]
+      "keywords": [
+        "programming skills",
+        "programming languages",
+        "languages you know",
+        "which languages",
+        "coding languages",
+        "programming",
+        "what languages does he code in",
+        "coding"
+      ]
     },
     {
       "id": "typescript-level",
       "question": "How good are you with TypeScript?",
       "answer": "TypeScript is his primary language. He uses it for both frontend and backend development with strict typing, reusable types and modular architecture.",
-      "keywords": ["typescript", "ts", "type script", "typescript level", "how good is he at typescript", "do you know typescript", "does he know typescript", "typescript developer"]
+      "keywords": [
+        "typescript",
+        "ts",
+        "type script",
+        "typescript level",
+        "how good is he at typescript",
+        "do you know typescript",
+        "does he know typescript",
+        "typescript developer"
+      ]
     },
     {
       "id": "html-level",
       "question": "How good are you with HTML?",
       "answer": "HTML5 is his foundation — he writes semantic, accessible and well-structured markup that search engines love and screen readers understand.",
-      "keywords": ["html", "html5", "html level", "how good is he at html", "does he know html", "semantic html", "markup", "html skills"]
+      "keywords": [
+        "html",
+        "html5",
+        "html level",
+        "how good is he at html",
+        "does he know html",
+        "semantic html",
+        "markup",
+        "html skills"
+      ]
     },
     {
       "id": "css-level",
       "question": "How good are you with CSS?",
       "answer": "CSS3 is a core skill — responsive layouts, flexbox, grid, animations, custom properties and pixel-perfect design are part of his daily work.",
-      "keywords": ["css", "css3", "css level", "how good is he at css", "does he know css", "css skills", "stylesheets", "styling", "flexbox", "grid", "animations"]
+      "keywords": [
+        "css",
+        "css3",
+        "css level",
+        "how good is he at css",
+        "does he know css",
+        "css skills",
+        "stylesheets",
+        "styling",
+        "flexbox",
+        "grid",
+        "animations"
+      ]
     },
     {
       "id": "javascript-level",
       "question": "How good are you with JavaScript?",
       "answer": "JavaScript is his second home. He writes modern ES2020+ JavaScript with async patterns, DOM APIs, events and performance in mind — and TypeScript on top for safety.",
-      "keywords": ["javascript", "js", "javascript level", "how good is he at javascript", "does he know javascript", "js skills", "ecmascript", "modern javascript", "vanilla js"]
+      "keywords": [
+        "how good is he with js",
+        "javascript",
+        "js",
+        "javascript level",
+        "how good is he at javascript",
+        "does he know javascript",
+        "js skills",
+        "ecmascript",
+        "modern javascript",
+        "vanilla js"
+      ]
     },
     {
       "id": "python-level",
       "question": "How good are you with Python?",
       "answer": "He knows Python at an intermediate level — strong for scripting, automation, data processing and the foundations of his cloud data engineering studies.",
-      "keywords": ["python", "python level", "how good is he at python", "does he know python", "python skills", "py", "scripting", "data science", "machine learning"]
+      "keywords": [
+        "python",
+        "python level",
+        "how good is he at python",
+        "does he know python",
+        "python skills",
+        "py",
+        "scripting",
+        "data science",
+        "machine learning"
+      ]
     },
     {
       "id": "cplusplus-level",
       "question": "How good are you with C++?",
       "answer": "He learned C++ for fundamentals, algorithms and data structures — it strengthened his understanding of memory, performance and low-level thinking.",
-      "keywords": ["c++", "c plus plus", "cpp", "c plus", "does he know c++", "c++ level", "how good is he at cpp", "c programming"]
+      "keywords": [
+        "c++",
+        "c plus plus",
+        "cpp",
+        "c plus",
+        "does he know c++",
+        "c++ level",
+        "how good is he at cpp",
+        "c programming"
+      ]
     },
     {
       "id": "csharp-level",
       "question": "How good are you with C#?",
       "answer": "He knows C# at a foundational level from his coursework — enough to understand OOP, .NET concepts and cross-language patterns.",
-      "keywords": ["c#", "c sharp", "cshrp", "does he know c#", "c sharp level", "dotnet", ".net", "how good is he at c sharp"]
+      "keywords": [
+        "c#",
+        "c sharp",
+        "cshrp",
+        "does he know c#",
+        "c sharp level",
+        "dotnet",
+        ".net",
+        "how good is he at c sharp"
+      ]
     },
     {
       "id": "nodejs-level",
       "question": "How good are you with Node.js?",
       "answer": "Node.js is his main backend runtime. He builds servers, APIs and server-rendered apps with it every day — including this portfolio site.",
-      "keywords": ["node", "nodejs", "node.js", "node js", "does he know node", "node level", "nodejs level", "how good is he at node", "javascript runtime", "backend runtime"]
+      "keywords": [
+        "node",
+        "nodejs",
+        "node.js",
+        "node js",
+        "does he know node",
+        "node level",
+        "nodejs level",
+        "how good is he at node",
+        "javascript runtime",
+        "backend runtime"
+      ]
     },
     {
       "id": "express-level",
       "question": "How good are you with Express?",
       "answer": "Express is his primary backend framework — routing, middleware, security headers, error handling and server-side rendering are second nature to him.",
-      "keywords": ["express", "expressjs", "express.js", "does he know express", "express level", "express framework", "node framework", "his framework"]
+      "keywords": [
+        "express",
+        "expressjs",
+        "express.js",
+        "does he know express",
+        "express level",
+        "express framework",
+        "node framework",
+        "his framework"
+      ]
     },
     {
       "id": "react-level",
       "question": "How good are you with React?",
       "answer": "He has real-world React experience — his featured project Furnecher is built with React, Node.js and MongoDB. He's comfortable with components, hooks and modern React patterns.",
-      "keywords": ["react", "reactjs", "react.js", "does he know react", "react level", "react skills", "react developer", "hooks", "components", "frontend framework"]
+      "keywords": [
+        "react",
+        "reactjs",
+        "react.js",
+        "does he know react",
+        "react level",
+        "react skills",
+        "react developer",
+        "hooks",
+        "components",
+        "frontend framework"
+      ]
     },
     {
       "id": "databases",
       "question": "Do you use databases?",
       "answer": "Yes — he works with MongoDB, and he's actively deepening his database knowledge as part of his cloud data engineering studies. His featured project Furnecher uses MongoDB for data storage.",
-      "keywords": ["databases", "database", "sql", "nosql", "mongodb", "mongo", "mysql", "postgres", "do you use a database", "does he use databases", "db", "data storage", "how is data stored"]
+      "keywords": [
+        "databases",
+        "database",
+        "sql",
+        "nosql",
+        "mongodb",
+        "mongo",
+        "mysql",
+        "postgres",
+        "do you use a database",
+        "does he use databases",
+        "db",
+        "data storage",
+        "how is data stored"
+      ]
     },
     {
       "id": "cloud-skills",
       "question": "What do you know about cloud?",
       "answer": "He is studying Cloud Data Engineering, which covers data pipelines, cloud platforms, Linux systems and data processing. He's building hands-on projects to strengthen these skills.",
-      "keywords": ["cloud", "cloud skills", "cloud computing", "cloud technologies", "cloud data engineering", "aws", "azure", "gcp", "what does he know about cloud", "cloud engineer", "cloud platforms"]
+      "keywords": [
+        "cloud",
+        "cloud skills",
+        "cloud computing",
+        "cloud technologies",
+        "cloud data engineering",
+        "aws",
+        "azure",
+        "gcp",
+        "what does he know about cloud",
+        "cloud engineer",
+        "cloud platforms"
+      ]
     },
     {
       "id": "data-engineering-skills",
       "question": "What do you know about data engineering?",
       "answer": "His data engineering track covers data pipelines, ETL concepts, data processing with Python, database fundamentals and cloud platforms — the full path from raw data to insight.",
-      "keywords": ["data engineering", "data pipelines", "etl", "data processing", "big data", "data engineer", "data engineering skills", "what is data engineering", "databases and data"]
+      "keywords": [
+        "data engineering",
+        "data pipelines",
+        "etl",
+        "data processing",
+        "big data",
+        "data engineer",
+        "data engineering skills",
+        "what is data engineering",
+        "databases and data"
+      ]
     },
     {
       "id": "linux-level",
       "question": "How good are you with Linux?",
       "answer": "He uses Linux for server work, scripting and cloud data projects — comfortable with the terminal, package management, permissions and shell scripting.",
-      "keywords": ["linux", "linux level", "how good is he at linux", "does he know linux", "ubuntu", "terminal", "shell", "bash", "command line", "unix", "server administration"]
+      "keywords": [
+        "linux",
+        "linux level",
+        "how good is he at linux",
+        "does he know linux",
+        "ubuntu",
+        "terminal",
+        "shell",
+        "bash",
+        "command line",
+        "unix",
+        "server administration"
+      ]
     },
     {
       "id": "git-level",
       "question": "How good are you with Git?",
       "answer": "Git is part of his daily workflow — branching, merging, rebasing, pull requests, code review and clean commit history. He's an active GitHub user and open source contributor.",
-      "keywords": ["git", "git level", "how good is he at git", "does he know git", "version control", "branching", "pull requests", "commits", "git workflow"]
+      "keywords": [
+        "git",
+        "git level",
+        "how good is he at git",
+        "does he know git",
+        "version control",
+        "branching",
+        "pull requests",
+        "commits",
+        "git workflow"
+      ]
     },
     {
       "id": "github-skills",
       "question": "How do you use GitHub?",
       "answer": "GitHub is where all his code lives: https://github.com/MrAbdulSamadDEV. He uses it for repositories, collaboration, issues, pull requests and open source contributions.",
-      "keywords": ["github skills", "how does he use github", "github account", "github profile", "github username", "his github", "where is his code", "repositories", "repos"]
+      "keywords": [
+        "github skills",
+        "how does he use github",
+        "github account",
+        "github profile",
+        "github username",
+        "his github",
+        "where is his code",
+        "repositories",
+        "repos"
+      ]
     },
     {
       "id": "tools",
       "question": "Which tools do you use?",
       "answer": "His daily toolkit includes VS Code for development, Git and GitHub for version control, Linux for system work, MongoDB for data, and the OpenCode CLI for AI-assisted development workflows.",
-      "keywords": ["tools", "which tools", "development tools", "favorite tools", "his tools", "editor", "ide", "vs code", "vscode", "opencode", "toolbox", "what tools does he use"]
+      "keywords": [
+        "tools",
+        "which tools",
+        "development tools",
+        "favorite tools",
+        "his tools",
+        "editor",
+        "ide",
+        "vs code",
+        "vscode",
+        "opencode",
+        "toolbox",
+        "what tools does he use"
+      ]
     },
     {
       "id": "frameworks",
       "question": "Which frameworks do you use?",
       "answer": "His primary frameworks are Express on Node.js for the backend and React for modern frontends. He also builds with clean TypeScript and CSS without heavy frameworks when simpler is better.",
-      "keywords": ["frameworks", "framework", "which frameworks", "libraries", "react", "express", "his frameworks", "what frameworks does he use", "library", "dependencies"]
+      "keywords": [
+        "frameworks",
+        "framework",
+        "which frameworks",
+        "libraries",
+        "react",
+        "express",
+        "his frameworks",
+        "what frameworks does he use",
+        "library",
+        "dependencies"
+      ]
     },
     {
       "id": "stack-summary",
       "question": "What is your tech stack?",
       "answer": "His core stack is:\n\n• Frontend: TypeScript, React, HTML5, CSS3, Modern Browser APIs\n• Backend: Node.js, Express, TypeScript\n• Data: MongoDB\n• Tools: Git, GitHub, VS Code, Linux, OpenCode CLI\n\nHe keeps his stack focused, modern and dependency-light.",
-      "keywords": ["tech stack", "stack", "technology stack", "what stack", "tech used", "full stack", "his stack", "what stack does he use", "technical stack", "core stack", "toolchain"]
+      "keywords": [
+        "tech stack",
+        "stack",
+        "technology stack",
+        "what stack",
+        "tech used",
+        "full stack",
+        "his stack",
+        "what stack does he use",
+        "technical stack",
+        "core stack",
+        "toolchain"
+      ]
     },
     {
       "id": "frontend-vs-backend",
       "question": "Do you prefer frontend or backend?",
       "answer": "He enjoys both! Frontend lets him craft great user experiences, while backend challenges his engineering and architecture thinking. Being full stack means he can build a complete product from start to finish.",
-      "keywords": ["frontend or backend", "prefer frontend", "prefer backend", "frontend vs backend", "favorite side", "which does he prefer", "backend or frontend", "what do you enjoy more"]
+      "keywords": [
+        "frontend or backend",
+        "prefer frontend",
+        "prefer backend",
+        "frontend vs backend",
+        "favorite side",
+        "which does he prefer",
+        "backend or frontend",
+        "what do you enjoy more"
+      ]
     },
     {
       "id": "favorite-language",
       "question": "What is your favorite programming language?",
       "answer": "TypeScript, without a doubt. It gives him the safety of strong typing with the flexibility of JavaScript — and it works beautifully on both frontend and backend.",
-      "keywords": ["favorite language", "favourite language", "best language", "preferred language", "which language do you prefer", "favorite programming language", "what language does he prefer"]
+      "keywords": [
+        "favorite language",
+        "favourite language",
+        "best language",
+        "preferred language",
+        "which language do you prefer",
+        "favorite programming language",
+        "what language does he prefer"
+      ]
     },
     {
       "id": "tools-favorites",
       "question": "What is your favorite tool?",
       "answer": "VS Code is his home base, but he's also a big fan of the OpenCode CLI for AI-assisted development — it makes him dramatically more productive.",
-      "keywords": ["favorite tool", "favourite tool", "best tool", "favorite software", "favorite editor", "his favorite tool", "what tools does he like"]
+      "keywords": [
+        "favorite tool",
+        "favourite tool",
+        "best tool",
+        "favorite software",
+        "favorite editor",
+        "his favorite tool",
+        "what tools does he like"
+      ]
     },
     {
       "id": "security-practice",
       "question": "Do you care about security?",
       "answer": "Absolutely. He follows security best practices: secure headers, input validation, safe external links and no exposed secrets. Security is not an afterthought — it's part of engineering.",
-      "keywords": ["security", "web security", "secure code", "hacking", "vulnerabilities", "best practices security", "is his code secure", "security best practices", "csp", "headers", "https"]
+      "keywords": [
+        "security",
+        "web security",
+        "secure code",
+        "hacking",
+        "vulnerabilities",
+        "best practices security",
+        "is his code secure",
+        "security best practices",
+        "csp",
+        "headers",
+        "https"
+      ]
     },
     {
       "id": "seo-practice",
       "question": "Do you know SEO?",
       "answer": "Yes! He builds SEO-first: semantic HTML, clean URLs, meta tags, structured data (JSON-LD), sitemaps and performance optimization. Search engines love this site out of the box.",
-      "keywords": ["seo", "search engine", "google ranking", "seo optimization", "rank on google", "seo practice", "does he know seo", "search engine optimization", "structured data", "schema", "json ld"]
+      "keywords": [
+        "seo",
+        "search engine",
+        "google ranking",
+        "seo optimization",
+        "rank on google",
+        "seo practice",
+        "does he know seo",
+        "search engine optimization",
+        "structured data",
+        "schema",
+        "json ld"
+      ]
     },
     {
       "id": "accessibility-practice",
       "question": "Do you care about accessibility?",
       "answer": "Yes — he follows WCAG AA standards: keyboard navigation, visible focus, ARIA labels, proper contrast and screen reader support. A website should be usable by everyone.",
-      "keywords": ["accessibility", "wcag", "a11y", "screen reader", "disabled users", "inclusive design", "does he care about accessibility", "accessibility standards", "keyboard navigation", "aria"]
+      "keywords": [
+        "accessibility",
+        "wcag",
+        "a11y",
+        "screen reader",
+        "disabled users",
+        "inclusive design",
+        "does he care about accessibility",
+        "accessibility standards",
+        "keyboard navigation",
+        "aria"
+      ]
     },
     {
       "id": "performance-practice",
       "question": "How do you optimize performance?",
       "answer": "He optimizes Core Web Vitals: fast LCP with optimized images and fonts, zero layout shift with reserved image space, and minimal JavaScript. He targets 100 Lighthouse scores on every project.",
-      "keywords": ["performance", "speed", "fast website", "lighthouse", "core web vitals", "optimization", "how does he optimize", "page speed", "website speed", "performance optimization", "loading speed"]
+      "keywords": [
+        "performance",
+        "speed",
+        "fast website",
+        "lighthouse",
+        "core web vitals",
+        "optimization",
+        "how does he optimize",
+        "page speed",
+        "website speed",
+        "performance optimization",
+        "loading speed"
+      ]
     },
     {
       "id": "design-skills",
       "question": "Do you do design?",
       "answer": "He designs and builds complete interfaces — layout, typography, color systems and motion. He's not a professional illustrator, but he crafts clean, modern and consistent UIs for every project.",
-      "keywords": ["design", "ui ux", "user experience", "user interface", "does he design", "designer", "graphic design", "web design", "figma", "aesthetics", "visual design"]
+      "keywords": [
+        "design",
+        "ui ux",
+        "user experience",
+        "user interface",
+        "does he design",
+        "designer",
+        "graphic design",
+        "web design",
+        "figma",
+        "aesthetics",
+        "visual design"
+      ]
     },
     {
       "id": "responsive-skills",
       "question": "Do you build responsive websites?",
       "answer": "Always. Every project he ships is responsive — mobile-first layouts that work beautifully on phones, tablets and desktops, tested across real viewport sizes.",
-      "keywords": ["responsive", "responsive design", "mobile friendly", "mobile first", "does he build responsive sites", "cross device", "mobile optimized", "adapts to screen", "viewport"]
+      "keywords": [
+        "responsive",
+        "responsive design",
+        "mobile friendly",
+        "mobile first",
+        "does he build responsive sites",
+        "cross device",
+        "mobile optimized",
+        "adapts to screen",
+        "viewport"
+      ]
     },
     {
       "id": "api-skills",
       "question": "Do you build APIs?",
       "answer": "Yes — he designs and builds REST APIs with Node.js, Express and TypeScript, including clean routes, validation, error handling and good response structures.",
-      "keywords": ["api", "apis", "rest api", "rest", "do you build apis", "api development", "api design", "endpoints", "does he make apis", "backend api", "api skills"]
+      "keywords": [
+        "api",
+        "apis",
+        "rest api",
+        "rest",
+        "do you build apis",
+        "api development",
+        "api design",
+        "endpoints",
+        "does he make apis",
+        "backend api",
+        "api skills"
+      ]
     },
     {
       "id": "test-process",
       "question": "How do you test your work?",
       "answer": "He tests every build: routes and status codes with smoke tests, responsiveness across devices, accessibility with keyboard and screen readers, and performance with Lighthouse.",
-      "keywords": ["testing", "test", "qa", "how do you test", "quality assurance", "testing process", "how does he test", "testing strategy", "automated tests", "smoke tests", "debugging process"]
+      "keywords": [
+        "testing",
+        "test",
+        "qa",
+        "how do you test",
+        "quality assurance",
+        "testing process",
+        "how does he test",
+        "testing strategy",
+        "automated tests",
+        "smoke tests",
+        "debugging process"
+      ]
     },
     {
       "id": "learning-style",
       "question": "How do you learn new technologies?",
       "answer": "He learns by building. He picks a real project, researches best practices, builds it, breaks it, and fixes it. Documentation, tutorials and open source code are his best teachers.",
-      "keywords": ["how do you learn", "learning style", "study method", "how to learn", "learning approach", "how does he learn", "learning new things", "his learning method"]
+      "keywords": [
+        "how do you learn",
+        "learning style",
+        "study method",
+        "how to learn",
+        "learning approach",
+        "how does he learn",
+        "learning new things",
+        "his learning method"
+      ]
     },
     {
       "id": "teamwork-skills",
       "question": "How do you collaborate with other developers?",
       "answer": "He collaborates through Git and GitHub — clear pull requests, constructive code reviews, good documentation and open communication. Open source taught him how to work well with distributed teams.",
-      "keywords": ["collaborate", "collaboration", "code review", "pull request review", "how does he collaborate", "working with developers", "pair programming", "remote collaboration"]
+      "keywords": [
+        "collaborate",
+        "collaboration",
+        "code review",
+        "pull request review",
+        "how does he collaborate",
+        "working with developers",
+        "pair programming",
+        "remote collaboration"
+      ]
     },
     {
       "id": "writing-docs",
       "question": "Do you write documentation?",
       "answer": "Yes — he believes documentation is part of engineering. He writes clear READMEs, comment where it matters, and keeps his projects self-explanatory for other developers.",
-      "keywords": ["documentation", "docs", "readme", "does he write docs", "documenting code", "technical writing", "write documentation"]
+      "keywords": [
+        "documentation",
+        "docs",
+        "readme",
+        "does he write docs",
+        "documenting code",
+        "technical writing",
+        "write documentation"
+      ]
     },
     {
       "id": "english-for-tech",
       "question": "How is your technical English?",
       "answer": "Excellent — he reads and writes technical documentation, communicates in standups and code reviews, and explains complex concepts clearly in English.",
-      "keywords": ["technical english", "tech english", "english for work", "communication", "english communication", "speaks english", "english proficiency"]
+      "keywords": [
+        "technical english",
+        "tech english",
+        "english for work",
+        "communication",
+        "english communication",
+        "speaks english",
+        "english proficiency"
+      ]
     },
     {
       "id": "most-used-tech",
       "question": "What technology do you use the most?",
       "answer": "TypeScript is his most-used technology — it powers both the frontend and backend of almost every project, including this portfolio and his Furnecher project.",
-      "keywords": ["most used tech", "most used technology", "what does he use most", "daily technology", "primary technology", "most frequent"]
+      "keywords": [
+        "most used tech",
+        "most used technology",
+        "what does he use most",
+        "daily technology",
+        "primary technology",
+        "most frequent"
+      ]
     },
     {
       "id": "newest-skill",
       "question": "What is your newest skill?",
       "answer": "His newest skills are in the cloud and data space — data pipelines, MongoDB and Linux administration — along with AI-assisted development using the OpenCode CLI.",
-      "keywords": ["newest skill", "latest skill", "new skills", "what is he learning lately", "recently learned", "most recent skill", "new technology he learned"]
+      "keywords": [
+        "newest skill",
+        "latest skill",
+        "new skills",
+        "what is he learning lately",
+        "recently learned",
+        "most recent skill",
+        "new technology he learned"
+      ]
     },
     {
       "id": "machine-learning",
       "question": "Do you do machine learning?",
       "answer": "He knows the fundamentals of data processing with Python as part of his cloud data engineering track, but his main focus is web engineering and data infrastructure — not ML model training.",
-      "keywords": ["machine learning", "ml", "artificial intelligence", "ai development", "deep learning", "neural networks", "data science", "does he do ml", "model training"]
+      "keywords": [
+        "machine learning",
+        "ml",
+        "artificial intelligence",
+        "ai development",
+        "deep learning",
+        "neural networks",
+        "data science",
+        "does he do ml",
+        "model training"
+      ]
     },
     {
       "id": "version-control",
       "question": "How do you manage code versions?",
       "answer": "He uses Git with a clean workflow: feature branches, meaningful commits, pull requests and tags for releases. All repositories live on his GitHub.",
-      "keywords": ["version control", "git workflow", "branching strategy", "how does he manage code", "source control", "git branches", "commits", "release management"]
+      "keywords": [
+        "version control",
+        "git workflow",
+        "branching strategy",
+        "how does he manage code",
+        "source control",
+        "git branches",
+        "commits",
+        "release management"
+      ]
     },
     {
       "id": "serverless",
       "question": "Do you work with serverless?",
       "answer": "Yes — this very site is deployed as a serverless function on Vercel. He's comfortable with serverless deployment patterns, including API functions and static builds.",
-      "keywords": ["serverless", "lambda", "vercel", "functions", "does he use serverless", "deployment", "hosting", "cloud functions"]
+      "keywords": [
+        "serverless",
+        "lambda",
+        "vercel",
+        "functions",
+        "does he use serverless",
+        "deployment",
+        "hosting",
+        "cloud functions"
+      ]
     },
     {
       "id": "skill-levels",
       "question": "What are your skill levels?",
       "answer": "Here are his approximate proficiency levels:\n\n• HTML5, CSS3: 90%+\n• JavaScript, TypeScript: 85%+\n• Node.js, Express: 80%+\n• React: 75%+\n• Python, MongoDB: 70%+\n• Cloud Data Engineering, Linux: 70%+ and growing",
-      "keywords": ["skill levels", "skill level", "levels", "proficiency", "how good is he", "skill percentages", "ratings", "self assessment"]
+      "keywords": [
+        "skill levels",
+        "skill level",
+        "levels",
+        "proficiency",
+        "how good is he",
+        "skill percentages",
+        "ratings",
+        "self assessment"
+      ]
     },
     {
       "id": "vs-code-skills",
       "question": "Do you use VS Code?",
       "answer": "Yes — VS Code is his daily editor. He uses extensions for TypeScript, formatting, linting, Git and productivity, plus custom keybindings for speed.",
-      "keywords": ["vs code", "vscode", "visual studio code", "editor", "ide", "does he use vs code", "code editor", "extensions"]
+      "keywords": [
+        "vs code",
+        "vscode",
+        "visual studio code",
+        "editor",
+        "ide",
+        "does he use vs code",
+        "code editor",
+        "extensions"
+      ]
     }
   ]
 }

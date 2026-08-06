@@ -5,115 +5,289 @@
       "id": "experience-overview",
       "question": "What is your experience?",
       "answer": "Abdul Samad has hands-on experience building full stack applications, contributing to open source, tutoring web development, and completing cloud data engineering projects. He works as a freelance full stack developer on personal and client projects.",
-      "keywords": ["experience", "work experience", "professional experience", "job experience", "career", "his experience", "your experience", "what experience does he have", "background"]
+      "keywords": [
+        "experience",
+        "work experience",
+        "professional experience",
+        "job experience",
+        "career",
+        "his experience",
+        "your experience",
+        "what experience does he have",
+        "background"
+      ]
     },
     {
       "id": "experience-details",
       "question": "Tell me about your work experience",
       "answer": "His experience includes:\n\n• Full Stack Developer — freelance and personal projects (2024 – Present)\n• Open Source Contributor — GitHub community (2023 – Present)\n• Cloud Data Engineering Projects — academic and self-study (2024 – Present)\n• Web Development Tutor — campus tech community (2023 – 2024)",
-      "keywords": ["work experience", "jobs", "job history", "worked where", "previous work", "career history", "where did he work", "work history", "his jobs", "positions held", "roles held"]
+      "keywords": [
+        "work experience",
+        "jobs",
+        "job history",
+        "worked where",
+        "previous work",
+        "career history",
+        "where did he work",
+        "work history",
+        "his jobs",
+        "positions held",
+        "roles held"
+      ]
     },
     {
       "id": "open-source",
       "question": "Do you contribute to open source?",
       "answer": "Yes! He contributes to open source on GitHub. It's a great way to learn modern workflows, code review and collaboration with developers around the world.",
-      "keywords": ["open source", "contribute", "contributions", "oss", "open source projects", "does he contribute to open source", "open source contributor", "github community"]
+      "keywords": [
+        "open source",
+        "contribute",
+        "contributions",
+        "oss",
+        "open source projects",
+        "does he contribute to open source",
+        "open source contributor",
+        "github community"
+      ]
     },
     {
       "id": "freelancing",
       "question": "Do you take freelance work?",
       "answer": "Yes, he's open to freelance projects. He works on modern web applications, landing pages, dashboards and API development. Email him at mr.abdulsamadabdullah@gmail.com with your project details.",
-      "keywords": ["freelance", "freelancing", "freelancer", "take projects", "client work", "paid work", "does he freelance", "freelance work", "gig work"]
+      "keywords": [
+        "freelance",
+        "freelancing",
+        "freelancer",
+        "take projects",
+        "client work",
+        "paid work",
+        "does he freelance",
+        "freelance work",
+        "gig work"
+      ]
     },
     {
       "id": "tutoring",
       "question": "Have you taught or tutored?",
       "answer": "Yes — he worked as a Web Development Tutor within his campus tech community (2023 – 2024), helping beginners learn HTML, CSS, JavaScript and how to build their first projects.",
-      "keywords": ["tutoring", "tutor", "teaching", "mentor", "mentoring", "has he taught", "taught web development", "did he tutor", "mentorship", "helping students"]
+      "keywords": [
+        "tutoring",
+        "tutor",
+        "teaching",
+        "mentor",
+        "mentoring",
+        "has he taught",
+        "taught web development",
+        "did he tutor",
+        "mentorship",
+        "helping students"
+      ]
     },
     {
       "id": "internship",
       "question": "Are you looking for an internship?",
       "answer": "Yes! He's actively looking for internship opportunities in web development, software engineering and cloud/data engineering. Email him at mr.abdulsamadabdullah@gmail.com — he'd love to hear about your program.",
-      "keywords": ["internship", "intern", "looking for internship", "internship opportunity", "trainee", "student job", "is he looking for an internship", "internship program", "graduate program"]
+      "keywords": [
+        "internship",
+        "intern",
+        "looking for internship",
+        "internship opportunity",
+        "trainee",
+        "student job",
+        "is he looking for an internship",
+        "internship program",
+        "graduate program"
+      ]
     },
     {
       "id": "remote-work",
       "question": "Do you work remotely?",
       "answer": "Yes, he's fully set up for remote work — reliable internet, a proper workspace and a flexible schedule.",
-      "keywords": ["remote", "remote work", "work from home", "online work", "remote collaboration", "does he work remotely", "remote job", "wfh", "work remotely"]
+      "keywords": [
+        "remote",
+        "remote work",
+        "work from home",
+        "online work",
+        "remote collaboration",
+        "does he work remotely",
+        "remote job",
+        "wfh",
+        "work remotely"
+      ]
     },
     {
       "id": "experience-years",
       "question": "How many years of experience do you have?",
       "answer": "He has been building for the web since 2022 — over 3 years of hands-on learning and development, with 2024 onwards focused on professional-grade full stack projects.",
-      "keywords": ["how many years", "years of experience", "experience years", "how long has he been coding", "how long", "years experience", "since when", "experience duration"]
+      "keywords": [
+        "how many years",
+        "years of experience",
+        "experience years",
+        "how long has he been coding",
+        "how long",
+        "years experience",
+        "since when",
+        "experience duration"
+      ]
     },
     {
       "id": "client-experience",
       "question": "Have you worked with clients?",
       "answer": "Yes — he has worked on freelance and client projects, including building complete web applications and deploying them. He communicates clearly and delivers on time.",
-      "keywords": ["clients", "client work", "worked with clients", "client projects", "has he worked with clients", "customer projects", "paid clients"]
+      "keywords": [
+        "clients",
+        "client work",
+        "worked with clients",
+        "client projects",
+        "has he worked with clients",
+        "customer projects",
+        "paid clients"
+      ]
     },
     {
       "id": "team-experience",
       "question": "Have you worked in a team before?",
       "answer": "Yes — through open source contributions and campus tech community projects, he has collaborated with other developers on shared codebases, code reviews and group builds.",
-      "keywords": ["team experience", "worked in a team", "team work", "group projects", "has he worked in a team", "team environment", "collaborative projects", "dev team"]
+      "keywords": [
+        "team experience",
+        "worked in a team",
+        "team work",
+        "group projects",
+        "has he worked in a team",
+        "team environment",
+        "collaborative projects",
+        "dev team"
+      ]
     },
     {
       "id": "biggest-achievement",
       "question": "What is your biggest achievement?",
       "answer": "Shipping Furnecher — a complete furniture e-commerce platform with React, Node.js and MongoDB — from idea to live product, while managing university studies at the same time.",
-      "keywords": ["biggest achievement", "achievement", "accomplishment", "proud moment", "greatest achievement", "what are you proud of", "success story", "milestone"]
+      "keywords": [
+        "biggest achievement",
+        "achievement",
+        "accomplishment",
+        "proud moment",
+        "greatest achievement",
+        "what are you proud of",
+        "success story",
+        "milestone"
+      ]
     },
     {
       "id": "what-did-you-learn-freelance",
       "question": "What did freelancing teach you?",
       "answer": "Freelancing taught him real-world engineering: scoping requirements, communicating with non-technical clients, managing timelines, and delivering work that must simply work in production.",
-      "keywords": ["what did freelancing teach", "lessons from freelancing", "freelance lessons", "what he learned freelancing", "client communication", "business lessons"]
+      "keywords": [
+        "what did freelancing teach",
+        "lessons from freelancing",
+        "freelance lessons",
+        "what he learned freelancing",
+        "client communication",
+        "business lessons"
+      ]
     },
     {
       "id": "currently-working",
       "question": "What are you currently working on?",
       "answer": "He's currently developing new full stack and cloud data projects, maintaining Furnecher, contributing to open source, and preparing for cloud engineering opportunities.",
-      "keywords": ["currently working", "what are you working on", "what is he working on", "current projects", "working on now", "active work", "in progress", "whats he building"]
+      "keywords": [
+        "currently working",
+        "what are you working on",
+        "what is he working on",
+        "current projects",
+        "working on now",
+        "active work",
+        "in progress",
+        "whats he building"
+      ]
     },
     {
       "id": "work-hours",
       "question": "What are your working hours?",
       "answer": "He's available for project work in the evenings and weekends around his university schedule, and flexible hours for remote collaboration. For urgent matters, WhatsApp is fastest: +92 370 8033443.",
-      "keywords": ["work hours", "working hours", "hours of work", "when does he work", "schedule", "work times", "availability hours", "timings"]
+      "keywords": [
+        "work hours",
+        "working hours",
+        "hours of work",
+        "when does he work",
+        "schedule",
+        "work times",
+        "availability hours",
+        "timings"
+      ]
     },
     {
       "id": "career-transition",
       "question": "How did you get into development?",
       "answer": "It started with curiosity in 2022 — how do websites work? That led to HTML and CSS, then JavaScript, then Node.js. By 2024 he was building production-quality apps and studying cloud data engineering seriously.",
-      "keywords": ["how did you get into", "got into development", "career transition", "how he started", "becoming a developer", "how did he become", "entered tech", "path to development"]
+      "keywords": [
+        "how did you get into",
+        "got into development",
+        "career transition",
+        "how he started",
+        "becoming a developer",
+        "how did he become",
+        "entered tech",
+        "path to development"
+      ]
     },
     {
       "id": "industry-experience",
       "question": "Do you have industry experience?",
       "answer": "He has professional-grade project experience — freelance development, open source and shipped products — and he's actively seeking formal industry roles, internships and collaborations in full stack and cloud engineering.",
-      "keywords": ["industry experience", "corporate experience", "company experience", "startup experience", "professional experience", "enterprise work", "worked at a company"]
+      "keywords": [
+        "industry experience",
+        "corporate experience",
+        "company experience",
+        "startup experience",
+        "professional experience",
+        "enterprise work",
+        "worked at a company"
+      ]
     },
     {
       "id": "work-samples",
       "question": "Can I see samples of your work?",
       "answer": "Of course! Visit the Projects page on this website for his showcase, or check his GitHub: https://github.com/MrAbdulSamadDEV. Furnecher live demo: https://salaars-home.vercel.app/",
-      "keywords": ["work samples", "samples of work", "portfolio samples", "show me your work", "examples of work", "work portfolio", "previous projects"]
+      "keywords": [
+        "work samples",
+        "samples of work",
+        "portfolio samples",
+        "show me your work",
+        "examples of work",
+        "work portfolio",
+        "previous projects"
+      ]
     },
     {
       "id": "collaboration-open",
       "question": "Are you open to collaboration?",
       "answer": "Yes — he's open to project collaborations, open source partnerships, hackathons and learning groups. Reach out on GitHub, LinkedIn or email: mr.abdulsamadabdullah@gmail.com",
-      "keywords": ["collaboration", "open to collaboration", "collaborate with him", "partnership", "hackathon", "working together", "join projects", "team up"]
+      "keywords": [
+        "collaboration",
+        "open to collaboration",
+        "collaborate with him",
+        "partnership",
+        "hackathon",
+        "working together",
+        "join projects",
+        "team up"
+      ]
     },
     {
       "id": "lessons-learned",
       "question": "What is the biggest lesson you have learned?",
       "answer": "That shipping beats perfecting. He learned to build fast, ship often, and refine with feedback — most of his growth has come from real projects and real users, not from waiting to be ready.",
-      "keywords": ["biggest lesson", "lessons learned", "what has he learned", "important lesson", "growth lessons", "what experience taught him", "takeaways"]
+      "keywords": [
+        "biggest lesson",
+        "lessons learned",
+        "what has he learned",
+        "important lesson",
+        "growth lessons",
+        "what experience taught him",
+        "takeaways"
+      ]
     }
   ]
 }

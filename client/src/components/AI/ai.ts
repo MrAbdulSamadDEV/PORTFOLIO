@@ -155,24 +155,41 @@ export function initAiAssistant(): void {
       return;
     }
 
-    bubble.style.whiteSpace = "pre-wrap";
+    const totalMs = Math.min(1200, Math.max(400, text.length * 8));
+    const startedAt = performance.now();
     let index = 0;
-    const step = 8;
+    let finished = false;
+
+    const finish = (): void => {
+      if (finished) return;
+      finished = true;
+      bubble.style.whiteSpace = "";
+      renderBotAnswer(message, text);
+      done();
+    };
+
+    bubble.style.whiteSpace = "pre-wrap";
 
     const tick = (): void => {
-      index += 1;
-      bubble.textContent = text.slice(0, index);
-      scrollToBottom("auto");
-      if (index < text.length) {
-        window.setTimeout(tick, step);
+      if (finished) return;
+      const progress = Math.min(1, (performance.now() - startedAt) / totalMs);
+      const target = Math.floor(progress * text.length);
+      if (target > index) {
+        index = target;
+        bubble.textContent = text.slice(0, index);
+        scrollToBottom("auto");
+      }
+      if (progress < 1) {
+        window.setTimeout(tick, 24);
       } else {
-        bubble.style.whiteSpace = "";
-        renderBotAnswer(message, text);
-        done();
+        finish();
       }
     };
 
     window.setTimeout(tick, 40);
+    // Hard completion guard: nested timers can be throttled (background tab,
+    // headless), so guarantee the answer finishes within a bounded time.
+    window.setTimeout(finish, totalMs + 350);
   }
 
   const addUserMessage = (text: string): void => {
