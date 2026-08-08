@@ -23,18 +23,39 @@ const PREFIXES = [
   "please tell me ",
   "can you tell me ",
   "could you tell me ",
+  "could you please tell me ",
+  "can you please tell me ",
   "i want to know ",
   "i would like to know ",
+  "i would love to know ",
   "i need to know ",
+  "i want to see ",
+  "show me ",
+  "please show me ",
+  "share ",
+  "give me ",
+  "please give me ",
+  "list ",
+  "list me ",
+  "mention ",
+  "explain ",
+  "explain me ",
+  "describe ",
+  "describe me ",
   "more about ",
   "anything about ",
   "everything about ",
+  "everything regarding ",
+  "anything regarding ",
+  "some details about ",
+  "all the details about ",
+  "full details about ",
   "about ",
 ];
 
 /** Keywords already phrased as a complete question/sentence get no prefix. */
 const QUESTION_STARTERS =
-  /^(what|who|how|why|when|where|which|do|does|is|are|can|could|would|should|will|shall|tell|show|list|give|please|thank|goodbye|hello|hi|hey|i|you|your|his|my|the|a|an|am|have|has|are|were|was)\b/;
+  /^(what|who|how|why|when|where|which|do|does|did|is|are|was|were|can|could|would|should|will|shall|tell|show|list|give|share|mention|explain|describe|please|thank|goodbye|hello|hi|hey|i|you|your|his|my|the|a|an|am|have|has|are|were|was|please|kindly)\b/;
 
 /** Matches the engine's runtime stopword list (client/src/components/AI/engine.ts). */
 const STOPWORDS = new Set([
@@ -60,9 +81,14 @@ function stemWord(word) {
 /**
  * Signature of a keyword's *meaningful* tokens. Every formulaic variation of
  * one phrase ("soft skills", "tell me soft skills", "please tell me soft skills", …)
- * shares a signature, so only the first (canonical) variant is kept. This stops
- * keyword-variant counts from drowning real matches in the fuzzy layer.
- * Stopword-only phrases get an empty signature and are always kept.
+ * shares a signature, so within one authored keyword family only the first
+ * (canonical) variant is kept. This stops prefix-variant counts from drowning
+ * real matches in the fuzzy layer.
+ *
+ * The dedup is deliberately scoped to one authored keyword family: two
+ * *distinct* authored keywords ("cloud" and "about cloud") may share a
+ * signature yet carry different phrase-layer meaning, and both must survive
+ * into the bundle.
  */
 function signatureOf(keyword) {
   return keyword
@@ -71,19 +97,6 @@ function signatureOf(keyword) {
     .filter((token) => token.length >= 2 && !STOPWORDS.has(token))
     .sort()
     .join(" ");
-}
-
-/** Removes formulaic duplicate variants, preserving the first (canonical) form. */
-function dedupeBySignature(keywords) {
-  const seen = new Set();
-  const out = [];
-  for (const keyword of keywords) {
-    const signature = signatureOf(keyword);
-    if (signature && seen.has(signature)) continue;
-    if (signature) seen.add(signature);
-    out.push(keyword);
-  }
-  return out;
 }
 
 /** Canonical category file order for the bundled faqs array. */
@@ -108,7 +121,12 @@ function normalize(value) {
     .trim();
 }
 
-/** Expands one FAQ keyword list with question-form and case variations. */
+/**
+ * Expands one FAQ keyword list with question-form and case variations.
+ * Each authored keyword keeps its own family of variants: the base form is
+ * always kept, and a prefixed variant is skipped only when it means exactly
+ * the same as that family's base (same meaningful-token signature).
+ */
 function expandKeywords(keywords) {
   const seen = new Set();
   const out = [];
@@ -121,11 +139,16 @@ function expandKeywords(keywords) {
   };
 
   for (const keyword of keywords) {
-    push(keyword);
+    const base = normalize(keyword);
+    if (!base) continue;
+    push(base);
+    const baseSignature = signatureOf(base);
+    if (QUESTION_STARTERS.test(keyword)) continue;
     for (const prefix of PREFIXES) {
-      if (!QUESTION_STARTERS.test(keyword)) {
-        push(`${prefix}${keyword}`);
-      }
+      const variant = normalize(`${prefix}${keyword}`);
+      if (!variant || seen.has(variant)) continue;
+      if (baseSignature && signatureOf(variant) === baseSignature) continue;
+      push(variant);
     }
   }
 
@@ -169,7 +192,7 @@ async function main() {
       }
       seenQuestions.add(questionKey);
 
-      const keywords = dedupeBySignature(expandKeywords(faq.keywords ?? []));
+      const keywords = expandKeywords(faq.keywords ?? []);
       keywordCount += keywords.length;
 
       faqs.push({
@@ -185,7 +208,6 @@ async function main() {
   const bundle = {
     welcome: config.welcome,
     unknown: config.unknown,
-    suggestions: config.suggestions,
     synonyms: config.synonyms,
     intents: config.intents,
     faqs,

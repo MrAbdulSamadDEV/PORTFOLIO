@@ -1,7 +1,7 @@
 /**
  * Real-browser audit with headless Chrome (puppeteer-core + system Chrome).
  * Verifies the interactive layer the HTTP smoke test cannot:
- *   console errors, MAX AI chat, project filtering, contact form,
+ *   console errors, MAX AI chat, theme toggle, hero video, contact form,
  *   drawer navigation, reveal animations, cursor, image loading,
  *   scroll-spy, deep links, and the 404 page. Writes screenshots too.
  */
@@ -163,9 +163,25 @@ async function main() {
     const aiLinks = await page.evaluate(() => Array.from(document.querySelectorAll(".ai-msg--bot a")).length);
     check("MAX AI answer has clickable links", aiLinks > 0, `${aiLinks}`);
 
-    /* Suggested questions */
-    const suggestionCount = await page.evaluate(() => document.querySelectorAll("[data-ai-suggestion]").length);
-    check("suggestion buttons present", suggestionCount >= 3, `${suggestionCount}`);
+    /* Theme toggle switches data-theme and persists */
+    const themeBefore = await page.evaluate(() => document.documentElement.getAttribute("data-theme"));
+    await page.click("[data-theme-toggle]");
+    const themeAfter = await page.evaluate(() => document.documentElement.getAttribute("data-theme"));
+    check("theme toggle flips data-theme", themeBefore !== themeAfter, `${themeBefore} -> ${themeAfter}`);
+    const themeStored = await page.evaluate(() => localStorage.getItem("portfolio-theme"));
+    check("theme choice persists", themeStored === themeAfter, `stored: ${themeStored}`);
+    await page.click("[data-theme-toggle]");
+
+    /* Hero visual: image renders with alt text */
+    const heroVisual = await page.evaluate(() => {
+      const img = document.querySelector(".hero__photo-img");
+      return {
+        imagePresent: img !== null && img.complete && img.naturalWidth > 0,
+        imageAlt: img?.getAttribute("alt") ?? "",
+      };
+    });
+    check("hero image visible", heroVisual.imagePresent && heroVisual.imageAlt.length > 0, JSON.stringify(heroVisual));
+    await page.screenshot({ path: `${SHOT_DIR}/hero-visual.png`, fullPage: false });
 
     /* Clear chat re-shows the welcome message */
     await page.click("[data-ai-clear]");
@@ -185,28 +201,15 @@ async function main() {
     await page.goto(BASE + "/projects", { waitUntil: "networkidle0", timeout: 60000 });
     await sleep(600);
 
-    const filterButtons = await page.evaluate(() => Array.from(document.querySelectorAll(".projects-filter__btn")).map((b) => b.dataset.filter ?? b.textContent?.trim() ?? ""));
-    check("filter buttons built from JSON", filterButtons.length >= 4 && filterButtons[0] === "all", filterButtons.join(", "));
-
     const cardCount = await page.evaluate(() => document.querySelectorAll("[data-category]").length);
-    check("10 project cards", cardCount === 10, `${cardCount}`);
+    check("all project cards rendered", cardCount >= 1, `${cardCount}`);
 
-    /* Click a real category filter */
-    const category = filterButtons[1];
-    await page.click(`[data-filter="${category}"]`);
-    await sleep(200);
-    const visibleCards = await page.evaluate(() => Array.from(document.querySelectorAll("[data-category]")).filter((c) => c.hidden === false).length);
-    const matching = await page.evaluate((cat) => Array.from(document.querySelectorAll("[data-category]")).filter((c) => c.dataset.category === cat).length, category);
-    check(`filter "${category}" shows only matching`, visibleCards === matching, `visible ${visibleCards}, matching ${matching}`);
-
-    await page.click("[data-filter='all']");
-    await sleep(200);
-
-    /* Card details toggle */
-    await page.click(".project-card__details");
-    await sleep(250);
-    const detailsOpen = await page.evaluate(() => document.querySelector(".project-card__details")?.getAttribute("aria-expanded") === "true" && document.querySelector(".project-card__description")?.classList.contains("is-expanded"));
-    check("card details expand", detailsOpen === true);
+    /* Full project description visible (no toggle needed) */
+    const descVisible = await page.evaluate(() => {
+      const desc = document.querySelector(".project-card__description");
+      return desc !== null && desc.getBoundingClientRect().height > 0 && desc.scrollHeight === desc.clientHeight;
+    });
+    check("project description fully visible", descVisible === true);
 
     /* GitHub + Live Demo buttons */
     const actionLinks = await page.evaluate(() =>
@@ -217,8 +220,7 @@ async function main() {
     );
     const githubLinks = actionLinks.filter((l) => l.href.includes("github.com"));
     const demoLinks = actionLinks.filter((l) => !l.href.includes("github.com") && !l.href.startsWith("mailto:"));
-    check("10 GitHub source links", githubLinks.length === 10, `${githubLinks.length}`);
-    check("10 live demo links", demoLinks.length === 10, `${demoLinks.length}`);
+    check("github + demo link per project", githubLinks.length === cardCount && demoLinks.length === cardCount, `${githubLinks.length} / ${demoLinks.length} / ${cardCount}`);
     check("all action links have rel", (await page.evaluate(() => Array.from(document.querySelectorAll(".project-card__actions a")).every((a) => a.rel.includes("noopener")))) === true);
 
     /* Nav active on projects */

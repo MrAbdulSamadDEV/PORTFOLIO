@@ -4,10 +4,11 @@
     {
       "id": "projects-overview",
       "question": "Show your projects",
-      "answer": "Abdul Samad has built a range of projects, including:\n\n• SALAAR'S HOME (Furnecher) — a modern furniture e-commerce platform (React, Node.js, MongoDB)\n• This portfolio website — a production-quality site with the MAX AI assistant\n• An AI assistant web app with a local knowledge base\n• A weather dashboard with live forecasts\n• A student portal for campus information\n• A keyboard tester, task manager, Markdown notes app, URL shortener API and a real estate listing site\n\nYou can explore everything on the Projects page: https://www.abdulsamad.dev/projects",
+      "answer": "Abdul Samad's featured project is SALAAR'S HOME — a premium furniture e-commerce platform:\n\n• SALAAR'S HOME (Furnecher) — a modern furniture e-commerce platform (React, Node.js, MongoDB)\n• This portfolio website — a production-quality site with the MAX AI assistant\n\nYou can explore everything on the Projects page: https://www.abdulsamad.dev/projects",
       "keywords": [
         "project",
         "show your projects",
+        "show me your projects",
         "project list",
         "portfolio projects",
         "view projects",
@@ -20,7 +21,7 @@
     {
       "id": "featured-projects",
       "question": "What are your featured projects?",
-      "answer": "His featured projects are:\n\n• SALAAR'S HOME (Furnecher) — a complete furniture e-commerce platform with a modern storefront, product catalog and shopping experience, built with React, Node.js and MongoDB.\n• The AI assistant web app with a private local knowledge base\n• The weather dashboard with live forecasts\n• This portfolio website with server-side rendering\n\nYou can explore them all on the Projects page: https://www.abdulsamad.dev/projects",
+      "answer": "His featured project is SALAAR'S HOME (Furnecher) — a complete furniture e-commerce platform with a modern storefront, product catalog and shopping experience, built with React, Node.js and MongoDB.\n\nThis portfolio website with server-side rendering and the MAX AI assistant is his other flagship build.\n\nExplore the project on the Projects page: https://www.abdulsamad.dev/projects",
       "keywords": [
         "featured projects",
         "best projects",
@@ -35,9 +36,12 @@
     {
       "id": "project-furnecher",
       "question": "Tell me about the Furnecher project",
-      "answer": "Furnecher is a modern furniture e-commerce platform built with React, Node.js and MongoDB. It features a clean storefront, product catalog and a complete shopping experience.\n\n• Technologies: HTML5, CSS3, TypeScript, Node.js, Express (with React and MongoDB)\n• Source: https://github.com/MrAbdulSamadDEV/salaars-home-furnecher\n• Live demo: https://salaars-home.vercel.app/",
+      "answer": "SALAAR'S HOME (Furnecher) is a premium furniture e-commerce platform built with React, Node.js and MongoDB. It features a clean storefront, product catalog and a complete shopping experience.\n\n• Technologies: HTML5, CSS3, TypeScript, Node.js, Express, React, MongoDB\n• Source: https://github.com/MrAbdulSamadDEV/salaars-home-furnecher\n• Live demo: https://salaars-home.vercel.app/",
       "keywords": [
         "furnecher",
+        "salaars home furniture",
+        "salaar home furniture",
+        "salaar furniture",
         "furniture project",
         "furniture ecommerce",
         "ecommerce project",
@@ -73,7 +77,7 @@
     {
       "id": "best-project",
       "question": "Which is your best project?",
-      "answer": "He is most proud of two things: Furnecher, his full-stack e-commerce platform with React and MongoDB, and this portfolio website you're on right now — with its server-side rendering and intelligent MAX AI assistant.",
+      "answer": "He is most proud of SALAAR'S HOME (Furnecher), his full-stack furniture e-commerce platform built with React, Node.js and MongoDB — and this portfolio website you're on right now, with its server-side rendering and intelligent MAX AI assistant.",
       "keywords": [
         "best project",
         "favorite project",
@@ -88,7 +92,7 @@
     {
       "id": "projects-count",
       "question": "How many projects have you built?",
-      "answer": "He has built a number of real projects, with Furnecher (his featured e-commerce platform) and this portfolio website as the flagship ones — plus more apps and tools he's actively developing.",
+      "answer": "His flagship project is SALAAR'S HOME (Furnecher) — a live furniture e-commerce platform — alongside this portfolio website with the MAX AI assistant. He is constantly building new apps and tools.",
       "keywords": [
         "how many projects",
         "projects count",
@@ -250,12 +254,11 @@
     {
       "id": "project-list-short",
       "question": "List your projects",
-      "answer": "Here's the current project lineup:\n\n• SALAAR'S HOME (Furnecher) — furniture e-commerce platform (React, Node.js, MongoDB) — Live\n• This portfolio website — with the MAX AI assistant\n• AI Assistant Web App — local knowledge base chat\n• Weather Dashboard — live forecasts and trends\n• Student Portal — campus courses and timetable\n• Keyboard Tester Pro — key press visualizer\n• Task Manager — kanban-style boards\n• Markdown Notes App — editor with live preview\n• URL Shortener API — REST API with click analytics\n• Real Estate Listing Site — property listings and filtering\n\nVisit https://www.abdulsamad.dev/projects to see them all in one place.",
+      "answer": "Here's the current project lineup:\n\n• SALAAR'S HOME (Furnecher) — premium furniture e-commerce platform (React, Node.js, MongoDB) — Live\n• This portfolio website — with the MAX AI assistant\n\nVisit https://www.abdulsamad.dev/projects to see it live.",
       "keywords": [
         "list projects",
         "project list",
         "list of projects",
-        "show me your projects",
         "show projects",
         "project lineup",
         "all projects",

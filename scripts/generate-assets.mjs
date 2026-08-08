@@ -44,16 +44,7 @@ function decorativeCircles(w, h, color = "rgba(255,255,255,0.18)") {
 /* ------------------------------------------------------------------ */
 
 const PROJECTS = [
-  { slug: "portfolio-website", from: "#ffd3dc", to: "#f26d86", glyph: "AS" },
-  { slug: "furniture-ecommerce", from: "#c9f0ea", to: "#2c7a7b", glyph: "F" },
-  { slug: "ai-assistant", from: "#dcd1f3", to: "#7e57c2", glyph: "AI" },
-  { slug: "keyboard-tester", from: "#ffe9b3", to: "#f57c00", glyph: "K" },
-  { slug: "task-manager", from: "#d4daf0", to: "#3f51b5", glyph: "T" },
-  { slug: "weather-dashboard", from: "#cdeafb", to: "#1976d2", glyph: "W" },
-  { slug: "student-portal", from: "#d3ecd5", to: "#388e3c", glyph: "S" },
-  { slug: "notes-app", from: "#fbd9d9", to: "#d32f2f", glyph: "N" },
-  { slug: "url-shortener", from: "#c9f1f5", to: "#0097a7", glyph: "U" },
-  { slug: "real-estate", from: "#dde3e8", to: "#546e7a", glyph: "R" },
+  { slug: "furnecher", from: "#ffd3dc", to: "#f26d86", glyph: "F" },
 ];
 
 /* ------------------------------------------------------------------ */
@@ -187,8 +178,8 @@ async function main() {
 
   /* Profile */
   const profileSvg = drawProfile(480);
-  await writeRaster(profileSvg, outputPath("assets", "profile", "profile.webp"), { width: 480, format: "webp" });
-  await writeRaster(profileSvg, outputPath("assets", "profile", "profile.png"), { width: 480, format: "png" });
+  await writeRaster(profileSvg, outputPath("assets", "profile", "professional-headshot.webp"), { width: 480, format: "webp" });
+  await writeRaster(profileSvg, outputPath("assets", "profile", "professional-headshot.png"), { width: 480, format: "png" });
 
   /* Projects */
   for (const project of PROJECTS) {

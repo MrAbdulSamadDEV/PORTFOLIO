@@ -55,6 +55,9 @@ export function renderNav(site: SiteSettings, activeSection: string): string {
       <nav class="site-nav__nav">
         <ul class="site-nav__list">${items}</ul>
       </nav>
+      <button type="button" class="site-nav__link site-nav__link--button theme-toggle" data-theme-toggle data-tooltip="Toggle theme" title="Toggle theme" aria-label="Switch to dark theme">
+        ${icon("fa-solid fa-moon")}
+      </button>
     </aside>`;
 }
 
@@ -99,6 +102,9 @@ export function renderMobileDrawer(site: SiteSettings): string {
       </nav>
       <div class="mobile-drawer__footer">
         <p>${escapeHtml(site.site.tagline)}</p>
+        <button type="button" class="mobile-drawer__theme" data-theme-toggle>
+          ${icon("fa-solid fa-moon")}<span>Switch to dark theme</span>
+        </button>
       </div>
     </aside>`;
 }
@@ -123,7 +129,6 @@ export function renderSocialRail(site: SiteSettings): string {
 }
 
 export function renderHero(site: SiteSettings): string {
-  const roles = site.hero.roles.map((role) => `<span class="hero__role">${escapeHtml(role)}</span>`).join('<span class="hero__role-separator" aria-hidden="true">•</span>');
   const badges = site.hero.floatingBadges
     .map((badge) => `<span class="hero__badge">${icon(badge.icon)}${escapeHtml(badge.label)}</span>`)
     .join("");
@@ -133,7 +138,9 @@ export function renderHero(site: SiteSettings): string {
       <div class="hero__content">
         <p class="hero__greeting">${escapeHtml(site.hero.greeting)}</p>
         <h1 class="hero__name" id="hero-heading">${escapeHtml(site.hero.name)}</h1>
-        <p class="hero__roles">${roles}</p>
+        <p class="hero__roles" data-hero-typing data-hero-roles='${escapeAttr(JSON.stringify(site.hero.typingRoles))}' aria-label="${escapeAttr(site.hero.typingRoles.join(", "))}">
+          <span data-hero-typing-text>${escapeHtml(site.hero.typingRoles[0] ?? site.hero.roles[0] ?? "")}</span><span class="hero__caret" aria-hidden="true"></span>
+        </p>
         <p class="hero__description">${escapeHtml(site.hero.description)}</p>
         <div class="hero__actions">
           <a class="btn btn--primary" href="${escapeAttr(site.hero.primaryButton.url)}">
@@ -148,14 +155,12 @@ export function renderHero(site: SiteSettings): string {
         <div class="hero__photo-frame">
           <div class="hero__photo" aria-hidden="true"></div>
           <picture>
-            <source type="image/webp" srcset="${escapeAttr(site.site.profileImage)}">
+            <source type="image/webp" srcset="${escapeAttr(site.hero.image)}">
             <img class="hero__photo-img"
-              src="${escapeAttr(site.site.profileImagePng)}"
-              alt="${escapeAttr(site.site.profileImageAlt)}"
-              width="${site.site.profileImageWidth}"
-              height="${site.site.profileImageHeight}"
-              fetchpriority="high"
-              decoding="async">
+              src="${escapeAttr(site.hero.imagePng)}"
+              alt="${escapeAttr(site.hero.imageAlt)}"
+              width="${site.hero.imageWidth}" height="${site.hero.imageHeight}"
+              fetchpriority="high" decoding="async">
           </picture>
           <span class="hero__ring" aria-hidden="true"></span>
           ${badges}
@@ -290,14 +295,11 @@ function renderProjectCard(project: Project): string {
         <ul class="project-card__techs" aria-label="Technologies used">${techBadges}</ul>
         <div class="project-card__actions">
           <a class="btn btn--small btn--dark" href="${escapeAttr(project.github)}" ${externalLinkAttrs()}>
-            ${icon("fa-brands fa-github")}<span>Source</span>
+            ${icon("fa-brands fa-github")}<span>GitHub</span>
           </a>
           <a class="btn btn--small btn--primary" href="${escapeAttr(project.liveDemo)}" ${externalLinkAttrs()}>
             <span>Live Demo</span>${icon("fa-solid fa-arrow-up-right-from-square")}
           </a>
-          <button type="button" class="btn btn--small btn--link project-card__details" aria-expanded="false">
-            <span>View Details</span>${icon("fa-solid fa-chevron-down")}
-          </button>
         </div>
       </div>
     </article>`;
@@ -439,10 +441,6 @@ export function renderBackToTop(site: SiteSettings): string {
 }
 
 export function renderAiWidget(site: SiteSettings): string {
-  const suggestions = aiData.suggestions
-    .map((question) => `<button type="button" class="ai-chat__suggestion" data-ai-suggestion>${escapeHtml(question)}</button>`)
-    .join("");
-
   return `
     <div class="ai-widget" data-ai-widget data-welcome-text="${escapeAttr(aiData.welcome)}">
       <button type="button" class="ai-widget__toggle" aria-expanded="false" aria-controls="ai-chat" data-ai-toggle>
@@ -473,7 +471,6 @@ export function renderAiWidget(site: SiteSettings): string {
           <input type="search" placeholder="Search conversation..." aria-label="Search conversation" autocomplete="off">
         </div>
         <div class="ai-chat__messages" data-ai-messages role="log" aria-live="polite" aria-relevant="additions text" aria-label="Chat messages"></div>
-        <div class="ai-chat__suggestions" aria-label="${escapeAttr(site.ai.suggestionsHeading)}">${suggestions}</div>
         <form class="ai-chat__composer" data-ai-form>
           <textarea class="ai-chat__input" rows="1" placeholder="${escapeAttr(site.ai.placeholder)}" aria-label="${escapeAttr(site.ai.placeholder)}" maxlength="500"></textarea>
           <button type="submit" class="ai-chat__send" aria-label="Send message">${icon("fa-solid fa-paper-plane")}</button>
@@ -517,9 +514,6 @@ export function renderProjectsPageContent(site: SiteSettings): string {
     </header>
     <section class="section" aria-labelledby="all-projects-heading">
       <div class="section__inner">
-        <div class="projects-filter" role="group" aria-label="Filter projects by category">
-          <button type="button" class="projects-filter__btn is-active" data-filter="all" aria-pressed="true">${icon("fa-solid fa-border-all")}All</button>
-        </div>
         <div data-projects-grid>${renderProjectsGrid(allProjects)}</div>
         <div class="projects-cta reveal">
           <h2 id="all-projects-heading">Like what you see?</h2>

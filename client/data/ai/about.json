@@ -4,7 +4,7 @@
     {
       "id": "who-are-you",
       "question": "Who is Abdul Samad?",
-      "answer": "Abdul Samad is a Cloud Data Engineering student and Full Stack Developer based in Lahore, Pakistan. He builds fast, scalable and modern digital experiences with a strong focus on clean code, user experience, accessibility and performance.",
+      "answer": "Abdul Samad is a Cloud Data Engineering student and Full Stack Developer based in Karachi, Pakistan. He builds fast, scalable and modern digital experiences with a strong focus on clean code, user experience, accessibility and performance.",
       "keywords": [
         "who are you",
         "who is abdul samad",
@@ -351,7 +351,7 @@
     {
       "id": "meet-in-person",
       "question": "Can we meet in person?",
-      "answer": "He is based in Lahore, Pakistan, so he's happy to meet in person if you're nearby. For everyone else, he's fully available online via email, WhatsApp or LinkedIn.",
+      "answer": "He is based in Karachi, Pakistan, so he's happy to meet in person if you're nearby. For everyone else, he's fully available online via email, WhatsApp or LinkedIn.",
       "keywords": [
         "meet in person",
         "meet up",
@@ -396,7 +396,7 @@
     {
       "id": "nationality",
       "question": "Where is Abdul Samad from?",
-      "answer": "Abdul Samad is from Pakistan and is currently based in Lahore, Pakistan.",
+      "answer": "Abdul Samad is from Pakistan and is currently based in Karachi, Pakistan.",
       "keywords": [
         "nationality",
         "where is he from",

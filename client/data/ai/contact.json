@@ -64,7 +64,7 @@
     {
       "id": "location",
       "question": "Where are you located?",
-      "answer": "Abdul Samad is based in Lahore, Pakistan.",
+      "answer": "Abdul Samad is based in Karachi, Pakistan.",
       "keywords": [
         "location",
         "where are you",
@@ -77,6 +77,7 @@
         "address",
         "timezone",
         "lahore",
+        "karachi",
         "pakistan",
         "located",
         "where are you based"
@@ -315,7 +316,7 @@
     {
       "id": "interview",
       "question": "Can I schedule an interview or call?",
-      "answer": "Yes! Email him at mr.abdulsamadabdullah@gmail.com with your availability and timezone, and he'll schedule a call or meeting — phone, video or in person in Lahore.",
+      "answer": "Yes! Email him at mr.abdulsamadabdullah@gmail.com with your availability and timezone, and he'll schedule a call or meeting — phone, video or in person in Karachi.",
       "keywords": [
         "interview",
         "schedule call",
@@ -374,13 +375,13 @@
     },
     {
       "id": "location-visit",
-      "question": "Can I visit you in Lahore?",
-      "answer": "He's based in Lahore, Pakistan — happy to meet in person if you're nearby. Message him first at mr.abdulsamadabdullah@gmail.com to arrange a time.",
+      "question": "Can I visit you in Karachi?",
+      "answer": "He's based in Karachi, Pakistan — happy to meet in person if you're nearby. Message him first at mr.abdulsamadabdullah@gmail.com to arrange a time.",
       "keywords": [
-        "visit lahore",
+        "visit karachi",
         "visit him",
-        "meet in lahore",
-        "lahore meetup",
+        "meet in karachi",
+        "karachi meetup",
         "visit pakistan",
         "come see him"
       ]

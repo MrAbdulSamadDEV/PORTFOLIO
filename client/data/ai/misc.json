@@ -58,8 +58,8 @@
     {
       "id": "weather",
       "question": "What's the weather like?",
-      "answer": "I don't track weather, but Abdul lives in Lahore, Pakistan — a warm city with hot summers and mild winters. If you need a weather app, he built one as one of his early projects!",
-      "keywords": ["weather", "weather in lahore", "temperature", "climate", "whats the weather", "raining", "hot or cold"]
+      "answer": "I don't track weather, but Abdul lives in Karachi, Pakistan — a warm coastal city with hot summers and mild winters.",
+      "keywords": ["weather", "weather in karachi", "weather in lahore", "temperature", "climate", "whats the weather", "raining", "hot or cold"]
     },
     {
       "id": "developer-tools-recommendation",

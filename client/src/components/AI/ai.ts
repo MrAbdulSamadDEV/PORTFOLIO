@@ -1,7 +1,7 @@
 import type { AiKnowledgeBase } from "../../types.js";
 import { fetchJson } from "../../utils/fetch-json.js";
 import { qs, qsa, qsRequired, prefersReducedMotion } from "../../utils/dom.js";
-import { findBestAnswer, formatAnswer } from "./engine.js";
+import { buildAnswer, formatAnswer } from "./engine.js";
 
 /**
  * MAX AI — the floating portfolio assistant widget.
@@ -29,35 +29,32 @@ export function initAiAssistant(): void {
   const searchInput = qsRequired<HTMLInputElement>('input[type="search"]', searchPanel);
   const clearButton = qsRequired<HTMLButtonElement>("[data-ai-clear]");
   const closeButton = qsRequired<HTMLButtonElement>("[data-ai-close]");
-  const suggestionButtons = qsa<HTMLButtonElement>("[data-ai-suggestion]", widget);
-  const suggestionsRow = qsRequired<HTMLElement>(".ai-chat__suggestions", widget);
 
   const serverWelcome = widget.getAttribute("data-welcome-text") ?? "";
   const reducedMotion = prefersReducedMotion();
 
   let kb: AiKnowledgeBase | null = null;
+  let kbReady: Promise<AiKnowledgeBase> | null = null;
   let opened = false;
   let welcomeShown = false;
   let typingTimer = 0;
   let composerLocked = false;
 
-  /* ---------- Knowledge base ---------- */
+  /* ---------- Knowledge base (loaded lazily on first open) ---------- */
 
-  fetchJson<AiKnowledgeBase>("/data/ai.json")
-    .then((data) => {
-      kb = data;
-    })
-    .catch((error: unknown) => {
-      console.warn("[max-ai] knowledge base unavailable, using fallback:", error);
-      kb = {
-        welcome: serverWelcome,
-        unknown: FALLBACK_UNKNOWN,
-        suggestions: [],
-        synonyms: {},
-        intents: {},
-        faqs: [],
-      };
-    });
+  const loadKnowledgeBase = (): Promise<AiKnowledgeBase> => {
+    if (kbReady) return kbReady;
+    kbReady = fetchJson<AiKnowledgeBase>("/data/ai.json")
+      .then((data) => {
+        kb = data;
+        return data;
+      })
+      .catch((error: unknown) => {
+        console.warn("[max-ai] knowledge base unavailable, using fallback:", error);
+        return createFallbackKnowledgeBase();
+      });
+    return kbReady;
+  };
 
   /* ---------- Helpers ---------- */
 
@@ -224,9 +221,8 @@ export function initAiAssistant(): void {
     const indicator = showTypingIndicator();
 
     window.clearTimeout(typingTimer);
-    typingTimer = window.setTimeout(() => {
-      const result = findBestAnswer(question, kb ?? createFallbackKnowledgeBase());
-      const answer = result.faq ? result.faq.answer : (kb?.unknown ?? FALLBACK_UNKNOWN);
+    typingTimer = window.setTimeout(async () => {
+      const answer = buildAnswer(question, await loadKnowledgeBase());
 
       indicator.remove();
 
@@ -244,7 +240,6 @@ export function initAiAssistant(): void {
     return {
       welcome: serverWelcome,
       unknown: FALLBACK_UNKNOWN,
-      suggestions: [],
       synonyms: {},
       intents: {},
       faqs: [],
@@ -273,6 +268,7 @@ export function initAiAssistant(): void {
   const open = (): void => {
     chat.hidden = false;
     toggle.setAttribute("aria-expanded", "true");
+    void loadKnowledgeBase();
     if (!opened) {
       opened = true;
       showWelcome(true);
@@ -307,13 +303,6 @@ export function initAiAssistant(): void {
   });
 
   /* ---------- Suggestions ---------- */
-
-  for (const button of suggestionButtons) {
-    button.addEventListener("click", () => {
-      answerQuestion(button.textContent ?? "");
-      suggestionsRow.hidden = true;
-    });
-  }
 
   /* ---------- Composer ---------- */
 

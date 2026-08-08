@@ -7,15 +7,16 @@
   --color-bg: #ffffff;
   --color-surface: #ffffff;
   --color-surface-soft: #fafafa;
-  --color-accent: #ffb6c1;
-  --color-accent-hover: #ffa9b7;
+  --color-accent: #fa7d90;
+  --color-accent-hover: #f2677d;
   --color-accent-soft: #fff1f4;
-  --color-accent-strong: #f26d86;
+  --color-accent-strong: #fa7d90;
+  --color-accent-secondary: #ffb6c1;
   --color-text: #222222;
   --color-text-soft: #4a4a4a;
   --color-text-muted: #8c8c8c;
-  --color-border: #ececec;
-  --color-border-strong: #dcdcdc;
+  --color-border: #eeeeee;
+  --color-border-strong: #dddddd;
   --color-success: #16a34a;
   --color-warning: #f59e0b;
   --color-error: #ef4444;
@@ -36,7 +37,7 @@
   --shadow-sm: 0 1px 2px rgba(34, 34, 34, 0.04), 0 4px 12px rgba(34, 34, 34, 0.05);
   --shadow-md: 0 6px 16px rgba(34, 34, 34, 0.06), 0 16px 40px rgba(34, 34, 34, 0.07);
   --shadow-lg: 0 12px 28px rgba(34, 34, 34, 0.08), 0 28px 72px rgba(34, 34, 34, 0.1);
-  --shadow-accent: 0 8px 20px rgba(255, 182, 193, 0.45);
+  --shadow-accent: 0 8px 20px rgba(250, 125, 144, 0.45);
 
   /* Layout */
   --nav-width: 60px;
@@ -48,6 +49,47 @@
   --transition-base: 250ms;
   --transition-slow: 400ms;
   --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* ---------- Dark theme ---------- */
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --color-bg: #000000;
+  --color-surface: #111111;
+  --color-surface-soft: #0a0a0a;
+  --color-accent: #fa7d90;
+  --color-accent-hover: #fa7d90;
+  --color-accent-soft: #241116;
+  --color-accent-strong: #fa7d90;
+  --color-accent-secondary: #ffb6c1;
+  --color-text: #ffffff;
+  --color-text-soft: #e6e6e6;
+  --color-text-muted: #bdbdbd;
+  --color-border: #222222;
+  --color-border-strong: #333333;
+  --color-success: #4ade80;
+  --color-warning: #fbbf24;
+  --color-error: #f87171;
+  --color-white: #ffffff;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5), 0 4px 12px rgba(0, 0, 0, 0.45);
+  --shadow-md: 0 6px 16px rgba(0, 0, 0, 0.5), 0 16px 40px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.55), 0 28px 72px rgba(0, 0, 0, 0.6);
+  --shadow-accent: 0 8px 20px rgba(250, 125, 144, 0.28);
+}
+
+html[data-theme="dark"] ::selection {
+  color: #000000;
+}
+
+@media (pointer: fine) {
+  html[data-theme="dark"] ::-webkit-scrollbar-track {
+    background: #0a0a0a;
+  }
+  html[data-theme="dark"] ::-webkit-scrollbar-thumb {
+    background: #2e2e2e;
+    border-color: #0a0a0a;
+  }
 }
 
 /* ---------- Reset ---------- */

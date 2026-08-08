@@ -1,16 +1,6 @@
 {
   "welcome": "Hi, I'm MAX AI.\n\nI'm Abdul Samad's personal portfolio assistant.\n\nI can answer questions about him, his projects, skills, experience, education, certifications and contact information.\n\nHow can I help you today?",
   "unknown": "I couldn't find an exact answer to that yet. Try asking about Abdul's projects, skills, experience, education, certificates or contact details — or ask me something like \"Show your projects\" or \"How can I contact you?\".",
-  "suggestions": [
-    "Who are you?",
-    "What technologies do you know?",
-    "Show your projects",
-    "How can I contact you?",
-    "Tell me about your education",
-    "What certificates do you have?",
-    "What services do you provide?",
-    "Where are you located?"
-  ],
   "synonyms": {
     "identity": ["who is", "who are", "about you", "about him", "intro", "introduction", "introduce", "person", "owner", "developer", "bio", "biography", "background", "story", "profile", "himself", "yourself"],
     "skills": ["abilities", "capabilities", "expertise", "talents", "strengths", "technologies", "technology", "tech", "stacks", "stack", "tools", "languages", "know", "knows", "good at", "proficient", "qualified", "experienced", "familiar"],

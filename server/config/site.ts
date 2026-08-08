@@ -62,10 +62,25 @@ export interface SiteSettings {
     greeting: string;
     name: string;
     roles: string[];
+    typingRoles: string[];
+    image: string;
+    imagePng: string;
+    imageAlt: string;
+    imageWidth: number;
+    imageHeight: number;
     description: string;
     primaryButton: { label: string; url: string; icon: string };
     secondaryButton: { label: string; url: string; icon: string };
     floatingBadges: Array<{ label: string; icon: string }>;
+    video: {
+      webm: string;
+      mp4: string;
+      poster: string;
+      posterPng: string;
+      posterAlt: string;
+      width: number;
+      height: number;
+    };
   };
   about: {
     eyebrow: string;
@@ -126,7 +141,6 @@ export interface SiteSettings {
     clearLabel: string;
     searchLabel: string;
     copyLabel: string;
-    suggestionsHeading: string;
   };
 }
 
@@ -158,7 +172,6 @@ export interface FaqEntry {
 export interface AiKnowledgeBase {
   welcome: string;
   unknown: string;
-  suggestions: string[];
   synonyms: Record<string, string[]>;
   intents: Record<string, string[]>;
   faqs: FaqEntry[];

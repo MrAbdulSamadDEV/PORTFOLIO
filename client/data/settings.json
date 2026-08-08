@@ -8,7 +8,7 @@
     "email": "mr.abdulsamadabdullah@gmail.com",
     "phoneDisplay": "+92 370 8033443",
     "phoneHref": "tel:+923708033443",
-    "location": "Lahore, Pakistan",
+    "location": "Karachi, Pakistan",
     "language": "en",
     "themeColor": "#FFFFFF",
     "logo": "/assets/logos/logo.png",
@@ -31,8 +31,8 @@
     },
     "projects": {
       "title": "Projects — Abdul Samad | Full Stack Developer",
-      "description": "Explore the projects of Abdul Samad: e-commerce platforms, AI assistant web apps, weather dashboards, student portals and more — built with TypeScript, Node.js, Express and modern frontend engineering.",
-      "keywords": "Abdul Samad projects, portfolio projects, full stack projects, TypeScript projects, Node.js projects, Express projects"
+      "description": "Explore the flagship project of Abdul Samad: SALAAR'S HOME (Furnecher) — a modern furniture e-commerce platform built with TypeScript, Node.js, Express, React and MongoDB.",
+      "keywords": "Abdul Samad projects, SALAAR'S HOME, Furnecher, furniture e-commerce, full stack projects, TypeScript projects, Node.js projects, React projects"
     },
     "contact": {
       "title": "Contact — Abdul Samad | Let's Work Together",
@@ -46,7 +46,7 @@
     { "label": "Skills", "url": "/#skills", "section": "skills", "icon": "fa-solid fa-code", "action": "scroll" },
     { "label": "Projects", "url": "/projects", "section": "projects-page", "icon": "fa-solid fa-folder-open", "action": "page" },
     { "label": "Contact", "url": "/contact", "section": "contact-page", "icon": "fa-solid fa-envelope", "action": "page" },
-    { "label": "AI Assistant", "url": "#", "section": "ai", "icon": "fa-solid fa-robot", "action": "ai" }
+    { "label": "MAX", "url": "#", "section": "ai", "icon": "fa-solid fa-robot", "action": "ai" }
   ],
   "socials": [
     { "name": "GitHub", "url": "https://github.com/MrAbdulSamadDEV", "icon": "fa-brands fa-github" },
@@ -60,6 +60,24 @@
     "greeting": "Hello, I'm",
     "name": "Abdul Samad",
     "roles": ["Cloud Data Engineering Student", "Full Stack Developer"],
+    "typingRoles": [
+      "Cloud Data Engineering Student",
+      "Full Stack Developer",
+      "Frontend Developer",
+      "Backend Developer",
+      "HTML Developer",
+      "CSS Developer",
+      "JavaScript Developer",
+      "TypeScript Developer",
+      "Node.js Developer",
+      "Express.js Developer",
+      "Open Source Contributor"
+    ],
+    "image": "/assets/hero/hero-art.webp",
+    "imagePng": "/assets/hero/hero-art.png",
+    "imageAlt": "Premium anime-style illustration of Abdul Samad, young developer in a modern black outfit",
+    "imageWidth": 960,
+    "imageHeight": 960,
     "description": "I build modern, fast and scalable web applications with a strong focus on clean code, exceptional user experience, accessibility, performance and maintainability. I enjoy learning new technologies and solving real-world problems through software engineering.",
     "primaryButton": { "label": "View Projects", "url": "/projects", "icon": "fa-solid fa-folder-open" },
     "secondaryButton": { "label": "Contact Me", "url": "/contact", "icon": "fa-solid fa-envelope" },
@@ -67,7 +85,16 @@
       { "label": "TypeScript", "icon": "fa-solid fa-file-code" },
       { "label": "Node.js", "icon": "fa-brands fa-node-js" },
       { "label": "Cloud", "icon": "fa-solid fa-cloud" }
-    ]
+    ],
+    "video": {
+      "webm": "/assets/hero/hero-video.webm",
+      "mp4": "/assets/hero/hero-video.mp4",
+      "poster": "/assets/profile/professional-headshot.webp",
+      "posterPng": "/assets/profile/professional-headshot.png",
+      "posterAlt": "Professional headshot of Abdul Samad in business attire",
+      "width": 480,
+      "height": 480
+    }
   },
   "about": {
     "eyebrow": "About Me",
@@ -76,7 +103,7 @@
     "myJourney": "My journey started with curiosity about how websites work, which quickly grew into a deep interest in programming, data and cloud technologies. I have spent the last few years building real projects, learning modern tools and sharpening my engineering skills through hands-on practice and continuous study.",
     "myGoals": "My goal is to become a world-class engineer who bridges the gap between data engineering and full stack development — building intelligent, scalable systems that solve real-world problems. I'm always exploring new technologies and I'm open to internships, freelance work and exciting collaborations.",
     "statistics": [
-      { "value": "10+", "label": "Projects Completed", "icon": "fa-solid fa-diagram-project" },
+      { "value": "1", "label": "Featured Project", "icon": "fa-solid fa-diagram-project" },
       { "value": "25+", "label": "Technologies Learned", "icon": "fa-solid fa-layer-group" },
       { "value": "4+", "label": "Certificates Earned", "icon": "fa-solid fa-award" },
       { "value": "3+", "label": "Years of Learning", "icon": "fa-solid fa-clock" }
@@ -160,7 +187,7 @@
     "cards": [
       { "label": "Email Me", "value": "mr.abdulsamadabdullah@gmail.com", "href": "mailto:mr.abdulsamadabdullah@gmail.com", "icon": "fa-solid fa-envelope" },
       { "label": "Call Me", "value": "+92 370 8033443", "href": "tel:+923708033443", "icon": "fa-solid fa-phone" },
-      { "label": "Location", "value": "Lahore, Pakistan", "href": "https://maps.google.com/?q=Lahore,Pakistan", "icon": "fa-solid fa-location-dot" }
+      { "label": "Location", "value": "Karachi, Pakistan", "href": "https://maps.google.com/?q=Karachi,Pakistan", "icon": "fa-solid fa-location-dot" }
     ],
     "form": {
       "nameLabel": "Your Name",
@@ -191,7 +218,6 @@
     "closeLabel": "Close chat",
     "clearLabel": "Clear conversation",
     "searchLabel": "Search conversation",
-    "copyLabel": "Copy response",
-    "suggestionsHeading": "Try asking"
+    "copyLabel": "Copy response"
   }
 }

@@ -128,8 +128,8 @@ async function main() {
       "/assets/logos/logo.svg",
       "/assets/og-image.webp",
       "/assets/og-image.png",
-      "/assets/profile/profile.webp",
-      "/assets/profile/profile.png",
+      "/assets/profile/professional-headshot.webp",
+      "/assets/profile/professional-headshot.png",
     ];
     for (const file of staticFiles) {
       try {
@@ -159,7 +159,7 @@ async function main() {
     check("ai.json faqs count >= 100", aiData.faqs.length >= 100, `${aiData.faqs.length}`);
     check("ai.json unique ids", new Set(aiData.faqs.map((f) => f.id)).size === aiData.faqs.length);
     check("projects.json unique ids", new Set(projects.map((p) => p.id)).size === projects.length);
-    check("projects.json featured >= 4", projects.filter((p) => p.featured).length >= 4);
+    check("projects.json has a featured project", projects.filter((p) => p.featured).length >= 1, `${projects.filter((p) => p.featured).length}`);
     check("settings nav sections unique", new Set(settings.nav.map((n) => n.section)).size === settings.nav.length);
     check("settings socials >= 6", settings.socials.length >= 6);
 

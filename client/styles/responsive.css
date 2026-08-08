@@ -70,10 +70,6 @@
     padding-top: 104px;
   }
 
-  .hero__scroll {
-    display: none;
-  }
-
   .about-grid,
   .skills-grid,
   .projects-grid {
@@ -120,8 +116,7 @@
     margin-inline: auto;
   }
 
-  .hero__actions,
-  .hero__socials {
+  .hero__actions {
     justify-content: center;
   }
 
@@ -181,22 +176,9 @@
     padding: 20px 12px;
   }
 
-  .projects-filter {
-    gap: 8px;
-  }
-
-  .projects-filter__btn {
-    padding: 8px 14px;
-    font-size: 12.5px;
-  }
-
   .project-card__actions {
     flex-direction: column;
     align-items: stretch;
-  }
-
-  .project-card__details {
-    margin-left: 0;
   }
 
   .projects-cta {

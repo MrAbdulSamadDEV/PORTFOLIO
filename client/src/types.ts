@@ -30,7 +30,6 @@ export interface AiFaq {
 export interface AiKnowledgeBase {
   welcome: string;
   unknown: string;
-  suggestions: string[];
   synonyms: Record<string, string[]>;
   intents: Record<string, string[]>;
   faqs: AiFaq[];
@@ -48,6 +47,5 @@ export interface SiteSettings {
     clearLabel: string;
     searchLabel: string;
     copyLabel: string;
-    suggestionsHeading: string;
   };
 }

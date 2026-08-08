@@ -26,7 +26,7 @@
   height: 46vw;
   top: -14%;
   left: -10%;
-  background: radial-gradient(circle, rgba(255, 182, 193, 0.5), transparent 68%);
+  background: radial-gradient(circle, rgba(250, 125, 144, 0.45), transparent 68%);
   animation: glow-drift-one 70s ease-in-out infinite alternate;
 }
 
@@ -35,7 +35,7 @@
   height: 40vw;
   top: 30%;
   right: -12%;
-  background: radial-gradient(circle, rgba(255, 200, 210, 0.4), transparent 68%);
+  background: radial-gradient(circle, rgba(250, 125, 144, 0.28), transparent 68%);
   animation: glow-drift-two 90s ease-in-out infinite alternate;
 }
 
@@ -44,7 +44,7 @@
   height: 36vw;
   bottom: -16%;
   left: 24%;
-  background: radial-gradient(circle, rgba(255, 182, 193, 0.35), transparent 68%);
+  background: radial-gradient(circle, rgba(250, 125, 144, 0.28), transparent 68%);
   animation: glow-drift-three 80s ease-in-out infinite alternate;
 }
 
@@ -116,7 +116,7 @@ html.no-scroll body {
   width: 14px;
   height: 14px;
   background: var(--color-text);
-  box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.95), 0 0 0 3px rgba(34, 34, 34, 0.28);
+  box-shadow: 0 0 0 1.5px var(--color-bg), 0 0 0 3px rgba(34, 34, 34, 0.28);
   border-radius: 3px;
   pointer-events: none;
   transform: translate(-50%, -50%);
@@ -147,7 +147,7 @@ html.has-custom-cursor .custom-cursor {
 
 .custom-cursor.is-hover-link {
   background: var(--color-accent);
-  box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.95), 0 0 0 3px rgba(242, 109, 134, 0.5);
+  box-shadow: 0 0 0 1.5px var(--color-bg), 0 0 0 3px rgba(250, 125, 144, 0.5);
 }
 
 .custom-cursor.is-hover-card {
@@ -189,7 +189,7 @@ html.has-custom-cursor .custom-cursor {
   }
 
   body {
-    background: #ffffff;
+    background: var(--color-bg);
   }
 }
 
@@ -215,8 +215,7 @@ html.has-custom-cursor .custom-cursor {
   .site-background__glow,
   .hero__photo,
   .hero__ring,
-  .hero__badge,
-  .hero__scroll-mouse::before {
+  .hero__badge {
     animation: none !important;
   }
 

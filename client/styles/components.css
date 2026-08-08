@@ -5,6 +5,7 @@
 
 /* ---------- Buttons ---------- */
 .btn {
+  --edge-depth: rgba(0, 0, 0, 0.28);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -15,6 +16,9 @@
   font-weight: 600;
   line-height: 1.2;
   white-space: nowrap;
+  position: relative;
+  isolation: isolate;
+  box-shadow: 0 5px 0 var(--edge-depth), var(--shadow-sm);
   transition: background var(--transition-base) var(--ease-out),
     color var(--transition-base) var(--ease-out),
     border-color var(--transition-base) var(--ease-out),
@@ -22,30 +26,44 @@
     box-shadow var(--transition-base) var(--ease-out);
 }
 
+html[data-theme="dark"] .btn {
+  --edge-depth: rgba(255, 255, 255, 0.1);
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 55% 0;
+  border-radius: inherit;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.35), transparent 65%);
+  pointer-events: none;
+  opacity: 0.45;
+}
+
 .btn:active {
-  transform: translateY(1px) scale(0.98);
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 var(--edge-depth), var(--shadow-sm);
 }
 
 .btn--primary {
-  background: var(--color-accent);
+  background: linear-gradient(to bottom, color-mix(in srgb, var(--color-accent) 88%, white), var(--color-accent));
   color: var(--color-text);
 }
 
 .btn--primary:hover {
-  background: var(--color-accent-hover);
+  background: linear-gradient(to bottom, var(--color-accent-hover), var(--color-accent));
   transform: translateY(-2px);
-  box-shadow: var(--shadow-accent);
+  box-shadow: 0 7px 0 var(--edge-depth), var(--shadow-accent);
 }
 
 .btn--dark {
-  background: var(--color-text);
+  background: linear-gradient(to bottom, var(--color-text), color-mix(in srgb, var(--color-text) 88%, black));
   color: var(--color-white);
 }
 
 .btn--dark:hover {
-  background: #000000;
   transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 7px 0 var(--edge-depth), var(--shadow-md);
 }
 
 .btn--ghost {
@@ -57,22 +75,27 @@
 .btn--ghost:hover {
   border-color: var(--color-text);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-sm);
-}
-
-.btn--link {
-  padding: 8px 12px;
-  color: var(--color-accent-strong);
-}
-
-.btn--link:hover {
-  background: var(--color-accent-soft);
+  box-shadow: 0 7px 0 var(--edge-depth), var(--shadow-sm);
 }
 
 .btn--small {
   padding: 9px 16px;
   font-size: 13.5px;
   border-radius: var(--radius-sm);
+  box-shadow: 0 3px 0 var(--edge-depth), var(--shadow-sm);
+}
+
+.btn--small:hover {
+  box-shadow: 0 5px 0 var(--edge-depth), var(--shadow-accent);
+}
+
+.btn--small.btn--dark:hover {
+  box-shadow: 0 5px 0 var(--edge-depth), var(--shadow-md);
+}
+
+.btn--small:active {
+  transform: translateY(2px);
+  box-shadow: 0 0 0 var(--edge-depth), var(--shadow-sm);
 }
 
 /* ---------- About cards ---------- */
@@ -424,9 +447,15 @@
 }
 
 .project-card__featured {
-  color: #9a6700;
+  color: var(--color-warning);
   background: rgba(255, 243, 205, 0.96);
   border-color: #f5e3a8;
+}
+
+html[data-theme="dark"] .project-card__featured {
+  color: #f5c558;
+  background: rgba(63, 46, 10, 0.9);
+  border-color: rgba(245, 227, 168, 0.4);
 }
 
 .project-card__featured i {
@@ -437,6 +466,11 @@
   color: var(--color-success);
   background: rgba(240, 253, 244, 0.96);
   border-color: #c8ecd2;
+}
+
+html[data-theme="dark"] .project-card__status {
+  background: rgba(16, 62, 32, 0.9);
+  border-color: rgba(200, 236, 210, 0.4);
 }
 
 .project-card__body {
@@ -484,17 +518,6 @@
   line-height: 1.7;
 }
 
-.js .project-card__description {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.js .project-card__description.is-expanded {
-  display: block;
-}
-
 .project-card__techs {
   display: flex;
   flex-wrap: wrap;
@@ -526,67 +549,17 @@
   padding-top: 8px;
 }
 
-.project-card__details {
-  margin-left: auto;
-}
-
-.project-card__details i {
-  transition: transform var(--transition-base) var(--ease-out);
-}
-
-.project-card__details.is-open i {
-  transform: rotate(180deg);
-}
-
 .projects-empty {
   text-align: center;
   color: var(--color-text-muted);
   padding: 48px 0;
 }
 
-/* ---------- Projects filter ---------- */
-.projects-filter {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 36px;
-}
-
-.projects-filter__btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 9px 18px;
-  border-radius: var(--radius-full);
-  border: 1px solid var(--color-border-strong);
-  background: var(--color-surface);
-  font-size: 13.5px;
-  font-weight: 500;
-  color: var(--color-text-soft);
-  transition: background var(--transition-base) var(--ease-out),
-    color var(--transition-base) var(--ease-out),
-    border-color var(--transition-base) var(--ease-out),
-    transform var(--transition-base) var(--ease-out);
-}
-
-.projects-filter__btn:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-sm);
-}
-
-.projects-filter__btn.is-active {
-  background: var(--color-accent);
-  border-color: var(--color-accent);
-  color: var(--color-text);
-  font-weight: 600;
-  box-shadow: var(--shadow-accent);
-}
-
 .projects-cta {
   margin-top: 64px;
   padding: 48px;
   text-align: center;
-  background: linear-gradient(135deg, var(--color-accent-soft), #ffffff);
+  background: linear-gradient(135deg, var(--color-accent-soft), var(--color-surface));
   border: 1px solid var(--color-border);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-sm);
@@ -677,53 +650,6 @@
 .contact-card__value {
   font-size: 15px;
   word-break: break-word;
-}
-
-.contact-socials {
-  margin-top: 24px;
-}
-
-.contact-socials__heading {
-  font-size: 1rem;
-  margin-bottom: 14px;
-}
-
-.contact-socials__list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.contact-socials__link {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 16px;
-  border-radius: var(--radius-full);
-  border: 1px solid var(--color-border);
-  background: var(--color-surface);
-  font-size: 13.5px;
-  font-weight: 500;
-  color: var(--color-text-soft);
-  transition: background var(--transition-base) var(--ease-out),
-    color var(--transition-base) var(--ease-out),
-    transform var(--transition-base) var(--ease-out),
-    box-shadow var(--transition-base) var(--ease-out);
-}
-
-.contact-socials__link i {
-  color: var(--color-accent-strong);
-}
-
-.contact-socials__link:hover {
-  background: var(--color-accent);
-  color: var(--color-white);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-accent);
-}
-
-.contact-socials__link:hover i {
-  color: var(--color-white);
 }
 
 /* ---------- Forms ---------- */
@@ -819,10 +745,18 @@
   color: #14532d;
 }
 
+html[data-theme="dark"] .contact-form__status.is-success {
+  color: #4ade80;
+}
+
 .contact-form__status.is-error {
   background: rgba(239, 68, 68, 0.08);
   border: 1px solid rgba(239, 68, 68, 0.3);
   color: #7f1d1d;
+}
+
+html[data-theme="dark"] .contact-form__status.is-error {
+  color: #f87171;
 }
 
 /* ---------- Breadcrumbs ---------- */
@@ -937,6 +871,10 @@
   background: rgba(34, 34, 34, 0.08);
 }
 
+html[data-theme="dark"] .ai-widget__toggle:hover .ai-widget__icon {
+  background: rgba(255, 255, 255, 0.12);
+}
+
 .ai-widget__toggle:hover .ai-widget__icon i {
   animation: ai-bounce 700ms var(--ease-out);
 }
@@ -1001,6 +939,10 @@
   box-shadow: var(--shadow-lg);
   overflow: hidden;
   animation: chat-in var(--transition-base) var(--ease-out);
+}
+
+html[data-theme="dark"] .ai-chat {
+  background: rgba(13, 13, 13, 0.92);
 }
 
 @keyframes chat-in {
@@ -1251,33 +1193,6 @@
     transform: translateY(-4px);
     opacity: 1;
   }
-}
-
-.ai-chat__suggestions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  padding: 10px 14px;
-  border-top: 1px solid var(--color-border);
-  background: var(--color-surface-soft);
-}
-
-.ai-chat__suggestion {
-  font-size: 12.5px;
-  font-weight: 500;
-  color: var(--color-text-soft);
-  background: var(--color-surface);
-  border: 1px solid var(--color-border-strong);
-  border-radius: var(--radius-full);
-  padding: 6px 13px;
-  transition: background var(--transition-fast) var(--ease-out), color var(--transition-fast) var(--ease-out), border-color var(--transition-fast) var(--ease-out), transform var(--transition-fast) var(--ease-out);
-}
-
-.ai-chat__suggestion:hover {
-  background: var(--color-accent);
-  border-color: var(--color-accent);
-  color: var(--color-text);
-  transform: translateY(-1px);
 }
 
 .ai-chat__composer {
