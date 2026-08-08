@@ -57,8 +57,8 @@ html[data-theme="dark"] .btn {
 }
 
 .btn--dark {
-  background: linear-gradient(to bottom, var(--color-text), color-mix(in srgb, var(--color-text) 88%, black));
-  color: var(--color-white);
+  background: linear-gradient(to bottom, var(--color-inverse), color-mix(in srgb, var(--color-inverse) 88%, black));
+  color: var(--color-inverse-text);
 }
 
 .btn--dark:hover {
@@ -210,8 +210,19 @@ html[data-theme="dark"] .btn {
   top: 12px;
   bottom: 12px;
   width: 2px;
-  background: linear-gradient(to bottom, var(--color-accent), var(--color-border));
+  background: linear-gradient(to bottom, var(--color-accent), var(--color-accent-secondary), var(--color-border));
   border-radius: var(--radius-full);
+  animation: timeline-glow 4.5s ease-in-out infinite;
+}
+
+@keyframes timeline-glow {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 .timeline-item {
@@ -236,6 +247,48 @@ html[data-theme="dark"] .btn {
   color: var(--color-accent-strong);
   font-size: 16px;
   box-shadow: var(--shadow-sm);
+}
+
+/* Expanding pulse ring behind each icon when its item scrolls into view */
+.timeline-item__icon::after {
+  content: "";
+  position: absolute;
+  inset: -7px;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-accent);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.timeline-item.is-visible .timeline-item__icon {
+  animation: timeline-icon-pop 600ms var(--ease-out) var(--reveal-delay, 0ms) both;
+}
+
+.timeline-item.is-visible .timeline-item__icon::after {
+  animation: timeline-ring 1.1s var(--ease-out) calc(var(--reveal-delay, 0ms) + 450ms) both;
+}
+
+@keyframes timeline-icon-pop {
+  0% {
+    transform: scale(0.4) rotate(-30deg);
+  }
+  60% {
+    transform: scale(1.18) rotate(6deg);
+  }
+  100% {
+    transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes timeline-ring {
+  0% {
+    opacity: 0.8;
+    transform: scale(0.7);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.7);
+  }
 }
 
 .timeline-item__body {
@@ -840,8 +893,8 @@ html[data-theme="dark"] .contact-form__status.is-error {
   gap: 10px;
   padding: 13px 20px;
   border-radius: var(--radius-full);
-  background: var(--color-text);
-  color: var(--color-white);
+  background: var(--color-inverse);
+  color: var(--color-inverse-text);
   font-size: 14.5px;
   font-weight: 600;
   box-shadow: var(--shadow-lg);
@@ -897,8 +950,8 @@ html[data-theme="dark"] .ai-widget__toggle:hover .ai-widget__icon {
   right: calc(100% + 10px);
   bottom: 18px;
   padding: 6px 12px;
-  background: var(--color-text);
-  color: var(--color-white);
+  background: var(--color-inverse);
+  color: var(--color-inverse-text);
   font-size: 12.5px;
   font-weight: 500;
   border-radius: var(--radius-sm);
@@ -917,7 +970,7 @@ html[data-theme="dark"] .ai-widget__toggle:hover .ai-widget__icon {
   transform: translateY(-50%) rotate(45deg);
   width: 10px;
   height: 10px;
-  background: var(--color-text);
+  background: var(--color-inverse);
 }
 
 .ai-widget__toggle:hover .ai-widget__tooltip {

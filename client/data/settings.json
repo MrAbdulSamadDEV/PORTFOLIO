@@ -100,7 +100,7 @@
     "eyebrow": "About Me",
     "heading": "A developer who cares about the details",
     "whoIAm": "I'm Abdul Samad, a passionate Cloud Data Engineering student and Full Stack Developer. I design and build clean, modern and high-performance web applications using TypeScript, Node.js and Express. My focus is on writing maintainable code, delivering exceptional user experiences and following accessibility and performance best practices on every project.",
-    "myJourney": "My journey started with curiosity about how websites work, which quickly grew into a deep interest in programming, data and cloud technologies. I have spent the last few years building real projects, learning modern tools and sharpening my engineering skills through hands-on practice and continuous study.",
+    "myJourney": "My journey started in 2024 with Microsoft Word — my very first computer skill — and grew step by step into web development, full stack engineering and finally cloud data engineering. Every stage has been built through hands-on practice, real projects and continuous study.",
     "myGoals": "My goal is to become a world-class engineer who bridges the gap between data engineering and full stack development — building intelligent, scalable systems that solve real-world problems. I'm always exploring new technologies and I'm open to internships, freelance work and exciting collaborations.",
     "statistics": [
       { "value": "1", "label": "Featured Project", "icon": "fa-solid fa-diagram-project" },
@@ -110,28 +110,34 @@
     ],
     "journey": [
       {
+        "title": "First Steps with MS Word",
+        "period": "2024",
+        "icon": "fa-solid fa-file-word",
+        "description": "My tech journey began with Microsoft Word — mastering documents, formatting and keyboard shortcuts sparked my curiosity about computers and software."
+      },
+      {
         "title": "Discovered Programming",
-        "period": "2022",
+        "period": "2024",
         "icon": "fa-solid fa-code",
         "description": "Wrote my first lines of HTML, CSS and JavaScript and fell in love with building things for the web."
       },
       {
-        "title": "First Real Projects",
-        "period": "2023",
+        "title": "Full Stack Development",
+        "period": "2025",
         "icon": "fa-solid fa-diagram-project",
-        "description": "Built my first full projects including a furniture e-commerce site and a weather dashboard, learning Node.js and Express along the way."
+        "description": "Built my first complete projects — a furniture e-commerce platform and a weather dashboard — mastering Node.js, Express, TypeScript and React along the way."
       },
       {
-        "title": "Deep Dive into TypeScript & Cloud",
-        "period": "2024",
-        "icon": "fa-solid fa-cloud",
-        "description": "Adopted TypeScript for all new projects and started studying cloud data engineering, Linux and modern DevOps practices."
-      },
-      {
-        "title": "Building for the Real World",
-        "period": "2025 — Present",
+        "title": "Real-World & Open Source",
+        "period": "2025",
         "icon": "fa-solid fa-rocket",
-        "description": "Currently shipping production-quality applications, contributing to open source and preparing for a career in cloud and full stack engineering."
+        "description": "Shipped production-quality applications, contributed to open source and sharpened my engineering discipline through hands-on practice."
+      },
+      {
+        "title": "Cloud Data Engineering",
+        "period": "2026 — Present",
+        "icon": "fa-solid fa-cloud",
+        "description": "Currently studying cloud data engineering — data pipelines, ETL, cloud platforms like AWS and Azure, and Linux — building toward a career as a cloud data engineer."
       }
     ]
   },

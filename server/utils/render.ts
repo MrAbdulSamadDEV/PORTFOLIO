@@ -26,15 +26,8 @@ function externalLinkAttrs(): string {
 
 export function renderNav(site: SiteSettings, activeSection: string): string {
   const items = site.nav
+    .filter((item) => item.action !== "ai")
     .map((item) => {
-      if (item.action === "ai") {
-        return `
-          <li class="site-nav__item">
-            <button type="button" class="site-nav__link site-nav__link--button" data-nav-action="ai" data-tooltip="${escapeAttr(item.label)}" aria-label="${escapeAttr(item.label)} — open MAX AI chat" title="${escapeAttr(item.label)}">
-              ${icon(item.icon)}
-            </button>
-          </li>`;
-      }
       const isActive = item.section === activeSection;
       const scrollData = item.action === "scroll" ? ` data-nav-scroll="${escapeAttr(item.section)}"` : "";
       const ariaCurrent = isActive ? ' aria-current="page"' : "";

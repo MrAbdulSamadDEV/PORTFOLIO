@@ -22,6 +22,12 @@
   --color-error: #ef4444;
   --color-white: #ffffff;
 
+  /* Inverse contrast pair — components that flip (tooltips, inverse buttons,
+     MAX pill). In light theme they are dark-on-white, in dark theme they are
+     white-on-black so their text is always readable. */
+  --color-inverse: #222222;
+  --color-inverse-text: #ffffff;
+
   /* Typography */
   --font-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
   --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
@@ -71,6 +77,8 @@ html[data-theme="dark"] {
   --color-warning: #fbbf24;
   --color-error: #f87171;
   --color-white: #ffffff;
+  --color-inverse: #ffffff;
+  --color-inverse-text: #000000;
 
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5), 0 4px 12px rgba(0, 0, 0, 0.45);
   --shadow-md: 0 6px 16px rgba(0, 0, 0, 0.5), 0 16px 40px rgba(0, 0, 0, 0.5);
@@ -226,8 +234,8 @@ strong {
   left: 16px;
   z-index: 200;
   padding: 10px 18px;
-  background: var(--color-text);
-  color: var(--color-white);
+  background: var(--color-inverse);
+  color: var(--color-inverse-text);
   border-radius: var(--radius-md);
   font-size: 14px;
   font-weight: 600;

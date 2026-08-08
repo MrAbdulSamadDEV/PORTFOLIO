@@ -105,8 +105,8 @@
   left: calc(100% + 14px);
   top: 50%;
   transform: translateY(-50%) translateX(-6px);
-  background: var(--color-text);
-  color: var(--color-surface);
+  background: var(--color-inverse);
+  color: var(--color-inverse-text);
   font-size: 13px;
   font-weight: 500;
   white-space: nowrap;
@@ -347,8 +347,8 @@ html[data-theme="dark"] .social-rail {
   top: 50%;
   transform: translateY(-50%) translateX(6px);
   padding: 6px 12px;
-  background: var(--color-text);
-  color: var(--color-white);
+  background: var(--color-inverse);
+  color: var(--color-inverse-text);
   font-size: 12.5px;
   font-weight: 500;
   border-radius: var(--radius-sm);
@@ -366,7 +366,7 @@ html[data-theme="dark"] .social-rail {
   transform: translateY(-50%) rotate(45deg);
   width: 10px;
   height: 10px;
-  background: var(--color-text);
+  background: var(--color-inverse);
 }
 
 .social-rail__link:hover .social-rail__tooltip {
