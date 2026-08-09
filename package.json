@@ -11,7 +11,7 @@
   },
   "scripts": {
     "dev": "tsx watch server/app.ts",
-    "build": "node scripts/build-kb.mjs && node scripts/subset-fa.mjs && npm run build:server && npm run build:client",
+    "build": "node scripts/build-kb.mjs && node scripts/subset-fa.mjs && node scripts/build-sitemap.mjs && npm run build:server && npm run build:client",
     "build:server": "tsc -p tsconfig.server.json",
     "build:client": "tsc -p tsconfig.client.json --noEmit && node scripts/build-client.mjs",
     "vercel-build": "node scripts/vercel-build.mjs",

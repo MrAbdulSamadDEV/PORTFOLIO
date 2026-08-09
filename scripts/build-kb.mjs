@@ -214,7 +214,9 @@ async function main() {
   };
 
   await mkdir(path.dirname(OUT_FILE), { recursive: true });
-  await writeFile(OUT_FILE, `${JSON.stringify(bundle, null, 2)}\n`, "utf8");
+  // Compact JSON: the knowledge base is fetched and parsed on the client,
+  // so every byte counts on slow connections.
+  await writeFile(OUT_FILE, `${JSON.stringify(bundle)}\n`, "utf8");
 
   const sizeKb = Math.round((await readFile(OUT_FILE)).byteLength / 1024);
   console.log(`[build-kb] bundled ${faqs.length} FAQs with ${keywordCount.toLocaleString()} match keywords`);

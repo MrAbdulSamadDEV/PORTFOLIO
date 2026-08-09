@@ -26,18 +26,18 @@
   },
   "pages": {
     "home": {
-      "title": "Abdul Samad — Cloud Data Engineering Student & Full Stack Developer",
-      "description": "I'm Abdul Samad, a Cloud Data Engineering student and Full Stack Developer building fast, scalable and modern digital experiences with TypeScript, Node.js and Express. Explore my projects, skills and journey.",
+      "title": "Abdul Samad — Cloud Data Engineer & Full Stack Developer",
+      "description": "I'm Abdul Samad, a Cloud Data Engineering student and Full Stack Developer building fast, scalable, modern web experiences with TypeScript, Node.js and Express.",
       "keywords": "Abdul Samad portfolio, Cloud Data Engineering student, Full Stack Developer, TypeScript developer, Node.js developer, web developer Pakistan"
     },
     "projects": {
       "title": "Projects — Abdul Samad | Full Stack Developer",
-      "description": "Explore the flagship project of Abdul Samad: SALAAR'S HOME (Furnecher) — a modern furniture e-commerce platform built with TypeScript, Node.js, Express, React and MongoDB.",
+      "description": "Explore the projects of Abdul Samad: SALAAR'S HOME (Furnecher) furniture e-commerce, built with TypeScript, Node.js, Express, React and MongoDB.",
       "keywords": "Abdul Samad projects, SALAAR'S HOME, Furnecher, furniture e-commerce, full stack projects, TypeScript projects, Node.js projects, React projects"
     },
     "contact": {
       "title": "Contact — Abdul Samad | Let's Work Together",
-      "description": "Get in touch with Abdul Samad — Cloud Data Engineering student and Full Stack Developer. Available for internships, freelance projects and collaboration. Email, phone and social links included.",
+      "description": "Get in touch with Abdul Samad — Cloud Data Engineering student and Full Stack Developer. Available for internships, freelance projects and collaboration.",
       "keywords": "contact Abdul Samad, hire web developer, freelance developer, full stack developer contact"
     }
   },

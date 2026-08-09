@@ -507,9 +507,10 @@ export function renderProjectsPageContent(site: SiteSettings): string {
     </header>
     <section class="section" aria-labelledby="all-projects-heading">
       <div class="section__inner">
+        ${sectionHeading("Portfolio", "All Projects", "all-projects", "")}
         <div data-projects-grid>${renderProjectsGrid(allProjects)}</div>
         <div class="projects-cta reveal">
-          <h2 id="all-projects-heading">Like what you see?</h2>
+          <h2 id="projects-cta-heading">Like what you see?</h2>
           <p>Have an idea you'd like to bring to life? Let's talk about it.</p>
           <a class="btn btn--primary" href="/contact">
             <span>Contact Me</span>${icon("fa-solid fa-envelope")}
