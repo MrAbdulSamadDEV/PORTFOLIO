@@ -1,7 +1,8 @@
 /**
- * Regenerates client/public/sitemap.xml and client/public/robots.txt from
- * client/data/settings.json so titles, domain and dates never drift from
- * the live site. Run automatically as part of `npm run build`.
+ * Regenerates client/public/sitemap.xml, client/public/robots.txt and
+ * client/public/manifest.json from client/data/settings.json so titles,
+ * domain, dates and PWA metadata never drift from the live site.
+ * Run automatically as part of `npm run build`.
  */
 import { readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
@@ -9,6 +10,7 @@ import { resolve } from "node:path";
 const SETTINGS = resolve("client/data/settings.json");
 const SITEMAP_OUT = resolve("client/public/sitemap.xml");
 const ROBOTS_OUT = resolve("client/public/robots.txt");
+const MANIFEST_OUT = resolve("client/public/manifest.json");
 
 function escapeXml(value) {
   return value
@@ -20,16 +22,17 @@ function escapeXml(value) {
 }
 
 const settings = JSON.parse(await readFile(SETTINGS, "utf8"));
-const { domain, name, ogImagePng } = settings.site;
+const { domain, name, shortName, themeColor, language } = settings.site;
 const today = new Date().toISOString().slice(0, 10);
 const homeTitle = settings.pages.home.title;
+const homeDescription = settings.pages.home.description;
 
 const urls = [
   {
     loc: `${domain}/`,
     changefreq: "monthly",
     priority: "1.0",
-    image: { loc: `${domain}${ogImagePng}`, title: homeTitle },
+    image: { loc: `${domain}${settings.site.ogImagePng}`, title: homeTitle },
   },
   { loc: `${domain}/projects`, changefreq: "weekly", priority: "0.9" },
   { loc: `${domain}/contact`, changefreq: "yearly", priority: "0.8" },
@@ -65,6 +68,26 @@ Allow: /
 Sitemap: ${domain}/sitemap.xml
 `;
 
+const manifest = {
+  name: homeTitle,
+  short_name: shortName === "AS" ? name : shortName,
+  description: homeDescription,
+  start_url: "/",
+  scope: "/",
+  display: "standalone",
+  orientation: "portrait-primary",
+  background_color: "#FFFFFF",
+  theme_color: themeColor,
+  lang: language,
+  categories: ["portfolio", "web", "development"],
+  icons: [
+    { src: "/icon-192.png", sizes: "192x192", type: "image/png", purpose: "any" },
+    { src: "/icon-512.png", sizes: "512x512", type: "image/png", purpose: "any" },
+    { src: "/icon-512-maskable.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
+  ],
+};
+
 await writeFile(SITEMAP_OUT, sitemap);
 await writeFile(ROBOTS_OUT, robots);
-console.log(`[build-sitemap] wrote sitemap.xml (${urls.length} URLs) + robots.txt for ${name} (${today})`);
+await writeFile(MANIFEST_OUT, `${JSON.stringify(manifest, null, 2)}\n`);
+console.log(`[build-sitemap] wrote sitemap.xml (${urls.length} URLs) + robots.txt + manifest.json for ${name} (${today})`);

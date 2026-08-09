@@ -11,10 +11,32 @@
  *   - answer latency: submit -> answer fully rendered (composer unlocked)
  *   - main-thread:   long tasks (>50ms) while opening and answering
  */
+import { spawn } from "node:child_process";
 import puppeteer from "puppeteer-core";
 
 const CHROME = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
-const BASE = process.env.BASE_URL ?? "http://127.0.0.1:3470";
+
+/* Spawn the production server unless one is already running (BASE_URL set). */
+const BASE = process.env.BASE_URL ?? `http://127.0.0.1:${process.env.PORT ?? 3470}`;
+const server = process.env.BASE_URL
+  ? null
+  : spawn(process.execPath, ["dist/server/app.js"], {
+      env: { ...process.env, PORT: String(process.env.PORT ?? 3470) },
+      stdio: ["ignore", "ignore", "pipe"],
+    });
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+async function waitForServer() {
+  for (let i = 0; i < 50; i++) {
+    try {
+      const r = await fetch(BASE + "/");
+      if (r.ok) return;
+    } catch {}
+    await sleep(200);
+  }
+  throw new Error("server did not start");
+}
+await waitForServer();
+
 const QUESTION = "where can I find your github?";
 
 const browser = await puppeteer.launch({ executablePath: CHROME, headless: true, args: ["--no-sandbox"] });
@@ -124,4 +146,5 @@ console.log(`knowledge base fetches: ${bench.kbFetches} (must be 1)`);
 const pass = loadPhaseOk && openOk && answerOk && bench.kbFetches === 1;
 console.log(`\nMAX AI benchmark: ${pass ? "PASS" : "FAIL"}`);
 await browser.close();
+if (server) server.kill();
 process.exitCode = pass ? 0 : 1;

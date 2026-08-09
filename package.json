@@ -1,7 +1,7 @@
 {
   "name": "abdul-samad-portfolio",
   "version": "1.0.0",
-  "description": "Premium production-quality personal portfolio for Abdul Samad — Cloud Data Engineering Student & Full Stack Developer. SSR with Express, offline MAX AI assistant, clean SEO-friendly URLs.",
+  "description": "Premium production-quality personal portfolio for Abdul Samad — Cloud Data Engineer & Full Stack Developer. SSR with Express, offline MAX AI assistant, clean SEO-friendly URLs.",
   "type": "module",
   "private": true,
   "license": "MIT",
@@ -19,6 +19,9 @@
     "typecheck": "tsc -p tsconfig.server.json --noEmit && tsc -p tsconfig.client.json --noEmit",
     "assets": "node scripts/generate-assets.mjs",
     "smoke": "node scripts/smoke.mjs",
+    "audit:ai": "node scripts/bench-ai.mjs",
+    "audit:seo": "node scripts/audit-headings.mjs && node scripts/audit-a11y.mjs",
+    "audit": "npm run audit:ai && npm run audit:seo",
     "test": "npm run build && node scripts/smoke.mjs",
     "test:browser": "node scripts/browser-audit.mjs"
   },

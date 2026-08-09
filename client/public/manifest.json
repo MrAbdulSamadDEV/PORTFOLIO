@@ -1,7 +1,7 @@
 {
-  "name": "Abdul Samad — Cloud Data Engineering Student & Full Stack Developer",
+  "name": "Abdul Samad — Cloud Data Engineer & Full Stack Developer",
   "short_name": "Abdul Samad",
-  "description": "Portfolio of Abdul Samad — Cloud Data Engineering student and Full Stack Developer building fast, scalable and modern digital experiences.",
+  "description": "I'm Abdul Samad, a Cloud Data Engineering student and Full Stack Developer building fast, scalable, modern web experiences with TypeScript, Node.js and Express.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
@@ -9,10 +9,29 @@
   "background_color": "#FFFFFF",
   "theme_color": "#FFFFFF",
   "lang": "en",
-  "categories": ["portfolio", "web", "development"],
+  "categories": [
+    "portfolio",
+    "web",
+    "development"
+  ],
   "icons": [
-    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-    { "src": "/icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
   ]
 }
