@@ -118,20 +118,27 @@ function typoTolerance(len: number): number {
 /** LRU-ish memo so large knowledge bases normalize each keyword only once. */
 const normalizeCache = new Map<string, string>();
 
-/** Compiled phrase matchers: avoid recompiling 20K+ regexes per question. */
-const phraseRegexCache = new Map<string, RegExp>();
-
-/** Word-boundary phrase search (case-insensitive on already-normalized text). */
+/** Fast word-boundary phrase search on already-normalized text. Uses
+ * `indexOf` + boundary checks instead of one RegExp per keyword: V8 keeps
+ * 20K+ distinct regexes on its slow interpreter path (~40-90µs per test),
+ * which turned a single question into a multi-second main-thread freeze. */
 function includesPhrase(text: string, phrase: string): boolean {
   if (phrase.length === 0) return false;
-  let regex = phraseRegexCache.get(phrase);
-  if (!regex) {
-    const escaped = phrase.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-    regex = new RegExp(`(?:^|[^a-z0-9])${escaped}(?:$|[^a-z0-9])`, "i");
-    if (phraseRegexCache.size > 50000) phraseRegexCache.clear();
-    phraseRegexCache.set(phrase, regex);
+  let from = 0;
+  for (;;) {
+    const idx = text.indexOf(phrase, from);
+    if (idx === -1) return false;
+    const startOk = idx === 0 || !isWordChar(text.charCodeAt(idx - 1));
+    const end = idx + phrase.length;
+    const endOk = end === text.length || !isWordChar(text.charCodeAt(end));
+    if (startOk && endOk) return true;
+    from = idx + 1;
   }
-  return regex.test(text);
+}
+
+/** ASCII word char (a-z / 0-9) — the same boundary the old regex used. */
+function isWordChar(code: number): boolean {
+  return (code >= 48 && code <= 57) || (code >= 97 && code <= 122);
 }
 
 /** Word-boundary token set of the query, stemmed for plural comparison. */
@@ -158,7 +165,7 @@ export function normalize(text: string): string {
     .replace(/[^a-z0-9\s+@.\-]/g, " ")
     .replace(/\s+/g, " ")
     .trim();
-  if (normalizeCache.size > 10000) normalizeCache.clear();
+  if (normalizeCache.size > 60000) normalizeCache.clear();
   normalizeCache.set(text, value);
   return value;
 }
@@ -224,7 +231,9 @@ export function detectIntent(query: string, kb: AiKnowledgeBase): string | null 
 interface KeywordInfo {
   normalized: string;
   tokens: string[];
+  stemmed: string[];
   meaningful: string[];
+  meaningfulStemmed: string[];
 }
 
 /** Tokenization of a keyword is stable; memoize it across questions. */
@@ -235,11 +244,107 @@ function keywordInfo(rawKeyword: string): KeywordInfo {
   if (cached) return cached;
   const normalized = normalize(rawKeyword);
   const tokens = normalized.split(" ").filter(Boolean);
+  const stemmed = tokens.map(stem);
   const meaningful = tokens.filter((token) => token.length >= 2 && !STOPWORDS.has(stem(token)));
-  const info = { normalized, tokens, meaningful };
+  const info = { normalized, tokens, stemmed, meaningful, meaningfulStemmed: meaningful.map(stem) };
   if (keywordInfoCache.size > 50000) keywordInfoCache.clear();
   keywordInfoCache.set(rawKeyword, info);
   return info;
+}
+
+/**
+ * Unique meaningful keyword tokens across the whole knowledge base, grouped
+ * for cheap fuzzy-candidate lookup. Built once per knowledge base.
+ */
+interface TokenIndex {
+  set: Set<string>;
+  byLength: Map<number, string[]>;
+  byFirst: Map<string, string[]>;
+}
+
+const tokenIndexCache = new WeakMap<object, TokenIndex>();
+
+function buildTokenIndex(kb: AiKnowledgeBase): TokenIndex {
+  const set = new Set<string>();
+  const byLength = new Map<number, string[]>();
+  const byFirst = new Map<string, string[]>();
+  for (const faq of kb.faqs) {
+    for (const rawKeyword of faq.keywords) {
+      for (const token of keywordInfo(rawKeyword).meaningfulStemmed) {
+        if (set.has(token)) continue;
+        set.add(token);
+        let lengthBucket = byLength.get(token.length);
+        if (!lengthBucket) {
+          lengthBucket = [];
+          byLength.set(token.length, lengthBucket);
+        }
+        lengthBucket.push(token);
+        const first = token.charAt(0);
+        let firstBucket = byFirst.get(first);
+        if (!firstBucket) {
+          firstBucket = [];
+          byFirst.set(first, firstBucket);
+        }
+        firstBucket.push(token);
+      }
+    }
+  }
+  return { set, byLength, byFirst };
+}
+
+/**
+ * Per-question candidate map for the fuzzy layer: query token → every
+ * keyword token in the whole knowledge base it would match. The original
+ * fuzzy branch re-ran Levenshtein inside the per-FAQ/per-keyword loops
+ * (~30K+ calls per question); building this map once per question turns
+ * those calls into Set lookups in scoreFaq. Match conditions mirror the
+ * original branch exactly: length gates, tolerance from the longer token,
+ * and the prefix rule with minLen 5.
+ */
+function buildFuzzyMatches(queryTokens: Set<string>, kb: AiKnowledgeBase): Map<string, Set<string>> {
+  let index = tokenIndexCache.get(kb);
+  if (!index) {
+    index = buildTokenIndex(kb);
+    tokenIndexCache.set(kb, index);
+  }
+
+  const matches = new Map<string, Set<string>>();
+  for (const q of queryTokens) {
+    if (q.length < 4) continue;
+    const matched = new Set<string>();
+
+    const fromLen = Math.max(4, q.length - 2);
+    const toLen = q.length + 2;
+    for (let len = fromLen; len <= toLen; len += 1) {
+      const bucket = index.byLength.get(len);
+      if (!bucket) continue;
+      for (const k of bucket) {
+        const tolerance = typoTolerance(Math.max(q.length, k.length));
+        if (Math.abs(q.length - k.length) <= tolerance && levenshtein(q, k, tolerance) <= tolerance) {
+          matched.add(k);
+        }
+      }
+    }
+
+    if (q.length >= 5) {
+      // q.startsWith(k): a shorter keyword token that is a prefix of the
+      // query token ("fullstack" contains "full" + "stack").
+      for (let prefixLen = 5; prefixLen < q.length; prefixLen += 1) {
+        const prefix = q.slice(0, prefixLen);
+        if (index.set.has(prefix)) matched.add(prefix);
+      }
+      // k.startsWith(q): a longer keyword token built on the query token.
+      const firstBucket = index.byFirst.get(q.charAt(0));
+      if (firstBucket) {
+        for (const k of firstBucket) {
+          if (k.length > q.length && k.startsWith(q)) matched.add(k);
+        }
+      }
+    }
+
+    if (matched.size > 0) matches.set(q, matched);
+  }
+  return matches;
 }
 
 interface FaqScore {
@@ -251,42 +356,41 @@ interface FaqScore {
  * Scores one FAQ against the query. Returns the total score and the set of
  * query tokens this FAQ actually explains (used for multi-topic merging).
  */
-function scoreFaq(faq: AiFaq, query: string, queryTokens: Set<string>): FaqScore {
+function scoreFaq(faq: AiFaq, query: string, queryTokens: Set<string>, fuzzyMatches: Map<string, Set<string>>): FaqScore {
   let score = 0;
   const tokens = new Set<string>();
   const fuzzyMatched = new Set<string>();
 
-  const addTokens = (keywordTokens: string[]): void => {
-    for (const token of keywordTokens) {
-      const s = stem(token);
-      if (queryTokens.has(s)) tokens.add(s);
-    }
-  };
-
   for (const rawKeyword of faq.keywords) {
-    const { normalized: keyword, tokens: keywordTokens, meaningful } = keywordInfo(rawKeyword);
+    const { normalized: keyword, stemmed, meaningfulStemmed } = keywordInfo(rawKeyword);
     if (keyword.length < 2) continue;
 
     // 1) Exact phrase present in the query (strongest signal). Runs before
     //    the token layers so stopword-only phrases like "where are you"
     //    still score instead of being skipped.
     if (includesPhrase(query, keyword)) {
-      score += 6 + keywordTokens.length * 2;
-      addTokens(keywordTokens);
+      score += 6 + stemmed.length * 2;
+      for (const s of stemmed) {
+        if (queryTokens.has(s)) tokens.add(s);
+      }
       continue;
     }
 
-    if (meaningful.length === 0) continue;
-    if (keywordTokens.every((token) => queryTokens.has(stem(token)))) {
-      score += 3 + keywordTokens.length * 1.5;
-      addTokens(keywordTokens);
+    if (meaningfulStemmed.length === 0) continue;
+    if (stemmed.every((s) => queryTokens.has(s))) {
+      score += 3 + stemmed.length * 1.5;
+      for (const s of stemmed) {
+        if (queryTokens.has(s)) tokens.add(s);
+      }
       continue;
     }
 
     // 2) Every meaningful token appears.
-    if (meaningful.length > 1 && meaningful.every((token) => queryTokens.has(stem(token)))) {
-      score += 2 + meaningful.length;
-      addTokens(meaningful);
+    if (meaningfulStemmed.length > 1 && meaningfulStemmed.every((s) => queryTokens.has(s))) {
+      score += 2 + meaningfulStemmed.length;
+      for (const s of meaningfulStemmed) {
+        if (queryTokens.has(s)) tokens.add(s);
+      }
     }
 
     // 3) Fuzzy + partial token matches (typos, truncations, compounds).
@@ -294,21 +398,18 @@ function scoreFaq(faq: AiFaq, query: string, queryTokens: Set<string>): FaqScore
     //    more keyword variants never drown out exact-phrase matches.
     //    A typo pair is as strong as an exact token so short misspellings
     //    ("gihub link") can clear the confidence bar together.
-    for (const keywordToken of meaningful) {
+    //    Query tokens arrive stemmed (tokenize) and keyword tokens are
+    //    pre-stemmed once in keywordInfo, so the inner loop avoids all
+    //    re-stemming. Levenshtein and prefix comparisons were moved into
+    //    buildFuzzyMatches (once per question); here it is a Set lookup.
+    for (const k of meaningfulStemmed) {
       for (const queryToken of queryTokens) {
         if (fuzzyMatched.has(queryToken)) continue;
         const q = stem(queryToken);
-        const k = stem(keywordToken);
-        if (tokensMatch(queryToken, keywordToken)) {
+        if (q === k || fuzzyMatches.get(q)?.has(k)) {
           fuzzyMatched.add(queryToken);
           tokens.add(queryToken);
           score += 1.5;
-          break;
-        }
-        if (q.length >= 5 && k.length >= 5 && (q.startsWith(k) || k.startsWith(q))) {
-          fuzzyMatched.add(queryToken);
-          tokens.add(queryToken);
-          score += 1;
           break;
         }
       }
@@ -324,10 +425,11 @@ export function findAllAnswers(rawQuestion: string, kb: AiKnowledgeBase): Engine
   if (!query) return [];
 
   const queryTokens = tokenize(query);
+  const fuzzyMatches = buildFuzzyMatches(queryTokens, kb);
   const hits: EngineHit[] = [];
 
   for (const faq of kb.faqs) {
-    const { score, tokens } = scoreFaq(faq, query, queryTokens);
+    const { score, tokens } = scoreFaq(faq, query, queryTokens, fuzzyMatches);
     if (score >= MIN_CONFIDENT_SCORE) {
       hits.push({ faq, score, tokens });
     }

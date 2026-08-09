@@ -1,4 +1,5 @@
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
+import { join } from "node:path";
 import { PATHS } from "../config/env.js";
 import type { SiteSettings } from "../config/site.js";
 import { escapeJsonLd } from "./html.js";
@@ -30,6 +31,7 @@ export interface PageOptions {
 }
 
 let templateCache: string | null = null;
+let criticalCssCache: string | null = null;
 
 function loadTemplate(): string {
   if (templateCache === null) {
@@ -38,9 +40,31 @@ function loadTemplate(): string {
   return templateCache;
 }
 
+/**
+ * All site CSS plus the Font Awesome subset (only the icons this site
+ * uses, ~3 KB) is inlined into a single <style> block in every page.
+ * This removes every render-blocking stylesheet request from the critical
+ * path; the whole inline stylesheet is still the exact same rules the
+ * browser would have downloaded, so no CSS needs to be duplicated.
+ */
+function loadCriticalCss(): string {
+  if (criticalCssCache === null) {
+    const ordered = ["fonts.css", "base.css", "layout.css", "components.css", "sections.css", "effects.css", "responsive.css"];
+    criticalCssCache = readdirSync(PATHS.styles)
+      .filter((file) => ordered.includes(file))
+      .sort((a, b) => ordered.indexOf(a) - ordered.indexOf(b))
+      .map((file) => readFileSync(join(PATHS.styles, file), "utf8"))
+      .concat(readFileSync(join(PATHS.public, "css", "fa-subset.min.css"), "utf8"))
+      .join("\n");
+  }
+  return criticalCssCache;
+}
+
 export function renderPage(site: SiteSettings, options: PageOptions): string {
   const domain = site.site.domain;
-  const ogImage = `${domain}${site.site.ogImage}`;
+  // PNG Open Graph image: every social platform (Facebook, WhatsApp,
+  // LinkedIn, Telegram) renders PNG reliably; WebP support is inconsistent.
+  const ogImage = `${domain}${site.site.ogImagePng}`;
 
   const replacements: Record<string, string> = {
     "%%HTML_LANG%%": site.site.language,
@@ -50,12 +74,14 @@ export function renderPage(site: SiteSettings, options: PageOptions): string {
     "%%PAGE_AUTHOR%%": site.site.author,
     "%%PAGE_ROBOTS%%": options.robots ?? "index, follow, max-image-preview:large",
     "%%THEME_COLOR%%": site.site.themeColor,
+    "%%CRITICAL_CSS%%": loadCriticalCss(),
     "%%PAGE_CANONICAL%%": options.canonical,
     "%%OG_TYPE%%": options.ogType ?? "website",
     "%%OG_SITE_NAME%%": `${site.site.name} — Portfolio`,
     "%%OG_TITLE%%": options.ogTitle ?? options.title,
     "%%OG_DESCRIPTION%%": options.ogDescription ?? options.description,
     "%%OG_IMAGE%%": ogImage,
+    "%%OG_IMAGE_ALT%%": site.site.ogImageAlt,
     "%%OG_LOCALE%%": "en_US",
     "%%PAGE_JSONLD%%": escapeJsonLd(options.jsonLd),
     "%%BODY_CLASS%%": options.bodyClass,

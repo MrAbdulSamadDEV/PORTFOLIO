@@ -5,15 +5,15 @@
   "type": "module",
   "private": true,
   "license": "MIT",
-  "author": "Abdul Samad", 
+  "author": "Abdul Samad",
   "engines": {
     "node": ">=20.0.0"
   },
   "scripts": {
     "dev": "tsx watch server/app.ts",
-    "build": "node scripts/build-kb.mjs && npm run build:server && npm run build:client",
+    "build": "node scripts/build-kb.mjs && node scripts/subset-fa.mjs && npm run build:server && npm run build:client",
     "build:server": "tsc -p tsconfig.server.json",
-    "build:client": "tsc -p tsconfig.client.json",
+    "build:client": "tsc -p tsconfig.client.json --noEmit && node scripts/build-client.mjs",
     "vercel-build": "node scripts/vercel-build.mjs",
     "start": "node dist/server/app.js",
     "typecheck": "tsc -p tsconfig.server.json --noEmit && tsc -p tsconfig.client.json --noEmit",
@@ -35,6 +35,7 @@
     "esbuild": "^0.28.1",
     "puppeteer-core": "^25.5.0",
     "sharp": "^0.35.3",
+    "subset-font": "^2.5.0",
     "tsx": "^4.20.0",
     "typescript": "^5.8.0"
   },

@@ -302,6 +302,13 @@ export function initAiAssistant(): void {
     open();
   });
 
+  // The widget is server-rendered and can be opened (by the boot script)
+  // before this module finishes loading; adopt that state instead of
+  // requiring a second click.
+  if (!chat.hidden) {
+    open();
+  }
+
   /* ---------- Suggestions ---------- */
 
   /* ---------- Composer ---------- */

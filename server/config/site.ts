@@ -48,6 +48,7 @@ export interface SiteSettings {
     profileImageHeight: number;
     ogImage: string;
     ogImagePng: string;
+    ogImageAlt: string;
     yearStarted: number;
     keywords: string;
   };

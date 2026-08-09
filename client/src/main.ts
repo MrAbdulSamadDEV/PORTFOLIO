@@ -30,9 +30,39 @@ function boot(): void {
   // The contact form exists on the home page and the /contact page.
   initContactForm();
 
-  // MAX AI is booted lazily (own chunk, own fetch) so first paint and
-  // the main thread stay fast on every page, including the home hero.
-  void import("./components/AI/ai.js").then(({ initAiAssistant }) => initAiAssistant());
+  // MAX AI is booted lazily so first paint and the main thread stay fast on
+  // every page. Its chunks are network-prefetched after the window load
+  // event (idle time, near-zero main-thread cost), while evaluation is
+  // deferred until the visitor opens the widget — the fetch is already in
+  // the HTTP cache by then, so opening it is instant.
+  let maxRequested = false;
+  const loadMax = (): void => {
+    if (maxRequested) return;
+    maxRequested = true;
+    void import("./components/AI/ai.js").then(({ initAiAssistant }) => initAiAssistant());
+  };
+  document.addEventListener("click", (event) => {
+    const toggle = event.target instanceof Element ? event.target.closest<HTMLElement>("[data-ai-toggle]") : null;
+    if (!toggle) return;
+    // Opening is synchronous (the widget HTML is server-rendered) so the
+    // panel appears instantly; the AI module takes over when it is ready.
+    const chat = document.querySelector<HTMLElement>("[data-ai-chat]");
+    if (chat && chat.hidden) {
+      chat.hidden = false;
+      toggle.setAttribute("aria-expanded", "true");
+    }
+    loadMax();
+  });
+  window.addEventListener("max-ai:open", loadMax);
+  const prefetchMax = (): void => {
+    void fetch("/js/components/AI/ai.js");
+    void fetch("/js/components/AI/engine.js");
+  };
+  if (document.readyState === "complete") {
+    prefetchMax();
+  } else {
+    window.addEventListener("load", prefetchMax, { once: true });
+  }
 
   if (document.body.classList.contains("page-projects")) {
     initProjectsPage();

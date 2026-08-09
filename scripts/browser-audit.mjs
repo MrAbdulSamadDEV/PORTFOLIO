@@ -183,6 +183,14 @@ async function main() {
     check("hero image visible", heroVisual.imagePresent && heroVisual.imageAlt.length > 0, JSON.stringify(heroVisual));
     await page.screenshot({ path: `${SHOT_DIR}/hero-visual.png`, fullPage: false });
 
+    /* Font Awesome subset: every icon renders a glyph (content not none) */
+    const iconGlyphs = await page.evaluate(() => {
+      const icons = Array.from(document.querySelectorAll("i.fa-solid, i.fa-brands"));
+      const bad = icons.filter((el) => getComputedStyle(el, "::before").getPropertyValue("content").startsWith("none"));
+      return { total: icons.length, bad: bad.length };
+    });
+    check("all icons render glyphs", iconGlyphs.bad === 0 && iconGlyphs.total > 0, `${iconGlyphs.total} icons, ${iconGlyphs.bad} missing`);
+
     /* Clear chat re-shows the welcome message */
     await page.click("[data-ai-clear]");
     await sleep(250);
