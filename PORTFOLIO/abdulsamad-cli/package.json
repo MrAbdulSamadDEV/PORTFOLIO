@@ -1,0 +1,30 @@
+{
+  "name": "abdulsamad",
+  "version": "1.0.0",
+  "description": "Abdul Samad personal portfolio CLI launcher",
+  "main": "bin/abdulsamad.js",
+  "bin": {
+    "abdulsamad": "./bin/abdulsamad.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "portfolio",
+    "cli",
+    "launcher"
+  ],
+  "author": "Abdul Samad",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "bin",
+    "README.md",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "open": "^8.4.0"
+  }
+}
