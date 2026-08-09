@@ -16,11 +16,11 @@
 }
 
 .hero__content > * {
-  animation: hero-in 650ms var(--ease-out) both;
+  animation: hero-in 420ms var(--ease-out) both;
 }
 
 .hero__greeting {
-  animation-delay: 60ms;
+  animation-delay: 30ms;
   font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.16em;
@@ -29,8 +29,17 @@
   margin-bottom: 10px;
 }
 
+/* The name is the LCP element — it must paint fully from the first frame,
+   so it gets no entrance animation (animating it delays LCP). */
+.hero__name,
+.hero__name::after,
+.hero__roles,
+.hero__description,
+.hero__actions {
+  animation: none;
+}
+
 .hero__name {
-  animation-delay: 130ms;
   font-size: clamp(2.9rem, 6vw, 4.8rem);
   margin-bottom: 14px;
 }
@@ -41,7 +50,6 @@
 }
 
 .hero__roles {
-  animation-delay: 200ms;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -83,7 +91,6 @@
 }
 
 .hero__description {
-  animation-delay: 270ms;
   max-width: 58ch;
   font-size: clamp(15.5px, 1.4vw, 17px);
   line-height: 1.8;
@@ -92,7 +99,6 @@
 }
 
 .hero__actions {
-  animation-delay: 340ms;
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
@@ -103,7 +109,7 @@
 .hero__visual {
   display: flex;
   justify-content: center;
-  animation: hero-in 700ms var(--ease-out) 200ms both;
+  animation: hero-in 450ms var(--ease-out) 90ms both;
 }
 
 .hero__photo-frame {

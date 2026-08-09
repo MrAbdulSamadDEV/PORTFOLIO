@@ -2,10 +2,11 @@ import { prefersReducedMotion } from "../../utils/dom.js";
 
 /**
  * Hero profession typing animation.
- * Types each role character-by-character, holds, deletes, then moves to the
- * next one — looping forever. The roles are server-rendered in a data
- * attribute, so no extra request is needed. Respects reduced motion by
- * showing the first role statically.
+ * The first role is server-rendered as the initial text, so the full role is
+ * visible from first paint (no LCP delay). The cycle starts with a hold,
+ * then deletes and types the next role — looping forever. The roles are
+ * server-rendered in a data attribute, so no extra request is needed.
+ * Respects reduced motion by showing the first role statically.
  */
 
 const TYPE_MS = 55;
@@ -36,8 +37,8 @@ export function initHeroTyping(): void {
   }
 
   let roleIndex = 0;
-  let charIndex = 0;
-  let deleting = false;
+  let charIndex = roles[0]?.length ?? 0;
+  let deleting = true;
   let timer = 0;
 
   const next = (delay: number): void => {
@@ -70,5 +71,5 @@ export function initHeroTyping(): void {
     }
   };
 
-  next(600);
+  next(HOLD_MS);
 }

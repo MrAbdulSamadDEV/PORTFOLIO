@@ -147,14 +147,12 @@ export function renderHero(site: SiteSettings): string {
       <div class="hero__visual">
         <div class="hero__photo-frame">
           <div class="hero__photo" aria-hidden="true"></div>
-          <picture>
-            <source type="image/webp" srcset="${escapeAttr(site.hero.image)}">
-            <img class="hero__photo-img"
-              src="${escapeAttr(site.hero.imagePng)}"
-              alt="${escapeAttr(site.hero.imageAlt)}"
-              width="${site.hero.imageWidth}" height="${site.hero.imageHeight}"
-              fetchpriority="high" decoding="async">
-          </picture>
+          <img class="hero__photo-img"
+            srcset="${escapeAttr(site.hero.image)}" type="image/webp"
+            src="${escapeAttr(site.hero.imagePng)}"
+            alt="${escapeAttr(site.hero.imageAlt)}"
+            width="${site.hero.imageWidth}" height="${site.hero.imageHeight}"
+            fetchpriority="high" decoding="async">
           <span class="hero__ring" aria-hidden="true"></span>
           ${badges}
         </div>
@@ -267,12 +265,10 @@ function renderProjectCard(project: Project): string {
   return `
     <article class="project-card reveal" data-category="${escapeAttr(project.category)}" data-featured="${project.featured ? "true" : "false"}">
       <div class="project-card__media">
-        <picture>
-          <source type="image/webp" srcset="${escapeAttr(project.image)}">
-          <img src="${escapeAttr(project.imagePng)}"
-            alt="${escapeAttr(project.imageAlt)}"
-            width="800" height="500" loading="lazy" decoding="async">
-        </picture>
+        <img src="${escapeAttr(project.imagePng)}"
+          srcset="${escapeAttr(project.image)}" type="image/webp"
+          alt="${escapeAttr(project.imageAlt)}"
+          width="800" height="500" loading="lazy" decoding="async">
         <div class="project-card__flags">
           ${featuredBadge}
           <span class="project-card__status">${escapeHtml(project.status)}</span>

@@ -13,9 +13,9 @@
     "themeColor": "#FFFFFF",
     "logo": "/assets/logos/logo.png",
     "logoAlt": "Abdul Samad monogram logo",
-"profileImage": "/assets/profile/professional-headshot.webp",
-"profileImagePng": "/assets/profile/professional-headshot.png",
-"profileImageAlt": "Professional headshot of Abdul Samad in business attire",
+    "profileImage": "/assets/profile/professional-headshot.webp",
+    "profileImagePng": "/assets/profile/professional-headshot.png",
+    "profileImageAlt": "Professional headshot of Abdul Samad in business attire",
     "profileImageWidth": 480,
     "profileImageHeight": 480,
     "ogImage": "/assets/og-image.webp",
@@ -42,25 +42,88 @@
     }
   },
   "nav": [
-    { "label": "Home", "url": "/", "section": "home", "icon": "fa-solid fa-house", "action": "page" },
-    { "label": "About", "url": "/#about", "section": "about", "icon": "fa-solid fa-user", "action": "scroll" },
-    { "label": "Skills", "url": "/#skills", "section": "skills", "icon": "fa-solid fa-code", "action": "scroll" },
-    { "label": "Projects", "url": "/projects", "section": "projects-page", "icon": "fa-solid fa-folder-open", "action": "page" },
-    { "label": "Contact", "url": "/contact", "section": "contact-page", "icon": "fa-solid fa-envelope", "action": "page" },
-    { "label": "MAX", "url": "#", "section": "ai", "icon": "fa-solid fa-robot", "action": "ai" }
+    {
+      "label": "Home",
+      "url": "/",
+      "section": "home",
+      "icon": "fa-solid fa-house",
+      "action": "page"
+    },
+    {
+      "label": "About",
+      "url": "/#about",
+      "section": "about",
+      "icon": "fa-solid fa-user",
+      "action": "scroll"
+    },
+    {
+      "label": "Skills",
+      "url": "/#skills",
+      "section": "skills",
+      "icon": "fa-solid fa-code",
+      "action": "scroll"
+    },
+    {
+      "label": "Projects",
+      "url": "/projects",
+      "section": "projects-page",
+      "icon": "fa-solid fa-folder-open",
+      "action": "page"
+    },
+    {
+      "label": "Contact",
+      "url": "/contact",
+      "section": "contact-page",
+      "icon": "fa-solid fa-envelope",
+      "action": "page"
+    },
+    {
+      "label": "MAX",
+      "url": "#",
+      "section": "ai",
+      "icon": "fa-solid fa-robot",
+      "action": "ai"
+    }
   ],
   "socials": [
-    { "name": "GitHub", "url": "https://github.com/MrAbdulSamadDEV", "icon": "fa-brands fa-github" },
-    { "name": "LinkedIn", "url": "https://www.linkedin.com/in/abdulsamadabdullah/", "icon": "fa-brands fa-linkedin" },
-    { "name": "X", "url": "https://x.com/ABDULSAMAD8492", "icon": "fa-brands fa-x-twitter" },
-    { "name": "YouTube", "url": "https://www.youtube.com/@ABDULSAMADABDULLAHCODE", "icon": "fa-brands fa-youtube" },
-    { "name": "Email", "url": "mailto:mr.abdulsamadabdullah@gmail.com", "icon": "fa-solid fa-envelope" },
-    { "name": "Phone", "url": "tel:+923708033443", "icon": "fa-solid fa-phone" }
+    {
+      "name": "GitHub",
+      "url": "https://github.com/MrAbdulSamadDEV",
+      "icon": "fa-brands fa-github"
+    },
+    {
+      "name": "LinkedIn",
+      "url": "https://www.linkedin.com/in/abdulsamadabdullah/",
+      "icon": "fa-brands fa-linkedin"
+    },
+    {
+      "name": "X",
+      "url": "https://x.com/ABDULSAMAD8492",
+      "icon": "fa-brands fa-x-twitter"
+    },
+    {
+      "name": "YouTube",
+      "url": "https://www.youtube.com/@ABDULSAMADABDULLAHCODE",
+      "icon": "fa-brands fa-youtube"
+    },
+    {
+      "name": "Email",
+      "url": "mailto:mr.abdulsamadabdullah@gmail.com",
+      "icon": "fa-solid fa-envelope"
+    },
+    {
+      "name": "Phone",
+      "url": "tel:+923708033443",
+      "icon": "fa-solid fa-phone"
+    }
   ],
   "hero": {
     "greeting": "Hello, I'm",
     "name": "Abdul Samad",
-    "roles": ["Cloud Data Engineering Student", "Full Stack Developer"],
+    "roles": [
+      "Cloud Data Engineering Student",
+      "Full Stack Developer"
+    ],
     "typingRoles": [
       "Cloud Data Engineering Student",
       "Full Stack Developer",
@@ -74,18 +137,35 @@
       "Express.js Developer",
       "Open Source Contributor"
     ],
-    "image": "/assets/hero/hero-art.webp",
-    "imagePng": "/assets/hero/hero-art.png",
+    "image": "/assets/hero/hero-art-480.webp",
+    "imagePng": "/assets/hero/hero-art-480.png",
     "imageAlt": "Premium anime-style illustration of Abdul Samad, young developer in a modern black outfit",
-    "imageWidth": 960,
-    "imageHeight": 960,
-    "description": "I build modern, fast and scalable web applications with a strong focus on clean code, exceptional user experience, accessibility, performance and maintainability. I enjoy learning new technologies and solving real-world problems through software engineering.",
-    "primaryButton": { "label": "View Projects", "url": "/projects", "icon": "fa-solid fa-folder-open" },
-    "secondaryButton": { "label": "Contact Me", "url": "/contact", "icon": "fa-solid fa-envelope" },
+    "imageWidth": 480,
+    "imageHeight": 480,
+    "description": "I build modern, fast and scalable web applications with clean code and a great user experience.",
+    "primaryButton": {
+      "label": "View Projects",
+      "url": "/projects",
+      "icon": "fa-solid fa-folder-open"
+    },
+    "secondaryButton": {
+      "label": "Contact Me",
+      "url": "/contact",
+      "icon": "fa-solid fa-envelope"
+    },
     "floatingBadges": [
-      { "label": "TypeScript", "icon": "fa-solid fa-file-code" },
-      { "label": "Node.js", "icon": "fa-brands fa-node-js" },
-      { "label": "Cloud", "icon": "fa-solid fa-cloud" }
+      {
+        "label": "TypeScript",
+        "icon": "fa-solid fa-file-code"
+      },
+      {
+        "label": "Node.js",
+        "icon": "fa-brands fa-node-js"
+      },
+      {
+        "label": "Cloud",
+        "icon": "fa-solid fa-cloud"
+      }
     ],
     "video": {
       "webm": "/assets/hero/hero-video.webm",
@@ -104,10 +184,26 @@
     "myJourney": "My journey started in 2024 with Microsoft Word — my very first computer skill — and grew step by step into web development, full stack engineering and finally cloud data engineering. Every stage has been built through hands-on practice, real projects and continuous study.",
     "myGoals": "My goal is to become a world-class engineer who bridges the gap between data engineering and full stack development — building intelligent, scalable systems that solve real-world problems. I'm always exploring new technologies and I'm open to internships, freelance work and exciting collaborations.",
     "statistics": [
-      { "value": "1", "label": "Featured Project", "icon": "fa-solid fa-diagram-project" },
-      { "value": "25+", "label": "Technologies Learned", "icon": "fa-solid fa-layer-group" },
-      { "value": "4+", "label": "Certificates Earned", "icon": "fa-solid fa-award" },
-      { "value": "3+", "label": "Years of Learning", "icon": "fa-solid fa-clock" }
+      {
+        "value": "1",
+        "label": "Featured Project",
+        "icon": "fa-solid fa-diagram-project"
+      },
+      {
+        "value": "25+",
+        "label": "Technologies Learned",
+        "icon": "fa-solid fa-layer-group"
+      },
+      {
+        "value": "4+",
+        "label": "Certificates Earned",
+        "icon": "fa-solid fa-award"
+      },
+      {
+        "value": "3+",
+        "label": "Years of Learning",
+        "icon": "fa-solid fa-clock"
+      }
     ],
     "journey": [
       {
@@ -151,38 +247,94 @@
         "title": "Frontend",
         "icon": "fa-solid fa-laptop-code",
         "skills": [
-          { "name": "HTML5", "level": 95, "icon": "fa-brands fa-html5" },
-          { "name": "CSS3", "level": 92, "icon": "fa-brands fa-css3-alt" },
-          { "name": "JavaScript", "level": 88, "icon": "fa-brands fa-js" },
-          { "name": "TypeScript", "level": 84, "icon": "fa-solid fa-file-code" }
+          {
+            "name": "HTML5",
+            "level": 95,
+            "icon": "fa-brands fa-html5"
+          },
+          {
+            "name": "CSS3",
+            "level": 92,
+            "icon": "fa-brands fa-css3-alt"
+          },
+          {
+            "name": "JavaScript",
+            "level": 88,
+            "icon": "fa-brands fa-js"
+          },
+          {
+            "name": "TypeScript",
+            "level": 84,
+            "icon": "fa-solid fa-file-code"
+          }
         ]
       },
       {
         "title": "Backend",
         "icon": "fa-solid fa-server",
         "skills": [
-          { "name": "Node.js", "level": 86, "icon": "fa-brands fa-node-js" },
-          { "name": "Express", "level": 82, "icon": "fa-solid fa-route" }
+          {
+            "name": "Node.js",
+            "level": 86,
+            "icon": "fa-brands fa-node-js"
+          },
+          {
+            "name": "Express",
+            "level": 82,
+            "icon": "fa-solid fa-route"
+          }
         ]
       },
       {
         "title": "Programming",
         "icon": "fa-solid fa-terminal",
         "skills": [
-          { "name": "Python", "level": 78, "icon": "fa-brands fa-python" },
-          { "name": "C++", "level": 68, "icon": "fa-solid fa-code" },
-          { "name": "C#", "level": 62, "icon": "fa-solid fa-hashtag" }
+          {
+            "name": "Python",
+            "level": 78,
+            "icon": "fa-brands fa-python"
+          },
+          {
+            "name": "C++",
+            "level": 68,
+            "icon": "fa-solid fa-code"
+          },
+          {
+            "name": "C#",
+            "level": 62,
+            "icon": "fa-solid fa-hashtag"
+          }
         ]
       },
       {
         "title": "Cloud & Tools",
         "icon": "fa-solid fa-cloud",
         "skills": [
-          { "name": "Cloud Data Engineering", "level": 74, "icon": "fa-solid fa-cloud-arrow-up" },
-          { "name": "Linux", "level": 76, "icon": "fa-brands fa-linux" },
-          { "name": "Git & GitHub", "level": 88, "icon": "fa-brands fa-github" },
-          { "name": "VS Code", "level": 90, "icon": "fa-solid fa-code" },
-          { "name": "OpenCode CLI", "level": 70, "icon": "fa-solid fa-terminal" }
+          {
+            "name": "Cloud Data Engineering",
+            "level": 74,
+            "icon": "fa-solid fa-cloud-arrow-up"
+          },
+          {
+            "name": "Linux",
+            "level": 76,
+            "icon": "fa-brands fa-linux"
+          },
+          {
+            "name": "Git & GitHub",
+            "level": 88,
+            "icon": "fa-brands fa-github"
+          },
+          {
+            "name": "VS Code",
+            "level": 90,
+            "icon": "fa-solid fa-code"
+          },
+          {
+            "name": "OpenCode CLI",
+            "level": 70,
+            "icon": "fa-solid fa-terminal"
+          }
         ]
       }
     ]
@@ -192,9 +344,24 @@
     "heading": "Let's build something great together",
     "description": "Have a project in mind, an internship opportunity, or just want to say hello? My inbox is always open — I'll get back to you as soon as I can.",
     "cards": [
-      { "label": "Email Me", "value": "mr.abdulsamadabdullah@gmail.com", "href": "mailto:mr.abdulsamadabdullah@gmail.com", "icon": "fa-solid fa-envelope" },
-      { "label": "Call Me", "value": "+92 370 8033443", "href": "tel:+923708033443", "icon": "fa-solid fa-phone" },
-      { "label": "Location", "value": "Karachi, Pakistan", "href": "https://maps.google.com/?q=Karachi,Pakistan", "icon": "fa-solid fa-location-dot" }
+      {
+        "label": "Email Me",
+        "value": "mr.abdulsamadabdullah@gmail.com",
+        "href": "mailto:mr.abdulsamadabdullah@gmail.com",
+        "icon": "fa-solid fa-envelope"
+      },
+      {
+        "label": "Call Me",
+        "value": "+92 370 8033443",
+        "href": "tel:+923708033443",
+        "icon": "fa-solid fa-phone"
+      },
+      {
+        "label": "Location",
+        "value": "Karachi, Pakistan",
+        "href": "https://maps.google.com/?q=Karachi,Pakistan",
+        "icon": "fa-solid fa-location-dot"
+      }
     ],
     "form": {
       "nameLabel": "Your Name",

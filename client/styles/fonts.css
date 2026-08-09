@@ -2,7 +2,7 @@
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
-  font-display: swap;
+  font-display: optional;
   src: url("/fonts/inter-latin-400.woff2") format("woff2");
 }
 
@@ -10,7 +10,7 @@
   font-family: "Inter";
   font-style: normal;
   font-weight: 500;
-  font-display: swap;
+  font-display: optional;
   src: url("/fonts/inter-latin-500.woff2") format("woff2");
 }
 
@@ -18,7 +18,7 @@
   font-family: "Inter";
   font-style: normal;
   font-weight: 600;
-  font-display: swap;
+  font-display: optional;
   src: url("/fonts/inter-latin-600.woff2") format("woff2");
 }
 
@@ -26,7 +26,7 @@
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
-  font-display: swap;
+  font-display: optional;
   src: url("/fonts/inter-latin-700.woff2") format("woff2");
 }
 
@@ -34,7 +34,7 @@
   font-family: "Space Grotesk";
   font-style: normal;
   font-weight: 500;
-  font-display: swap;
+  font-display: optional;
   src: url("/fonts/space-grotesk-latin-500.woff2") format("woff2");
 }
 
@@ -42,7 +42,7 @@
   font-family: "Space Grotesk";
   font-style: normal;
   font-weight: 600;
-  font-display: swap;
+  font-display: optional;
   src: url("/fonts/space-grotesk-latin-600.woff2") format("woff2");
 }
 
@@ -50,6 +50,6 @@
   font-family: "Space Grotesk";
   font-style: normal;
   font-weight: 700;
-  font-display: swap;
+  font-display: optional;
   src: url("/fonts/space-grotesk-latin-700.woff2") format("woff2");
 }
