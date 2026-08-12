@@ -4,13 +4,19 @@
  *  - client/public/webfonts/fa-solid-900.woff2 and fa-brands-400.woff2
  *    containing only the used glyphs (a few KB, down from ~115 KB each)
  *
+ * The source of truth is ALWAYS the pristine Font Awesome package in
+ * node_modules — never the previously-subsetted files in client/public,
+ * otherwise a glyph dropped once (e.g. a new icon) can never come back.
+ *
  * Run after editing any template that references an icon class.
  */
 import { readFileSync, writeFileSync } from "node:fs";
 import subsetFont from "subset-font";
 
-const FULL = new URL("../client/public/css/fontawesome.min.css", import.meta.url);
+const FA_ROOT = "node_modules/@fortawesome/fontawesome-free";
+const FULL = new URL(`../${FA_ROOT}/css/all.min.css`, import.meta.url);
 const OUT = new URL("../client/public/css/fa-subset.min.css", import.meta.url);
+const FULL_FONTS = new URL(`../${FA_ROOT}/webfonts/`, import.meta.url);
 const FONT_DIR = new URL("../client/public/webfonts/", import.meta.url);
 
 const ICONS = [
@@ -23,7 +29,7 @@ const ICONS = [
   "phone", "robot", "rocket", "route", "server", "star", "sun", "tag",
   "terminal", "user", "xmark",
   /* fa-brands */
-  "css3-alt", "github", "html5", "js", "linkedin", "linux", "node-js",
+  "css3-alt", "github", "html5", "instagram", "js", "linkedin", "linux", "node-js",
   "python", "x-twitter", "youtube",
 ];
 
@@ -77,14 +83,14 @@ const toGlyph = (name) => {
   const hex = raw.match(/^([0-9a-fA-F]{1,6})\s?$/);
   return hex ? String.fromCodePoint(parseInt(hex[1], 16)) : raw;
 };
-const BRANDS = ["css3-alt", "github", "html5", "js", "linkedin", "linux", "node-js", "python", "x-twitter", "youtube"];
+const BRANDS = ["css3-alt", "github", "html5", "instagram", "js", "linkedin", "linux", "node-js", "python", "x-twitter", "youtube"];
 
-/* Subset the icon fonts to the glyphs actually used. */
+/* Subset the pristine icon fonts to the glyphs actually used. */
 for (const [file, names] of [
   ["fa-solid-900.woff2", ICONS.filter((n) => !BRANDS.includes(n))],
   ["fa-brands-400.woff2", BRANDS],
 ]) {
-  const fullFont = readFileSync(new URL(file, FONT_DIR));
+  const fullFont = readFileSync(new URL(file, FULL_FONTS));
   const slim = await subsetFont(fullFont, names.map(toGlyph).join(""), { targetFormat: "woff2" });
   writeFileSync(new URL(file, FONT_DIR), slim);
   console.log(

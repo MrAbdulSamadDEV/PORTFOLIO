@@ -60,11 +60,19 @@ function loadCriticalCss(): string {
   return criticalCssCache;
 }
 
+/** Derives the Twitter/X handle (e.g. @username) from the socials list. */
+function twitterHandle(site: SiteSettings): string {
+  const x = site.socials.find((social) => social.name === "X");
+  const match = x?.url.match(/x\.com\/([^/]+)/) ?? x?.url.match(/twitter\.com\/([^/]+)/);
+  return match ? `@${match[1]}` : "";
+}
+
 export function renderPage(site: SiteSettings, options: PageOptions): string {
   const domain = site.site.domain;
   // PNG Open Graph image: every social platform (Facebook, WhatsApp,
   // LinkedIn, Telegram) renders PNG reliably; WebP support is inconsistent.
   const ogImage = `${domain}${site.site.ogImagePng}`;
+  const twitter = twitterHandle(site);
 
   const replacements: Record<string, string> = {
     "%%HTML_LANG%%": site.site.language,
@@ -83,6 +91,7 @@ export function renderPage(site: SiteSettings, options: PageOptions): string {
     "%%OG_IMAGE%%": ogImage,
     "%%OG_IMAGE_ALT%%": site.site.ogImageAlt,
     "%%OG_LOCALE%%": "en_US",
+    "%%TWITTER_HANDLE%%": twitter,
     "%%PAGE_JSONLD%%": escapeJsonLd(options.jsonLd),
     "%%BODY_CLASS%%": options.bodyClass,
     "%%MAIN_CONTENT%%": options.body,

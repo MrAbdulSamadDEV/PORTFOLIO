@@ -34,13 +34,6 @@
   }
 }
 
-/* ---------- Tablet landscape ---------- */
-@media (max-width: 1100px) {
-  .hero__badge:nth-of-type(2) {
-    right: -2%;
-  }
-}
-
 /* ---------- Tablet / nav switch ---------- */
 @media (max-width: 1024px) {
   .site-nav {
@@ -110,6 +103,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 0;
   }
 
   .hero__description {
@@ -125,15 +119,28 @@
   }
 
   .hero__photo-frame {
-    width: min(300px, 78vw);
+    width: min(420px, 88vw);
   }
 
-  .hero__badge:nth-of-type(1) {
-    left: -4%;
+  .hero__badge {
+    font-size: 12px;
+    padding: 8px 14px;
   }
 
-  .hero__badge:nth-of-type(2) {
-    right: -4%;
+  @keyframes badge-orbit {
+    0% { transform: translate(-50%, -50%) translate(185px, 0px); }
+    8.333% { transform: translate(-50%, -50%) translate(160px, 135px); }
+    16.667% { transform: translate(-50%, -50%) translate(93px, 234px); }
+    25% { transform: translate(-50%, -50%) translate(0px, 270px); }
+    33.333% { transform: translate(-50%, -50%) translate(-93px, 234px); }
+    41.667% { transform: translate(-50%, -50%) translate(-160px, 135px); }
+    50% { transform: translate(-50%, -50%) translate(-185px, 0px); }
+    58.333% { transform: translate(-50%, -50%) translate(-160px, -135px); }
+    66.667% { transform: translate(-50%, -50%) translate(-93px, -234px); }
+    75% { transform: translate(-50%, -50%) translate(0px, -270px); }
+    83.333% { transform: translate(-50%, -50%) translate(93px, -234px); }
+    91.667% { transform: translate(-50%, -50%) translate(160px, -135px); }
+    100% { transform: translate(-50%, -50%) translate(185px, 0px); }
   }
 
   .social-rail {

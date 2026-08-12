@@ -11,6 +11,13 @@ import type { NextFunction, Request, Response } from "express";
 export function canonicalRedirects(req: Request, res: Response, next: NextFunction): void {
   const rawPath = req.path;
 
+  if (rawPath === "/favicon.ico" || rawPath === "/favicon.svg") {
+    // Legacy favicon paths browsers request automatically; the site now
+    // uses /assets/logos/logo.png as its tab icon (declared via <link rel="icon">).
+    res.redirect(301, "/assets/logos/logo.png");
+    return;
+  }
+
   if (rawPath.endsWith(".html")) {
     const clean = rawPath.slice(0, -5);
     const target = clean === "" ? "/" : clean;
@@ -31,7 +38,7 @@ export function canonicalRedirects(req: Request, res: Response, next: NextFuncti
   next();
 }
 
-const IMMUTABLE_PREFIXES = ["/assets/", "/js/", "/fonts/", "/webfonts/", "/favicon", "/apple-touch-icon", "/icon-", "/manifest", "/browserconfig", "/og-image", "/robots.txt", "/sitemap.xml"];
+const IMMUTABLE_PREFIXES = ["/assets/", "/js/", "/fonts/", "/webfonts/", "/favicon", "/apple-touch-icon", "/icon-", "/manifest", "/robots.txt", "/sitemap.xml"];
 const NO_CACHE_PREFIXES = ["/data/"];
 
 /** Long cache for hashed/immutable assets, short cache for the generated AI bundle, no-cache for editable data and HTML. */

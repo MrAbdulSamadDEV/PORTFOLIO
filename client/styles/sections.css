@@ -9,10 +9,14 @@
   max-width: var(--content-max);
   margin-inline: auto;
   display: grid;
-  grid-template-columns: 1.08fr 0.92fr;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
   gap: clamp(32px, 4vw, 64px);
-  padding: clamp(72px, 8vw, 112px) 0 clamp(88px, 8vw, 120px);
+  padding: clamp(36px, 4vw, 64px) 0 clamp(64px, 6vw, 96px);
+}
+
+.hero__content {
+  margin-top: -120px;
 }
 
 .hero__content > * {
@@ -109,33 +113,20 @@
 .hero__visual {
   display: flex;
   justify-content: center;
+  margin-top: -12px;
   animation: hero-in 450ms var(--ease-out) 90ms both;
+  background: transparent;
 }
 
 .hero__photo-frame {
   position: relative;
-  width: min(390px, 88%);
-  aspect-ratio: 1;
+  width: min(540px, 100%);
+  aspect-ratio: 2 / 3;
+  background: transparent;
 }
 
 .hero__photo {
-  position: absolute;
-  inset: 0;
-  border-radius: var(--radius-full);
-  background: radial-gradient(circle at 30% 25%, var(--color-accent), var(--color-accent-soft) 55%, transparent 78%);
-  opacity: 0.55;
-  transform: scale(1.12);
-  animation: photo-pulse 7s ease-in-out infinite;
-}
-
-@keyframes photo-pulse {
-  0%,
-  100% {
-    transform: scale(1.12);
-  }
-  50% {
-    transform: scale(1.16);
-  }
+  display: none;
 }
 
 .hero__photo-img {
@@ -144,12 +135,13 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  border-radius: var(--radius-full);
-  filter: drop-shadow(0 18px 34px rgba(0, 0, 0, 0.28));
+  border-radius: 0;
+  background: transparent;
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.18));
 }
 
 html[data-theme="dark"] .hero__photo-img {
-  filter: drop-shadow(0 18px 38px rgba(0, 0, 0, 0.65));
+  filter: drop-shadow(0 14px 32px rgba(0, 0, 0, 0.45));
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -167,23 +159,14 @@ html[data-theme="dark"] .hero__photo-img {
 }
 
 .hero__ring {
-  position: absolute;
-  inset: -20px;
-  z-index: 1;
-  border: 2px dashed var(--color-accent);
-  border-radius: var(--radius-full);
-  animation: ring-spin 60s linear infinite;
-}
-
-@keyframes ring-spin {
-  to {
-    transform: rotate(360deg);
-  }
+  display: none;
 }
 
 .hero__badge {
   position: absolute;
   z-index: 3;
+  top: 50%;
+  left: 50%;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -195,7 +178,8 @@ html[data-theme="dark"] .hero__photo-img {
   font-size: 13px;
   font-weight: 600;
   color: var(--color-text-soft);
-  animation: badge-float 5.5s ease-in-out infinite alternate;
+  white-space: nowrap;
+  animation: badge-orbit 20s linear infinite;
 }
 
 html[data-theme="dark"] .hero__badge {
@@ -207,30 +191,27 @@ html[data-theme="dark"] .hero__badge {
   font-size: 13px;
 }
 
-.hero__badge:nth-of-type(1) {
-  top: 8%;
-  left: -6%;
-}
+.hero__badge:nth-of-type(1) { animation-delay: 0s; }
+.hero__badge:nth-of-type(2) { animation-delay: -3.33s; }
+.hero__badge:nth-of-type(3) { animation-delay: -6.67s; }
+.hero__badge:nth-of-type(4) { animation-delay: -10s; }
+.hero__badge:nth-of-type(5) { animation-delay: -13.33s; }
+.hero__badge:nth-of-type(6) { animation-delay: -16.67s; }
 
-.hero__badge:nth-of-type(2) {
-  top: 46%;
-  right: -10%;
-  animation-delay: 1.2s;
-}
-
-.hero__badge:nth-of-type(3) {
-  bottom: 6%;
-  left: 4%;
-  animation-delay: 2.1s;
-}
-
-@keyframes badge-float {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(-12px);
-  }
+@keyframes badge-orbit {
+  0% { transform: translate(-50%, -50%) translate(250px, 0px); }
+  8.333% { transform: translate(-50%, -50%) translate(216px, 185px); }
+  16.667% { transform: translate(-50%, -50%) translate(125px, 320px); }
+  25% { transform: translate(-50%, -50%) translate(0px, 370px); }
+  33.333% { transform: translate(-50%, -50%) translate(-125px, 320px); }
+  41.667% { transform: translate(-50%, -50%) translate(-217px, 185px); }
+  50% { transform: translate(-50%, -50%) translate(-250px, 0px); }
+  58.333% { transform: translate(-50%, -50%) translate(-217px, -185px); }
+  66.667% { transform: translate(-50%, -50%) translate(-125px, -320px); }
+  75% { transform: translate(-50%, -50%) translate(0px, -370px); }
+  83.333% { transform: translate(-50%, -50%) translate(125px, -320px); }
+  91.667% { transform: translate(-50%, -50%) translate(217px, -185px); }
+  100% { transform: translate(-50%, -50%) translate(250px, 0px); }
 }
 
 /* ---------- Hero scroll indicator ---------- */

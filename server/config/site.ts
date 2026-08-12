@@ -42,11 +42,9 @@ export interface SiteSettings {
     logo: string;
     logoAlt: string;
     profileImage: string;
-    profileImagePng: string;
     profileImageAlt: string;
     profileImageWidth: number;
     profileImageHeight: number;
-    ogImage: string;
     ogImagePng: string;
     ogImageAlt: string;
     yearStarted: number;

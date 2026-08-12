@@ -64,6 +64,8 @@ ${urlset}
 
 const robots = `User-agent: *
 Allow: /
+Disallow: /data/
+Disallow: /404
 
 Sitemap: ${domain}/sitemap.xml
 `;

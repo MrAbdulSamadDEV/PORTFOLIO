@@ -118,18 +118,12 @@ async function main() {
       "/robots.txt",
       "/sitemap.xml",
       "/manifest.json",
-      "/browserconfig.xml",
-      "/favicon.ico",
-      "/favicon.svg",
       "/apple-touch-icon.png",
       "/icon-192.png",
       "/icon-512.png",
       "/icon-512-maskable.png",
-      "/assets/logos/logo.svg",
-      "/assets/og-image.webp",
       "/assets/og-image.png",
       "/assets/profile/professional-headshot.webp",
-      "/assets/profile/professional-headshot.png",
     ];
     for (const file of staticFiles) {
       try {
@@ -147,7 +141,7 @@ async function main() {
 
     const referencedPaths = [];
     const site = settings.site;
-    referencedPaths.push(site.logo, site.profileImage, site.profileImagePng, site.ogImage, site.ogImagePng);
+    referencedPaths.push(site.logo, site.profileImage, site.ogImagePng);
     for (const project of projects) referencedPaths.push(project.image, project.imagePng);
 
     for (const assetPath of new Set(referencedPaths)) {

@@ -33,3 +33,4 @@ screenshots/
 *.cpuprofile
 # npm pack artifact
 *.tgz
+.env*

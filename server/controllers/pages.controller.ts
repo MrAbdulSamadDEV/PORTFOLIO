@@ -62,6 +62,7 @@ export function homePage(_req: Request, res: Response): void {
     buildBreadcrumbList(settings, [{ name: "Home", url: canonical }]),
     buildOrganization(settings),
     buildProfileImage(settings),
+    buildItemList(settings, projects.filter((project) => project.featured)),
   ];
 
   sendPage(res, {

@@ -1,0 +1,605 @@
+{
+  "category": "misc",
+  "faqs": [
+    {
+      "id": "n-01",
+      "question": "Does Abdul have Instagram?",
+      "answer": "Yes! Abdul is active on Instagram at @samad_boy.dev — https://www.instagram.com/samad_boy.dev. You can follow along with his learning journey and updates there.",
+      "keywords": ["instagram", "insta", "ig", "instaf", "insta profile", "insta id", "instagram link", "follow on instagram", "@samad_boy.dev", "samad boy dev"]
+    },
+    {
+      "id": "n-02",
+      "question": "What does Abdul post on Instagram?",
+      "answer": "Abdul shares his programming journey — learning updates, project progress, web development tips, study notes and behind-the-scenes moments from his path toward cloud data engineering and full stack development.",
+      "keywords": ["instagram content", "what does he post", "instagram posts", "insta reels", "social media content", "posts on instagram", "his instagram"]
+    },
+    {
+      "id": "n-03",
+      "question": "Where can I follow Abdul online?",
+      "answer": "You can follow Abdul on:\n\n• Instagram — @samad_boy.dev\n• GitHub — MrAbdulSamadDEV\n• LinkedIn — abdulsamadabdullah\n• X — @ABDULSAMAD8492\n• YouTube — ABDULSAMADABDULLAHCODE\n\nAll links are in the social rail on this website.",
+      "keywords": ["follow him online", "social media links", "all socials", "social profiles", "where is he active", "his handles", "all his accounts"]
+    },
+    {
+      "id": "n-04",
+      "question": "Can I DM Abdul on Instagram?",
+      "answer": "Sure — Abdul is happy to connect on Instagram at @samad_boy.dev. For project inquiries and work-related messages, email mr.abdulsamadabdullah@gmail.com is the fastest channel.",
+      "keywords": ["dm him", "instagram message", "message on instagram", "dm", "direct message", "chat with him", "text him"]
+    },
+    {
+      "id": "n-05",
+      "question": "How do I ask MAX AI questions?",
+      "answer": "Just type a question in the chat box and press Enter. You can ask things like \"What skills does Abdul have?\", \"Show his projects\" or \"How can I contact him?\" — natural language works best!",
+      "keywords": ["how to ask questions", "ask a question", "typing a question", "question format", "how to talk to max", "ask max something", "chat with max"]
+    },
+    {
+      "id": "n-06",
+      "question": "What topics can MAX AI answer about?",
+      "answer": "MAX AI knows about Abdul's profile, skills, projects, education, experience, certificates, services, learning plans, contact details, social links and general tech topics. If it doesn't know something, it will say so honestly.",
+      "keywords": ["what can max answer", "max topics", "max knowledge", "what does max know", "max capabilities", "what can i ask", "max scope"]
+    },
+    {
+      "id": "n-07",
+      "question": "How does MAX AI find answers?",
+      "answer": "MAX AI matches your question against a local knowledge base of curated Q&A entries using smart keyword matching and fuzzy scoring. Everything runs instantly in your browser — no server requests.",
+      "keywords": ["how max works", "max search", "max matching", "how does max answer", "max algorithm", "max engine", "answer finding"]
+    },
+    {
+      "id": "n-08",
+      "question": "Is MAX AI really free?",
+      "answer": "Yes — MAX AI is completely free to use. It's a built-in assistant on Abdul's portfolio with no ads, no sign-up and no payments, ever.",
+      "keywords": ["is max free", "max price", "max cost", "free assistant", "paid assistant", "max subscription", "do i pay for max"]
+    },
+    {
+      "id": "n-09",
+      "question": "Can MAX AI learn new things?",
+      "answer": "MAX AI's knowledge is updated by Abdul whenever he adds content to his portfolio. New projects, skills and certificates get added over time — the knowledge base grows with him.",
+      "keywords": ["can max learn", "max updates", "new knowledge", "max new answers", "does max update", "max growth", "fresh answers"]
+    },
+    {
+      "id": "n-10",
+      "question": "Does MAX AI understand other languages?",
+      "answer": "MAX AI is built primarily for English, but it can handle simple questions in other languages when they contain recognizable keywords — Urdu, Hindi and Arabic phrases often work too!",
+      "keywords": ["max languages", "urdu", "hindi", "arabic", "other language", "non english", "max urdu"]
+    },
+    {
+      "id": "n-11",
+      "question": "What is Abdul's GitHub username?",
+      "answer": "Abdul's GitHub username is MrAbdulSamadDEV. His profile: https://github.com/MrAbdulSamadDEV — where you can explore his repositories and open source work.",
+      "keywords": ["github username", "github id", "github handle", "github account", "his github", "github link", "github name"]
+    },
+    {
+      "id": "n-12",
+      "question": "What is Abdul's LinkedIn profile?",
+      "answer": "Abdul's LinkedIn is: https://www.linkedin.com/in/abdulsamadabdullah/. Connect with him for professional networking and opportunities.",
+      "keywords": ["linkedin link", "linkedin profile", "linkedin url", "his linkedin", "connect on linkedin", "professional profile"]
+    },
+    {
+      "id": "n-13",
+      "question": "What is Abdul's X (Twitter) handle?",
+      "answer": "Abdul's X (Twitter) handle is @ABDULSAMAD8492 — https://x.com/ABDULSAMAD8492. Follow him for tech thoughts and updates.",
+      "keywords": ["twitter handle", "x handle", "twitter link", "x link", "tweets", "his twitter", "@ABDULSAMAD8492"]
+    },
+    {
+      "id": "n-14",
+      "question": "Does Abdul have a YouTube channel?",
+      "answer": "Yes — Abdul's YouTube channel is ABDULSAMADABDULLAHCODE: https://www.youtube.com/@ABDULSAMADABDULLAHCODE. It's where he shares coding content.",
+      "keywords": ["youtube link", "youtube channel", "his youtube", "videos", "coding channel", "youtube url", "subscribe"]
+    },
+    {
+      "id": "n-15",
+      "question": "What type of websites can Abdul build?",
+      "answer": "Abdul builds a wide range of websites:\n\n• Business and portfolio websites\n• E-commerce stores\n• Dashboards and web apps\n• Landing pages\n• Full stack applications with custom APIs\n\nIf it runs on the web, he can probably build it!",
+      "keywords": ["what websites he builds", "website types", "kinds of sites", "web development types", "what can he build", "site categories", "web projects he makes"]
+    },
+    {
+      "id": "n-16",
+      "question": "How long does a website project take?",
+      "answer": "It depends on the scope:\n\n• Landing page — 3 to 7 days\n• Business website — 1 to 2 weeks\n• E-commerce store — 2 to 4 weeks\n• Full web app — 4 to 8 weeks\n\nHe'll give you an exact timeline after discussing your requirements.",
+      "keywords": ["project duration", "how long it takes", "website timeline", "development time", "delivery time", "how many days", "project length"]
+    },
+    {
+      "id": "n-17",
+      "question": "How much does Abdul charge for a website?",
+      "answer": "Pricing depends on the project size and complexity. Contact Abdul at mr.abdulsamadabdullah@gmail.com with your requirements and he'll send you a free, no-obligation quote.",
+      "keywords": ["website cost", "how much price", "development charges", "website price", "cost of website", "quote for site", "project cost"]
+    },
+    {
+      "id": "n-18",
+      "question": "Does Abdul do revisions after delivery?",
+      "answer": "Yes — every project includes a revision round so you're happy with the final result. Larger changes after handover can be discussed as a follow-up scope.",
+      "keywords": ["revisions", "changes after delivery", "edit work", "rework", "modifications", "update request", "fix requests"]
+    },
+    {
+      "id": "n-19",
+      "question": "Does Abdul offer website maintenance?",
+      "answer": "Yes — Abdul offers maintenance plans for hosting updates, content changes, bug fixes, backups and performance checks so your website stays healthy after launch.",
+      "keywords": ["maintenance", "website care", "hosting help", "update site", "bug fixes", "site upkeep", "maintenance plans"]
+    },
+    {
+      "id": "n-20",
+      "question": "Can Abdul redesign an existing website?",
+      "answer": "Absolutely — Abdul can redesign your existing site with a modern look, better performance, mobile responsiveness and improved SEO while keeping what works.",
+      "keywords": ["redesign", "website redesign", "makeover", "existing site", "improve my site", "update old website", "refurbish website"]
+    },
+    {
+      "id": "n-21",
+      "question": "Does Abdul handle deployment and hosting?",
+      "answer": "Yes — Abdul deploys his projects to production and can guide you through hosting setup (Vercel, Netlify, cPanel, or cloud platforms) so your site is live and reachable.",
+      "keywords": ["deployment", "hosting setup", "go live", "deploy site", "production launch", "hosting help", "vercel deploy"]
+    },
+    {
+      "id": "n-22",
+      "question": "Why does Abdul use TypeScript?",
+      "answer": "TypeScript adds static types on top of JavaScript, which catches bugs early, makes code self-documenting and scales better on bigger projects. Abdul uses it for most of his work.",
+      "keywords": ["why typescript", "typescript benefits", "types vs javascript", "ts reasons", "typed language", "typescript advantage"]
+    },
+    {
+      "id": "n-23",
+      "question": "Why does Abdul use Node.js and Express?",
+      "answer": "Node.js runs JavaScript on the server, so Abdul can use one language for the whole stack. Express is a lightweight, battle-tested framework that keeps the backend fast, flexible and easy to maintain.",
+      "keywords": ["why node", "why express", "backend framework", "node vs others", "server language", "node reasons", "express reasons"]
+    },
+    {
+      "id": "n-24",
+      "question": "Which databases does Abdul use?",
+      "answer": "Abdul is comfortable with both SQL and NoSQL databases — including MongoDB, MySQL and PostgreSQL. He picks the right database for each project's data shape and scale.",
+      "keywords": ["which databases", "database choice", "mongodb", "mysql", "postgresql", "sql vs nosql", "data storage choice"]
+    },
+    {
+      "id": "n-25",
+      "question": "What is Cloud Data Engineering?",
+      "answer": "Cloud Data Engineering is about building systems that collect, store and process large amounts of data on cloud platforms like AWS and Azure — including data pipelines, ETL processes, data warehouses and analytics infrastructure.",
+      "keywords": ["what is cloud data engineering", "data engineering meaning", "etl definition", "data pipelines explanation", "cloud engineer role", "what do data engineers do"]
+    },
+    {
+      "id": "n-26",
+      "question": "Why is Abdul studying cloud data engineering?",
+      "answer": "Abdul loves both data and software — cloud data engineering bridges them: building intelligent, scalable systems that turn raw data into decisions. He sees it as the natural next step after full stack development.",
+      "keywords": ["why cloud data", "reason for data engineering", "career choice cloud", "data engineering goal", "why this field", "his cloud plan"]
+    },
+    {
+      "id": "n-27",
+      "question": "What are ETL pipelines?",
+      "answer": "ETL stands for Extract, Transform, Load — the process of pulling data from different sources, cleaning and transforming it, then loading it into a warehouse or database for analysis. It's the core of data engineering.",
+      "keywords": ["what is etl", "etl pipeline", "extract transform load", "data pipeline", "etl explained", "transform data"]
+    },
+    {
+      "id": "n-28",
+      "question": "Does Abdul know AWS or Azure?",
+      "answer": "Abdul is actively learning AWS and Azure as part of his cloud data engineering studies — including cloud services, storage, compute and data tools. He's building hands-on skills in both platforms.",
+      "keywords": ["aws", "azure", "cloud platforms", "amazon web services", "microsoft azure", "cloud provider", "his cloud skills"]
+    },
+    {
+      "id": "n-29",
+      "question": "Why does Abdul use Linux?",
+      "answer": "Linux powers most of the internet — servers, cloud instances and DevOps tools run on it. Abdul uses Linux to understand servers deeply, from the terminal to deployment.",
+      "keywords": ["why linux", "linux reasons", "linux importance", "servers linux", "linux skills", "terminal linux", "linux for devops"]
+    },
+    {
+      "id": "n-30",
+      "question": "How does Abdul test his code?",
+      "answer": "Abdul tests his work at multiple levels: automated checks in the build pipeline, smoke tests on the running server, browser audits, and careful manual testing on desktop and mobile before release.",
+      "keywords": ["how he tests", "testing process", "code testing", "quality checks", "automated tests", "smoke tests", "debugging process"]
+    },
+    {
+      "id": "n-31",
+      "question": "How does Abdul keep websites secure?",
+      "answer": "Security is built in from the start: helmet security headers, strict Content Security Policy, input validation and escaping, no secrets in code, and HTTPS everywhere. He follows security best practices on every project.",
+      "keywords": ["security practices", "website security", "how secure", "csp", "security headers", "hacking protection", "secure code"]
+    },
+    {
+      "id": "n-32",
+      "question": "Does Abdul do SEO on his websites?",
+      "answer": "Yes — Abdul treats SEO as part of development: semantic HTML, proper heading hierarchy, meta tags, Open Graph, structured data (JSON-LD), sitemaps, robots.txt, canonical URLs and fast Core Web Vitals.",
+      "keywords": ["seo practice", "google ranking", "seo knowledge", "website seo", "search optimization", "his seo skills", "rank on google"]
+    },
+    {
+      "id": "n-33",
+      "question": "What is Core Web Vitals?",
+      "answer": "Core Web Vitals are Google's performance signals: LCP (how fast the main content loads), INP (how quickly pages respond to interaction) and CLS (visual stability). Abdul optimizes all three on his sites.",
+      "keywords": ["core web vitals", "lcp", "cls", "inp", "google performance", "page speed signals", "web vitals"]
+    },
+    {
+      "id": "n-34",
+      "question": "Does Abdul build accessible websites?",
+      "answer": "Yes — accessibility is part of his standard. Semantic landmarks, skip links, aria attributes, keyboard navigation, focus states and alt text are included on every project he builds.",
+      "keywords": ["accessibility", "a11y", "wcag", "screen readers", "inclusive design", "accessible sites", "keyboard navigation"]
+    },
+    {
+      "id": "n-35",
+      "question": "How fast does Abdul respond to messages?",
+      "answer": "Abdul usually replies within a few hours, and typically within 24 hours at most. For the fastest response, use email at mr.abdulsamadabdullah@gmail.com.",
+      "keywords": ["response time", "how fast reply", "reply speed", "message response", "when will he reply", "email response", "quick reply"]
+    },
+    {
+      "id": "n-36",
+      "question": "Is Abdul available for internships?",
+      "answer": "Yes — Abdul is actively looking for internship opportunities in full stack development and cloud data engineering. That's one of his top priorities right now.",
+      "keywords": ["internship", "intern", "internship opening", "looking for internship", "student intern", "internship offer", "internship available"]
+    },
+    {
+      "id": "n-37",
+      "question": "Is Abdul available for freelance work?",
+      "answer": "Yes — Abdul takes on freelance projects including websites, web apps, dashboards and API development. Share your idea through the contact form or email and he'll get back to you.",
+      "keywords": ["freelance available", "hire freelancer", "freelance projects", "accepts projects", "work opportunities", "client work", "freelance open"]
+    },
+    {
+      "id": "n-38",
+      "question": "Does Abdul work remotely?",
+      "answer": "Yes — Abdul works remotely and is comfortable collaborating across time zones. He's based in Karachi, Pakistan (UTC+5) and communicates in English.",
+      "keywords": ["remote work", "work from home", "online collaboration", "remote friendly", "distance work", "remote job", "virtual work"]
+    },
+    {
+      "id": "n-39",
+      "question": "What are Abdul's working hours?",
+      "answer": "Abdul works flexibly but is most productive during daytime Pakistan time (UTC+5). He's happy to schedule calls that work for clients in other time zones.",
+      "keywords": ["working hours", "schedule calls", "best time to call", "his availability time", "call timing", "work schedule", "when available"]
+    },
+    {
+      "id": "n-40",
+      "question": "Does Abdul work in a team?",
+      "answer": "Yes — Abdul values teamwork and has collaborated on projects, contributed to open source, and helped peers with coding. He believes great products come from clear communication and shared goals.",
+      "keywords": ["teamwork", "team player", "group projects", "collaboration", "working with team", "team experience", "team work"]
+    },
+    {
+      "id": "n-41",
+      "question": "Can I see Abdul's resume or CV?",
+      "answer": "Yes — contact Abdul at mr.abdulsamadabdullah@gmail.com and he'll share his resume. The website itself is also an up-to-date summary of his profile.",
+      "keywords": ["resume", "cv", "curriculum vitae", "his resume", "get cv", "request resume", "pdf resume"]
+    },
+    {
+      "id": "n-42",
+      "question": "What makes Abdul different from other developers?",
+      "answer": "Abdul cares about the whole product — not just code. He combines full stack skills with data engineering studies, follows performance and accessibility best practices, and documents everything. Quality and attention to detail are his signature.",
+      "keywords": ["why hire him", "what makes him unique", "his difference", "why him", "stand out", "unique developer", "his strengths"]
+    },
+    {
+      "id": "n-43",
+      "question": "What was Abdul's first project?",
+      "answer": "Abdul's first complete projects were a furniture e-commerce platform (SALAAR'S HOME / Furnecher) and a weather dashboard — the ones that taught him full stack development with Node.js, Express, TypeScript and React.",
+      "keywords": ["first project", "initial project", "starting projects", "early work", "first build", "first app", "first website"]
+    },
+    {
+      "id": "n-44",
+      "question": "Which is Abdul's best project?",
+      "answer": "The portfolio website itself is his proudest build — it includes server-side rendering, full SEO, an offline AI assistant (MAX AI) and a sub-second load. His featured client project is SALAAR'S HOME, a furniture e-commerce store.",
+      "keywords": ["best project", "favorite project", "top project", "proudest work", "his favorite build", "best work", "favorite build"]
+    },
+    {
+      "id": "n-45",
+      "question": "Tell me about SALAAR'S HOME",
+      "answer": "SALAAR'S HOME (Furnecher) is a furniture e-commerce website built by Abdul — featuring product browsing, cart functionality and a modern storefront experience, built with TypeScript, Node.js, Express and MongoDB.",
+      "keywords": ["salars home", "furnecher", "furniture website", "ecommerce store", "salars home project", "furnecher details", "furniture ecommerce"]
+    },
+    {
+      "id": "n-46",
+      "question": "What technologies power the Furnecher project?",
+      "answer": "SALAAR'S HOME (Furnecher) was built with TypeScript, Node.js, Express and MongoDB — a full stack setup with a clean API and a responsive storefront.",
+      "keywords": ["furnecher tech", "salars home stack", "ecommerce technology", "what built furnecher", "project tech", "ecommerce stack", "furnecher backend"]
+    },
+    {
+      "id": "n-47",
+      "question": "Can I see Abdul's projects live?",
+      "answer": "Yes — visit the Projects page on this website (/projects). Each project card has GitHub and Live Demo buttons so you can explore the code and see it running.",
+      "keywords": ["live projects", "see projects", "project demos", "view work", "live demo", "projects link", "check his work"]
+    },
+    {
+      "id": "n-48",
+      "question": "Is Abdul's project code open source?",
+      "answer": "Most of Abdul's code is public on GitHub at https://github.com/MrAbdulSamadDEV. This portfolio website's full source is available too — the MIT license lets you learn from it.",
+      "keywords": ["open source work", "public code", "github projects", "view source", "his repos", "source available", "code repositories"]
+    },
+    {
+      "id": "n-49",
+      "question": "What project does Abdul plan to build next?",
+      "answer": "Abdul's next goals include cloud data engineering projects — data pipelines, ETL systems and dashboards — plus continuing to grow his full stack portfolio with real-world client work.",
+      "keywords": ["future projects", "next project", "upcoming work", "planned builds", "new projects", "whats next", "future builds"]
+    },
+    {
+      "id": "n-50",
+      "question": "What did Abdul learn from building this portfolio?",
+      "answer": "This portfolio taught Abdul server-side rendering, SEO at production level, performance optimization, PWA basics, content-driven architecture and how to build an offline AI assistant from scratch.",
+      "keywords": ["portfolio lessons", "what he learned", "portfolio experience", "lessons from site", "building this site", "site development lessons", "what he built"]
+    },
+    {
+      "id": "n-51",
+      "question": "How did Abdul learn web development?",
+      "answer": "Abdul is self-taught — he started with HTML, CSS and JavaScript in 2024, moved to Node.js, Express and TypeScript, built real projects, and kept learning through documentation, practice and open source.",
+      "keywords": ["how he learned", "self taught", "learning path", "how he started", "his learning story", "learned by himself", "education history web"]
+    },
+    {
+      "id": "n-52",
+      "question": "How long does it usually take to learn web development?",
+      "answer": "It depends on your pace and consistency. With focused daily practice, a solid foundation in HTML, CSS and JavaScript takes about 3-6 months, and full stack skills another 6-12 months. Abdul's advice: build projects, don't just watch tutorials.",
+      "keywords": ["how long to learn", "learn web dev time", "web dev duration", "learning timeline", "fast learning", "how many months", "become developer time"]
+    },
+    {
+      "id": "n-53",
+      "question": "What resources does Abdul recommend for beginners?",
+      "answer": "Abdul recommends the official docs (MDN for web, Node.js docs), freeCodeCamp for structured learning, building real projects early, reading code on GitHub, and using the OpenCode CLI to learn AI-assisted development.",
+      "keywords": ["learning resources", "beginner resources", "best courses", "study materials", "where to learn", "recommended learning", "free resources"]
+    },
+    {
+      "id": "n-54",
+      "question": "What advice does Abdul give to beginners?",
+      "answer": "Three pieces of advice:\n\n1. Build real projects from day one — even tiny ones.\n2. Learn fundamentals before frameworks.\n3. Don't compare your chapter one with someone else's chapter twenty.\n\nConsistency beats intensity.",
+      "keywords": ["advice for beginners", "beginner tips", "start coding advice", "his advice", "coding tips", "new developer advice", "guidance"]
+    },
+    {
+      "id": "n-55",
+      "question": "What should I learn first — frontend or backend?",
+      "answer": "Abdul recommends starting with the frontend: HTML, CSS and JavaScript. Once you can build interfaces, learning the backend (Node.js, databases, APIs) makes you a complete full stack developer.",
+      "keywords": ["frontend or backend first", "what to learn first", "start with frontend", "learning order", "first steps coding", "which first", "study order"]
+    },
+    {
+      "id": "n-56",
+      "question": "Should I learn from tutorials or build projects?",
+      "answer": "Both, but projects win. Abdul's experience: tutorials teach syntax, projects teach problem-solving. A 70/30 split — mostly building, some learning — works best.",
+      "keywords": ["tutorials or projects", "project based learning", "build vs learn", "practice coding", "hands on learning", "tutorial vs build", "learning method"]
+    },
+    {
+      "id": "n-57",
+      "question": "How does Abdul stay updated with new technology?",
+      "answer": "Abdul follows official documentation, changelogs and developers on social media, reads tech blogs, and experiments with new tools in small projects before using them in real work.",
+      "keywords": ["staying updated", "latest tech", "new technologies", "tech trends", "how he learns new", "keeping current", "tech updates"]
+    },
+    {
+      "id": "n-58",
+      "question": "What is Abdul's daily learning routine?",
+      "answer": "Abdul studies every day — a mix of cloud data engineering coursework (data pipelines, ETL, Linux), web development practice, and reading code or documentation. Consistency is his secret.",
+      "keywords": ["daily routine", "study routine", "daily learning", "his schedule", "study habit", "everyday learning", "learning routine"]
+    },
+    {
+      "id": "n-59",
+      "question": "What are the hardest things Abdul learned?",
+      "answer": "Debugging server-side issues, designing clean database schemas, and understanding cloud infrastructure concepts were the toughest. Each one taught him patience and systematic problem-solving.",
+      "keywords": ["hardest to learn", "difficult topics", "challenges learning", "tough skills", "hard parts", "difficult things", "learning struggles"]
+    },
+    {
+      "id": "n-60",
+      "question": "Does Abdul do coding challenges?",
+      "answer": "Yes — Abdul practices with coding problems and small challenges to sharpen his logic and problem-solving skills, alongside building real projects.",
+      "keywords": ["coding challenges", "leetcode", "practice problems", "coding practice", "challenges", "problem solving practice", "algorithm practice"]
+    },
+    {
+      "id": "n-61",
+      "question": "What is Abdul's favorite programming language?",
+      "answer": "TypeScript is Abdul's favorite — it brings safety and structure to JavaScript, and he uses it across both frontend and backend work.",
+      "keywords": ["favorite language", "best language", "preferred language", "favourite language", "language preference", "his favorite", "top language"]
+    },
+    {
+      "id": "n-62",
+      "question": "Does Abdul know Python?",
+      "answer": "Yes — Abdul knows Python at an intermediate level and is deepening it as part of his cloud data engineering studies, where Python is the go-to language for data work.",
+      "keywords": ["python skills", "does he know python", "python level", "python for data", "his python", "python experience"]
+    },
+    {
+      "id": "n-63",
+      "question": "What is Abdul's strongest skill?",
+      "answer": "Frontend development with HTML, CSS and JavaScript/TypeScript is his strongest area — he builds pixel-perfect, accessible, fast interfaces. He's equally proud of his full stack ability.",
+      "keywords": ["strongest skill", "best skill", "top skill", "his strength", "best at", "strong area", "number one skill"]
+    },
+    {
+      "id": "n-64",
+      "question": "What skills is Abdul currently improving?",
+      "answer": "Abdul is currently improving his cloud data engineering skills — data pipelines, ETL, AWS/Azure services — and deepening Python for data work.",
+      "keywords": ["improving skills", "current focus", "learning now", "working on", "skills in progress", "currently learning", "upskilling"]
+    },
+    {
+      "id": "n-65",
+      "question": "Does Abdul do UI/UX design too?",
+      "answer": "Yes — Abdul designs and builds his interfaces himself, with responsive layouts, thoughtful spacing, accessibility and performance in mind. This website is a live example of his design work.",
+      "keywords": ["ui design", "ux design", "design skills", "does he design", "interface design", "his design work", "web design skill"]
+    },
+    {
+      "id": "n-66",
+      "question": "What does Abdul value most in code?",
+      "answer": "Readability, maintainability and performance. Abdul writes code that other developers can understand, extend and run fast — clean code is a feature, not a luxury.",
+      "keywords": ["code values", "what he values", "clean code", "code quality", "his code philosophy", "writing style", "code principles"]
+    },
+    {
+      "id": "n-67",
+      "question": "How does Abdul handle bugs?",
+      "answer": "Methodically: reproduce the bug, isolate the cause, fix the root issue (not just the symptom), then verify with tests. He also documents tricky fixes so they don't bite twice.",
+      "keywords": ["bug fixing", "debugging style", "handling bugs", "fix errors", "bug process", "debug approach", "solving bugs"]
+    },
+    {
+      "id": "n-68",
+      "question": "What does Abdul do when stuck on a problem?",
+      "answer": "He takes a break, re-reads the docs, searches for known solutions, or explains the problem out loud. Walking away for 15 minutes solves more bugs than staring for an hour.",
+      "keywords": ["stuck on problem", "when stuck", "getting stuck", "problem solving", "how he thinks", "solving hard problems", "help with bug"]
+    },
+    {
+      "id": "n-69",
+      "question": "How does Abdul manage stress during projects?",
+      "answer": "He breaks big tasks into small milestones, takes regular breaks, and remembers that progress beats perfection. A healthy routine keeps him consistent even under deadlines.",
+      "keywords": ["stress management", "pressure", "deadline stress", "work stress", "burnout", "staying calm", "handling pressure"]
+    },
+    {
+      "id": "n-70",
+      "question": "What kind of projects does Abdul enjoy most?",
+      "answer": "Abdul enjoys projects that challenge him technically — building systems end to end, whether that's a full stack web app, a data pipeline, or a product with real users.",
+      "keywords": ["favorite projects", "enjoys most", "fun projects", "project preference", "likes building", "interesting projects", "what he enjoys"]
+    },
+    {
+      "id": "n-71",
+      "question": "Can Abdul build me a dashboard?",
+      "answer": "Yes — Abdul can build dashboards for analytics, admin panels and data visualization using his full stack and data skills. Share your requirements through the contact form.",
+      "keywords": ["dashboard", "admin panel", "analytics dashboard", "data dashboard", "chart building", "dashboard development", "visualization"]
+    },
+    {
+      "id": "n-72",
+      "question": "Can Abdul build an API for my app?",
+      "answer": "Yes — Abdul builds REST APIs with Node.js and Express, including database integration, authentication, validation and documentation.",
+      "keywords": ["api development", "rest api", "backend api", "build api", "api for app", "api service", "backend service"]
+    },
+    {
+      "id": "n-73",
+      "question": "Does Abdul help startups?",
+      "answer": "Yes — Abdul enjoys working with startups and early-stage ideas. He can build your MVP, help you iterate quickly, and keep costs low with a lean stack.",
+      "keywords": ["startup help", "mvp", "early stage", "startup support", "idea validation", "startup developer", "build mvp"]
+    },
+    {
+      "id": "n-74",
+      "question": "What information does Abdul need from clients?",
+      "answer": "For a quote, share: what your website should do, examples of sites you like, your content and images, any deadlines, and your budget range. That's enough to start.",
+      "keywords": ["client requirements", "what he needs", "project info", "start a project", "what to share", "requirements list", "getting started"]
+    },
+    {
+      "id": "n-75",
+      "question": "Does Abdul sign contracts?",
+      "answer": "Yes — for larger projects Abdul works with a simple agreement covering scope, timeline, payment and ownership, so both sides stay protected and clear.",
+      "keywords": ["contracts", "agreement", "terms", "legal work", "project contract", "signed contract", "work agreement"]
+    },
+    {
+      "id": "n-76",
+      "question": "How does payment work for projects?",
+      "answer": "Payment terms are agreed before work starts — typically a deposit to begin and the balance on delivery. Contact Abdul to discuss arrangements for your project.",
+      "keywords": ["payment method", "how payment works", "deposit", "payment terms", "pay for project", "payment plan", "advance payment"]
+    },
+    {
+      "id": "n-77",
+      "question": "Can Abdul do rush projects?",
+      "answer": "Abdul can sometimes take on rush projects depending on his schedule — tell him your deadline upfront. Realistic timelines are better than rushed, broken launches.",
+      "keywords": ["rush project", "urgent work", "quick project", "short deadline", "fast delivery", "urgent website", "expedited"]
+    },
+    {
+      "id": "n-78",
+      "question": "Does Abdul provide support after launch?",
+      "answer": "Yes — every project includes post-launch support for a period, plus optional maintenance plans for long-term care.",
+      "keywords": ["after launch support", "post delivery", "support period", "handover support", "launch help", "after launch", "post launch"]
+    },
+    {
+      "id": "n-79",
+      "question": "What questions should I ask before hiring a developer?",
+      "answer": "Ask about: portfolio and past work, process and timeline, communication, revisions policy, what happens after delivery, hosting help, and maintenance. Abdul is happy to answer all of these.",
+      "keywords": ["questions to ask", "hiring questions", "what to ask", "interview a developer", "questions before hiring", "developer checklist", "what to check"]
+    },
+    {
+      "id": "n-80",
+      "question": "Is Abdul's portfolio mobile friendly?",
+      "answer": "Yes — this website is fully responsive with a mobile navigation drawer, optimized images and touch-friendly controls. Try it on your phone!",
+      "keywords": ["mobile friendly", "responsive site", "mobile version", "phone view", "mobile design", "on phone", "mobile site"]
+    },
+    {
+      "id": "n-81",
+      "question": "How fast does this website load?",
+      "answer": "Very fast — the site uses server-side rendering, inlined critical CSS, preloaded fonts, WebP images, lazy loading and minimal JavaScript. It's optimized for excellent Core Web Vitals.",
+      "keywords": ["site speed", "load time", "fast website", "performance", "website speed", "how fast is this", "page load"]
+    },
+    {
+      "id": "n-82",
+      "question": "How was this website built?",
+      "answer": "This portfolio uses Express server-side rendering with TypeScript, inlined CSS, a custom esbuild client bundle, an offline AI assistant, PWA manifest and a data-driven content system. It's a custom build, not a template.",
+      "keywords": ["website stack", "how this site built", "site technology", "portfolio tech", "built with", "this website made", "tech behind site"]
+    },
+    {
+      "id": "n-83",
+      "question": "What is the theme toggle on this site?",
+      "answer": "The moon icon toggles between light and dark themes. Your preference is saved on your device, and the site applies it instantly without a flash.",
+      "keywords": ["theme toggle", "dark mode", "light mode", "switch theme", "dark theme", "change color", "night mode"]
+    },
+    {
+      "id": "n-84",
+      "question": "How do I move around this website?",
+      "answer": "Use the icon rail on the left for Home, About, Skills, Projects and Contact. On mobile, tap the menu button in the top corner. MAX AI in the corner can also help you find anything.",
+      "keywords": ["site navigation", "how to navigate", "menu help", "using the site", "find sections", "site guide", "navigation help"]
+    },
+    {
+      "id": "n-85",
+      "question": "Does this website work in dark mode?",
+      "answer": "Yes — toggle the moon icon to switch between light and dark themes. Both themes are designed carefully for readability and contrast.",
+      "keywords": ["dark mode", "night theme", "dark theme", "dark mode support", "does it have dark", "dark mode site", "theme support"]
+    },
+    {
+      "id": "n-86",
+      "question": "Can I install this website as an app?",
+      "answer": "Yes — this site is a PWA (Progressive Web App). On mobile you can 'Add to Home Screen' and on desktop Chrome will offer to install it as an app with its own icon.",
+      "keywords": ["install site", "pwa", "add to home screen", "web app", "install app", "progressive web app", "offline app"]
+    },
+    {
+      "id": "n-87",
+      "question": "Who designed the logo?",
+      "answer": "Abdul designed the logo himself — a clean monogram badge used across the website, favicon and app icons.",
+      "keywords": ["logo", "logo design", "who made logo", "branding", "monogram", "logo maker", "site logo"]
+    },
+    {
+      "id": "n-88",
+      "question": "Can I translate this website?",
+      "answer": "The website is in English, but your browser's built-in translate feature works well on it. MAX AI also understands some Urdu, Hindi and Arabic keywords.",
+      "keywords": ["translate", "translation", "other languages site", "urdu site", "language support", "translate site", "multi language"]
+    },
+    {
+      "id": "n-89",
+      "question": "What are Abdul's short term goals?",
+      "answer": "Abdul's short-term goals: secure an internship or freelance projects, complete his cloud data engineering coursework, and ship more production-quality projects.",
+      "keywords": ["short term goals", "immediate goals", "near future", "short term plans", "his goals now", "upcoming goals", "current goals"]
+    },
+    {
+      "id": "n-90",
+      "question": "What are Abdul's long term goals?",
+      "answer": "Abdul's long-term vision: become a world-class engineer bridging data engineering and full stack development — building intelligent, scalable systems that solve real-world problems.",
+      "keywords": ["long term goals", "career vision", "future plans", "big goals", "dream job", "career goal", "his future"]
+    },
+    {
+      "id": "n-91",
+      "question": "Where does Abdul see himself in five years?",
+      "answer": "In five years Abdul sees himself as a professional cloud data engineer and full stack developer — working on data platforms and web systems at scale, and mentoring others starting their journey.",
+      "keywords": ["five years", "5 years", "future self", "where in future", "career future", "in 5 years", "his future plan"]
+    },
+    {
+      "id": "n-92",
+      "question": "What is Abdul's dream job?",
+      "answer": "Abdul's dream job combines his two passions: working as a cloud data engineer in a team building data pipelines and analytics platforms, while keeping his full stack skills sharp.",
+      "keywords": ["dream job", "ideal job", "dream role", "ideal work", "dream career", "job he wants", "perfect job"]
+    },
+    {
+      "id": "n-93",
+      "question": "How can I help Abdul's career?",
+      "answer": "You can help by referring him for internships or freelance work, connecting with him on LinkedIn, giving feedback on his projects, or simply sharing this portfolio with someone who's hiring.",
+      "keywords": ["help his career", "refer him", "recommend him", "support him", "help him grow", "referral", "share portfolio"]
+    },
+    {
+      "id": "n-94",
+      "question": "What keeps Abdul motivated?",
+      "answer": "Seeing his projects work in the real world, learning something new every day, and the support of people who believe in his journey. Small wins compound into big progress.",
+      "keywords": ["motivation", "what motivates", "staying motivated", "inspiration", "his drive", "motivated by", "what pushes him"]
+    },
+    {
+      "id": "n-95",
+      "question": "Does Abdul ever feel like giving up?",
+      "answer": "Like everyone, Abdul faces hard days — but he treats setbacks as feedback, not failure. He takes a break, gets back to learning, and remembers why he started.",
+      "keywords": ["giving up", "quitting", "hard times", "setbacks", "failed moments", "difficult days", "staying strong"]
+    },
+    {
+      "id": "n-96",
+      "question": "What has been Abdul's biggest failure?",
+      "answer": "Abdul's earliest code attempts were full of bugs and broken layouts — but every failure taught him what not to do. He believes failure is just data for your next iteration.",
+      "keywords": ["biggest failure", "his mistakes", "failed projects", "errors he made", "lessons from failure", "biggest mistake", "what went wrong"]
+    },
+    {
+      "id": "n-97",
+      "question": "What is the best compliment Abdul received?",
+      "answer": "Abdul values honest feedback most — being told his work 'looks professional' or 'loads really fast' means his attention to quality is being noticed.",
+      "keywords": ["compliments", "best feedback", "praise", "nice words", "positive feedback", "recognition", "appreciation"]
+    },
+    {
+      "id": "n-98",
+      "question": "What does Abdul think about AI in development?",
+      "answer": "Abdul sees AI as a powerful tool — it accelerates learning and routine tasks, but solid fundamentals still matter. He uses the OpenCode CLI and believes engineers who master AI assistance will lead the field.",
+      "keywords": ["ai in development", "ai tools", "opencode", "ai assistant opinion", "coding with ai", "his ai thoughts", "ai future"]
+    },
+    {
+      "id": "n-99",
+      "question": "What is the most valuable lesson Abdul learned?",
+      "answer": "That consistency beats talent. Showing up and building something every day — even imperfectly — compounds faster than waiting for perfect conditions.",
+      "keywords": ["valuable lesson", "life lesson", "best lesson", "what he learned", "key takeaway", "important lesson", "his lesson"]
+    },
+    {
+      "id": "n-100",
+      "question": "Anything else I should know about Abdul?",
+      "answer": "Abdul is a curious, disciplined and friendly learner who's genuinely excited about web development and cloud data engineering. He's open to internships, freelance work and collaborations — so if you have an idea, reach out!",
+      "keywords": ["anything else", "other info", "more about him", "additional info", "final question", "summary about him", "everything about"]
+    }
+  ]
+}

@@ -140,35 +140,6 @@ async function writePngBuffer(buffer, filePath) {
   await writeFile(filePath, buffer);
 }
 
-function wrapIco(entries) {
-  const header = Buffer.alloc(6);
-  header.writeUInt16LE(0, 0);
-  header.writeUInt16LE(1, 2);
-  header.writeUInt16LE(entries.length, 4);
-  const imageBuffers = [];
-  const entryBuffers = [];
-  let offset = 6 + 16 * entries.length;
-  for (const { size, buffer } of entries) {
-    const entry = Buffer.alloc(16);
-    entry.writeUInt8(size >= 256 ? 0 : size, 0);
-    entry.writeUInt8(size >= 256 ? 0 : size, 1);
-    entry.writeUInt8(0, 2);
-    entry.writeUInt8(0, 3);
-    entry.writeUInt16LE(1, 4);
-    entry.writeUInt16LE(32, 6);
-    entry.writeUInt32LE(buffer.length, 8);
-    entry.writeUInt32LE(offset, 12);
-    offset += buffer.length;
-    entryBuffers.push(entry);
-    imageBuffers.push(buffer);
-  }
-  return Buffer.concat([header, ...entryBuffers, ...imageBuffers]);
-}
-
-/* ------------------------------------------------------------------ */
-/* Main                                                                */
-/* ------------------------------------------------------------------ */
-
 async function main() {
   const startedAt = Date.now();
 
@@ -176,10 +147,9 @@ async function main() {
   await mkdir(outputPath("assets", "projects"), { recursive: true });
   await mkdir(outputPath("assets", "logos"), { recursive: true });
 
-  /* Profile */
+  /* Profile (WebP only — PNG fallback no longer shipped) */
   const profileSvg = drawProfile(480);
   await writeRaster(profileSvg, outputPath("assets", "profile", "professional-headshot.webp"), { width: 480, format: "webp" });
-  await writeRaster(profileSvg, outputPath("assets", "profile", "professional-headshot.png"), { width: 480, format: "png" });
 
   /* Projects */
   for (const project of PROJECTS) {
@@ -188,20 +158,9 @@ async function main() {
     await writeRaster(svg, outputPath("assets", "projects", `${project.slug}.png`), { width: 800, format: "png" });
   }
 
-  /* OG image */
+  /* OG image (PNG only — every social platform renders it reliably) */
   const ogSvg = drawOgImage();
-  await writeRaster(ogSvg, outputPath("assets", "og-image.webp"), { format: "webp" });
   await writeRaster(ogSvg, outputPath("assets", "og-image.png"), { format: "png" });
-
-  /* App icons + favicon.ico (PNG-compressed ICO) */
-  const icoSizes = [16, 32, 48];
-  const icoEntries = [];
-  for (const size of icoSizes) {
-    const svg = drawAppIcon(256);
-    const buffer = await sharp(Buffer.from(svg)).resize({ width: size, height: size }).png().toBuffer();
-    icoEntries.push({ size, buffer });
-  }
-  await writePngBuffer(wrapIco(icoEntries), outputPath("favicon.ico"));
 
   for (const [name, size] of [
     ["icon-192", 192],
@@ -214,24 +173,9 @@ async function main() {
   const maskableSvg = drawAppIcon(512, true);
   await writeRaster(maskableSvg, outputPath("icon-512-maskable.png"), { format: "png" });
 
+  /* App icon raster targets */
   const appleSvg = drawAppIcon(180);
   await writeRaster(appleSvg, outputPath("apple-touch-icon.png"), { format: "png" });
-
-  /* Vector logo + favicon.svg (text files) */
-  const logo = `<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96">
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#ffd3dc"/>
-      <stop offset="1" stop-color="#f26d86"/>
-    </linearGradient>
-  </defs>
-  <rect width="96" height="96" rx="22" fill="url(#bg)"/>
-  <circle cx="48" cy="38" r="15" fill="#ffffff"/>
-  <path d="M 22 84 a 26 22 0 0 1 52 0 z" fill="#ffffff"/>
-  <rect x="14" y="14" width="68" height="68" rx="18" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="3"/>
-</svg>`;
-  await writeFile(outputPath("assets", "logos", "logo.svg"), logo);
-  await writeFile(outputPath("favicon.svg"), logo.replace("width=\"96\"", "width=\"64\"").replace("height=\"96\"", "height=\"64\"").replace(/viewBox="0 0 96 96"/, "viewBox=\"0 0 96 96\""));
 
   console.log(`[assets] generated everything in ${Date.now() - startedAt} ms`);
 }

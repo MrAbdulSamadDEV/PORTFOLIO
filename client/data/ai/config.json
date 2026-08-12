@@ -22,7 +22,7 @@
     "learning": ["learn", "learning", "improving", "roadmap", "growth", "new things", "upskill", "improve"],
     "resume": ["cv", "curriculum vitae", "resume", "resumes", "bio data"],
     "availability": ["available", "open to", "looking for", "free", "availability", "timeline"],
-    "socials": ["social media", "socials", "profiles", "links", "handles", "accounts"],
+    "socials": ["social media", "socials", "profiles", "links", "handles", "accounts", "instagram", "insta", "follow", "following"],
     "cloud": ["aws", "azure", "gcp", "cloud computing", "data engineering", "data pipelines", "pipelines", "etl", "big data", "data science", "linux", "devops", "servers"],
     "databases": ["database", "db", "sql", "nosql", "mongodb", "mongo", "mysql", "postgres", "postgresql", "data storage"],
     "frameworks": ["framework", "libraries", "library", "react", "express", "node", "nodejs", "node.js"],

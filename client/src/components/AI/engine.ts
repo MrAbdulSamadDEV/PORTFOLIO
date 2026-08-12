@@ -188,6 +188,17 @@ function tokensMatch(queryToken: string, keywordToken: string): boolean {
   const q = stem(queryToken);
   const k = stem(keywordToken);
   if (q === k) return true;
+  // Incomplete/abbreviated query tokens: a keyword that begins with the
+  // typed prefix ("ema" → "email", "sk" → "skill", "youtu" → "youtube").
+  if (
+    !STOPWORDS.has(q) &&
+    q.length >= 2 &&
+    k.length > q.length &&
+    k.startsWith(q) &&
+    k.length - q.length <= 4
+  ) {
+    return true;
+  }
   if (q.length < 4 || k.length < 4) return false;
   if (levenshtein(q, k, typoTolerance(Math.max(q.length, k.length))) <= typoTolerance(Math.max(q.length, k.length))) {
     return true;
@@ -293,25 +304,28 @@ function buildTokenIndex(kb: AiKnowledgeBase): TokenIndex {
 }
 
 /**
- * Per-question candidate map for the fuzzy layer: query token → every
+ * Per-question candidate maps for the fuzzy layer: query token → every
  * keyword token in the whole knowledge base it would match. The original
  * fuzzy branch re-ran Levenshtein inside the per-FAQ/per-keyword loops
- * (~30K+ calls per question); building this map once per question turns
- * those calls into Set lookups in scoreFaq. Match conditions mirror the
- * original branch exactly: length gates, tolerance from the longer token,
- * and the prefix rule with minLen 5.
+ * (~30K+ calls per question); building these maps once per question turns
+ * those calls into Set lookups in scoreFaq. `fuzzy` holds typo/compound
+ * matches, `prefix` holds pure prefix matches from abbreviated query
+ * tokens ("ema" → "email"), which score higher because they are almost
+ * never false positives at these lengths.
  */
-function buildFuzzyMatches(queryTokens: Set<string>, kb: AiKnowledgeBase): Map<string, Set<string>> {
+function buildFuzzyMatches(queryTokens: Set<string>, kb: AiKnowledgeBase): { fuzzy: Map<string, Set<string>>; prefix: Map<string, Set<string>> } {
   let index = tokenIndexCache.get(kb);
   if (!index) {
     index = buildTokenIndex(kb);
     tokenIndexCache.set(kb, index);
   }
 
-  const matches = new Map<string, Set<string>>();
+  const fuzzy = new Map<string, Set<string>>();
+  const prefix = new Map<string, Set<string>>();
   for (const q of queryTokens) {
-    if (q.length < 4) continue;
-    const matched = new Set<string>();
+    if (q.length < 2 || STOPWORDS.has(q)) continue;
+    const fuzzyMatched = new Set<string>();
+    const prefixMatched = new Set<string>();
 
     const fromLen = Math.max(4, q.length - 2);
     const toLen = q.length + 2;
@@ -321,7 +335,7 @@ function buildFuzzyMatches(queryTokens: Set<string>, kb: AiKnowledgeBase): Map<s
       for (const k of bucket) {
         const tolerance = typoTolerance(Math.max(q.length, k.length));
         if (Math.abs(q.length - k.length) <= tolerance && levenshtein(q, k, tolerance) <= tolerance) {
-          matched.add(k);
+          fuzzyMatched.add(k);
         }
       }
     }
@@ -330,21 +344,27 @@ function buildFuzzyMatches(queryTokens: Set<string>, kb: AiKnowledgeBase): Map<s
       // q.startsWith(k): a shorter keyword token that is a prefix of the
       // query token ("fullstack" contains "full" + "stack").
       for (let prefixLen = 5; prefixLen < q.length; prefixLen += 1) {
-        const prefix = q.slice(0, prefixLen);
-        if (index.set.has(prefix)) matched.add(prefix);
+        const slice = q.slice(0, prefixLen);
+        if (index.set.has(slice)) fuzzyMatched.add(slice);
       }
-      // k.startsWith(q): a longer keyword token built on the query token.
-      const firstBucket = index.byFirst.get(q.charAt(0));
-      if (firstBucket) {
-        for (const k of firstBucket) {
-          if (k.length > q.length && k.startsWith(q)) matched.add(k);
+    }
+
+    // k.startsWith(q): a longer keyword token built on the (possibly
+    // abbreviated) query token. The overhang bound keeps tiny prefixes
+    // ("e" → "express") from matching entire families of keywords.
+    const firstBucket = index.byFirst.get(q.charAt(0));
+    if (firstBucket) {
+      for (const k of firstBucket) {
+        if (k.length > q.length && k.startsWith(q) && k.length - q.length <= 4) {
+          prefixMatched.add(k);
         }
       }
     }
 
-    if (matched.size > 0) matches.set(q, matched);
+    if (fuzzyMatched.size > 0) fuzzy.set(q, fuzzyMatched);
+    if (prefixMatched.size > 0) prefix.set(q, prefixMatched);
   }
-  return matches;
+  return { fuzzy, prefix };
 }
 
 interface FaqScore {
@@ -356,7 +376,7 @@ interface FaqScore {
  * Scores one FAQ against the query. Returns the total score and the set of
  * query tokens this FAQ actually explains (used for multi-topic merging).
  */
-function scoreFaq(faq: AiFaq, query: string, queryTokens: Set<string>, fuzzyMatches: Map<string, Set<string>>): FaqScore {
+function scoreFaq(faq: AiFaq, query: string, queryTokens: Set<string>, fuzzyMatches: { fuzzy: Map<string, Set<string>>; prefix: Map<string, Set<string>> }): FaqScore {
   let score = 0;
   const tokens = new Set<string>();
   const fuzzyMatched = new Set<string>();
@@ -397,16 +417,30 @@ function scoreFaq(faq: AiFaq, query: string, queryTokens: Set<string>, fuzzyMatc
     //    Each query token contributes at most once per FAQ, so FAQs with
     //    more keyword variants never drown out exact-phrase matches.
     //    A typo pair is as strong as an exact token so short misspellings
-    //    ("gihub link") can clear the confidence bar together.
-    //    Query tokens arrive stemmed (tokenize) and keyword tokens are
-    //    pre-stemmed once in keywordInfo, so the inner loop avoids all
-    //    re-stemming. Levenshtein and prefix comparisons were moved into
-    //    buildFuzzyMatches (once per question); here it is a Set lookup.
+    //    ("gihub link") can clear the confidence bar together. Incomplete
+    //    words ("ema" → "email") score double because they are deliberate
+    //    abbreviations rather than accidents. Query tokens arrive stemmed
+    //    (tokenize) and keyword tokens are pre-stemmed once in keywordInfo,
+    //    so the inner loop avoids all re-stemming. Levenshtein and prefix
+    //    comparisons were moved into buildFuzzyMatches (once per question);
+    //    here it is a Set lookup.
     for (const k of meaningfulStemmed) {
       for (const queryToken of queryTokens) {
         if (fuzzyMatched.has(queryToken)) continue;
         const q = stem(queryToken);
-        if (q === k || fuzzyMatches.get(q)?.has(k)) {
+        if (q === k) {
+          fuzzyMatched.add(queryToken);
+          tokens.add(queryToken);
+          score += 1.5;
+          break;
+        }
+        if (fuzzyMatches.prefix.get(q)?.has(k)) {
+          fuzzyMatched.add(queryToken);
+          tokens.add(queryToken);
+          score += 3;
+          break;
+        }
+        if (fuzzyMatches.fuzzy.get(q)?.has(k)) {
           fuzzyMatched.add(queryToken);
           tokens.add(queryToken);
           score += 1.5;
@@ -435,7 +469,7 @@ export function findAllAnswers(rawQuestion: string, kb: AiKnowledgeBase): Engine
     }
   }
 
-  hits.sort((a, b) => b.score - a.score);
+  hits.sort((a, b) => (b.score - a.score) || (b.tokens.size - a.tokens.size));
   return hits;
 }
 
@@ -515,6 +549,37 @@ export function topicLabel(faq: AiFaq): string {
 /** Maximum number of merged topics in one answer (keeps replies readable). */
 export const MAX_MERGED_TOPICS = 8;
 
+/** Random style pool: the same answer is presented in a fresh phrasing on
+ * every question so repeated asks never feel copy-pasted. Content stays
+ * identical — only the wrapping style varies. */
+const STYLE_OPENERS = [
+  "Great question!",
+  "Happy to help with that.",
+  "Of course —",
+  "Good one!",
+  "Let me answer that:",
+  "Here you go:",
+  "Sure thing:",
+  "Right —",
+];
+const STYLE_CLOSERS = [
+  "",
+  "Anything else I can help with?",
+  "Want me to go deeper on any part?",
+  "Feel free to ask a follow-up!",
+  "Hope that helps!",
+  "Let me know if you'd like more details.",
+];
+const STYLE_MERGED_PHRASES = [
+  "Here's everything I found:",
+  "Covering all of that:",
+  "Here's a combined answer:",
+  "Let me tackle all of that:",
+];
+const STYLE_BULLETS = ["• ", "- ", "→ ", "· "];
+
+const pick = <T,>(pool: T[]): T => (pool[Math.floor(Math.random() * pool.length) % pool.length] ?? pool[0]) as T;
+
 /**
  * Answers one message — single or multi-question.
  *
@@ -524,6 +589,8 @@ export const MAX_MERGED_TOPICS = 8;
  * 3. Deduplicates FAQs and keeps only hits that explain new query tokens
  *    (so "skills" yields one clean answer, while "github email phone" merges).
  * 4. Returns the merged answer, or the intent fallback, or the unknown text.
+ *    The final string is wrapped in a randomly-chosen phrasing style so the
+ *    same answer reads differently on every ask.
  */
 export function buildAnswer(rawQuestion: string, kb: AiKnowledgeBase): string {
   const segments = splitQuestions(rawQuestion);
@@ -538,7 +605,7 @@ export function buildAnswer(rawQuestion: string, kb: AiKnowledgeBase): string {
     }
   }
 
-  hits.sort((a, b) => b.score - a.score);
+  hits.sort((a, b) => (b.score - a.score) || (b.tokens.size - a.tokens.size));
 
   const covered = new Set<string>();
   const accepted: EngineHit[] = [];
@@ -551,23 +618,29 @@ export function buildAnswer(rawQuestion: string, kb: AiKnowledgeBase): string {
     }
   }
 
+  let text: string;
   if (accepted.length === 0) {
     const query = normalize(rawQuestion);
     const expanded = expandSynonyms(query, kb);
     const intent = detectIntent(expanded, kb);
     const fallbackId = intent ? INTENT_FALLBACKS[intent] : undefined;
     const fallback = fallbackId ? kb.faqs.find((faq) => faq.id === fallbackId) : undefined;
-    if (fallback) return fallback.answer;
-    return kb.unknown;
-  }
-
-  if (accepted.length === 1) {
+    text = fallback ? fallback.answer : kb.unknown;
+  } else if (accepted.length === 1) {
     const only = accepted[0];
-    if (only) return only.faq.answer;
+    text = only ? only.faq.answer : kb.unknown;
+  } else {
+    const parts = accepted.map((hit) => `## ${topicLabel(hit.faq)}\n\n${hit.faq.answer}`);
+    text = `${pick(STYLE_MERGED_PHRASES)}\n\n${parts.join("\n\n")}`;
   }
 
-  const parts = accepted.map((hit) => `## ${topicLabel(hit.faq)}\n\n${hit.faq.answer}`);
-  return `Here's everything I found:\n\n${parts.join("\n\n")}`;
+  const bullet = pick(STYLE_BULLETS);
+  text = text.replace(/^• /gm, bullet);
+
+  const opener = pick(STYLE_OPENERS);
+  const closer = pick(STYLE_CLOSERS);
+  const styled = `${opener} ${text.replace(/\n+/g, "\n").trim()}`;
+  return closer ? `${styled}\n\n${closer}` : styled;
 }
 
 /** Renders an answer string ("• item" lines, "## " topics) into safe HTML with clickable links. */

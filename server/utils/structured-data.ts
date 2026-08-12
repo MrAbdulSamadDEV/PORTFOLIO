@@ -50,6 +50,7 @@ export function buildOrganization(site: SiteSettings): JsonObject {
       "@type": "ImageObject",
       url: `${site.site.domain}${site.site.logo}`,
     },
+    sameAs: site.socials.map((social) => social.url),
     contactPoint: {
       "@type": "ContactPoint",
       email: site.site.email,
