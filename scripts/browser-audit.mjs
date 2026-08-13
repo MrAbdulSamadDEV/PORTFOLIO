@@ -76,6 +76,14 @@ async function main() {
     await sleep(400);
 
     check("home loads", await page.title() !== "", "no title");
+
+    /* Retire the first-visit MAX AI tour so its dim overlay can't block
+       the interaction checks below (the tour has its own dedicated audit
+       in scripts/responsive-audit.mjs). */
+    await page.evaluate(() => localStorage.setItem("max-ai-tour-done", "1"));
+    await page.reload({ waitUntil: "networkidle0" });
+    await sleep(400);
+
     check("no console errors on home", consoleErrors.length === 0, consoleErrors.slice(0, 3).join(" | "));
 
     /* JS boot markers */

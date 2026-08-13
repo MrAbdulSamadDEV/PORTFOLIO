@@ -21,13 +21,13 @@ const FONT_DIR = new URL("../client/public/webfonts/", import.meta.url);
 
 const ICONS = [
   /* fa-solid */
-  "arrow-right", "arrow-up", "arrow-up-right-from-square", "award", "bars",
-  "bullseye", "check", "clock", "cloud", "cloud-arrow-up", "code", "copy",
-  "diagram-project", "envelope", "eraser", "file-code", "file-word",
-  "folder-open", "ghost", "hand-pointer", "hashtag", "house", "laptop-code",
-  "layer-group", "location-dot", "magnifying-glass", "moon", "paper-plane",
-  "phone", "robot", "rocket", "route", "server", "star", "sun", "tag",
-  "terminal", "user", "xmark",
+  "arrow-down", "arrow-right", "arrow-up", "arrow-up-right-from-square", "award", "bars",
+  "bullseye", "check", "circle-check", "circle-info", "clock", "cloud", "cloud-arrow-up", "code", "copy",
+  "diagram-project", "envelope", "eraser", "file-code", "file-word", "folder-open",
+  "ghost", "globe", "hand-pointer", "hashtag", "house", "keyboard", "laptop-code",
+  "layer-group", "location-dot", "magnifying-glass", "moon", "paper-plane", "phone",
+  "robot", "rocket", "route", "server", "star", "sun", "tag", "terminal", "triangle-exclamation",
+  "user", "xmark",
   /* fa-brands */
   "css3-alt", "github", "html5", "instagram", "js", "linkedin", "linux", "node-js",
   "python", "x-twitter", "youtube",

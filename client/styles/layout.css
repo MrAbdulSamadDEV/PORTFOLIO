@@ -275,6 +275,36 @@ html[data-theme="dark"] .mobile-drawer-overlay {
   margin-bottom: 14px;
 }
 
+.mobile-drawer__theme {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  background: var(--color-surface-soft);
+  border: 1px solid var(--color-border);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text-soft);
+  transition: background var(--transition-fast) var(--ease-out),
+    color var(--transition-fast) var(--ease-out),
+    border-color var(--transition-fast) var(--ease-out);
+}
+
+.mobile-drawer__theme:hover {
+  background: var(--color-accent-soft);
+  color: var(--color-text);
+  border-color: var(--color-accent);
+}
+
+.mobile-drawer__theme i {
+  width: 20px;
+  text-align: center;
+  font-size: 15px;
+  color: var(--color-accent-strong);
+}
+
 /* ---------- Site shell ---------- */
 .site-shell {
   margin-left: var(--nav-width);

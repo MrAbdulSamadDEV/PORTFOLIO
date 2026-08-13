@@ -91,7 +91,7 @@
     },
     {
       "name": "LinkedIn",
-      "url": "https://www.linkedin.com/in/abdulsamadabdullah/",
+      "url": "https://www.linkedin.com/in/MRABDULSAMADDEV",
       "icon": "fa-brands fa-linkedin"
     },
     {
@@ -101,7 +101,7 @@
     },
     {
       "name": "YouTube",
-      "url": "https://www.youtube.com/@ABDULSAMADABDULLAHCODE",
+      "url": "https://www.youtube.com/@MRABDULSAMADDEV",
       "icon": "fa-brands fa-youtube"
     },
     {
@@ -128,17 +128,14 @@
       "Full Stack Developer"
     ],
     "typingRoles": [
-      "Cloud Data Engineering Student",
       "Full Stack Developer",
-      "Frontend Developer",
       "Backend Developer",
-      "HTML Developer",
-      "CSS Developer",
-      "JavaScript Developer",
       "TypeScript Developer",
       "Node.js Developer",
-      "Express.js Developer",
-      "Open Source Contributor"
+      "Open Source Developer",
+      "Cloud Data Engineering Student",
+      "Problem Solver",
+      "Creative Web Developer"
     ],
     "image": "/assets/hero/hero.webp",
     "imagePng": "/assets/hero/hero.png",
@@ -178,19 +175,38 @@
         "icon": "fa-brands fa-node-js"
       },
       {
-        "label": "Cloud",
-        "icon": "fa-solid fa-cloud"
+        "label": "Express",
+        "icon": "fa-solid fa-route"
+      },
+      {
+        "label": "Python",
+        "icon": "fa-brands fa-python"
+      },
+      {
+        "label": "C++",
+        "icon": "fa-solid fa-code"
+      },
+      {
+        "label": "Cloud Data Engineering",
+        "icon": "fa-solid fa-cloud-arrow-up"
+      },
+      {
+        "label": "Linux",
+        "icon": "fa-brands fa-linux"
+      },
+      {
+        "label": "Git & GitHub",
+        "icon": "fa-brands fa-github"
+      },
+      {
+        "label": "VS Code",
+        "icon": "fa-solid fa-code"
+      },
+      {
+        "label": "OpenCode",
+        "icon": "fa-solid fa-terminal"
       }
-    ],
-    "video": {
-      "webm": "/assets/hero/hero-video.webm",
-      "mp4": "/assets/hero/hero-video.mp4",
-      "poster": "/assets/profile/professional-headshot.webp",
-      "posterPng": "/assets/profile/professional-headshot.png",
-      "posterAlt": "Professional headshot of Abdul Samad in business attire",
-      "width": 480,
-      "height": 480
-    }
+    ]
   },
   "about": {
     "eyebrow": "About Me",

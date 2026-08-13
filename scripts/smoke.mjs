@@ -108,7 +108,7 @@ async function main() {
       "/css/effects.css",
       "/css/responsive.css",
       "/css/fonts.css",
-      "/css/fontawesome.min.css",
+      "/css/fa-subset.min.css",
       "/webfonts/fa-solid-900.woff2",
       "/fonts/inter-latin-400.woff2",
       "/fonts/space-grotesk-latin-600.woff2",

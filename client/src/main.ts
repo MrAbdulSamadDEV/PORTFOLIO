@@ -8,24 +8,204 @@ import { initBackground } from "./components/Background/background.js";
 import { initCustomCursor } from "./components/Cursor/cursor.js";
 import { initBackToTop } from "./components/Shared/back-to-top.js";
 import { initContactForm } from "./components/Shared/contact-form.js";
+import { initCopyButtons } from "./components/Shared/copy.js";
+import { initFavicon } from "./components/Shared/favicon.js";
 import { initHeroTyping } from "./components/Shared/hero-typing.js";
 import { initNavigation } from "./components/Shared/navigation.js";
+import { initPageTransitions } from "./components/Shared/page-transitions.js";
+import { initProgressBar } from "./components/Shared/progress-bar.js";
+import { initSkills } from "./components/Shared/skills.js";
+import { initTheme } from "./components/Shared/theme.js";
 import { initReveal } from "./hooks/use-reveal.js";
 import { initScrollSpy } from "./hooks/use-scroll-spy.js";
-import { initProjectsPage } from "./pages/projects.js";
-import { initTheme } from "./components/Shared/theme.js";
+
+/**
+ * MAX AI first-visit onboarding.
+ * On the first visit the whole site is dimmed and blurred like a tutorial,
+ * the MAX launcher stays bright and pulsing above the dim, and a tooltip
+ * card introduces the assistant. Get Started / Skip / opening MAX retires
+ * the tour forever (localStorage).
+ */
+function initAiTour(): void {
+  const TOUR_KEY = "max-ai-tour-done";
+  try {
+    if (localStorage.getItem(TOUR_KEY)) return;
+  } catch {
+    return;
+  }
+
+  const toggle = document.querySelector<HTMLElement>("[data-ai-toggle]");
+  const widget = document.querySelector<HTMLElement>("[data-ai-widget]");
+  if (!toggle || !widget) return;
+
+  const tour = document.createElement("div");
+  tour.className = "ai-tour";
+  tour.setAttribute("role", "dialog");
+  tour.setAttribute("aria-modal", "true");
+  tour.setAttribute("aria-label", "Meet MAX AI");
+  tour.innerHTML = `
+    <div class="ai-tour__card">
+      <span class="ai-tour__badge" aria-hidden="true"><i class="fa-solid fa-robot"></i></span>
+      <h2 class="ai-tour__title">Meet MAX AI</h2>
+      <p class="ai-tour__text">Have any questions? Ask MAX. You can ask about Abdul Samad, projects, skills, experience, contact details and more.</p>
+      <div class="ai-tour__actions">
+        <button type="button" class="btn btn--primary ai-tour__start">Get Started</button>
+        <button type="button" class="btn btn--ghost ai-tour__skip">Skip</button>
+      </div>
+    </div>`;
+
+  let done = false;
+  const complete = (openMax: boolean): void => {
+    if (done) return;
+    done = true;
+    try {
+      localStorage.setItem(TOUR_KEY, "1");
+    } catch {
+      // Storage unavailable — the tour is still retired for this session.
+    }
+    tour.classList.add("is-leaving");
+    document.documentElement.classList.remove("no-scroll");
+    window.setTimeout(() => {
+      widget.classList.remove("is-tour");
+      tour.remove();
+    }, 340);
+    if (openMax) {
+      window.dispatchEvent(new CustomEvent("max-ai:open"));
+    }
+  };
+
+  document.body.appendChild(tour);
+  widget.classList.add("is-tour");
+  document.documentElement.classList.add("no-scroll");
+
+  const show = (): void => {
+    if (done) return;
+    tour.classList.add("is-visible");
+    tour.querySelector<HTMLButtonElement>(".ai-tour__start")?.focus();
+  };
+
+  window.setTimeout(show, 900);
+
+  tour.querySelector<HTMLButtonElement>(".ai-tour__start")?.addEventListener("click", () => complete(true));
+  tour.querySelector<HTMLButtonElement>(".ai-tour__skip")?.addEventListener("click", () => complete(false));
+  tour.addEventListener("click", (event) => {
+    if (event.target === tour) complete(false);
+  });
+
+  const onKey = (event: KeyboardEvent): void => {
+    if (event.key === "Escape" && !done) complete(false);
+  };
+  document.addEventListener("keydown", onKey);
+
+  /* Opening MAX through any path (launcher, drawer menu) also retires it. */
+  window.addEventListener("max-ai:open", () => complete(false), { once: true });
+  toggle.addEventListener("click", () => complete(false), { once: true });
+}
+
+/* ---------- Command palette (lazy) ---------- */
+
+type PaletteApi = { openPalette: () => void; openHelp: () => void; isOpen: () => boolean };
+
+let palettePromise: Promise<PaletteApi> | null = null;
+
+function loadPalette(): Promise<PaletteApi> {
+  palettePromise ??= import("./components/Shared/command-palette.js").then((module) => module.initCommandPalette());
+  return palettePromise;
+}
+
+function isTypingTarget(target: EventTarget | null): boolean {
+  return target instanceof HTMLElement && (target.isContentEditable || target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.tagName === "SELECT");
+}
+
+/* ---------- Global keyboard shortcuts ---------- */
+
+function initKeyboardShortcuts(): void {
+  document.addEventListener("keydown", (event) => {
+    const mod = event.ctrlKey || event.metaKey;
+
+    if (mod && event.key.toLowerCase() === "k") {
+      event.preventDefault();
+      void loadPalette().then((palette) => {
+        if (palette.isOpen()) return;
+        palette.openPalette();
+      });
+      return;
+    }
+
+    if (mod && event.key === "/") {
+      event.preventDefault();
+      const chat = document.querySelector<HTMLElement>("[data-ai-chat]");
+      const input = document.querySelector<HTMLTextAreaElement>(".ai-chat__input");
+      if (!chat || !input) return;
+      if (chat.hidden) {
+        window.dispatchEvent(new CustomEvent("max-ai:open"));
+      }
+      window.setTimeout(() => input.focus(), 60);
+      return;
+    }
+
+    if (event.key === "?" && !isTypingTarget(event.target)) {
+      event.preventDefault();
+      void loadPalette().then((palette) => palette.openHelp());
+      return;
+    }
+
+    if (event.key === "Home" || event.key === "End") {
+      if (isTypingTarget(event.target)) return;
+      event.preventDefault();
+      window.scrollTo({ top: event.key === "Home" ? 0 : document.documentElement.scrollHeight, behavior: "smooth" });
+    }
+  });
+}
+
+/* ---------- Dynamic copyright year ---------- */
+
+function initCopyrightYear(): void {
+  const year = new Date().getFullYear();
+  for (const node of document.querySelectorAll<HTMLElement>("[data-copyright-year]")) {
+    node.textContent = String(year);
+  }
+}
+
+/* ---------- MAX AI skeleton while the lazy chunk loads ---------- */
+
+function addMaxSkeleton(): void {
+  const messages = document.querySelector<HTMLElement>("[data-ai-messages]");
+  if (!messages) return;
+  const skeleton = document.createElement("div");
+  skeleton.className = "ai-msg ai-msg--bot ai-skeleton";
+  skeleton.setAttribute("aria-hidden", "true");
+  skeleton.innerHTML = `
+    <div class="ai-msg__bubble">
+      <span class="ai-skeleton__line" style="width: 82%"></span>
+      <span class="ai-skeleton__line" style="width: 58%"></span>
+    </div>`;
+  messages.appendChild(skeleton);
+}
+
+function removeMaxSkeleton(): void {
+  document.querySelectorAll<HTMLElement>(".ai-skeleton").forEach((element) => element.remove());
+}
 
 function boot(): void {
   document.documentElement.classList.add("js");
 
   initTheme();
+  initFavicon();
   initHeroTyping();
   initBackground();
   initCustomCursor();
   initNavigation();
   initBackToTop();
+  initProgressBar();
+  initAiTour();
   initReveal();
   initScrollSpy();
+  initSkills();
+  initCopyButtons();
+  initPageTransitions();
+  initCopyrightYear();
+  initKeyboardShortcuts();
 
   // The contact form exists on the home page and the /contact page.
   initContactForm();
@@ -39,7 +219,13 @@ function boot(): void {
   const loadMax = (): void => {
     if (maxRequested) return;
     maxRequested = true;
-    void import("./components/AI/ai.js").then(({ initAiAssistant }) => initAiAssistant());
+    addMaxSkeleton();
+    void import("./components/AI/ai.js")
+      .then(({ initAiAssistant }) => {
+        removeMaxSkeleton();
+        initAiAssistant();
+      })
+      .catch(() => removeMaxSkeleton());
   };
   document.addEventListener("click", (event) => {
     const toggle = event.target instanceof Element ? event.target.closest<HTMLElement>("[data-ai-toggle]") : null;
@@ -53,7 +239,17 @@ function boot(): void {
     }
     loadMax();
   });
-  window.addEventListener("max-ai:open", loadMax);
+  window.addEventListener("max-ai:open", () => {
+    // Same eager open for the "MAX" nav actions and the first-visit tour —
+    // the panel appears instantly even if the AI chunk hasn't loaded yet
+    // (ai.ts adopts the already-open state when it boots).
+    const chat = document.querySelector<HTMLElement>("[data-ai-chat]");
+    if (chat && chat.hidden) {
+      chat.hidden = false;
+      document.querySelector<HTMLElement>("[data-ai-toggle]")?.setAttribute("aria-expanded", "true");
+    }
+    loadMax();
+  });
   const prefetchMax = (): void => {
     void fetch("/js/components/AI/ai.js");
     void fetch("/js/components/AI/engine.js");
@@ -62,10 +258,6 @@ function boot(): void {
     prefetchMax();
   } else {
     window.addEventListener("load", prefetchMax, { once: true });
-  }
-
-  if (document.body.classList.contains("page-projects")) {
-    initProjectsPage();
   }
 }
 
