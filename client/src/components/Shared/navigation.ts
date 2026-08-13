@@ -101,7 +101,7 @@ function initDrawer(): void {
   closeButton.addEventListener("click", close);
   overlay.addEventListener("click", close);
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") {
+    if (event.key === "Escape" && toggle.getAttribute("aria-expanded") === "true" && !document.documentElement.classList.contains("palette-open")) {
       close();
     }
   });

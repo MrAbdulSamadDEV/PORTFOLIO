@@ -170,6 +170,19 @@ html.has-custom-cursor .custom-cursor {
   display: block;
 }
 
+/* Belt-and-suspenders: never render the custom cursor on touch devices
+   (touch laptops included) — the JS already refuses to boot it there. */
+@media (pointer: coarse), (hover: none) {
+  .custom-cursor {
+    display: none !important;
+  }
+
+  html.has-custom-cursor,
+  html.has-custom-cursor * {
+    cursor: auto !important;
+  }
+}
+
 /* ---------- Print ---------- */
 @media print {
   .site-nav,
@@ -213,8 +226,6 @@ html.has-custom-cursor .custom-cursor {
   }
 
   .site-background__glow,
-  .hero__photo,
-  .hero__ring,
   .hero__badge {
     animation: none !important;
   }

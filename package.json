@@ -23,7 +23,8 @@
     "audit:seo": "node scripts/audit-headings.mjs && node scripts/audit-a11y.mjs",
     "audit": "npm run audit:ai && npm run audit:seo",
     "test": "npm run build && node scripts/smoke.mjs",
-    "test:browser": "node scripts/browser-audit.mjs"
+    "test:browser": "node scripts/browser-audit.mjs",
+    "test:responsive": "node scripts/responsive-audit.mjs"
   },
   "dependencies": {
     "compression": "^1.8.1",

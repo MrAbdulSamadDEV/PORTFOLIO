@@ -16,4 +16,12 @@
     theme = "light";
   }
   document.documentElement.setAttribute("data-theme", theme);
+  var icon = document.querySelector('link[rel="icon"]');
+  if (icon) {
+    icon.setAttribute("href", theme === "dark" ? "/favicon-dark.svg" : "/assets/logos/logo.png");
+  }
+  var colorMeta = document.querySelector('meta[name="theme-color"]');
+  if (colorMeta) {
+    colorMeta.setAttribute("content", theme === "dark" ? "#000000" : "#ffffff");
+  }
 })();

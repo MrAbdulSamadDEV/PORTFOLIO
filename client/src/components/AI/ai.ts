@@ -29,6 +29,12 @@ export function initAiAssistant(): void {
   const searchInput = qsRequired<HTMLInputElement>('input[type="search"]', searchPanel);
   const clearButton = qsRequired<HTMLButtonElement>("[data-ai-clear]");
   const closeButton = qsRequired<HTMLButtonElement>("[data-ai-close]");
+  const helpToggle = qsRequired<HTMLButtonElement>("[data-ai-help-toggle]");
+  const helpPanel = qsRequired<HTMLElement>("[data-ai-help]");
+
+  /* Any pending boot-time skeleton (shown while this chunk was loading)
+     is removed now that the assistant has taken over. */
+  qsa<HTMLElement>(".ai-skeleton").forEach((element) => element.remove());
 
   const serverWelcome = widget.getAttribute("data-welcome-text") ?? "";
   const reducedMotion = prefersReducedMotion();
@@ -141,6 +147,14 @@ export function initAiAssistant(): void {
     setMessageTime(message, currentTime());
   };
 
+  /** Consecutive messages from the same role are visually grouped. */
+  const groupMessage = (message: HTMLElement): void => {
+    const previous = message.previousElementSibling;
+    if (previous instanceof HTMLElement && previous.classList.contains("ai-msg") && previous.dataset.role === message.dataset.role) {
+      message.classList.add("ai-msg--grouped");
+    }
+  };
+
   /** Types the bot reply character by character for a polished feel. */
   function typeBotAnswer(message: HTMLElement, text: string, done: () => void): void {
     const bubble = message.querySelector<HTMLElement>(".ai-msg__bubble");
@@ -193,6 +207,7 @@ export function initAiAssistant(): void {
     const message = createMessage("user");
     message.querySelector(".ai-msg__bubble")!.textContent = text;
     setMessageTime(message, currentTime());
+    groupMessage(message);
     messages.appendChild(message);
     scrollToBottom();
   };
@@ -227,13 +242,14 @@ export function initAiAssistant(): void {
       indicator.remove();
 
       const message = createMessage("bot");
+      groupMessage(message);
       messages.appendChild(message);
 
       typeBotAnswer(message, answer, () => {
         lockComposer(false);
         input.focus();
       });
-    }, 480 + Math.min(question.length * 14, 640));
+    }, 320 + Math.min(question.length * 10, 480));
   }
 
   function createFallbackKnowledgeBase(): AiKnowledgeBase {
@@ -265,9 +281,19 @@ export function initAiAssistant(): void {
 
   /* ---------- Open / close ---------- */
 
+  // Dimmed backdrop behind the full-screen mobile chat. Rendered on every
+  // size but only visible on phones/small tablets (see responsive.css).
+  const overlay = document.createElement("div");
+  overlay.className = "ai-overlay";
+  overlay.setAttribute("aria-hidden", "true");
+  document.body.appendChild(overlay);
+
   const open = (): void => {
     chat.hidden = false;
     toggle.setAttribute("aria-expanded", "true");
+    toggle.classList.add("is-active");
+    document.documentElement.classList.add("max-ai-open");
+    overlay.hidden = false;
     void loadKnowledgeBase();
     if (!opened) {
       opened = true;
@@ -279,8 +305,27 @@ export function initAiAssistant(): void {
   const close = (): void => {
     chat.hidden = true;
     toggle.setAttribute("aria-expanded", "false");
+    toggle.classList.remove("is-active");
+    document.documentElement.classList.remove("max-ai-open");
+    overlay.hidden = true;
+    if (helpPanel.hidden === false) {
+      toggleHelp(false);
+    }
     toggle.focus();
   };
+
+  const toggleHelp = (show: boolean): void => {
+    helpPanel.hidden = !show;
+    helpToggle.classList.toggle("is-active", show);
+    helpToggle.setAttribute("aria-pressed", String(show));
+    if (show && searchPanel.hidden === false) {
+      toggleSearch(false);
+    }
+  };
+
+  helpToggle.addEventListener("click", () => toggleHelp(helpPanel.hidden));
+
+  overlay.addEventListener("click", close);
 
   toggle.addEventListener("click", () => {
     if (chat.hidden) {
@@ -293,8 +338,15 @@ export function initAiAssistant(): void {
   closeButton.addEventListener("click", close);
 
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && !chat.hidden) {
-      close();
+    if (event.key !== "Escape") return;
+    // The command palette is modal — its own Escape handling owns the key.
+    if (document.documentElement.classList.contains("palette-open")) return;
+    if (!chat.hidden) {
+      if (helpPanel.hidden === false) {
+        toggleHelp(false);
+      } else {
+        close();
+      }
     }
   });
 

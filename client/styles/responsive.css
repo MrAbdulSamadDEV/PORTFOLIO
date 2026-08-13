@@ -27,6 +27,21 @@
   }
 }
 
+/* The floating social rail would cover the centered content column on
+   narrow laptop widths — hide it until the viewport is wide enough that
+   the rail and the content column never overlap. */
+@media (max-width: 1215px) {
+  .social-rail {
+    display: none;
+  }
+}
+
+/* Nav 2 (social rail) hides while MAX is open at every size and returns
+   automatically once the chat is closed (the class is removed). */
+html.max-ai-open .social-rail {
+  display: none !important;
+}
+
 /* ---------- Short viewports ---------- */
 @media (max-height: 560px) {
   .site-nav {
@@ -125,22 +140,10 @@
   .hero__badge {
     font-size: 12px;
     padding: 8px 14px;
-  }
-
-  @keyframes badge-orbit {
-    0% { transform: translate(-50%, -50%) translate(185px, 0px); }
-    8.333% { transform: translate(-50%, -50%) translate(160px, 135px); }
-    16.667% { transform: translate(-50%, -50%) translate(93px, 234px); }
-    25% { transform: translate(-50%, -50%) translate(0px, 270px); }
-    33.333% { transform: translate(-50%, -50%) translate(-93px, 234px); }
-    41.667% { transform: translate(-50%, -50%) translate(-160px, 135px); }
-    50% { transform: translate(-50%, -50%) translate(-185px, 0px); }
-    58.333% { transform: translate(-50%, -50%) translate(-160px, -135px); }
-    66.667% { transform: translate(-50%, -50%) translate(-93px, -234px); }
-    75% { transform: translate(-50%, -50%) translate(0px, -270px); }
-    83.333% { transform: translate(-50%, -50%) translate(93px, -234px); }
-    91.667% { transform: translate(-50%, -50%) translate(160px, -135px); }
-    100% { transform: translate(-50%, -50%) translate(185px, 0px); }
+    --orbit-h: 185px;
+    --orbit-v: 270px;
+    --orbit-h2: 111px;
+    --orbit-v2: 162px;
   }
 
   .social-rail {
@@ -162,6 +165,119 @@
 
   .contact-form-wrap {
     padding: 24px 20px;
+  }
+
+  /* MAX AI becomes a full-screen experience on phones & small tablets */
+  .ai-widget {
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .ai-overlay {
+    display: block;
+    background: rgba(10, 10, 14, 0.55);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    pointer-events: auto;
+  }
+
+  html[data-theme="light"] .ai-overlay {
+    background: rgba(20, 20, 24, 0.4);
+  }
+
+  /* No background scrolling while MAX is open on mobile */
+  html.max-ai-open {
+    overflow: hidden;
+    overscroll-behavior: none;
+  }
+
+  /* Nav 1 & Nav 2 are fully hidden while MAX is open on mobile */
+  html.max-ai-open .nav-toggle,
+  html.max-ai-open .site-nav,
+  html.max-ai-open .mobile-drawer,
+  html.max-ai-open .mobile-drawer-overlay {
+    display: none !important;
+  }
+
+  /* The launcher pill retires while the chat fills the screen — the
+     highlighted MAX icon in the header takes over the top position. */
+  html.max-ai-open .ai-widget__toggle {
+    display: none;
+  }
+
+  .ai-chat {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    width: 100dvw;
+    height: 100vh;
+    height: 100dvh;
+    max-width: none;
+    max-height: none;
+    border-radius: 0;
+    border: none;
+    z-index: 130;
+  }
+
+  .ai-chat__header {
+    border-radius: 0;
+    padding: max(14px, env(safe-area-inset-top)) 14px 12px;
+  }
+
+  .ai-chat__action {
+    width: 40px;
+    height: 40px;
+    font-size: 15px;
+  }
+
+  .ai-chat__messages {
+    padding: 18px 16px;
+  }
+
+  .ai-msg {
+    max-width: 92%;
+  }
+
+  .ai-chat__composer {
+    padding: 12px 14px max(14px, env(safe-area-inset-bottom));
+  }
+
+  .ai-chat__input {
+    min-height: 48px;
+    font-size: 16px;
+  }
+
+  .ai-chat__send {
+    width: 48px;
+    height: 48px;
+  }
+
+  .ai-chat__composer {
+    position: sticky;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  html[data-theme="dark"] .ai-chat__composer {
+    background: rgba(13, 13, 13, 0.92);
+  }
+
+  .toast-container {
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+    align-items: flex-end;
+  }
+
+  .toast {
+    max-width: 100%;
+  }
+
+  .palette__popup {
+    top: 8vh;
+    max-height: min(520px, 76vh);
   }
 }
 
@@ -198,31 +314,17 @@
     width: 100%;
     max-width: 320px;
   }
+}
 
-  /* MAX AI becomes a full-screen experience on phones */
-  .ai-widget {
-    right: 16px;
-    bottom: 16px;
-  }
-
-  .ai-chat {
-    position: fixed;
-    inset: 0;
-    width: 100vw;
-    width: 100dvw;
-    height: 100vh;
-    height: 100dvh;
-    border-radius: 0;
-    border: none;
-  }
-
-  .ai-chat__header {
-    border-radius: 0;
-    padding-top: max(14px, env(safe-area-inset-top));
-  }
-
-  .ai-chat__composer {
-    padding-bottom: max(14px, env(safe-area-inset-bottom));
+/* ---------- Phone ---------- */
+@media (max-width: 480px) {
+  .hero__badge {
+    font-size: 11.5px;
+    padding: 7px 12px;
+    --orbit-h: 110px;
+    --orbit-v: 160px;
+    --orbit-h2: 66px;
+    --orbit-v2: 96px;
   }
 }
 
@@ -243,6 +345,54 @@
 
   .ai-widget__toggle {
     padding: 14px;
+  }
+
+  /* Scale the hero badge orbit to the smaller photo frame so badges
+     stay inside the viewport instead of being clipped at the edges. */
+  .hero__badge {
+    font-size: 10.5px;
+    padding: 6px 10px;
+    gap: 6px;
+    --orbit-h: 84px;
+    --orbit-v: 120px;
+    --orbit-h2: 50px;
+    --orbit-v2: 72px;
+  }
+}
+
+/* ---------- MAX AI first-visit tour on small screens ---------- */
+@media (max-width: 480px) {
+  .ai-tour {
+    padding: 16px;
+  }
+
+  .ai-tour__card {
+    margin-bottom: 84px;
+    padding: 18px 18px 16px;
+  }
+
+  .ai-tour__card::after {
+    right: 34px;
+  }
+}
+
+/* ---------- Narrow laptops ---------- */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero__badge {
+    --orbit-h: clamp(120px, calc(0.25vw - 66px), 190px);
+    --orbit-v: clamp(200px, calc(0.375vw - 65px), 330px);
+    --orbit-h2: clamp(72px, calc(0.15vw - 40px), 114px);
+    --orbit-v2: clamp(120px, calc(0.225vw - 39px), 198px);
+  }
+}
+
+/* ---------- Small laptops ---------- */
+@media (min-width: 1025px) and (max-width: 1319px) {
+  .hero__badge {
+    --orbit-h: clamp(170px, calc(0.25vw - 86px), 250px);
+    --orbit-v: clamp(260px, calc(0.5vw - 240px), 370px);
+    --orbit-h2: clamp(102px, calc(0.15vw - 52px), 150px);
+    --orbit-v2: clamp(156px, calc(0.3vw - 145px), 222px);
   }
 }
 

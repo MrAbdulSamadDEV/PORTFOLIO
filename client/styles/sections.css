@@ -125,10 +125,6 @@
   background: transparent;
 }
 
-.hero__photo {
-  display: none;
-}
-
 .hero__photo-img {
   position: relative;
   z-index: 2;
@@ -145,37 +141,44 @@ html[data-theme="dark"] .hero__photo-img {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero__photo {
-    animation: none;
-  }
-
-  .hero__ring {
-    animation: none;
-  }
-
   .hero__badge {
     animation: none;
+    /* Fan badges out statically around the photo frame */
   }
-}
 
-.hero__ring {
-  display: none;
+  .hero__badge:nth-of-type(1) { transform: translate(-50%, -50%) translate(calc(var(--orbit-h) * 1), calc(var(--orbit-v) * 0)); }
+  .hero__badge:nth-of-type(2) { transform: translate(-50%, -50%) translate(calc(var(--orbit-h) * 0.531), calc(var(--orbit-v) * 0.279)); }
+  .hero__badge:nth-of-type(3) { transform: translate(-50%, -50%) translate(calc(var(--orbit-h) * 0.568), calc(var(--orbit-v) * 0.823)); }
+  .hero__badge:nth-of-type(4) { transform: translate(-50%, -50%) translate(calc(var(--orbit-h) * 0.073), calc(var(--orbit-v) * 0.596)); }
+  .hero__badge:nth-of-type(5) { transform: translate(-50%, -50%) translate(calc(var(--orbit-h) * -0.355), calc(var(--orbit-v) * 0.935)); }
+  .hero__badge:nth-of-type(6) { transform: translate(-50%, -50%) translate(calc(var(--orbit-h) * -0.449), calc(var(--orbit-v) * 0.398)); }
+  .hero__badge:nth-of-type(7) { transform: translate(-50%, -50%) translate(calc(var(--orbit-h) * -0.971), calc(var(--orbit-v) * 0.239)); }
+  .hero__badge:nth-of-type(8) { transform: translate(-50%, -50%) translate(calc(var(--orbit-h) * -0.583), calc(var(--orbit-v) * -0.143)); }
+  .hero__badge:nth-of-type(9) { transform: translate(-50%, -50%) translate(calc(var(--orbit-h) * -0.749), calc(var(--orbit-v) * -0.663)); }
+  .hero__badge:nth-of-type(10) { transform: translate(-50%, -50%) translate(calc(var(--orbit-h) * -0.213), calc(var(--orbit-v) * -0.561)); }
+  .hero__badge:nth-of-type(11) { transform: translate(-50%, -50%) translate(calc(var(--orbit-h) * 0.121), calc(var(--orbit-v) * -0.993)); }
+  .hero__badge:nth-of-type(12) { transform: translate(-50%, -50%) translate(calc(var(--orbit-h) * 0.341), calc(var(--orbit-v) * -0.494)); }
+  .hero__badge:nth-of-type(13) { transform: translate(-50%, -50%) translate(calc(var(--orbit-h) * 0.885), calc(var(--orbit-v) * -0.465)); }
 }
 
 .hero__badge {
+  --orbit-h: 250px;
+  --orbit-v: 370px;
+  --orbit-h2: 150px;
+  --orbit-v2: 222px;
   position: absolute;
   z-index: 3;
   top: 50%;
   left: 50%;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 9px 16px;
+  gap: 7px;
+  padding: 8px 14px;
   border-radius: var(--radius-full);
   background: rgba(255, 255, 255, 0.92);
   border: 1px solid var(--color-border);
   box-shadow: var(--shadow-md);
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 600;
   color: var(--color-text-soft);
   white-space: nowrap;
@@ -188,30 +191,68 @@ html[data-theme="dark"] .hero__badge {
 
 .hero__badge i {
   color: var(--color-accent-strong);
-  font-size: 13px;
+  font-size: 12.5px;
 }
 
+/* Outer orbit (7 badges): 20s / 7 = 2.857s apart */
 .hero__badge:nth-of-type(1) { animation-delay: 0s; }
-.hero__badge:nth-of-type(2) { animation-delay: -3.33s; }
-.hero__badge:nth-of-type(3) { animation-delay: -6.67s; }
-.hero__badge:nth-of-type(4) { animation-delay: -10s; }
-.hero__badge:nth-of-type(5) { animation-delay: -13.33s; }
-.hero__badge:nth-of-type(6) { animation-delay: -16.67s; }
+.hero__badge:nth-of-type(3) { animation-delay: -2.857s; }
+.hero__badge:nth-of-type(5) { animation-delay: -5.714s; }
+.hero__badge:nth-of-type(7) { animation-delay: -8.571s; }
+.hero__badge:nth-of-type(9) { animation-delay: -11.429s; }
+.hero__badge:nth-of-type(11) { animation-delay: -14.286s; }
+.hero__badge:nth-of-type(13) { animation-delay: -17.143s; }
 
+/* Inner orbit (6 badges): 20s / 6 = 3.333s apart */
+.hero__badge:nth-of-type(2),
+.hero__badge:nth-of-type(4),
+.hero__badge:nth-of-type(6),
+.hero__badge:nth-of-type(8),
+.hero__badge:nth-of-type(10),
+.hero__badge:nth-of-type(12) {
+  animation-name: badge-orbit-inner;
+}
+
+.hero__badge:nth-of-type(2) { animation-delay: 0s; }
+.hero__badge:nth-of-type(4) { animation-delay: -3.333s; }
+.hero__badge:nth-of-type(6) { animation-delay: -6.667s; }
+.hero__badge:nth-of-type(8) { animation-delay: -10s; }
+.hero__badge:nth-of-type(10) { animation-delay: -13.333s; }
+.hero__badge:nth-of-type(12) { animation-delay: -16.667s; }
+
+/* Orbit radii live in CSS variables so each viewport class can keep the
+   badges inside the photo frame AND inside the viewport edge. The values
+   are fluid (clamp) on laptops where the frame is smaller than the orbit. */
 @keyframes badge-orbit {
-  0% { transform: translate(-50%, -50%) translate(250px, 0px); }
-  8.333% { transform: translate(-50%, -50%) translate(216px, 185px); }
-  16.667% { transform: translate(-50%, -50%) translate(125px, 320px); }
-  25% { transform: translate(-50%, -50%) translate(0px, 370px); }
-  33.333% { transform: translate(-50%, -50%) translate(-125px, 320px); }
-  41.667% { transform: translate(-50%, -50%) translate(-217px, 185px); }
-  50% { transform: translate(-50%, -50%) translate(-250px, 0px); }
-  58.333% { transform: translate(-50%, -50%) translate(-217px, -185px); }
-  66.667% { transform: translate(-50%, -50%) translate(-125px, -320px); }
-  75% { transform: translate(-50%, -50%) translate(0px, -370px); }
-  83.333% { transform: translate(-50%, -50%) translate(125px, -320px); }
-  91.667% { transform: translate(-50%, -50%) translate(217px, -185px); }
-  100% { transform: translate(-50%, -50%) translate(250px, 0px); }
+  0% { transform: translate(-50%, -50%) translate(var(--orbit-h), 0px); }
+  8.333% { transform: translate(-50%, -50%) translate(calc(var(--orbit-h) * 0.866), calc(var(--orbit-v) * 0.5)); }
+  16.667% { transform: translate(-50%, -50%) translate(calc(var(--orbit-h) * 0.5), calc(var(--orbit-v) * 0.866)); }
+  25% { transform: translate(-50%, -50%) translate(0px, var(--orbit-v)); }
+  33.333% { transform: translate(-50%, -50%) translate(calc(var(--orbit-h) * -0.5), calc(var(--orbit-v) * 0.866)); }
+  41.667% { transform: translate(-50%, -50%) translate(calc(var(--orbit-h) * -0.866), calc(var(--orbit-v) * 0.5)); }
+  50% { transform: translate(-50%, -50%) translate(calc(var(--orbit-h) * -1), 0px); }
+  58.333% { transform: translate(-50%, -50%) translate(calc(var(--orbit-h) * -0.866), calc(var(--orbit-v) * -0.5)); }
+  66.667% { transform: translate(-50%, -50%) translate(calc(var(--orbit-h) * -0.5), calc(var(--orbit-v) * -0.866)); }
+  75% { transform: translate(-50%, -50%) translate(0px, calc(var(--orbit-v) * -1)); }
+  83.333% { transform: translate(-50%, -50%) translate(calc(var(--orbit-h) * 0.5), calc(var(--orbit-v) * -0.866)); }
+  91.667% { transform: translate(-50%, -50%) translate(calc(var(--orbit-h) * 0.866), calc(var(--orbit-v) * -0.5)); }
+  100% { transform: translate(-50%, -50%) translate(var(--orbit-h), 0px); }
+}
+
+@keyframes badge-orbit-inner {
+  0% { transform: translate(-50%, -50%) translate(var(--orbit-h2), 0px); }
+  8.333% { transform: translate(-50%, -50%) translate(calc(var(--orbit-h2) * 0.866), calc(var(--orbit-v2) * 0.5)); }
+  16.667% { transform: translate(-50%, -50%) translate(calc(var(--orbit-h2) * 0.5), calc(var(--orbit-v2) * 0.866)); }
+  25% { transform: translate(-50%, -50%) translate(0px, var(--orbit-v2)); }
+  33.333% { transform: translate(-50%, -50%) translate(calc(var(--orbit-h2) * -0.5), calc(var(--orbit-v2) * 0.866)); }
+  41.667% { transform: translate(-50%, -50%) translate(calc(var(--orbit-h2) * -0.866), calc(var(--orbit-v2) * 0.5)); }
+  50% { transform: translate(-50%, -50%) translate(calc(var(--orbit-h2) * -1), 0px); }
+  58.333% { transform: translate(-50%, -50%) translate(calc(var(--orbit-h2) * -0.866), calc(var(--orbit-v2) * -0.5)); }
+  66.667% { transform: translate(-50%, -50%) translate(calc(var(--orbit-h2) * -0.5), calc(var(--orbit-v2) * -0.866)); }
+  75% { transform: translate(-50%, -50%) translate(0px, calc(var(--orbit-v2) * -1)); }
+  83.333% { transform: translate(-50%, -50%) translate(calc(var(--orbit-h2) * 0.5), calc(var(--orbit-v2) * -0.866)); }
+  91.667% { transform: translate(-50%, -50%) translate(calc(var(--orbit-h2) * 0.866), calc(var(--orbit-v2) * -0.5)); }
+  100% { transform: translate(-50%, -50%) translate(var(--orbit-h2), 0px); }
 }
 
 /* ---------- Hero scroll indicator ---------- */
@@ -227,6 +268,3 @@ html[data-theme="dark"] .hero__badge {
 }
 
 /* ---------- Section rhythm helpers ---------- */
-.section:nth-child(odd) .section__inner {
-  /* alternate subtle background bands via cards only — keeps the page clean */
-}

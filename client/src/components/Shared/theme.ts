@@ -51,7 +51,16 @@ function updateButtons(theme: Theme): void {
 }
 
 export function applyTheme(theme: Theme, persist: boolean): void {
-  document.documentElement.setAttribute("data-theme", theme);
+  // Smooth cross-fade: colors transition for one frame window then the
+  // helper class is removed so no permanent transition overhead remains.
+  const html = document.documentElement;
+  html.classList.add("theme-switching");
+  window.clearTimeout(applyTheme.transitionTimer);
+  applyTheme.transitionTimer = window.setTimeout(() => {
+    html.classList.remove("theme-switching");
+  }, 380);
+
+  html.setAttribute("data-theme", theme);
   updateThemeColor(theme);
   updateButtons(theme);
   if (persist) {
@@ -62,6 +71,7 @@ export function applyTheme(theme: Theme, persist: boolean): void {
     }
   }
 }
+applyTheme.transitionTimer = 0;
 
 export function initTheme(): void {
   applyTheme(currentTheme(), false);
@@ -86,4 +96,9 @@ export function initTheme(): void {
       }
     });
   }
+}
+
+/** Applies the current saved/system theme (used by the command palette). */
+export function currentThemeValue(): Theme {
+  return document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
 }

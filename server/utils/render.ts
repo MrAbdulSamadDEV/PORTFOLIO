@@ -146,14 +146,12 @@ export function renderHero(site: SiteSettings): string {
       </div>
       <div class="hero__visual">
         <div class="hero__photo-frame">
-          <div class="hero__photo" aria-hidden="true"></div>
           <img class="hero__photo-img"
             srcset="${escapeAttr(site.hero.image)}" type="image/webp"
             src="${escapeAttr(site.hero.imagePng)}"
             alt="${escapeAttr(site.hero.imageAlt)}"
             width="${site.hero.imageWidth}" height="${site.hero.imageHeight}"
             fetchpriority="high" decoding="async">
-          <span class="hero__ring" aria-hidden="true"></span>
           ${badges}
         </div>
       </div>
@@ -455,7 +453,7 @@ export function renderFooter(site: SiteSettings): string {
         </div>
       </div>
       <div class="site-footer__bottom">
-        <p>© ${year} ${escapeHtml(site.site.name)}. ${escapeHtml(site.footer.rights)}</p>
+        <p>© <span data-copyright-year>${year}</span> ${escapeHtml(site.site.name)}. ${escapeHtml(site.footer.rights)}</p>
         <p class="site-footer__credit">${icon("fa-solid fa-code")} ${escapeHtml(site.footer.credit)}</p>
       </div>
     </footer>`;
@@ -484,6 +482,9 @@ export function renderAiWidget(site: SiteSettings): string {
             <p>${escapeHtml(site.ai.subtitle)}</p>
           </div>
           <div class="ai-chat__actions">
+            <button type="button" class="ai-chat__action" data-ai-help-toggle aria-label="Keyboard shortcuts" aria-pressed="false">
+              ${icon("fa-solid fa-keyboard")}
+            </button>
             <button type="button" class="ai-chat__action" data-ai-search-toggle aria-label="${escapeAttr(site.ai.searchLabel)}" aria-pressed="false">
               ${icon("fa-solid fa-magnifying-glass")}
             </button>
@@ -495,6 +496,17 @@ export function renderAiWidget(site: SiteSettings): string {
             </button>
           </div>
         </header>
+        <div class="ai-chat__help" data-ai-help hidden>
+          <h3>Keyboard shortcuts</h3>
+          <ul>
+            <li><kbd>Ctrl</kbd> + <kbd>K</kbd> <span>Open command palette</span></li>
+            <li><kbd>Ctrl</kbd> + <kbd>/</kbd> <span>Focus the chat input</span></li>
+            <li><kbd>Esc</kbd> <span>Close this chat</span></li>
+            <li><kbd>Enter</kbd> <span>Send message</span></li>
+            <li><kbd>Shift</kbd> + <kbd>Enter</kbd> <span>New line</span></li>
+          </ul>
+          <p>Tip: ask MAX about projects, skills, experience or contact details.</p>
+        </div>
         <div class="ai-chat__search" data-ai-search hidden>
           <input type="search" placeholder="Search conversation..." aria-label="Search conversation" autocomplete="off">
         </div>

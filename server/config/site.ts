@@ -71,15 +71,6 @@ export interface SiteSettings {
     primaryButton: { label: string; url: string; icon: string };
     secondaryButton: { label: string; url: string; icon: string };
     floatingBadges: Array<{ label: string; icon: string }>;
-    video: {
-      webm: string;
-      mp4: string;
-      poster: string;
-      posterPng: string;
-      posterAlt: string;
-      width: number;
-      height: number;
-    };
   };
   about: {
     eyebrow: string;

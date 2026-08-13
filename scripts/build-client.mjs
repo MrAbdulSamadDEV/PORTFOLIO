@@ -7,10 +7,12 @@
  *     theme-init.js            first-paint theme bootstrap (classic script)
  *     components/AI/ai.js      MAX AI widget (lazy chunk, fetched on open)
  *     components/AI/engine.js  MAX AI answer engine (shared with tests)
+ *     components/Shared/command-palette.js  command palette (lazy chunk)
  *
- * main.js keeps `import("./components/AI/ai.js")` as an external dynamic
- * import, and ai.js keeps `import("./engine.js")` external, so MAX AI is
- * still loaded lazily on first open and never touches initial page load.
+ * main.js keeps `import("./components/AI/ai.js")` and
+ * `import("./components/Shared/command-palette.js")` as external dynamic
+ * imports, and ai.js keeps `import("./engine.js")` external, so both
+ * interactive features load lazily and never touch initial page load.
  *
  * Type errors are caught earlier by `tsc -p tsconfig.client.json --noEmit`,
  * which runs before this script in `npm run build:client`.
@@ -39,7 +41,13 @@ async function main() {
   await build({
     ...common,
     entryPoints: { "main": path.join(SRC, "main.ts") },
-    external: ["./components/AI/ai.js"],
+    external: ["./components/AI/ai.js", "./components/Shared/command-palette.js"],
+    outdir: OUT,
+  });
+
+  await build({
+    ...common,
+    entryPoints: { "components/Shared/command-palette": path.join(SRC, "components", "Shared", "command-palette.ts") },
     outdir: OUT,
   });
 
@@ -62,7 +70,7 @@ async function main() {
     outdir: OUT,
   });
 
-  console.log("[build-client] bundled main.js, components/AI/{ai,engine}.js, theme-init.js");
+  console.log("[build-client] bundled main.js, components/AI/{ai,engine}.js, components/Shared/command-palette.js, theme-init.js");
 }
 
 main().catch((error) => {
