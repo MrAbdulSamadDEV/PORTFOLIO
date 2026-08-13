@@ -363,7 +363,8 @@
         "label": "Email Me",
         "value": "mr.abdulsamadabdullah@gmail.com",
         "href": "mailto:mr.abdulsamadabdullah@gmail.com",
-        "icon": "fa-solid fa-envelope"
+        "icon": "fa-solid fa-envelope",
+        "copy": true
       },
       {
         "label": "Call Me",
@@ -375,7 +376,8 @@
         "label": "Location",
         "value": "Karachi, Pakistan",
         "href": "https://maps.google.com/?q=Karachi,Pakistan",
-        "icon": "fa-solid fa-location-dot"
+        "icon": "fa-solid fa-location-dot",
+        "copy": true
       }
     ],
     "form": {

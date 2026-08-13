@@ -495,6 +495,39 @@ html[data-theme="dark"] .social-rail {
   color: var(--color-accent-strong);
 }
 
+/* Contact rows with a one-click copy button */
+.site-footer__contact .site-footer__contact-row {
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.site-footer__contact-row a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.site-footer__contact-row a i {
+  margin-top: 0;
+  flex-shrink: 0;
+}
+
+.site-footer__contact-row .site-footer__copy i {
+  margin-top: 0;
+  color: inherit;
+  font-size: 12px;
+}
+
+.site-footer__contact-row .site-footer__contact-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
 .site-footer__bottom {
   max-width: var(--content-max);
   margin-inline: auto;

@@ -109,7 +109,7 @@ export interface SiteSettings {
     eyebrow: string;
     heading: string;
     description: string;
-    cards: Array<{ label: string; value: string; href: string; icon: string }>;
+    cards: Array<{ label: string; value: string; href: string; icon: string; copy?: boolean }>;
     form: {
       nameLabel: string;
       emailLabel: string;

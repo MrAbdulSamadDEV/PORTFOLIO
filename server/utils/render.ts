@@ -350,20 +350,33 @@ function renderContactForm(site: SiteSettings): string {
     </form>`;
 }
 
+function renderContactCard(card: { label: string; value: string; href: string; icon: string; copy?: boolean }): string {
+  const copyValue = card.copy
+    ? card.href.startsWith("mailto:")
+      ? card.href.slice("mailto:".length)
+      : card.value
+    : undefined;
+  const copyLabel = card.href.startsWith("mailto:") ? "email address" : card.label.toLowerCase();
+  const copyButton = copyValue
+    ? `<button type="button" class="contact-card__copy" data-copy="${escapeAttr(copyValue)}" aria-label="Copy ${copyLabel}">
+        ${icon("fa-solid fa-copy")}
+      </button>`
+    : "";
+
+  return `
+    <a class="contact-card reveal" href="${escapeAttr(card.href)}" ${card.href.startsWith("http") ? externalLinkAttrs() : ""}>
+      <div class="contact-card__icon">${icon(card.icon)}</div>
+      <div class="contact-card__body">
+        <span class="contact-card__label">${escapeHtml(card.label)}</span>
+        <strong class="contact-card__value">${escapeHtml(card.value)}</strong>
+      </div>
+      ${copyButton}
+      ${icon("fa-solid fa-arrow-right")}
+    </a>`;
+}
+
 export function renderContactSection(site: SiteSettings): string {
-  const cards = site.contact.cards
-    .map(
-      (card) => `
-        <a class="contact-card reveal" href="${escapeAttr(card.href)}" ${card.href.startsWith("http") ? externalLinkAttrs() : ""}>
-          <div class="contact-card__icon">${icon(card.icon)}</div>
-          <div class="contact-card__body">
-            <span class="contact-card__label">${escapeHtml(card.label)}</span>
-            <strong class="contact-card__value">${escapeHtml(card.value)}</strong>
-          </div>
-          ${icon("fa-solid fa-arrow-right")}
-        </a>`,
-    )
-    .join("");
+  const cards = site.contact.cards.map(renderContactCard).join("");
 
   return `
     <section class="section" id="contact" aria-labelledby="contact-heading">
@@ -392,6 +405,34 @@ export function renderFooter(site: SiteSettings): string {
 
   const year = new Date().getFullYear();
 
+  const github = site.socials.find((social) => social.name === "GitHub");
+  const contactRow = (label: string, href: string, iconClasses: string, copyValue?: string, copyAriaLabel?: string): string => `
+    <li class="site-footer__contact-row">
+      <a href="${escapeAttr(href)}"${href.startsWith("http") ? externalLinkAttrs() : ""}>
+        ${icon(iconClasses)}${escapeHtml(label)}
+      </a>
+      ${
+        copyValue
+          ? `<button type="button" class="site-footer__copy" data-copy="${escapeAttr(copyValue)}" aria-label="${escapeAttr(copyAriaLabel ?? `Copy ${label.toLowerCase()}`)}">
+              ${icon("fa-solid fa-copy")}
+            </button>`
+          : ""
+      }
+    </li>`;
+
+  const contactRows = [
+    contactRow(site.site.email, `mailto:${site.site.email}`, "fa-solid fa-envelope", site.site.email, "Copy email address"),
+    contactRow(site.site.phoneDisplay, site.site.phoneHref, "fa-solid fa-phone"),
+    ...(github ? [contactRow(github.name, github.url, github.icon)] : []),
+    contactRow("Portfolio", site.site.domain, "fa-solid fa-globe"),
+    `<li class="site-footer__contact-row">
+      <span class="site-footer__contact-text">${icon("fa-solid fa-location-dot")}${escapeHtml(site.site.location)}</span>
+      <button type="button" class="site-footer__copy" data-copy="${escapeAttr(site.site.location)}" aria-label="Copy location">
+        ${icon("fa-solid fa-copy")}
+      </button>
+    </li>`,
+  ].join("");
+
   return `
     <footer class="site-footer">
       <div class="site-footer__grid">
@@ -409,9 +450,7 @@ export function renderFooter(site: SiteSettings): string {
         <div class="site-footer__col" aria-label="Contact information">
           <h2 class="site-footer__heading">${escapeHtml(site.footer.contactHeading)}</h2>
           <ul class="site-footer__contact">
-            <li><a href="mailto:${escapeAttr(site.site.email)}">${icon("fa-solid fa-envelope")}${escapeHtml(site.site.email)}</a></li>
-            <li><a href="${escapeAttr(site.site.phoneHref)}">${icon("fa-solid fa-phone")}${escapeHtml(site.site.phoneDisplay)}</a></li>
-            <li>${icon("fa-solid fa-location-dot")}${escapeHtml(site.site.location)}</li>
+            ${contactRows}
           </ul>
         </div>
       </div>
@@ -531,19 +570,7 @@ export function renderContactPageContent(site: SiteSettings): string {
       <div class="section__inner">
         <div class="contact-grid">
           <div class="contact-cards">
-            ${site.contact.cards
-              .map(
-                (card) => `
-                  <a class="contact-card reveal" href="${escapeAttr(card.href)}" ${card.href.startsWith("http") ? externalLinkAttrs() : ""}>
-                    <div class="contact-card__icon">${icon(card.icon)}</div>
-                    <div class="contact-card__body">
-                      <span class="contact-card__label">${escapeHtml(card.label)}</span>
-                      <strong class="contact-card__value">${escapeHtml(card.value)}</strong>
-                    </div>
-                    ${icon("fa-solid fa-arrow-right")}
-                  </a>`,
-              )
-              .join("")}
+            ${site.contact.cards.map(renderContactCard).join("")}
           </div>
           <div class="contact-form-wrap reveal">
             ${renderContactForm(site)}
