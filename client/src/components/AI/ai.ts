@@ -1,7 +1,7 @@
 import type { AiKnowledgeBase } from "../../types.js";
 import { fetchJson } from "../../utils/fetch-json.js";
 import { qs, qsa, qsRequired, prefersReducedMotion } from "../../utils/dom.js";
-import { buildAnswer, formatAnswer } from "./engine.js";
+import { buildAnswer, formatAnswer, warmKnowledgeBase } from "./engine.js";
 
 /**
  * MAX AI — the floating portfolio assistant widget.
@@ -53,6 +53,9 @@ export function initAiAssistant(): void {
     kbReady = fetchJson<AiKnowledgeBase>("/data/ai.json")
       .then((data) => {
         kb = data;
+        // Warm the matching caches off the answer path so the visitor's
+        // first question doesn't pay a large one-time index build.
+        warmKnowledgeBase(data);
         return data;
       })
       .catch((error: unknown) => {

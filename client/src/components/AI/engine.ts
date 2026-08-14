@@ -165,7 +165,7 @@ export function normalize(text: string): string {
     .replace(/[^a-z0-9\s+@.\-]/g, " ")
     .replace(/\s+/g, " ")
     .trim();
-  if (normalizeCache.size > 60000) normalizeCache.clear();
+  if (normalizeCache.size > 200000) normalizeCache.clear();
   normalizeCache.set(text, value);
   return value;
 }
@@ -258,7 +258,7 @@ function keywordInfo(rawKeyword: string): KeywordInfo {
   const stemmed = tokens.map(stem);
   const meaningful = tokens.filter((token) => token.length >= 2 && !STOPWORDS.has(stem(token)));
   const info = { normalized, tokens, stemmed, meaningful, meaningfulStemmed: meaningful.map(stem) };
-  if (keywordInfoCache.size > 50000) keywordInfoCache.clear();
+  if (keywordInfoCache.size > 200000) keywordInfoCache.clear();
   keywordInfoCache.set(rawKeyword, info);
   return info;
 }
@@ -301,6 +301,98 @@ function buildTokenIndex(kb: AiKnowledgeBase): TokenIndex {
     }
   }
   return { set, byLength, byFirst };
+}
+
+/**
+ * Inverted keyword index: stemmed keyword token → FAQ indices that contain
+ * it. Lets findAllAnswers score only the FAQs that can possibly match a
+ * question instead of scanning every keyword of every FAQ (63K+ keyword
+ * checks per question became a multi-hundred-ms main-thread block as the
+ * knowledge base grew).
+ *
+ * Completeness: a FAQ can only score above zero when one of its keywords
+ * shares a token with the query — via exact phrase (phrase containment
+ * implies all keyword tokens are query tokens), full-token sets (same),
+ * or fuzzy/prefix token matches. Every one of those paths is captured by
+ * this index, so no scoring FAQ is ever missed.
+ */
+interface KeywordIndex {
+  byToken: Map<string, number[]>;
+  /**
+   * Tokens that only ever appear in keywords with no meaningful tokens
+   * ("who are you"). Stopword query tokens are expanded through this map
+   * only, so common words like "is"/"his" never pull in the whole
+   * knowledge base as candidates.
+   */
+  byStopwordOnlyToken: Map<string, number[]>;
+  faqKeywords: KeywordInfo[][];
+}
+
+const keywordIndexCache = new WeakMap<object, KeywordIndex>();
+
+function buildKeywordIndex(kb: AiKnowledgeBase): KeywordIndex {
+  const byToken = new Map<string, number[]>();
+  const byStopwordOnlyToken = new Map<string, number[]>();
+  const faqKeywords: KeywordInfo[][] = [];
+  for (let faqIndex = 0; faqIndex < kb.faqs.length; faqIndex += 1) {
+    const infos: KeywordInfo[] = [];
+    const seenTokens = new Set<string>();
+    const seenStopwordTokens = new Set<string>();
+    for (const rawKeyword of kb.faqs[faqIndex]?.keywords ?? []) {
+      const info = keywordInfo(rawKeyword);
+      infos.push(info);
+      const { stemmed, meaningfulStemmed } = info;
+      // All stemmed tokens are indexed (stopwords included) so keywords
+      // with no meaningful tokens ("who are you") still find candidates
+      // through their exact-phrase path.
+      for (const token of meaningfulStemmed.length > 0 ? meaningfulStemmed : stemmed) {
+        if (seenTokens.has(token)) continue;
+        seenTokens.add(token);
+        const bucket = byToken.get(token);
+        if (bucket) {
+          bucket.push(faqIndex);
+        } else {
+          byToken.set(token, [faqIndex]);
+        }
+      }
+      if (meaningfulStemmed.length === 0) {
+        for (const token of stemmed) {
+          if (seenStopwordTokens.has(token)) continue;
+          seenStopwordTokens.add(token);
+          const bucket = byStopwordOnlyToken.get(token);
+          if (bucket) {
+            bucket.push(faqIndex);
+          } else {
+            byStopwordOnlyToken.set(token, [faqIndex]);
+          }
+        }
+      }
+    }
+    faqKeywords.push(infos);
+  }
+  return { byToken, byStopwordOnlyToken, faqKeywords };
+}
+
+function getKeywordIndex(kb: AiKnowledgeBase): KeywordIndex {
+  let index = keywordIndexCache.get(kb);
+  if (!index) {
+    index = buildKeywordIndex(kb);
+    keywordIndexCache.set(kb, index);
+  }
+  return index;
+}
+
+/**
+ * Pre-warms the per-KB caches off the answer path. Called as soon as the
+ * knowledge base loads (idle macrotask), so the visitor's first question
+ * almost never pays the index-build cost. If the visitor asks before the
+ * warm-up runs, findAllAnswers still builds the caches synchronously.
+ */
+export function warmKnowledgeBase(kb: AiKnowledgeBase): void {
+  window.setTimeout(() => {
+    buildTokenIndex(kb);
+    buildKeywordIndex(kb);
+  }, 0);
 }
 
 /**
@@ -375,14 +467,15 @@ interface FaqScore {
 /**
  * Scores one FAQ against the query. Returns the total score and the set of
  * query tokens this FAQ actually explains (used for multi-topic merging).
+ * Keyword infos are precomputed once per knowledge base (see
+ * buildKeywordIndex), so this hot path never re-normalizes keywords.
  */
-function scoreFaq(faq: AiFaq, query: string, queryTokens: Set<string>, fuzzyMatches: { fuzzy: Map<string, Set<string>>; prefix: Map<string, Set<string>> }): FaqScore {
+function scoreFaq(faq: AiFaq, infos: KeywordInfo[], query: string, queryTokens: Set<string>, fuzzyMatches: { fuzzy: Map<string, Set<string>>; prefix: Map<string, Set<string>> }): FaqScore {
   let score = 0;
   const tokens = new Set<string>();
   const fuzzyMatched = new Set<string>();
 
-  for (const rawKeyword of faq.keywords) {
-    const { normalized: keyword, stemmed, meaningfulStemmed } = keywordInfo(rawKeyword);
+  for (const { normalized: keyword, stemmed, meaningfulStemmed } of infos) {
     if (keyword.length < 2) continue;
 
     // 1) Exact phrase present in the query (strongest signal). Runs before
@@ -462,8 +555,56 @@ export function findAllAnswers(rawQuestion: string, kb: AiKnowledgeBase): Engine
   const fuzzyMatches = buildFuzzyMatches(queryTokens, kb);
   const hits: EngineHit[] = [];
 
-  for (const faq of kb.faqs) {
-    const { score, tokens } = scoreFaq(faq, query, queryTokens, fuzzyMatches);
+  // Candidates from the inverted keyword index: every FAQ that shares any
+  // token (exact, fuzzy, or prefix) with the question. This is a strict
+  // superset of the FAQs that can possibly score (see buildKeywordIndex),
+  // so scoring semantics are unchanged — only the scan size shrinks from
+  // 63K+ keyword checks per question to a few dozen FAQs.
+  const index = getKeywordIndex(kb);
+  const candidateIndexes = new Set<number>();
+  for (const q of queryTokens) {
+    const stemmed = stem(q);
+    // Stopwords are expanded only through stopword-only keywords, so
+    // "is"/"his"/"what" never sweep the whole knowledge base in as
+    // candidates. Everything else uses the full token index plus the
+    // fuzzy/prefix layers (which already skip stopwords).
+    if (STOPWORDS.has(stemmed)) {
+      const stopwordOnly = index.byStopwordOnlyToken.get(stemmed);
+      if (stopwordOnly) {
+        for (const i of stopwordOnly) candidateIndexes.add(i);
+      }
+      continue;
+    }
+    const exact = index.byToken.get(stemmed);
+    if (exact) {
+      for (const i of exact) candidateIndexes.add(i);
+    }
+    const fuzzy = fuzzyMatches.fuzzy.get(stemmed);
+    if (fuzzy) {
+      for (const k of fuzzy) {
+        const bucket = index.byToken.get(k);
+        if (bucket) {
+          for (const i of bucket) candidateIndexes.add(i);
+        }
+      }
+    }
+    const prefix = fuzzyMatches.prefix.get(stemmed);
+    if (prefix) {
+      for (const k of prefix) {
+        const bucket = index.byToken.get(k);
+        if (bucket) {
+          for (const i of bucket) candidateIndexes.add(i);
+        }
+      }
+    }
+  }
+
+  for (const faqIndex of candidateIndexes) {
+    const faq = kb.faqs[faqIndex];
+    if (!faq) continue;
+    const infos = index.faqKeywords[faqIndex];
+    if (!infos) continue;
+    const { score, tokens } = scoreFaq(faq, infos, query, queryTokens, fuzzyMatches);
     if (score >= MIN_CONFIDENT_SCORE) {
       hits.push({ faq, score, tokens });
     }

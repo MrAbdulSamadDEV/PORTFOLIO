@@ -50,7 +50,19 @@
     "twitter": ["x account", "x profile", "tweets"],
     "fun": ["fun", "funny", "joke", "jokes", "entertain"],
     "max": ["max ai", "max", "assistant", "chatbot", "chat bot", "bot", "ai assistant"],
-    "website-tech": ["built with", "made with", "stack of this site", "how was this made"]
+    "website-tech": ["built with", "made with", "stack of this site", "how was this made"],
+    "furnecher": ["salaar", "salaars home", "salaar's home", "furniture store", "furniture ecommerce", "furniture e-commerce", "furniture project", "furniture website", "salaars home"],
+    "theme": ["dark mode", "light mode", "appearance", "color scheme", "colors", "night mode", "brightness", "switch the theme"],
+    "loader": ["loading screen", "splash", "splash screen", "page loader", "welcome screen", "loading animation"],
+    "shortcuts": ["hotkey", "hotkeys", "keybind", "keybinds", "keyboard shortcut", "quick keys"],
+    "favicon": ["tab icon", "browser icon", "site icon", "tab logo", "browser tab icon"],
+    "whatsapp": ["watsapp", "what's app", "wa number"],
+    "hosting": ["vercel", "deployed", "deploy", "deployment", "live demo", "live site", "hosted on"],
+    "interview": ["job interview", "meeting", "video call", "zoom", "google meet", "schedule a call"],
+    "pwa": ["installable", "install this site", "add to home screen", "app install", "install the website"],
+    "blog": ["articles", "posts", "write articles", "content", "newsletter"],
+    "open-source": ["open source", "oss", "github repo", "public repo", "github repository"],
+    "career": ["job", "jobs", "employer", "company", "role", "position", "career", "workplace"]
   },
   "intents": {
     "about": ["who", "about", "intro", "introduce", "biography", "bio", "yourself", "samad", "name", "developer", "person", "owner", "creator"],
