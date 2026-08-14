@@ -403,42 +403,11 @@ export function renderFooter(site: SiteSettings): string {
 
   const year = new Date().getFullYear();
 
-  const github = site.socials.find((social) => social.name === "GitHub");
-  const contactRow = (label: string, href: string, iconClasses: string, copyValue?: string, copyAriaLabel?: string): string => `
-    <li class="site-footer__contact-row">
-      <a href="${escapeAttr(href)}"${href.startsWith("http") ? externalLinkAttrs() : ""}>
-        ${icon(iconClasses)}${escapeHtml(label)}
-      </a>
-      ${
-        copyValue
-          ? `<button type="button" class="site-footer__copy" data-copy="${escapeAttr(copyValue)}" aria-label="${escapeAttr(copyAriaLabel ?? `Copy ${label.toLowerCase()}`)}">
-              ${icon("fa-solid fa-copy")}
-            </button>`
-          : ""
-      }
-    </li>`;
-
-  const contactRows = [
-    contactRow(site.site.email, `mailto:${site.site.email}`, "fa-solid fa-envelope", site.site.email, "Copy email address"),
-    contactRow(site.site.phoneDisplay, site.site.phoneHref, "fa-solid fa-phone"),
-    ...(github ? [contactRow(github.name, github.url, github.icon)] : []),
-    contactRow("Portfolio", site.site.domain, "fa-solid fa-globe"),
-    `<li class="site-footer__contact-row">
-      <span class="site-footer__contact-text">${icon("fa-solid fa-location-dot")}${escapeHtml(site.site.location)}</span>
-      <button type="button" class="site-footer__copy" data-copy="${escapeAttr(site.site.location)}" aria-label="Copy location">
-        ${icon("fa-solid fa-copy")}
-      </button>
-    </li>`,
-  ].join("");
-
   return `
     <footer class="site-footer">
       <div class="site-footer__grid">
         <div class="site-footer__brand">
-          <a class="site-footer__logo" href="/" aria-label="${escapeAttr(site.site.name)} — home">
-            <img src="${escapeAttr(site.site.logo)}" alt="${escapeAttr(site.site.logoAlt)}" width="44" height="44">
-            <strong>${escapeHtml(site.site.name)}</strong>
-          </a>
+          <a class="site-footer__brand-link" href="/">${escapeHtml(site.site.name)}</a>
           <p class="site-footer__bio">${escapeHtml(site.footer.description)}</p>
         </div>
         <nav class="site-footer__col" aria-label="Quick links">
@@ -448,13 +417,14 @@ export function renderFooter(site: SiteSettings): string {
         <div class="site-footer__col" aria-label="Contact information">
           <h2 class="site-footer__heading">${escapeHtml(site.footer.contactHeading)}</h2>
           <ul class="site-footer__contact">
-            ${contactRows}
+            <li><a href="mailto:${escapeAttr(site.site.email)}">${icon("fa-solid fa-envelope")}${escapeHtml(site.site.email)}</a></li>
+            <li><a href="${escapeAttr(site.site.phoneHref)}">${icon("fa-solid fa-phone")}${escapeHtml(site.site.phoneDisplay)}</a></li>
+            <li>${icon("fa-solid fa-location-dot")}${escapeHtml(site.site.location)}</li>
           </ul>
         </div>
       </div>
       <div class="site-footer__bottom">
         <p>© <span data-copyright-year>${year}</span> ${escapeHtml(site.site.name)}. ${escapeHtml(site.footer.rights)}</p>
-        <p class="site-footer__credit">${icon("fa-solid fa-code")} ${escapeHtml(site.footer.credit)}</p>
       </div>
     </footer>`;
 }

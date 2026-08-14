@@ -408,11 +408,10 @@
     }
   },
   "footer": {
-    "description": "Cloud Data Engineering student and Full Stack Developer building fast, scalable and modern digital experiences with clean code and careful attention to detail.",
+    "description": "Cloud Data Engineering Student and Full Stack Developer building fast, scalable and modern digital experiences with clean code and careful attention to detail.",
     "quickLinksHeading": "Quick Links",
     "contactHeading": "Get In Touch",
     "rights": "All rights reserved.",
-    "credit": "Designed & Developed by Abdul Samad",
     "backToTopLabel": "Back to top"
   },
   "ai": {

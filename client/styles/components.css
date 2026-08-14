@@ -2019,24 +2019,6 @@ html[data-theme="dark"] .palette__popup {
   border-color: var(--color-accent);
 }
 
-.site-footer__copy {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  flex-shrink: 0;
-  border-radius: var(--radius-sm);
-  font-size: 12px;
-  color: var(--color-text-muted);
-  transition: background var(--transition-fast) var(--ease-out), color var(--transition-fast) var(--ease-out);
-}
-
-.site-footer__copy:hover {
-  background: var(--color-accent-soft);
-  color: var(--color-accent-strong);
-}
-
 /* ---------- MAX AI help panel ---------- */
 .ai-chat__help {
   padding: 12px 16px;

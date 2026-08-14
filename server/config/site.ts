@@ -117,7 +117,6 @@ export interface SiteSettings {
     quickLinksHeading: string;
     contactHeading: string;
     rights: string;
-    credit: string;
     backToTopLabel: string;
   };
   ai: {
