@@ -146,12 +146,14 @@ export function renderHero(site: SiteSettings): string {
       </div>
       <div class="hero__visual">
         <div class="hero__photo-frame">
-          <img class="hero__photo-img"
-            srcset="${escapeAttr(site.hero.image)}" type="image/webp"
-            src="${escapeAttr(site.hero.imagePng)}"
-            alt="${escapeAttr(site.hero.imageAlt)}"
-            width="${site.hero.imageWidth}" height="${site.hero.imageHeight}"
-            fetchpriority="high" decoding="async">
+          <picture>
+            <source srcset="${escapeAttr(site.hero.image)}" type="image/webp">
+            <img class="hero__photo-img"
+              src="${escapeAttr(site.hero.imagePng)}"
+              alt="${escapeAttr(site.hero.imageAlt)}"
+              width="${site.hero.imageWidth}" height="${site.hero.imageHeight}"
+              fetchpriority="high" decoding="async">
+          </picture>
           ${badges}
         </div>
       </div>
@@ -263,10 +265,12 @@ function renderProjectCard(project: Project): string {
   return `
     <article class="project-card reveal" data-category="${escapeAttr(project.category)}" data-featured="${project.featured ? "true" : "false"}">
       <div class="project-card__media">
-        <img src="${escapeAttr(project.imagePng)}"
-          srcset="${escapeAttr(project.image)}" type="image/webp"
-          alt="${escapeAttr(project.imageAlt)}"
-          width="800" height="500" loading="lazy" decoding="async">
+        <picture>
+          <source srcset="${escapeAttr(project.image)}" type="image/webp">
+          <img src="${escapeAttr(project.imagePng)}"
+            alt="${escapeAttr(project.imageAlt)}"
+            width="800" height="500" loading="lazy" decoding="async">
+        </picture>
         <div class="project-card__flags">
           ${featuredBadge}
           <span class="project-card__status">${escapeHtml(project.status)}</span>

@@ -463,6 +463,14 @@ html[data-theme="dark"] .btn {
   background: var(--color-surface-soft);
 }
 
+/* <picture> wrapper fills the media box so the img's percentage sizing
+   resolves against it exactly as it did before. */
+.project-card__media picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .project-card__media img {
   width: 100%;
   height: 100%;

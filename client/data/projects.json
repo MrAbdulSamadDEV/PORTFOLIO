@@ -8,7 +8,7 @@
     "imagePng": "/assets/projects/furnecher.png",
     "imageAlt": "SALAAR'S HOME Furniture e-commerce website preview — a luxury furniture store built by Abdul Samad",
     "category": "E-commerce",
-    "technologies": ["HTML5", "CSS3", "TypeScript", "Node.js", "Express", "React", "MongoDB"],
+    "technologies": ["HTML5", "CSS3", "TypeScript", "Node.js", "Express", "React"],
     "github": "https://github.com/MrAbdulSamadDEV/salaars-home-furnecher",
     "liveDemo": "https://salaars-home.vercel.app/",
     "featured": true,

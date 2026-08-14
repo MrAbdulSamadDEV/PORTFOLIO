@@ -125,6 +125,14 @@
   background: transparent;
 }
 
+/* <picture> wrapper fills the frame so the img's percentage sizing
+   resolves against it exactly as it did before. */
+.hero__photo-frame picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .hero__photo-img {
   position: relative;
   z-index: 2;
