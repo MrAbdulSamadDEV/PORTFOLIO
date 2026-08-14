@@ -34,7 +34,7 @@ export function prefersReducedMotion(): boolean {
 }
 
 export function prefersFinePointer(): boolean {
-  return window.matchMedia("(pointer: fine)").matches;
+  return window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 }
 
 export function clamp(value: number, min: number, max: number): number {

@@ -183,6 +183,18 @@ html.has-custom-cursor .custom-cursor {
   }
 }
 
+/* The custom cursor never appears while MAX AI is open — the chat uses
+   the default system cursor so the assistant window stays fully native. */
+html.max-ai-open .custom-cursor,
+html.max-ai-open .custom-cursor i {
+  display: none !important;
+}
+
+html.max-ai-open,
+html.max-ai-open * {
+  cursor: auto !important;
+}
+
 /* ---------- Print ---------- */
 @media print {
   .site-nav,

@@ -100,7 +100,7 @@ function drawOgImage() {
     <text x="152" y="382" font-family="Arial, Helvetica, sans-serif" font-size="40" fill="#444444">Full Stack Developer</text>
     <rect x="152" y="420" width="220" height="14" rx="7" fill="#ffb6c1"/>
     <rect x="390" y="420" width="90" height="14" rx="7" fill="#f26d86"/>
-    <text x="152" y="500" font-family="Arial, Helvetica, sans-serif" font-size="26" fill="#666666">www.abdulsamad.dev</text>
+    <text x="152" y="500" font-family="Arial, Helvetica, sans-serif" font-size="26" fill="#666666">mrabdulsamaddev.vercel.app</text>
   </svg>`;
 }
 

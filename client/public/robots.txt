@@ -3,4 +3,4 @@ Allow: /
 Disallow: /data/
 Disallow: /404
 
-Sitemap: https://www.abdulsamad.dev/sitemap.xml
+Sitemap: https://mrabdulsamaddev.vercel.app/sitemap.xml

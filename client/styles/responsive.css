@@ -403,3 +403,14 @@ html.max-ai-open .social-rail {
     padding-block: 72px 96px;
   }
 }
+
+/* ---------- Keyboard shortcuts: desktop-only ----------
+   The MAX AI help panel (and its toggle) are hidden on touch devices,
+   tablets and small screens — no empty space is left behind. */
+@media (max-width: 1024px), (hover: none), (pointer: coarse) {
+  .ai-chat__help,
+  [data-ai-help-toggle],
+  [data-help-panel] {
+    display: none !important;
+  }
+}
