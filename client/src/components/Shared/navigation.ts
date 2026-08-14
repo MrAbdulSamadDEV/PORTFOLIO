@@ -68,10 +68,13 @@ function initDrawer(): void {
   const closeButton = qs<HTMLButtonElement>("[data-drawer-close]");
   if (!toggle || !drawer || !overlay || !closeButton) return;
 
+  let hideToggleTimer = 0;
+
   const open = (): void => {
+    window.clearTimeout(hideToggleTimer);
     drawer.hidden = false;
     overlay.hidden = false;
-    document.documentElement.classList.add("no-scroll");
+    document.documentElement.classList.add("no-scroll", "drawer-open");
     toggle.setAttribute("aria-expanded", "true");
     toggle.setAttribute("aria-label", "Close navigation menu");
     requestAnimationFrame(() => drawer.classList.add("is-open"));
@@ -86,6 +89,12 @@ function initDrawer(): void {
     window.setTimeout(() => {
       drawer.hidden = true;
       overlay.hidden = true;
+    }, 260);
+    // The hamburger fades back in only once the drawer has fully slid
+    // away, so it never overlaps the closing menu.
+    window.clearTimeout(hideToggleTimer);
+    hideToggleTimer = window.setTimeout(() => {
+      document.documentElement.classList.remove("drawer-open");
     }, 260);
     toggle.focus();
   };
@@ -106,7 +115,9 @@ function initDrawer(): void {
     }
   });
 
-  drawer.querySelectorAll("a, button").forEach((element) => {
+  // Navigation links and the MAX AI action dismiss the menu; the theme
+  // toggle stays usable without closing it.
+  drawer.querySelectorAll<HTMLElement>("a, [data-nav-action='ai']").forEach((element) => {
     element.addEventListener("click", close);
   });
 

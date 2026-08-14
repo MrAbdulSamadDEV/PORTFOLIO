@@ -384,15 +384,73 @@ function getKeywordIndex(kb: AiKnowledgeBase): KeywordIndex {
 
 /**
  * Pre-warms the per-KB caches off the answer path. Called as soon as the
- * knowledge base loads (idle macrotask), so the visitor's first question
- * almost never pays the index-build cost. If the visitor asks before the
- * warm-up runs, findAllAnswers still builds the caches synchronously.
+ * knowledge base loads. The first stage runs after a generous delay (well
+ * past the widget's open/tour animations), and the keyword index is built
+ * in per-FAQ slices so the warm-up never blocks the main thread. If the
+ * visitor asks before the warm-up finishes, findAllAnswers still builds
+ * the caches synchronously.
  */
 export function warmKnowledgeBase(kb: AiKnowledgeBase): void {
   window.setTimeout(() => {
     buildTokenIndex(kb);
-    buildKeywordIndex(kb);
-  }, 0);
+    buildKeywordIndexChunked(kb);
+  }, 800);
+}
+
+const WARM_SLICE = 48;
+
+function buildKeywordIndexChunked(kb: AiKnowledgeBase): void {
+  const byToken = new Map<string, number[]>();
+  const byStopwordOnlyToken = new Map<string, number[]>();
+  const faqKeywords: KeywordInfo[][] = [];
+  let faqIndex = 0;
+
+  const step = (): void => {
+    // A synchronous build already completed (visitor asked first) — the
+    // chunked duplicate is no longer needed.
+    if (keywordIndexCache.has(kb)) return;
+    const end = Math.min(faqIndex + WARM_SLICE, kb.faqs.length);
+    for (; faqIndex < end; faqIndex += 1) {
+      const infos: KeywordInfo[] = [];
+      const seenTokens = new Set<string>();
+      const seenStopwordTokens = new Set<string>();
+      for (const rawKeyword of kb.faqs[faqIndex]?.keywords ?? []) {
+        const info = keywordInfo(rawKeyword);
+        infos.push(info);
+        const { stemmed, meaningfulStemmed } = info;
+        for (const token of meaningfulStemmed.length > 0 ? meaningfulStemmed : stemmed) {
+          if (seenTokens.has(token)) continue;
+          seenTokens.add(token);
+          const bucket = byToken.get(token);
+          if (bucket) {
+            bucket.push(faqIndex);
+          } else {
+            byToken.set(token, [faqIndex]);
+          }
+        }
+        if (meaningfulStemmed.length === 0) {
+          for (const token of stemmed) {
+            if (seenStopwordTokens.has(token)) continue;
+            seenStopwordTokens.add(token);
+            const bucket = byStopwordOnlyToken.get(token);
+            if (bucket) {
+              bucket.push(faqIndex);
+            } else {
+              byStopwordOnlyToken.set(token, [faqIndex]);
+            }
+          }
+        }
+      }
+      faqKeywords.push(infos);
+    }
+    if (faqIndex < kb.faqs.length) {
+      window.setTimeout(step, 0);
+    } else {
+      keywordIndexCache.set(kb, { byToken, byStopwordOnlyToken, faqKeywords });
+    }
+  };
+
+  step();
 }
 
 /**

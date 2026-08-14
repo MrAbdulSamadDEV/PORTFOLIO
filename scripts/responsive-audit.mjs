@@ -174,8 +174,16 @@ async function main() {
     /* Intermediate sizes: every 25px between the named breakpoints */
     for (let width = 321; width < 1024; width += 25) {
       await page.setViewport({ width, height: 800 });
-      await sleep(60);
-      const overflow = await page.evaluate(() => {
+      // Let the layout settle past any resize-time transients before
+      // measuring; a momentary reflow during a viewport change is not a
+      // user-visible defect.
+      await sleep(150);
+      const overflow = await page.evaluate(async () => {
+        // Fonts load asynchronously (font-display: optional) and text
+        // re-measures when they arrive, which can momentarily widen the
+        // document by a couple of pixels. Wait for them so the overflow
+        // measurement is taken on the settled layout.
+        await document.fonts.ready;
         const de = document.documentElement;
         return de.scrollWidth - window.innerWidth;
       });

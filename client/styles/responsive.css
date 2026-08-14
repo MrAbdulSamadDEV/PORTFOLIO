@@ -29,10 +29,15 @@
 
 /* The floating social rail would cover the centered content column on
    narrow laptop widths — hide it until the viewport is wide enough that
-   the rail and the content column never overlap. */
+   the rail and the content column never overlap. The footer takes over
+   the socials on every viewport where the rail is hidden. */
 @media (max-width: 1215px) {
   .social-rail {
     display: none;
+  }
+
+  .site-footer__socials {
+    display: block;
   }
 }
 
@@ -299,6 +304,16 @@ html.max-ai-open .social-rail {
     padding: 20px 12px;
   }
 
+  /* Between the 480px and 768px rules the badges inherit the large phone
+     orbits, which can push a badge past the edge mid-orbit on 481-600px
+     screens — scale them here too. */
+  .hero__badge {
+    --orbit-h: 120px;
+    --orbit-v: 175px;
+    --orbit-h2: 72px;
+    --orbit-v2: 105px;
+  }
+
   .project-card__actions {
     flex-direction: column;
     align-items: stretch;
@@ -378,11 +393,13 @@ html.max-ai-open .social-rail {
 
 /* ---------- Narrow laptops ---------- */
 @media (min-width: 769px) and (max-width: 1024px) {
+  /* Orbit radii scaled down so no badge ever crosses the viewport edge
+     during its 20s orbit at these tablet widths. */
   .hero__badge {
-    --orbit-h: clamp(120px, calc(0.25vw - 66px), 190px);
-    --orbit-v: clamp(200px, calc(0.375vw - 65px), 330px);
-    --orbit-h2: clamp(72px, calc(0.15vw - 40px), 114px);
-    --orbit-v2: clamp(120px, calc(0.225vw - 39px), 198px);
+    --orbit-h: clamp(88px, calc(0.115vw - 20px), 132px);
+    --orbit-v: clamp(140px, calc(0.18vw - 44px), 210px);
+    --orbit-h2: clamp(52px, calc(0.07vw - 12px), 80px);
+    --orbit-v2: clamp(84px, calc(0.11vw - 26px), 126px);
   }
 }
 

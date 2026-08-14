@@ -401,6 +401,23 @@ export function renderFooter(site: SiteSettings): string {
     )
     .join("");
 
+  // Brand socials follow the user off the desktop social rail: they live in
+  // the footer on mobile/tablet (where the rail is hidden) and stay hidden
+  // from the desktop footer (where the rail is visible).
+  const socialOrder = ["GitHub", "LinkedIn", "Instagram", "X", "YouTube"];
+  const socialLinks = site.socials
+    .filter((social) => socialOrder.includes(social.name))
+    .sort((a, b) => socialOrder.indexOf(a.name) - socialOrder.indexOf(b.name))
+    .map(
+      (social) => `
+        <li>
+          <a class="site-footer__social" href="${escapeAttr(social.url)}" aria-label="${escapeAttr(social.name)}" title="${escapeAttr(social.name)}" ${externalLinkAttrs()}>
+            ${icon(social.icon)}<span>${escapeHtml(social.name)}</span>
+          </a>
+        </li>`,
+    )
+    .join("");
+
   const year = new Date().getFullYear();
 
   return `
@@ -422,6 +439,9 @@ export function renderFooter(site: SiteSettings): string {
             <li>${icon("fa-solid fa-location-dot")}${escapeHtml(site.site.location)}</li>
           </ul>
         </div>
+      </div>
+      <div class="site-footer__socials">
+        <ul class="site-footer__socials-list">${socialLinks}</ul>
       </div>
       <div class="site-footer__bottom">
         <p>© <span data-copyright-year>${year}</span> ${escapeHtml(site.site.name)}. ${escapeHtml(site.footer.rights)}</p>

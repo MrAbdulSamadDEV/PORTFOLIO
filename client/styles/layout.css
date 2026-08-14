@@ -145,7 +145,22 @@
   box-shadow: var(--shadow-md);
   font-size: 18px;
   color: var(--color-text);
-  transition: background var(--transition-fast) var(--ease-out);
+  opacity: 1;
+  visibility: visible;
+  transition: background var(--transition-fast) var(--ease-out),
+    opacity var(--transition-fast) var(--ease-out),
+    visibility 0s linear 0s;
+}
+
+/* While the drawer is open the hamburger fades out (it would sit under
+   the overlay), then returns once the drawer has finished retracting. */
+html.drawer-open .nav-toggle {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: background var(--transition-fast) var(--ease-out),
+    opacity var(--transition-fast) var(--ease-out),
+    visibility 0s linear var(--transition-fast);
 }
 
 .nav-toggle:hover {
@@ -521,6 +536,53 @@ html[data-theme="dark"] .social-rail {
 
 .site-footer__contact a:hover {
   color: var(--color-accent-strong);
+}
+
+/* Brand socials appear in the footer only where the desktop social rail is
+   hidden (mobile/tablet); on desktop they stay out of the footer. */
+.site-footer__socials {
+  display: none;
+}
+
+.site-footer__socials-list {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 28px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-footer__social {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 44px;
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--color-text-soft);
+  transition: background var(--transition-fast) var(--ease-out),
+    color var(--transition-fast) var(--ease-out),
+    border-color var(--transition-fast) var(--ease-out);
+}
+
+.site-footer__social i {
+  font-size: 16px;
+  color: var(--color-accent-strong);
+}
+
+.site-footer__social:hover {
+  background: var(--color-accent-soft);
+  color: var(--color-text);
+  border-color: var(--color-accent);
 }
 
 .site-footer__bottom {
