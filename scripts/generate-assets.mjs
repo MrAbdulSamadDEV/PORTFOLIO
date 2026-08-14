@@ -79,6 +79,16 @@ function drawProfile(size) {
   </svg>`;
 }
 
+function drawFaviconDark(size) {
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">
+    <rect width="${size}" height="${size}" rx="${size * 0.22}" fill="#121212"/>
+    <circle cx="${size / 2}" cy="${size * 0.47}" r="${size * 0.42}" fill="#ffffff"/>
+    <circle cx="${size / 2}" cy="${size * 0.41}" r="${size * 0.145}" fill="#222222"/>
+    <path d="M ${size * 0.19} ${size * 0.97} a ${size * 0.31} ${size * 0.26} 0 0 1 ${size * 0.62} 0 z" fill="#222222"/>
+    <circle cx="${size * 0.37}" cy="${size * 0.36}" r="${size * 0.05}" fill="#f26d86"/>
+  </svg>`;
+}
+
 function drawOgImage() {
   const w = 1200;
   const h = 630;
@@ -161,6 +171,12 @@ async function main() {
   /* OG image (PNG only — every social platform renders it reliably) */
   const ogSvg = drawOgImage();
   await writeRaster(ogSvg, outputPath("assets", "og-image.png"), { format: "png" });
+
+  /* Dark-theme tab favicon (PNG so Chrome, Edge, Firefox and Safari all
+     render it — SVG favicons with embedded rasters are not supported
+     everywhere and must never be declared as image/png). */
+  const faviconDarkSvg = drawFaviconDark(64);
+  await writeRaster(faviconDarkSvg, outputPath("favicon-dark.png"), { format: "png" });
 
   for (const [name, size] of [
     ["icon-192", 192],

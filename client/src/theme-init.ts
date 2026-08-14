@@ -18,7 +18,7 @@
   document.documentElement.setAttribute("data-theme", theme);
   var icon = document.querySelector('link[rel="icon"]');
   if (icon) {
-    icon.setAttribute("href", theme === "dark" ? "/favicon-dark.svg" : "/assets/logos/logo.png");
+    icon.setAttribute("href", theme === "dark" ? "/favicon-dark.png" : "/assets/logos/logo.png");
   }
   var colorMeta = document.querySelector('meta[name="theme-color"]');
   if (colorMeta) {

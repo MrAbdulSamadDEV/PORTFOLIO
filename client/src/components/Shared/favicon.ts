@@ -7,7 +7,14 @@
  */
 
 const LIGHT_ICON = "/assets/logos/logo.png";
-const DARK_ICON = "/favicon-dark.svg";
+const DARK_ICON = "/favicon-dark.png";
+
+/**
+ * Favicon MIME types. The light and dark icons are both PNGs (SVG favicons
+ * with embedded rasters aren't supported by every browser), so the link's
+ * declared `type` never needs to change — this guarantees the icon swap
+ * works in Chrome, Edge, Firefox and Safari.
+ */
 
 const THEME_COLORS: Record<string, string> = {
   light: "#ffffff",

@@ -16,6 +16,7 @@ import { initPageTransitions } from "./components/Shared/page-transitions.js";
 import { initProgressBar } from "./components/Shared/progress-bar.js";
 import { initSkills } from "./components/Shared/skills.js";
 import { initTheme } from "./components/Shared/theme.js";
+import { prefersReducedMotion } from "./utils/dom.js";
 import { initReveal } from "./hooks/use-reveal.js";
 import { initScrollSpy } from "./hooks/use-scroll-spy.js";
 
@@ -187,9 +188,54 @@ function removeMaxSkeleton(): void {
   document.querySelectorAll<HTMLElement>(".ai-skeleton").forEach((element) => element.remove());
 }
 
+/* ---------- Premium loading screen ---------- */
+
+/**
+ * Shows the page loader from first paint, locks scrolling while it is
+ * visible, then fades it out (min ~1.5s, hard cap 2s). The markup is
+ * server-rendered so there is never a flash of unstyled content. The
+ * overlay never blocks pointer events, and reduced-motion visitors get an
+ * immediate hide with no animations.
+ */
+function initPageLoader(): void {
+  const loader = document.querySelector<HTMLElement>("[data-loader]");
+  if (!loader) return;
+
+  const reducedMotion = prefersReducedMotion();
+  const startedAt = performance.now();
+  let hidden = false;
+
+  const hide = (): void => {
+    if (hidden) return;
+    hidden = true;
+    document.documentElement.classList.remove("loader-active");
+    if (reducedMotion) {
+      loader.remove();
+      return;
+    }
+    loader.classList.add("is-hidden");
+    window.setTimeout(() => loader.remove(), 500);
+  };
+
+  document.documentElement.classList.add("loader-active");
+
+  const finishWhenReady = (): void => {
+    const elapsed = performance.now() - startedAt;
+    window.setTimeout(hide, Math.max(0, (reducedMotion ? 0 : 1500) - elapsed));
+  };
+
+  if (document.readyState === "complete") {
+    finishWhenReady();
+  } else {
+    window.addEventListener("load", finishWhenReady, { once: true });
+  }
+  window.setTimeout(hide, 2000);
+}
+
 function boot(): void {
   document.documentElement.classList.add("js");
 
+  initPageLoader();
   initTheme();
   initFavicon();
   initHeroTyping();
