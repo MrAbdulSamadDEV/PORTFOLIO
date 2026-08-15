@@ -142,6 +142,29 @@ html.max-ai-open .social-rail {
     width: min(420px, 88vw);
   }
 
+  /* The hero photo (and its orbiting badges) is removed from the layout
+     entirely below 768px - no space is reserved and the image is never
+     requested on mobile (media-gated <picture> + lazy loading). The text
+     column takes the full width and stays centered. */
+@media (max-width: 767px) {
+  .hero__visual {
+    display: none;
+  }
+
+  .hero__content {
+    margin-top: 0;
+    padding-top: 28px;
+  }
+
+  .hero__description {
+    max-width: 52ch;
+  }
+
+  .hero__actions {
+    margin-bottom: 0;
+  }
+}
+
   .hero__badge {
     font-size: 12px;
     padding: 8px 14px;
@@ -317,6 +340,19 @@ html.max-ai-open .social-rail {
   .project-card__actions {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 320px;
+    margin-inline: auto;
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+    text-align: center;
   }
 
   .projects-cta {

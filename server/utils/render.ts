@@ -147,12 +147,13 @@ export function renderHero(site: SiteSettings): string {
       <div class="hero__visual">
         <div class="hero__photo-frame">
           <picture>
-            <source srcset="${escapeAttr(site.hero.image)}" type="image/webp">
+            <source media="(min-width: 768px)" srcset="${escapeAttr(site.hero.image)}" type="image/webp">
+            <source media="(min-width: 768px)" srcset="${escapeAttr(site.hero.imagePng)}" type="image/png">
             <img class="hero__photo-img"
               src="${escapeAttr(site.hero.imagePng)}"
               alt="${escapeAttr(site.hero.imageAlt)}"
               width="${site.hero.imageWidth}" height="${site.hero.imageHeight}"
-              fetchpriority="high" decoding="async">
+              loading="lazy" decoding="async">
           </picture>
           ${badges}
         </div>
