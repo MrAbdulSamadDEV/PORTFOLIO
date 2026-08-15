@@ -131,6 +131,12 @@ html.loader-active {
   transition: opacity 0.45s var(--ease-out), visibility 0.45s var(--ease-out);
 }
 
+/* Every page except the first Home load of a session hides the loader
+   markup before paint (class set synchronously in theme-init). */
+html.no-loader .page-loader {
+  display: none;
+}
+
 html[data-theme="dark"] .page-loader {
   --loader-bg: #000000;
   --loader-accent: #fa7d90;

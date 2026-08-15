@@ -24,4 +24,18 @@
   if (colorMeta) {
     colorMeta.setAttribute("content", theme === "dark" ? "#000000" : "#ffffff");
   }
+  /* The loading screen only ever plays on the very first Home page load of
+     a session - every other page (and every repeat Home load, including
+     internal navigation back to it) hides the loader markup before the
+     page can paint, so there is no flash of white and no layout shift. */
+  var seenLoader = false;
+  try {
+    seenLoader = sessionStorage.getItem("loader-seen") === "1";
+  } catch (error) {
+    seenLoader = false;
+  }
+  var isHome = location.pathname === "/" || location.pathname === "/index.html";
+  if (!isHome || seenLoader) {
+    document.documentElement.classList.add("no-loader");
+  }
 })();

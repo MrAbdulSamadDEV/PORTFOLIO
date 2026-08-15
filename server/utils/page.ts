@@ -28,10 +28,35 @@ export interface PageOptions {
   footer: string;
   backToTop: string;
   aiWidget: string;
+  /** Only the Home page ships the loading screen markup. */
+  showLoader?: boolean;
+  /** Only the Home page preloads the hero photo. */
+  preloadHero?: boolean;
 }
 
 let templateCache: string | null = null;
 let criticalCssCache: string | null = null;
+
+/**
+ * The loading screen markup is server-rendered on the Home page only, so
+ * no other page ever contains it (zero download, zero flash). The client
+ * additionally hides it on repeat Home loads within the same session.
+ */
+function renderLoader(): string {
+  return `<div class="page-loader" data-loader aria-hidden="true">
+    <div class="page-loader__emblem">
+      <span class="page-loader__ring page-loader__ring--outer" aria-hidden="true"></span>
+      <span class="page-loader__ring page-loader__ring--arc" aria-hidden="true"></span>
+      <span class="page-loader__particle page-loader__particle--1" aria-hidden="true"></span>
+      <span class="page-loader__particle page-loader__particle--2" aria-hidden="true"></span>
+      <span class="page-loader__particle page-loader__particle--3" aria-hidden="true"></span>
+      <span class="page-loader__particle page-loader__particle--4" aria-hidden="true"></span>
+      <img class="page-loader__logo" src="/assets/logos/logo.png" alt="" width="52" height="52" fetchpriority="high">
+    </div>
+    <div class="page-loader__progress" aria-hidden="true"><span class="page-loader__bar"></span></div>
+    <p class="page-loader__text">Preparing Experience...</p>
+  </div>`;
+}
 
 function loadTemplate(): string {
   if (templateCache === null) {
@@ -101,6 +126,8 @@ export function renderPage(site: SiteSettings, options: PageOptions): string {
     "%%FOOTER%%": options.footer,
     "%%BACK_TO_TOP%%": options.backToTop,
     "%%AI_WIDGET%%": options.aiWidget,
+    "%%LOADER%%": options.showLoader === true ? renderLoader() : "",
+    "%%HERO_PRELOAD%%": options.preloadHero === true ? '<link rel="preload" href="/assets/hero/hero.webp" as="image" media="(min-width: 768px)">' : "",
   };
 
   let html = loadTemplate();

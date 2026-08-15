@@ -41,7 +41,7 @@
 
   <link rel="preload" href="/fonts/inter-latin-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/space-grotesk-latin-600.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/hero/hero.webp" as="image" media="(min-width: 768px)">
+  %%HERO_PRELOAD%%
 
   <style id="critical-css">%%CRITICAL_CSS%%</style>
 
@@ -50,19 +50,7 @@
 <body class="%%BODY_CLASS%%">
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
-  <div class="page-loader" data-loader aria-hidden="true">
-    <div class="page-loader__emblem">
-      <span class="page-loader__ring page-loader__ring--outer" aria-hidden="true"></span>
-      <span class="page-loader__ring page-loader__ring--arc" aria-hidden="true"></span>
-      <span class="page-loader__particle page-loader__particle--1" aria-hidden="true"></span>
-      <span class="page-loader__particle page-loader__particle--2" aria-hidden="true"></span>
-      <span class="page-loader__particle page-loader__particle--3" aria-hidden="true"></span>
-      <span class="page-loader__particle page-loader__particle--4" aria-hidden="true"></span>
-      <img class="page-loader__logo" src="/assets/logos/logo.png" alt="" width="52" height="52" fetchpriority="high">
-    </div>
-    <div class="page-loader__progress" aria-hidden="true"><span class="page-loader__bar"></span></div>
-    <p class="page-loader__text">Preparing Experience...</p>
-  </div>
+  %%LOADER%%
 
   <div class="site-background" aria-hidden="true">
     <div class="site-background__glow site-background__glow--one"></div>

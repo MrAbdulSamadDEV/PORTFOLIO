@@ -1680,7 +1680,7 @@
       "category": "misc",
       "id": "site-loader-092",
       "question": "What is the loading screen on this site?",
-      "answer": "The loading screen is a short themed welcome (about 1.5-2 seconds): Abdul's logo inside a glowing energy ring with floating particles, a progress bar and the text \"Preparing Experience...\". It respects reduced-motion preferences and never blocks clicks.",
+      "answer": "The loading screen is a short themed welcome (under 1 second) that only plays on the very first Home page visit of each session: Abdul's logo inside a glowing energy ring with floating particles, a progress bar and the text \"Preparing Experience...\". It never appears on other pages, during internal navigation or in repeat visits, it respects reduced-motion preferences and never blocks clicks.",
       "keywords": [
         "loading screen",
         "what is the loading screen",

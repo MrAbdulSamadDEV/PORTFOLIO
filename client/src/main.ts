@@ -190,16 +190,39 @@ function removeMaxSkeleton(): void {
 
 /* ---------- Premium loading screen ---------- */
 
+const LOADER_KEY = "loader-seen";
+const LOADER_MIN_MS = 800;
+const LOADER_MAX_MS = 1000;
+
 /**
- * Shows the page loader from first paint, locks scrolling while it is
- * visible, then fades it out (min ~1.5s, hard cap 2s). The markup is
- * server-rendered so there is never a flash of unstyled content. The
- * overlay never blocks pointer events, and reduced-motion visitors get an
+ * Shows the page loader only on the very first Home page load of a
+ * session, locks scrolling while it is visible, then fades it out. The
+ * markup is server-rendered on the Home page only, and `theme-init` adds
+ * `no-loader` before paint on every other page (and repeat Home loads),
+ * so the loader can never flash or shift layout anywhere else - it also
+ * never appears during internal navigation, MAX AI or theme switches,
+ * which do not reload the document. Reduced-motion visitors get an
  * immediate hide with no animations.
  */
 function initPageLoader(): void {
   const loader = document.querySelector<HTMLElement>("[data-loader]");
   if (!loader) return;
+
+  let seen = false;
+  try {
+    seen = sessionStorage.getItem(LOADER_KEY) === "1";
+  } catch {
+    seen = false;
+  }
+  if (seen) {
+    loader.remove();
+    return;
+  }
+  try {
+    sessionStorage.setItem(LOADER_KEY, "1");
+  } catch {
+    // Storage unavailable - the loader still plays for this load only.
+  }
 
   const reducedMotion = prefersReducedMotion();
   const startedAt = performance.now();
@@ -221,7 +244,7 @@ function initPageLoader(): void {
 
   const finishWhenReady = (): void => {
     const elapsed = performance.now() - startedAt;
-    window.setTimeout(hide, Math.max(0, (reducedMotion ? 0 : 1500) - elapsed));
+    window.setTimeout(hide, Math.max(0, LOADER_MIN_MS - elapsed));
   };
 
   if (document.readyState === "complete") {
@@ -229,7 +252,7 @@ function initPageLoader(): void {
   } else {
     window.addEventListener("load", finishWhenReady, { once: true });
   }
-  window.setTimeout(hide, 2000);
+  window.setTimeout(hide, LOADER_MAX_MS);
 }
 
 function boot(): void {

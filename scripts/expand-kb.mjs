@@ -924,7 +924,7 @@ faq("misc", "site-cursor", "Why does the cursor look different?",
   ]);
 
 faq("misc", "site-loader", "What is the loading screen on this site?",
-  "The loading screen is a short themed welcome (about 1.5-2 seconds): Abdul's logo inside a glowing energy ring with floating particles, a progress bar and the text \"Preparing Experience...\". It respects reduced-motion preferences and never blocks clicks.",
+  "The loading screen is a short themed welcome (under 1 second) that only plays on the very first Home page visit of each session: Abdul's logo inside a glowing energy ring with floating particles, a progress bar and the text \"Preparing Experience...\". It never appears on other pages, during internal navigation or in repeat visits, it respects reduced-motion preferences and never blocks clicks.",
   [
     "loading screen",
     "what is the loading screen",

@@ -43,6 +43,7 @@ function sharedOptions(body: string, bodyClass: string, jsonLd: unknown[], activ
     footer: renderFooter(settings),
     backToTop: renderBackToTop(settings),
     aiWidget: renderAiWidget(settings),
+    showLoader: false,
   };
 }
 
@@ -74,6 +75,8 @@ export function homePage(_req: Request, res: Response): void {
     ogType: "profile",
     ogTitle: meta.title,
     ogDescription: meta.description,
+    showLoader: true,
+    preloadHero: true,
   });
 }
 
