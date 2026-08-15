@@ -168,6 +168,48 @@ function initCopyrightYear(): void {
   }
 }
 
+/* ---------- Magnetic buttons ----------
+   Key CTAs drift a few pixels toward the pointer for a tactile, premium
+   feel. GPU-only (transform via CSS custom properties), disabled on touch
+   devices and for reduced-motion visitors. Hover lift is preserved: the
+   magnet and the lift share the same transform. */
+function initMagneticButtons(): void {
+  const reducedMotion = prefersReducedMotion();
+  const finePointer = window.matchMedia("(pointer: fine)").matches;
+  if (reducedMotion || !finePointer) return;
+
+  const buttons = document.querySelectorAll<HTMLElement>(".hero__actions .btn, .projects-cta .btn--primary");
+  if (!buttons.length) return;
+
+  const MAX_PULL = 5;
+
+  const reset = (button: HTMLElement): void => {
+    button.classList.remove("is-magnetic");
+    button.style.removeProperty("--mx");
+    button.style.removeProperty("--my");
+  };
+
+  for (const button of buttons) {
+    button.addEventListener(
+      "pointermove",
+      (event) => {
+        const rect = button.getBoundingClientRect();
+        const dx = event.clientX - (rect.left + rect.width / 2);
+        const dy = event.clientY - (rect.top + rect.height / 2);
+        const distance = Math.hypot(dx, dy);
+        const strength = Math.min(1, distance / 90);
+        const pullX = (dx / (rect.width / 2 || 1)) * MAX_PULL * strength;
+        const pullY = (dy / (rect.height / 2 || 1)) * MAX_PULL * strength;
+        button.classList.add("is-magnetic");
+        button.style.setProperty("--mx", `${pullX.toFixed(2)}px`);
+        button.style.setProperty("--my", `${pullY.toFixed(2)}px`);
+      },
+      { passive: true },
+    );
+    button.addEventListener("pointerleave", () => reset(button), { passive: true });
+  }
+}
+
 /* ---------- MAX AI skeleton while the lazy chunk loads ---------- */
 
 function addMaxSkeleton(): void {
@@ -275,6 +317,7 @@ function boot(): void {
   initPageTransitions();
   initCopyrightYear();
   initKeyboardShortcuts();
+  initMagneticButtons();
 
   // The contact form exists on the home page and the /contact page.
   initContactForm();

@@ -3,22 +3,24 @@
    breadcrumbs, page hero, AI assistant widget
    ============================================================ */
 
-/* ---------- Buttons ---------- */
+/* ---------- Buttons ----------
+   Flat, modern controls: soft lift + accent glow on hover, gentle press
+   on click. Only transform/opacity/box-shadow are animated (GPU safe). */
 .btn {
-  --edge-depth: rgba(0, 0, 0, 0.28);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 13px 24px;
-  border-radius: var(--radius-md);
+  padding: 13px 26px;
+  border-radius: var(--radius-lg);
   font-size: 15px;
   font-weight: 600;
   line-height: 1.2;
   white-space: nowrap;
   position: relative;
   isolation: isolate;
-  box-shadow: 0 5px 0 var(--edge-depth), var(--shadow-sm);
+  border: 1px solid transparent;
+  box-shadow: var(--shadow-sm);
   transition: background var(--transition-base) var(--ease-out),
     color var(--transition-base) var(--ease-out),
     border-color var(--transition-base) var(--ease-out),
@@ -26,44 +28,33 @@
     box-shadow var(--transition-base) var(--ease-out);
 }
 
-html[data-theme="dark"] .btn {
-  --edge-depth: rgba(255, 255, 255, 0.1);
-}
-
-.btn::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 55% 0;
-  border-radius: inherit;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.35), transparent 65%);
-  pointer-events: none;
-  opacity: 0.45;
-}
-
 .btn:active {
-  transform: translateY(3px);
-  box-shadow: 0 1px 0 var(--edge-depth), var(--shadow-sm);
+  transform: translateY(1px);
+  box-shadow: var(--shadow-sm);
 }
 
+/* Primary action: pink brand gradient with near-black text (high
+   contrast on both themes — the pink stays the star, never washed out). */
 .btn--primary {
-  background: linear-gradient(to bottom, color-mix(in srgb, var(--color-accent) 88%, white), var(--color-accent));
-  color: var(--color-text);
+  background: linear-gradient(135deg, var(--color-accent), color-mix(in srgb, var(--color-accent) 82%, #d94a66));
+  color: #1a0b0d;
 }
 
 .btn--primary:hover {
-  background: linear-gradient(to bottom, var(--color-accent-hover), var(--color-accent));
   transform: translateY(-2px);
-  box-shadow: 0 7px 0 var(--edge-depth), var(--shadow-accent);
+  box-shadow: var(--shadow-accent);
+  filter: brightness(1.06);
 }
 
 .btn--dark {
-  background: linear-gradient(to bottom, var(--color-inverse), color-mix(in srgb, var(--color-inverse) 88%, black));
+  background: var(--color-inverse);
   color: var(--color-inverse-text);
+  border-color: var(--color-border-strong);
 }
 
 .btn--dark:hover {
   transform: translateY(-2px);
-  box-shadow: 0 7px 0 var(--edge-depth), var(--shadow-md);
+  box-shadow: var(--shadow-md);
 }
 
 .btn--ghost {
@@ -73,29 +64,35 @@ html[data-theme="dark"] .btn {
 }
 
 .btn--ghost:hover {
-  border-color: var(--color-text);
+  border-color: var(--color-accent);
+  color: var(--color-accent-strong);
   transform: translateY(-2px);
-  box-shadow: 0 7px 0 var(--edge-depth), var(--shadow-sm);
+  box-shadow: var(--shadow-sm);
 }
 
 .btn--small {
-  padding: 9px 16px;
+  padding: 9px 18px;
   font-size: 13.5px;
-  border-radius: var(--radius-sm);
-  box-shadow: 0 3px 0 var(--edge-depth), var(--shadow-sm);
+  border-radius: var(--radius-md);
 }
 
 .btn--small:hover {
-  box-shadow: 0 5px 0 var(--edge-depth), var(--shadow-accent);
+  box-shadow: var(--shadow-accent);
 }
 
 .btn--small.btn--dark:hover {
-  box-shadow: 0 5px 0 var(--edge-depth), var(--shadow-md);
+  box-shadow: var(--shadow-md);
 }
 
 .btn--small:active {
-  transform: translateY(2px);
-  box-shadow: 0 0 0 var(--edge-depth), var(--shadow-sm);
+  transform: translateY(1px);
+}
+
+/* Magnetic CTAs: JS feeds --mx/--my custom properties from pointer
+   position; the hover lift composes with the magnet in one transform so
+   neither effect fights the other (press feedback is preserved). */
+.btn.is-magnetic:not(:active) {
+  transform: translate3d(var(--mx, 0px), calc(var(--my, 0px) - 2px), 0);
 }
 
 /* ---------- About cards ---------- */
@@ -110,18 +107,20 @@ html[data-theme="dark"] .btn {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  padding: 28px 26px;
-  background: var(--color-surface);
+  padding: 30px 28px;
+  background: var(--color-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-  transition: transform var(--transition-base) var(--ease-out), box-shadow var(--transition-base) var(--ease-out), border-color var(--transition-base) var(--ease-out);
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition-base) var(--ease-out),
+    box-shadow var(--transition-base) var(--ease-out),
+    border-color var(--transition-base) var(--ease-out);
 }
 
 .about-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--color-accent);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lift);
+  border-color: color-mix(in srgb, var(--color-accent) 45%, var(--color-border));
 }
 
 .about-card__icon {
@@ -158,19 +157,22 @@ html[data-theme="dark"] .btn {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
-  padding: 26px 16px;
-  background: var(--color-surface-soft);
+  gap: 8px;
+  padding: 28px 16px;
+  background: var(--color-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   text-align: center;
-  transition: transform var(--transition-base) var(--ease-out), box-shadow var(--transition-base) var(--ease-out), background var(--transition-base) var(--ease-out);
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition-base) var(--ease-out),
+    box-shadow var(--transition-base) var(--ease-out),
+    border-color var(--transition-base) var(--ease-out);
 }
 
 .about-stat:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
-  background: var(--color-accent-soft);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lift);
+  border-color: color-mix(in srgb, var(--color-accent) 45%, var(--color-border));
 }
 
 .about-stat__icon {
@@ -330,18 +332,20 @@ html[data-theme="dark"] .btn {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 28px 26px;
-  background: var(--color-surface);
+  padding: 30px 28px;
+  background: var(--color-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-  transition: transform var(--transition-base) var(--ease-out), box-shadow var(--transition-base) var(--ease-out), border-color var(--transition-base) var(--ease-out);
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition-base) var(--ease-out),
+    box-shadow var(--transition-base) var(--ease-out),
+    border-color var(--transition-base) var(--ease-out);
 }
 
 .skills-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--color-accent);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lift);
+  border-color: color-mix(in srgb, var(--color-accent) 45%, var(--color-border));
 }
 
 .skills-card__header {
@@ -440,11 +444,11 @@ html[data-theme="dark"] .btn {
 .project-card {
   display: flex;
   flex-direction: column;
-  background: var(--color-surface);
+  background: var(--color-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-card);
   transition: transform var(--transition-base) var(--ease-out),
     box-shadow var(--transition-base) var(--ease-out),
     border-color var(--transition-base) var(--ease-out);
@@ -453,7 +457,22 @@ html[data-theme="dark"] .btn {
 .project-card:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow-lg);
-  border-color: var(--color-accent);
+  border-color: color-mix(in srgb, var(--color-accent) 45%, var(--color-border));
+}
+
+/* A soft accent veil slides over the media on hover — depth without
+   heavier effects. */
+.project-card__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--color-accent-soft), transparent 55%);
+  opacity: 0;
+  transition: opacity var(--transition-base) var(--ease-out);
+}
+
+.project-card:hover .project-card__media::after {
+  opacity: 1;
 }
 
 .project-card__media {
@@ -653,11 +672,11 @@ html[data-theme="dark"] .project-card__status {
   display: flex;
   align-items: center;
   gap: 16px;
-  padding: 20px 22px;
-  background: var(--color-surface);
+  padding: 22px 24px;
+  background: var(--color-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-card);
   transition: transform var(--transition-base) var(--ease-out),
     box-shadow var(--transition-base) var(--ease-out),
     border-color var(--transition-base) var(--ease-out);
@@ -665,8 +684,8 @@ html[data-theme="dark"] .project-card__status {
 
 .contact-card:hover {
   transform: translateX(4px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--color-accent);
+  box-shadow: var(--shadow-lift);
+  border-color: color-mix(in srgb, var(--color-accent) 45%, var(--color-border));
 }
 
 .contact-card > i {
@@ -715,10 +734,10 @@ html[data-theme="dark"] .project-card__status {
 
 /* ---------- Forms ---------- */
 .contact-form-wrap {
-  background: var(--color-surface);
+  background: var(--color-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-lift);
   padding: 32px;
 }
 
@@ -758,7 +777,7 @@ html[data-theme="dark"] .project-card__status {
 .contact-form__field textarea {
   width: 100%;
   min-width: 0;
-  padding: 12px 14px;
+  padding: 13px 16px;
   border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-md);
   background: var(--color-surface);
@@ -781,7 +800,7 @@ html[data-theme="dark"] .project-card__status {
 .contact-form__field textarea:focus {
   outline: none;
   border-color: var(--color-accent-strong);
-  box-shadow: 0 0 0 3px var(--color-accent-soft);
+  box-shadow: 0 0 0 4px var(--color-accent-soft);
 }
 
 .contact-form__field.has-error input,
@@ -1087,7 +1106,7 @@ html[data-theme="light"] .ai-tour {
 .ai-widget__toggle:hover {
   transform: translateY(-3px);
   background: var(--color-accent);
-  color: var(--color-text);
+  color: #1a0b0d;
   box-shadow: var(--shadow-accent);
 }
 
@@ -1095,7 +1114,7 @@ html[data-theme="light"] .ai-tour {
    floating chat; on phones the chat header avatar takes over as the icon. */
 .ai-widget__toggle.is-active {
   background: var(--color-accent);
-  color: var(--color-text);
+  color: #1a0b0d;
   transform: translateY(-2px);
   box-shadow: 0 0 0 3px rgba(250, 125, 144, 0.4), var(--shadow-accent);
 }
@@ -1218,7 +1237,7 @@ html[data-theme="dark"] .ai-chat {
   height: 42px;
   border-radius: var(--radius-md);
   background: var(--color-accent);
-  color: var(--color-text);
+  color: #1a0b0d;
   font-size: 18px;
   flex-shrink: 0;
   transition: box-shadow var(--transition-base) var(--ease-out), background var(--transition-base) var(--ease-out);

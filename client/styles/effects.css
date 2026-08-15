@@ -138,7 +138,7 @@ html.no-loader .page-loader {
 }
 
 html[data-theme="dark"] .page-loader {
-  --loader-bg: #000000;
+  --loader-bg: #050505;
   --loader-accent: #fa7d90;
   --loader-accent-soft: rgba(250, 125, 144, 0.55);
   --loader-ink: #f5f5f7;
