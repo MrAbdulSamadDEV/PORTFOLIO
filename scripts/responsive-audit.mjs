@@ -1,9 +1,11 @@
 /**
  * Responsive audit with headless Chrome: sweeps every common viewport
- * width (320px → 3840px) and verifies:
+ * width (180px smartwatches → 7680px 8K) and verifies:
  *   - no horizontal page overflow (document/body scrollWidth <= innerWidth)
  *   - no element visually escapes the viewport (broken/cut layout)
  *   - nav switchpoints (desktop rail vs mobile drawer) behave
+ *   - smartwatch sizes keep every control reachable (nav toggle, buttons,
+ *     drawer links, MAX AI) with no oversized images
  *   - MAX AI opens full-screen on phones with dim overlay, highlighted icon,
  *     locked background, hidden nav, required welcome text, working close
  *     and restored scrolling
@@ -37,6 +39,10 @@ const check = (label, ok, extra = "") => {
 
 /* [width, height] for the sweep — covers the requested device list. */
 const WIDTHS = [
+  [180, 320],   // small smartwatch
+  [200, 320],   // smartwatch
+  [240, 320],   // large smartwatch
+  [280, 320],   // smartwatch / smallest phone
   [320, 568],   // iPhone SE 1st gen / small Android
   [360, 800],   // small Android
   [375, 667],   // iPhone SE
@@ -60,6 +66,7 @@ const WIDTHS = [
   [1920, 1080], // full HD
   [2560, 1440], // 2K
   [3840, 2160], // 4K
+  [7680, 4320], // 8K
 ];
 
 const server = spawn(process.execPath, ["dist/server/app.js"], {
@@ -192,6 +199,8 @@ async function main() {
 
     /* ---------- MAX AI: full-screen on phones, floating on desktop ---------- */
     const MAX_WIDTHS = [
+      [240, 320],
+      [280, 320],
       [320, 568],
       [390, 844],
       [600, 960],
@@ -362,24 +371,27 @@ async function main() {
     check("desktop pointer: custom cursor enabled", fineCursor);
 
     /* ---------- Screenshots at key widths (home) ---------- */
-    for (const width of [320, 390, 768, 820, 1024, 1440, 1920, 3840]) {
+    for (const width of [180, 240, 320, 390, 768, 820, 1024, 1440, 1920, 3840, 7680]) {
       await page.setViewport({ width, height: width >= 1920 ? 1080 : width >= 1024 ? 900 : 844 });
       await sleep(200);
       await page.screenshot({ path: `${SHOT_DIR}/home-${width}.png`, fullPage: false });
     }
 
-    /* ---------- Projects page at phone + desktop ---------- */
-    for (const [width, height] of [[390, 844], [768, 1024], [1440, 900]]) {
+    /* ---------- Projects section at smartwatch + phone + tablet + desktop ---------- */
+    for (const [width, height] of [[180, 320], [390, 844], [768, 1024], [1440, 900]]) {
       await page.setViewport({ width, height });
-      await page.goto(BASE + "/projects", { waitUntil: "networkidle0", timeout: 60000 });
+      await page.goto(BASE + "/", { waitUntil: "networkidle0", timeout: 60000 });
       await sleep(400);
       const proj = await page.evaluate(
         (src) => {
           const de = document.documentElement;
+          const section = document.getElementById("projects");
+          const cards = Array.from(section?.querySelectorAll(".project-card") ?? []);
           return {
             overflow: de.scrollWidth - window.innerWidth,
             escapers: eval(src),
-            buttonsInside: Array.from(document.querySelectorAll(".project-card")).every((card) => {
+            cardCount: cards.length,
+            buttonsInside: cards.every((card) => {
               const cr = card.getBoundingClientRect();
               return Array.from(card.querySelectorAll(".btn")).every((btn) => {
                 const br = btn.getBoundingClientRect();
@@ -392,6 +404,7 @@ async function main() {
       );
       check(`projects ${width}px no overflow`, proj.overflow <= 1, `${proj.overflow}px`);
       check(`projects ${width}px no escapers`, proj.escapers.length === 0, proj.escapers.join(", "));
+      check(`projects ${width}px cards rendered`, proj.cardCount >= 1, `${proj.cardCount}`);
       check(`projects ${width}px buttons inside cards`, proj.buttonsInside);
     }
 
@@ -408,10 +421,10 @@ async function main() {
     }
     page.on("console", onConsole);
 
-    /* ---------- Contact page at phone + desktop ---------- */
-    for (const [width, height] of [[390, 844], [1440, 900]]) {
+    /* ---------- Contact section at smartwatch + phone + desktop ---------- */
+    for (const [width, height] of [[180, 320], [390, 844], [1440, 900]]) {
       await page.setViewport({ width, height });
-      await page.goto(BASE + "/contact", { waitUntil: "networkidle0", timeout: 60000 });
+      await page.goto(BASE + "/", { waitUntil: "networkidle0", timeout: 60000 });
       await sleep(400);
       const contact = await page.evaluate(
         (src) => {
@@ -424,6 +437,69 @@ async function main() {
       check(`contact ${width}px no escapers`, contact.escapers.length === 0, contact.escapers.join(", "));
       await page.screenshot({ path: `${SHOT_DIR}/contact-${width}.png`, fullPage: false });
     }
+
+    /* ---------- Smartwatch (180-320px): reachable controls, no oversized media ---------- */
+    for (const width of [180, 240, 320]) {
+      await page.setViewport({ width, height: 320 });
+      await page.goto(BASE + "/", { waitUntil: "networkidle0", timeout: 60000 });
+      await sleep(400);
+      const watch = await page.evaluate(
+        (src) => {
+          const toggle = document.querySelector(".nav-toggle");
+          const toggleRect = toggle.getBoundingClientRect();
+          const heroActions = document.querySelector(".hero__actions");
+          return {
+            overflow: document.documentElement.scrollWidth - window.innerWidth,
+            escapers: eval(src),
+            toggleVisible: getComputedStyle(toggle).display !== "none",
+            toggleSize: Math.min(toggleRect.width, toggleRect.height),
+            heroActionsVisible: heroActions.getBoundingClientRect().width > 0,
+            undersizedButtons: Array.from(document.querySelectorAll(".btn"))
+              .map((b) => Math.min(b.getBoundingClientRect().width, b.getBoundingClientRect().height))
+              .filter((s) => s < 32).length,
+            oversizedImages: Array.from(document.querySelectorAll("img"))
+              .filter((img) => img.getBoundingClientRect().width > window.innerWidth + 1).length,
+          };
+        },
+        escapersSrc,
+      );
+      check(`watch ${width}px no overflow`, watch.overflow <= 1, `${watch.overflow}px`);
+      check(`watch ${width}px no escapers`, watch.escapers.length === 0, watch.escapers.join(", "));
+      check(`watch ${width}px nav toggle reachable`, watch.toggleVisible && watch.toggleSize >= 32, `size ${watch.toggleSize}`);
+      check(`watch ${width}px hero actions visible`, watch.heroActionsVisible);
+      check(`watch ${width}px no undersized buttons`, watch.undersizedButtons === 0, `${watch.undersizedButtons} too small`);
+      check(`watch ${width}px no oversized images`, watch.oversizedImages === 0, `${watch.oversizedImages} too wide`);
+      await page.screenshot({ path: `${SHOT_DIR}/watch-${width}.png`, fullPage: false });
+    }
+
+    /* Smartwatch: drawer opens with every item reachable, MAX goes fullscreen */
+    await page.setViewport({ width: 180, height: 320 });
+    await page.goto(BASE + "/", { waitUntil: "networkidle0", timeout: 60000 });
+    await sleep(400);
+    await page.click(".nav-toggle");
+    await sleep(400);
+    const watchDrawer = await page.evaluate(() => ({
+      open: document.querySelector(".mobile-drawer").classList.contains("is-open"),
+      overflow: document.documentElement.scrollWidth - window.innerWidth,
+      allLinksVisible: Array.from(document.querySelectorAll(".mobile-drawer__list a, .mobile-drawer__list button")).every(
+        (el) => el.getBoundingClientRect().height > 0,
+      ),
+    }));
+    check("watch 180px drawer opens", watchDrawer.open);
+    check("watch 180px drawer no overflow", watchDrawer.overflow <= 1, `${watchDrawer.overflow}px`);
+    check("watch 180px all drawer items reachable", watchDrawer.allLinksVisible);
+    await page.click(".mobile-drawer__close");
+    await sleep(300);
+    await page.click("[data-ai-toggle]");
+    await sleep(500);
+    const watchMax = await page.evaluate(() => {
+      const chat = document.querySelector("[data-ai-chat]");
+      const s = getComputedStyle(chat);
+      return s.position === "fixed" && s.width === `${window.innerWidth}px`;
+    });
+    check("watch 180px MAX fullscreen", watchMax);
+    await page.keyboard.press("Escape");
+    await sleep(300);
 
     /* ---------- MAX AI first-visit onboarding tour ---------- */
     /* Desktop: fresh storage -> tour appears, Get Started opens MAX */

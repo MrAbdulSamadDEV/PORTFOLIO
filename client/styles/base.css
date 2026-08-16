@@ -126,6 +126,9 @@ html {
   scroll-padding-top: 28px;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  /* Hard guarantee: nothing on the page can ever create a horizontal
+     scrollbar, from 180px smartwatches to 8K monitors. */
+  overflow-x: clip;
 }
 
 body {

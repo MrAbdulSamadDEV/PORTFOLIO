@@ -97,7 +97,7 @@ faq("skills", "groups-overview", "What skill groups does Abdul have?",
   ]);
 
 faq("skills", "tech-count", "How many technologies has Abdul learned?",
-  `Abdul has learned 25+ technologies and counting — from HTML5, CSS3, JavaScript and TypeScript to Node.js, Express, Python, C++, C#, cloud data engineering, Linux and Git.\n\nHis about page stats say "${ABOUT.statistics[1].value} Technologies Learned".`,
+  `Abdul has learned 25+ technologies and counting — from HTML5, CSS3, JavaScript and TypeScript to Node.js, Express, Python, C++, C#, cloud data engineering, Linux and Git.\n\nHis about page stats say "${ABOUT.statistics.find((s) => s.label === "Technologies Learned")?.value ?? "25+"} Technologies Learned".`,
   [
     "how many technologies",
     "how many technologies has he learned",
@@ -386,7 +386,7 @@ faq("projects", "furnecher-challenge", "What was the hardest part of Furnecher?"
   ]);
 
 faq("projects", "portfolio-pages", "What pages does this portfolio have?",
-  "This portfolio has three pages:\n\n• Home — hero, about, skills, journey and contact sections\n• Projects — the project showcase\n• Contact — contact cards and a message form\n\nPlus a custom 404 page and the MAX AI assistant on every page.",
+  "This portfolio is a single-page site — everything lives on the home page:\n\n• Hero — intro and typing roles\n• About — who he is, journey and stats\n• Skills — the full toolkit\n• Projects — the complete project showcase\n• Contact — contact cards and a message form\n\nPlus a custom 404 page and the MAX AI assistant on every page.",
   [
     "what pages does this site have",
     "pages of the portfolio",
@@ -450,7 +450,7 @@ faq("projects", "portfolio-fast", "Is this website fast?",
   ]);
 
 faq("projects", "portfolio-responsive", "Is this portfolio responsive?",
-  "Fully responsive — the layout adapts across 320px phones, tablets, laptops and 4K desktops, with a mobile navigation drawer, full-screen MAX AI on phones and a floating chat on desktop. A 225-check responsive audit passes across every sweep.",
+  "Fully responsive — the layout adapts from 180px smartwatch screens to 8K displays, with a mobile navigation drawer, full-screen MAX AI on phones and a floating chat on desktop. A 300+ check responsive audit passes across every sweep.",
   [
     "is this portfolio responsive",
     "does this site work on mobile",
@@ -577,7 +577,7 @@ faq("contact", "pronounce-name", "How do you pronounce Abdul Samad?",
   ]);
 
 faq("contact", "karachi-address", "What is Abdul's exact address?",
-  "Abdul is based in Karachi, Pakistan — he shares his city and timezone publicly but keeps his exact street address private for safety.\n\nThe contact page shows his email and phone for real conversations.",
+  "Abdul is based in Karachi, Pakistan — he shares his city and timezone publicly but keeps his exact street address private for safety.\n\nThe contact section shows his email and phone for real conversations.",
   [
     "what is his exact address",
     "his address",
@@ -628,7 +628,7 @@ faq("contact", "weekend-contact", "Can I contact Abdul on weekends?",
   ]);
 
 faq("contact", "work-with", "How do I work with Abdul?",
-  "Reach him through the contact page — drop a message in the form or email mr.abdulsamadabdullah@gmail.com with your idea, scope, timeline and budget.\n\nHe's open to internships, freelance projects and collaborations, remote and onsite.",
+  "Reach him through the contact section — drop a message in the form or email mr.abdulsamadabdullah@gmail.com with your idea, scope, timeline and budget.\n\nHe's open to internships, freelance projects and collaborations, remote and onsite.",
   [
     "how do i work with abdul",
     "work with abdul",
@@ -857,7 +857,7 @@ faq("misc", "max-mobile", "Does MAX AI work on mobile?",
   ]);
 
 faq("misc", "max-elsewhere", "Is MAX AI available on other websites?",
-  "MAX AI currently lives only on this portfolio. It's built by Abdul and he's open to building similar assistants for clients — ask him via the contact page!",
+  "MAX AI currently lives only on this portfolio. It's built by Abdul and he's open to building similar assistants for clients — ask him via the contact section!",
   [
     "is max on other sites",
     "can i get max for my website",
@@ -967,7 +967,7 @@ faq("misc", "site-security", "Is this website secure?",
   ]);
 
 faq("misc", "site-template", "Can I use this portfolio as a template?",
-  "This portfolio is Abdul's personal project — its code is visible on GitHub (https://github.com/MrAbdulSamadDEV) where you can explore it and contribute. For your own site, Abdul is happy to build something similar for you — reach out through the contact page!",
+  "This portfolio is Abdul's personal project — its code is visible on GitHub (https://github.com/MrAbdulSamadDEV) where you can explore it and contribute. For your own site, Abdul is happy to build something similar for you — reach out through the contact section!",
   [
     "can i use this as a template",
     "is this site a template",
@@ -981,7 +981,7 @@ faq("misc", "site-template", "Can I use this portfolio as a template?",
   ]);
 
 faq("misc", "site-blog", "Does this site have a blog?",
-  "Not yet — the site currently has Home, Projects and Contact pages. A blog might come later as Abdul's learning journey grows. Stay tuned!",
+  "Not yet — the site is a single-page portfolio with About, Skills, Projects and Contact sections on the home page. A blog might come later as Abdul's learning journey grows. Stay tuned!",
   [
     "does this site have a blog",
     "blog",
@@ -1473,7 +1473,7 @@ faq("misc", "bucket-list", "What is on Abdul's bucket list?",
   ]);
 
 faq("misc", "contact-summary", "How can I reach Abdul quickly?",
-  "The fastest ways to reach Abdul:\n\n• Email — mr.abdulsamadabdullah@gmail.com\n• Phone — +92 370 8033443\n• LinkedIn — linkedin.com/in/MRABDULSAMADDEV\n\nAll links are also on the contact page.",
+  "The fastest ways to reach Abdul:\n\n• Email — mr.abdulsamadabdullah@gmail.com\n• Phone — +92 370 8033443\n• LinkedIn — linkedin.com/in/MRABDULSAMADDEV\n\nAll links are also in the contact section.",
   [
     "how can i reach abdul quickly",
     "fastest way to contact",
@@ -1775,7 +1775,7 @@ faq("misc", "search-chat", "Can I search the MAX AI conversation?",
 /* ------------------------------------------------------------------ */
 
 faq("misc", "home-sections", "What sections are on the home page?",
-  "The home page flows through: Hero (intro + typing roles), About (who he is, journey and stats), Skills (the full toolkit), Projects preview, Contact cards and the footer — plus MAX AI available on every page.",
+  "The home page flows through: Hero (intro + typing roles), About (who he is, journey and stats), Skills (the full toolkit), Projects (the complete showcase), Contact cards and the footer — plus MAX AI available on every page.",
   [
     "what sections are on the home page",
     "home page sections",
@@ -1798,7 +1798,7 @@ faq("misc", "about-section", "What is in the About section?",
   ]);
 
 faq("misc", "find-section", "How do I jump to a section quickly?",
-  "Use the nav links (About, Skills) to scroll straight to a section, or the keyboard shortcut Home/End to jump to the very top or bottom. On mobile, open the menu button.",
+  "Use the nav links (About, Skills, Projects, Contact) to scroll straight to a section, or the keyboard shortcut Home/End to jump to the very top or bottom. On mobile, open the menu button.",
   [
     "how do i jump to a section",
     "jump to about",

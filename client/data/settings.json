@@ -63,17 +63,17 @@
     },
     {
       "label": "Projects",
-      "url": "/projects",
-      "section": "projects-page",
+      "url": "/#projects",
+      "section": "projects",
       "icon": "fa-solid fa-folder-open",
-      "action": "page"
+      "action": "scroll"
     },
     {
       "label": "Contact",
-      "url": "/contact",
-      "section": "contact-page",
+      "url": "/#contact",
+      "section": "contact",
       "icon": "fa-solid fa-envelope",
-      "action": "page"
+      "action": "scroll"
     },
     {
       "label": "MAX",
@@ -145,12 +145,12 @@
     "description": "I build modern, fast and scalable web applications with clean code and a great user experience.",
     "primaryButton": {
       "label": "View Projects",
-      "url": "/projects",
+      "url": "/#projects",
       "icon": "fa-solid fa-folder-open"
     },
     "secondaryButton": {
       "label": "Contact Me",
-      "url": "/contact",
+      "url": "/#contact",
       "icon": "fa-solid fa-envelope"
     },
     "floatingBadges": [
@@ -215,11 +215,6 @@
     "myJourney": "My journey started in 2024 with Microsoft Word — my very first computer skill — and grew step by step into web development, full stack engineering and finally cloud data engineering. Every stage has been built through hands-on practice, real projects and continuous study.",
     "myGoals": "My goal is to become a world-class engineer who bridges the gap between data engineering and full stack development — building intelligent, scalable systems that solve real-world problems. I'm always exploring new technologies and I'm open to internships, freelance work and exciting collaborations.",
     "statistics": [
-      {
-        "value": "1",
-        "label": "Featured Project",
-        "icon": "fa-solid fa-diagram-project"
-      },
       {
         "value": "25+",
         "label": "Technologies Learned",

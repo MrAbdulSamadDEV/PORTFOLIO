@@ -324,7 +324,7 @@
 /* ---------- Skills ---------- */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 24px;
 }
 
@@ -397,6 +397,7 @@
 
 .skill__info {
   flex: 1;
+  min-width: 0;
 }
 
 .skill__top {
@@ -512,7 +513,6 @@
   pointer-events: none;
 }
 
-.project-card__featured,
 .project-card__status {
   display: inline-flex;
   align-items: center;
@@ -524,22 +524,6 @@
   background: rgba(255, 255, 255, 0.94);
   border: 1px solid var(--color-border);
   box-shadow: var(--shadow-sm);
-}
-
-.project-card__featured {
-  color: var(--color-warning);
-  background: rgba(255, 243, 205, 0.96);
-  border-color: #f5e3a8;
-}
-
-html[data-theme="dark"] .project-card__featured {
-  color: #f5c558;
-  background: rgba(63, 46, 10, 0.9);
-  border-color: rgba(245, 227, 168, 0.4);
-}
-
-.project-card__featured i {
-  font-size: 11px;
 }
 
 .project-card__status {
@@ -657,7 +641,7 @@ html[data-theme="dark"] .project-card__status {
 /* ---------- Contact ---------- */
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
   gap: 40px;
   align-items: start;
 }

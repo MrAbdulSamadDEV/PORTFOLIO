@@ -28,7 +28,7 @@ async function audit() {
     args: ["--no-sandbox", "--disable-gpu", "--window-size=1440,900"],
   });
   try {
-    for (const route of ["/", "/projects", "/contact"]) {
+    for (const route of ["/"]) {
       const page = await browser.newPage();
       await page.setViewport({ width: 1440, height: 900 });
       await page.goto(BASE + route, { waitUntil: "networkidle0", timeout: 60000 });

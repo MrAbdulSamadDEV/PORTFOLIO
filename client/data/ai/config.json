@@ -1,6 +1,6 @@
 {
   "welcome": "Have any questions? Ask MAX.\n\nI'm Abdul Samad's personal portfolio assistant — ask me about his projects, skills, experience, education, certificates or contact details.",
-  "unknown": "I couldn't find an exact answer to that yet. Try asking about Abdul's projects, skills, experience, education, certificates or contact details — or ask me something like \"Show your projects\" or \"How can I contact you?\".",
+  "unknown": "I'm not sure about that one yet. Ask me about Abdul Samad's projects, skills, experience, education, certificates or contact details — for example, \"Show projects\" or \"How can I contact him?\"",
   "synonyms": {
     "identity": ["who is", "who are", "about you", "about him", "intro", "introduction", "introduce", "person", "owner", "developer", "bio", "biography", "background", "story", "profile", "himself", "yourself"],
     "skills": ["abilities", "capabilities", "expertise", "talents", "strengths", "technologies", "technology", "tech", "stacks", "stack", "tools", "languages", "know", "knows", "good at", "proficient", "qualified", "experienced", "familiar"],
@@ -65,7 +65,7 @@
     "career": ["job", "jobs", "employer", "company", "role", "position", "career", "workplace"]
   },
   "intents": {
-    "about": ["who", "about", "intro", "introduce", "biography", "bio", "yourself", "samad", "name", "developer", "person", "owner", "creator"],
+    "about": ["who", "about", "intro", "introduce", "biography", "bio", "yourself", "samad", "name", "identity", "developer", "person", "owner", "creator"],
     "skills": ["skill", "skills", "know", "knows", "technologies", "tech", "stack", "tools", "languages", "proficient", "frontend", "backend", "html", "css", "javascript", "typescript", "python", "node", "express", "react", "cloud", "linux", "git", "database", "api"],
     "projects": ["project", "projects", "built", "builds", "work", "apps", "applications", "demo", "showcase", "furnecher", "ecommerce", "e-commerce", "store", "website"],
     "education": ["study", "studies", "studying", "education", "university", "college", "school", "degree", "major", "academic", "graduate", "fsc", "student"],
@@ -74,6 +74,8 @@
     "contact": ["contact", "email", "mail", "phone", "call", "whatsapp", "reach", "connect", "message", "linkedin", "github", "location", "meet", "social"],
     "services": ["services", "service", "offer", "provide", "freelance", "hire", "hiring", "price", "pricing", "cost", "rates", "process", "remote", "support", "help with"],
     "learning": ["learning", "learn", "studying", "journey", "roadmap", "future", "plans", "goals", "advice", "next"],
+    "greeting": ["hello", "hi", "hey", "salam", "assalam", "walaikum", "greeting", "greetings", "howdy", "yo", "sup", "hola", "namaste", "marhaba", "peace", "welcome", "morning", "afternoon", "evening", "night"],
+    "goodbye": ["bye", "goodbye", "farewell", "see you", "see you later", "take care", "gtg", "cya", "leaving", "signing off"],
     "misc": ["hello", "hi", "hey", "thanks", "thank", "help", "capabilities", "max", "assistant", "joke", "fun"]
   }
 }

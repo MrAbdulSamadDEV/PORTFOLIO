@@ -213,8 +213,8 @@ async function main() {
 
     await page.screenshot({ path: `${SHOT_DIR}/home-top.png`, fullPage: false });
 
-    /* ============ Projects page ============ */
-    await page.goto(BASE + "/projects", { waitUntil: "networkidle0", timeout: 60000 });
+    /* ============ Projects section (home) ============ */
+    await page.goto(BASE + "/", { waitUntil: "networkidle0", timeout: 60000 });
     await sleep(600);
 
     const cardCount = await page.evaluate(() => document.querySelectorAll("[data-category]").length);
@@ -239,15 +239,21 @@ async function main() {
     check("github + demo link per project", githubLinks.length === cardCount && demoLinks.length === cardCount, `${githubLinks.length} / ${demoLinks.length} / ${cardCount}`);
     check("all action links have rel", (await page.evaluate(() => Array.from(document.querySelectorAll(".project-card__actions a")).every((a) => a.rel.includes("noopener")))) === true);
 
-    /* Nav active on projects */
-    const navActive = await page.evaluate(() => document.querySelector(".site-nav__link.is-active")?.getAttribute("aria-label"));
-    check("nav highlights Projects", (navActive ?? "").includes("Projects"), `active: ${navActive}`);
+    /* Nav scroll-spy highlights Projects after smooth-scrolling to the section */
+    await page.click("[data-nav-scroll='projects']");
+    await sleep(1000);
+    const navActive = await page.evaluate(() => ({
+      label: document.querySelector(".site-nav__link.is-active")?.getAttribute("aria-label") ?? "",
+      hash: window.location.hash,
+    }));
+    check("nav highlights Projects", navActive.label.includes("Projects"), `active: ${navActive.label}`);
+    check("scroll link cleans the hash", navActive.hash === "", `hash: ${navActive.hash}`);
 
     await page.screenshot({ path: `${SHOT_DIR}/projects.png`, fullPage: false });
 
-    /* ============ Contact page form ============ */
-    await page.goto(BASE + "/contact", { waitUntil: "networkidle0", timeout: 60000 });
-    await sleep(400);
+    /* ============ Contact section form ============ */
+    await page.click("[data-nav-scroll='contact']");
+    await sleep(1000);
 
     await page.click(".contact-form__submit");
     await sleep(300);

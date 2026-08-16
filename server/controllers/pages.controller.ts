@@ -16,13 +16,11 @@ import { renderPage, type PageOptions } from "../utils/page.js";
 import {
   renderAiWidget,
   renderBackToTop,
-  renderContactPageContent,
   renderFooter,
   renderHomeContent,
   renderMobileDrawer,
   renderNav,
   renderNotFoundContent,
-  renderProjectsPageContent,
   renderSocialRail,
 } from "../utils/render.js";
 
@@ -63,7 +61,8 @@ export function homePage(_req: Request, res: Response): void {
     buildBreadcrumbList(settings, [{ name: "Home", url: canonical }]),
     buildOrganization(settings),
     buildProfileImage(settings),
-    buildItemList(settings, projects.filter((project) => project.featured)),
+    buildContactPoint(settings),
+    buildItemList(settings, projects),
   ];
 
   sendPage(res, {
@@ -77,55 +76,6 @@ export function homePage(_req: Request, res: Response): void {
     ogDescription: meta.description,
     showLoader: true,
     preloadHero: true,
-  });
-}
-
-export function projectsPage(_req: Request, res: Response): void {
-  const meta = settings.pages.projects;
-  const url = "/projects";
-  const canonical = `${domain}${url}`;
-
-  const jsonLd = [
-    buildWebPage(settings, canonical, meta.title, meta.description, "CollectionPage"),
-    buildBreadcrumbList(settings, [
-      { name: "Home", url: `${domain}/` },
-      { name: "Projects", url: canonical },
-    ]),
-    buildItemList(settings, projects),
-    buildOrganization(settings),
-  ];
-
-  sendPage(res, {
-    ...sharedOptions(renderProjectsPageContent(settings), "page-projects", jsonLd, "projects-page"),
-    title: meta.title,
-    description: meta.description,
-    keywords: meta.keywords,
-    canonical,
-  });
-}
-
-export function contactPage(_req: Request, res: Response): void {
-  const meta = settings.pages.contact;
-  const url = "/contact";
-  const canonical = `${domain}${url}`;
-
-  const jsonLd = [
-    buildWebPage(settings, canonical, meta.title, meta.description, "ContactPage"),
-    buildBreadcrumbList(settings, [
-      { name: "Home", url: `${domain}/` },
-      { name: "Contact", url: canonical },
-    ]),
-    buildContactPoint(settings),
-    buildPerson(settings),
-    buildOrganization(settings),
-  ];
-
-  sendPage(res, {
-    ...sharedOptions(renderContactPageContent(settings), "page-contact", jsonLd, "contact-page"),
-    title: meta.title,
-    description: meta.description,
-    keywords: meta.keywords,
-    canonical,
   });
 }
 

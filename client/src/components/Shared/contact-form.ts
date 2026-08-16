@@ -66,8 +66,7 @@ export function initContactForm(): void {
   let fields: FormField[] = [];
   let submittedOnce = false;
 
-  // Fields exist on both the home contact section and the /contact page;
-  // wire up whichever form is present.
+  // The contact form lives in the home contact section; wire it up.
   const bind = (): void => {
     fields = createValidators(form);
     for (const field of fields) {

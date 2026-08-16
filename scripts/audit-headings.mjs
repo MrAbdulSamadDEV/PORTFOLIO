@@ -20,7 +20,7 @@ async function waitForServer() {
   throw new Error("server did not start");
 }
 
-const routes = ["/", "/projects", "/contact", "/not-found"];
+const routes = ["/", "/not-found"];
 
 async function audit() {
   await waitForServer();

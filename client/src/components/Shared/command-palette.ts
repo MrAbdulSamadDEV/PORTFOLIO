@@ -51,8 +51,8 @@ function buildCommands(): PaletteCommand[] {
     { id: "home", label: "Home", keywords: ["start", "go to", "hero"], icon: "fa-solid fa-house", run: () => navigate("/") },
     { id: "about", label: "About", keywords: ["who", "bio"], icon: "fa-solid fa-user", run: () => navigate("/#about") },
     { id: "skills", label: "Skills", keywords: ["tech", "stack", "tools"], icon: "fa-solid fa-code", run: () => navigate("/#skills") },
-    { id: "projects", label: "Projects", keywords: ["pro", "work", "portfolio", "featured"], icon: "fa-solid fa-folder-open", run: () => navigate("/projects") },
-    { id: "contact", label: "Contact", keywords: ["email me", "hire", "reach"], icon: "fa-solid fa-envelope", run: () => navigate("/contact") },
+    { id: "projects", label: "Projects", keywords: ["pro", "work", "portfolio"], icon: "fa-solid fa-folder-open", run: () => navigate("/#projects") },
+    { id: "contact", label: "Contact", keywords: ["email me", "hire", "reach"], icon: "fa-solid fa-envelope", run: () => navigate("/#contact") },
     {
       id: "max",
       label: "Open MAX AI",

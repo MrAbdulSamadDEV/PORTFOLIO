@@ -75,7 +75,7 @@ const structureChecks = (html, pageName) => {
 async function main() {
   await waitFor();
   let allOk = true;
-  for (const [route, name] of [["/", "home"], ["/projects", "projects"], ["/contact", "contact"], ["/nope", "404"]]) {
+  for (const [route, name] of [["/", "home"], ["/nope", "404"]]) {
     const html = await (await fetch(BASE + route)).text();
     allOk = validateJsonLd(html, name) && allOk;
     allOk = structureChecks(html, name) && allOk;

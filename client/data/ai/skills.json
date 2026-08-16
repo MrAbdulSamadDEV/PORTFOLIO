@@ -247,7 +247,7 @@
     {
       "id": "react-level",
       "question": "How good are you with React?",
-      "answer": "He has real-world React experience — his featured project Furnecher is built with React, Node.js and MongoDB. He's comfortable with components, hooks and modern React patterns.",
+      "answer": "He has real-world React experience — his flagship project Furnecher is built with React, Node.js and MongoDB. He's comfortable with components, hooks and modern React patterns.",
       "keywords": [
         "react",
         "reactjs",
@@ -264,7 +264,7 @@
     {
       "id": "databases",
       "question": "Do you use databases?",
-      "answer": "Yes — he works with MongoDB, and he's actively deepening his database knowledge as part of his cloud data engineering studies. His featured project Furnecher uses MongoDB for data storage.",
+      "answer": "Yes — he works with MongoDB, and he's actively deepening his database knowledge as part of his cloud data engineering studies. His flagship project Furnecher uses MongoDB for data storage.",
       "keywords": [
         "databases",
         "database",

@@ -11,16 +11,18 @@ SEO-friendly URLs and a full accessibility pass.
 
 - **Server-side rendering** — Express 5 + TypeScript renders every page; no
   client-side dependency to see the complete content.
-- **Clean URLs** — only `/`, `/projects`, `/contact` and the 404 page exist.
-  Home sections scroll in place via the History API (no `#hash` URLs), and
-  legacy `.html`/trailing-slash URLs redirect (301) to their canonical forms.
+- **Clean URLs** — a single-page site: only `/` and the 404 page exist.
+  About, Skills, Projects and Contact live as sections on the home page and
+  scroll in place via the History API (no `#hash` URLs), and legacy
+  `.html`/trailing-slash URLs (including the old `/projects` and `/contact`
+  pages) redirect (301) to their canonical forms.
 - **MAX AI assistant** — a floating chat widget that answers questions about
   Abdul's projects, skills and contact details from a bundled
   knowledge base (`client/data/ai.json`). Typing animation, suggested
   questions, conversation search, copy-to-clipboard and clear chat. Works
   with no network access at all.
-- **Projects page** — live category filtering, featured badges, expandable
-  card details, Source + Live Demo buttons.
+- **Projects section** — the complete project showcase on the home page:
+  status badges, tech tags, Source + Live Demo buttons.
 - **Contact form** — frontend validation with accessible inline errors; on
   success it opens the visitor's email client with a pre-filled message.
 - **Design system** — white background with a pink accent (`#FFB6C1`), fixed
@@ -62,7 +64,7 @@ portfolio/
 │   ├── data/               # All editable content (JSON)
 │   │   ├── settings.json   #   site info, nav, hero, about, skills,
 │   │   │                   #   contact, footer, AI widget labels
-│   │   ├── projects.json   #   10 projects (image, links, category…)
+│   │   ├── projects.json   #   projects (image, links, category…)
 │   │   └── ai.json         #   MAX AI knowledge base (100+ FAQs)
 │   ├── index.html          # SSR template (%%TOKENS%% replaced server-side)
 │   ├── public/             # Static assets served at the site root
@@ -83,7 +85,7 @@ portfolio/
 │   ├── config/             # env paths + settings/projects/ai loaders
 │   ├── controllers/        # page handlers (metadata + JSON-LD)
 │   ├── middleware/         # SEO: canonical redirects + cache control
-│   ├── routes/             # /, /projects, /contact, 404
+│   ├── routes/             # / and 404
 │   └── utils/              # HTML escaping, structured data, section renderers
 ├── scripts/
 │   ├── fetch-fonts.mjs     # download self-hosted fonts (rerunnable)
@@ -130,8 +132,8 @@ Everything user-facing is plain JSON — no rebuild of logic required:
 - `client/data/settings.json` — name, tagline, nav items, social links, hero,
   about cards + statistics + timeline, skills groups, contact details, footer
   and AI widget labels.
-- `client/data/projects.json` — project cards. Set `"featured": true` to show
-  a project in the home "Featured Projects" section.
+- `client/data/projects.json` — project cards (title, description, images,
+  category, tech tags, GitHub + live demo links, status, date).
 - `client/data/ai.json` — MAX AI's knowledge. Each FAQ has `question`,
   `answer` (plain text; lines starting with `• ` render as bullet lists) and
   `keywords` used for matching. `synonyms` expand user queries, `intents`

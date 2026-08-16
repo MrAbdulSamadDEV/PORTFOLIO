@@ -17,6 +17,7 @@
     "vercel-build": "node scripts/vercel-build.mjs",
     "start": "node dist/server/app.js",
     "typecheck": "tsc -p tsconfig.server.json --noEmit && tsc -p tsconfig.client.json --noEmit",
+    "lint": "npm run typecheck",
     "assets": "node scripts/generate-assets.mjs",
     "smoke": "node scripts/smoke.mjs",
     "audit:ai": "node scripts/bench-ai.mjs",

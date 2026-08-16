@@ -45,6 +45,8 @@ export const INTENT_FALLBACKS: Record<string, string> = {
   contact: "contact-methods",
   services: "services",
   learning: "learning-journey",
+  greeting: "hello",
+  goodbye: "thanks-goodbye",
   misc: "what-can-you-do",
 };
 
@@ -74,6 +76,82 @@ export function stem(word: string): string {
   if (w.endsWith("s")) return w.slice(0, -1);
   return w;
 }
+
+/**
+ * Casual chat abbreviations, shorthand and common spelling variants,
+ * expanded before matching so informal messages ("who r u", "hw are u",
+ * "wats ur github", "walaikum assalam") resolve like their full forms.
+ *
+ * Normalize applies these to queries, keywords and synonyms alike, so the
+ * expansions are always consistent on both sides of a comparison (no
+ * keyword in the knowledge base contains a slang token, so the keyword
+ * side is never rewritten). Longest patterns come first so multi-word
+ * shorthand is expanded before single-letter tokens ("r u" → "are you"
+ * beats "u" → "you").
+ */
+const SLANG_EXPANSIONS: Array<[RegExp, string]> = [
+  [/\bassalam o alaikum\b/g, "assalam alaikum"],
+  [/\bassalam u alaikum\b/g, "assalam alaikum"],
+  [/\bassalamu alaikum\b/g, "assalam alaikum"],
+  [/\bassalamualaikum\b/g, "assalam alaikum"],
+  [/\bassalamoalaikum\b/g, "assalam alaikum"],
+  [/\bassalamoualaikum\b/g, "assalam alaikum"],
+  [/\basalam o alikum\b/g, "assalam alaikum"],
+  [/\baslam o alaikum\b/g, "assalam alaikum"],
+  [/\bsalam alaikum\b/g, "assalam alaikum"],
+  [/\bwalaikum salam\b/g, "walaikum assalam"],
+  [/\bwalaikumus salam\b/g, "walaikum assalam"],
+  [/\bwalaikumassalam\b/g, "walaikum assalam"],
+  [/\bwalaikumsalam\b/g, "walaikum assalam"],
+  [/\bwa alaikum assalam\b/g, "walaikum assalam"],
+  [/\bwa alaikum\b/g, "walaikum assalam"],
+  [/\bthank u very much\b/g, "thank you very much"],
+  [/\bthank u\b/g, "thank you"],
+  [/\bhow r u\b/g, "how are you"],
+  [/\bhow ru\b/g, "how are you"],
+  [/\bwhere r u\b/g, "where are you"],
+  [/\bwru\b/g, "where are you"],
+  [/\bwhat r u\b/g, "what are you"],
+  [/\br u\b/g, "are you"],
+  [/\bu r\b/g, "you are"],
+  [/\btyvm\b/g, "thank you very much"],
+  [/\bwanna\b/g, "want to"],
+  [/\bgonna\b/g, "going to"],
+  [/\bgotta\b/g, "got to"],
+  [/\bgtg\b/g, "goodbye"],
+  [/\bcya\b/g, "goodbye"],
+  [/\bgb\b/g, "goodbye"],
+  [/\bty\b/g, "thanks"],
+  [/\bthx\b/g, "thanks"],
+  [/\bplz\b/g, "please"],
+  [/\bpls\b/g, "please"],
+  [/\bim\b/g, "i am"],
+  [/\bwats\b/g, "what is"],
+  [/\bwhts\b/g, "what is"],
+  [/\bwhats\b/g, "what is"],
+  [/\bwat\b/g, "what"],
+  [/\bwht\b/g, "what"],
+  [/\bwut\b/g, "what"],
+  [/\bwh\b/g, "what"],
+  [/\babt\b/g, "about"],
+  [/\bur\b/g, "your"],
+  [/\bgd\b/g, "good"],
+  [/\bgud\b/g, "good"],
+  [/\bgm\b/g, "good morning"],
+  [/\bgn\b/g, "good night"],
+  [/\bnd\b/g, "and"],
+  [/\bn\b/g, "and"],
+  [/\bhw\b/g, "how"],
+  [/\bcud\b/g, "could"],
+  [/\bshd\b/g, "should"],
+  [/\bdunno\b/g, "do not know"],
+  [/\bgr8\b/g, "great"],
+  [/\bm8\b/g, "mate"],
+  [/\bmaxx\b/g, "max"],
+  [/\bsalaam\b/g, "salam"],
+  [/\bu\b/g, "you"],
+  [/\br\b/g, "are"],
+];
 
 /**
  * Levenshtein distance with an early-out bound. Returns `bound + 1` when the
@@ -115,7 +193,20 @@ function typoTolerance(len: number): number {
   return 2;
 }
 
-/** LRU-ish memo so large knowledge bases normalize each keyword only once. */
+/** Applies every slang pattern in order (longest/most specific first). */
+function expandSlang(value: string): string {
+  let out = value;
+  for (const [pattern, replacement] of SLANG_EXPANSIONS) {
+    out = out.replace(pattern, replacement);
+  }
+  return out;
+}
+
+/**
+ * LRU-ish memo so large knowledge bases normalize each keyword only once.
+ * The cache is keyed by the RAW text, so queries and keywords each get
+ * their own stable entry.
+ */
 const normalizeCache = new Map<string, string>();
 
 /** Fast word-boundary phrase search on already-normalized text. Uses
@@ -157,12 +248,15 @@ export function normalize(text: string): string {
   // when applied twice, because findBestAnswer passes its normalized query
   // into findAllAnswers. Plural handling lives in stem() instead (guarded by
   // NO_PLURAL_STRIP), so "address" never becomes "addres" -> "addre".
-  const value = text
+  let value = text
     .toLowerCase()
     .normalize("NFKD")
     .replace(/[\u2018\u2019']/g, "")
-    .replace(/\bs\b(?=\s)/g, "")
     .replace(/[^a-z0-9\s+@.\-]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  value = expandSlang(value)
+    .replace(/\bs\b(?=\s)/g, "")
     .replace(/\s+/g, " ")
     .trim();
   if (normalizeCache.size > 200000) normalizeCache.clear();
@@ -220,10 +314,18 @@ export function detectIntent(query: string, kb: AiKnowledgeBase): string | null 
     for (const keyword of keywords) {
       const normalized = normalize(keyword);
       const keywordTokens = normalized.split(" ").filter((t) => t.length >= 2 && !STOPWORDS.has(stem(t)));
-      if (keywordTokens.length === 0) continue;
+      if (keywordTokens.length === 0) {
+        // Stopword-only intent phrases ("who are you", "how are you").
+        if (includesPhrase(query, normalized)) count += 1;
+        continue;
+      }
 
       const matched = keywordTokens.some((keywordToken) => {
         for (const queryToken of tokens) {
+          // Stopwords ("your", "is") must never fuzzy-match meaningful
+          // keyword tokens ("your" ≈ "courses" is two edits apart) — they
+          // are only allowed through stopword-only phrase keywords.
+          if (STOPWORDS.has(stem(queryToken))) continue;
           if (tokensMatch(queryToken, keywordToken)) return true;
         }
         return false;

@@ -4,7 +4,7 @@ const browser = await puppeteer.launch({ executablePath: "C:\\Program Files\\Goo
 const page = await browser.newPage();
 page.on("console", (m) => m.type() === "error" && console.log("CONSOLE ERROR:", m.text()));
 let allOk = true;
-for (const path of ["/", "/projects", "/contact", "/not-found-page"]) {
+for (const path of ["/", "/not-found-page"]) {
   await page.goto("http://127.0.0.1:3470" + path, { waitUntil: "networkidle0", timeout: 60000 });
   await new Promise((r) => setTimeout(r, 400));
   const result = await page.evaluate(() => {

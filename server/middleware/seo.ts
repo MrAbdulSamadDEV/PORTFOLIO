@@ -4,8 +4,8 @@ import type { NextFunction, Request, Response } from "express";
  * Permanently redirects duplicate URL variants to their canonical forms:
  *   /index.html  → /
  *   /home        → /
- *   /projects.html → /projects
- *   /projects/   → /projects
+ *   /projects    → /#projects   (Projects is now a home-page section)
+ *   /contact/    → /#contact    (Contact is now a home-page section)
  * This prevents duplicate-content issues for search engines.
  */
 export function canonicalRedirects(req: Request, res: Response, next: NextFunction): void {
@@ -18,9 +18,25 @@ export function canonicalRedirects(req: Request, res: Response, next: NextFuncti
     return;
   }
 
+  // Projects and Contact live on the home page now; keep legacy page URLs
+  // alive with 301 redirects to their sections (the client scrolls to the
+  // section on load and cleans the hash from the URL).
+  const legacySection: Record<string, string> = {
+    "/projects": "/#projects",
+    "/projects/": "/#projects",
+    "/projects.html": "/#projects",
+    "/contact": "/#contact",
+    "/contact/": "/#contact",
+    "/contact.html": "/#contact",
+  };
+  if (legacySection[rawPath]) {
+    res.redirect(301, legacySection[rawPath]);
+    return;
+  }
+
   if (rawPath.endsWith(".html")) {
     const clean = rawPath.slice(0, -5);
-    const target = clean === "" ? "/" : clean;
+    const target = clean === "" || clean === "/index" ? "/" : clean;
     res.redirect(301, target);
     return;
   }

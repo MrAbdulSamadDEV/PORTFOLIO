@@ -27,6 +27,8 @@ const today = new Date().toISOString().slice(0, 10);
 const homeTitle = settings.pages.home.title;
 const homeDescription = settings.pages.home.description;
 
+/* The site is a single page: Projects and Contact are home sections.
+   A fragment URL is added per section so anchor links are indexed. */
 const urls = [
   {
     loc: `${domain}/`,
@@ -34,8 +36,8 @@ const urls = [
     priority: "1.0",
     image: { loc: `${domain}${settings.site.ogImagePng}`, title: homeTitle },
   },
-  { loc: `${domain}/projects`, changefreq: "weekly", priority: "0.9" },
-  { loc: `${domain}/contact`, changefreq: "yearly", priority: "0.8" },
+  { loc: `${domain}/#projects`, changefreq: "weekly", priority: "0.9" },
+  { loc: `${domain}/#contact`, changefreq: "yearly", priority: "0.8" },
 ];
 
 const urlset = urls

@@ -262,7 +262,7 @@
     {
       "id": "n-44",
       "question": "Which is Abdul's best project?",
-      "answer": "The portfolio website itself is his proudest build — it includes server-side rendering, full SEO, an offline AI assistant (MAX AI) and a sub-second load. His featured client project is SALAAR'S HOME, a furniture e-commerce store.",
+      "answer": "The portfolio website itself is his proudest build — it includes server-side rendering, full SEO, an offline AI assistant (MAX AI) and a sub-second load. His flagship client project is SALAAR'S HOME, a furniture e-commerce store.",
       "keywords": ["best project", "favorite project", "top project", "proudest work", "his favorite build", "best work", "favorite build"]
     },
     {
@@ -280,7 +280,7 @@
     {
       "id": "n-47",
       "question": "Can I see Abdul's projects live?",
-      "answer": "Yes — visit the Projects page on this website (/projects). Each project card has GitHub and Live Demo buttons so you can explore the code and see it running.",
+      "answer": "Yes — scroll to the Projects section on the home page. Each project card has GitHub and Live Demo buttons so you can explore the code and see it running.",
       "keywords": ["live projects", "see projects", "project demos", "view work", "live demo", "projects link", "check his work"]
     },
     {

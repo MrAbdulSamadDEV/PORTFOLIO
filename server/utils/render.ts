@@ -24,6 +24,23 @@ function externalLinkAttrs(): string {
   return 'target="_blank" rel="noopener noreferrer"';
 }
 
+/**
+ * Adds the smooth-scroll behavior for in-page section anchors like
+ * `/#projects`. The client navigation component intercepts these links,
+ * scrolls to the target section and cleans the hash from the URL.
+ */
+const HASH_SECTIONS: Record<string, string> = {
+  about: "about",
+  skills: "skills",
+  projects: "projects",
+  contact: "contact",
+};
+
+function scrollLinkAttrs(href: string): string {
+  const section = HASH_SECTIONS[href.startsWith("/#") ? href.slice(2) : ""];
+  return section ? ` data-nav-scroll="${section}"` : "";
+}
+
 export function renderNav(site: SiteSettings, activeSection: string): string {
   const items = site.nav
     .filter((item) => item.action !== "ai")
@@ -136,10 +153,10 @@ export function renderHero(site: SiteSettings): string {
         </p>
         <p class="hero__description">${escapeHtml(site.hero.description)}</p>
         <div class="hero__actions">
-          <a class="btn btn--primary" href="${escapeAttr(site.hero.primaryButton.url)}">
+          <a class="btn btn--primary" href="${escapeAttr(site.hero.primaryButton.url)}"${scrollLinkAttrs(site.hero.primaryButton.url)}>
             <span>${escapeHtml(site.hero.primaryButton.label)}</span>${icon(site.hero.primaryButton.icon)}
           </a>
-          <a class="btn btn--ghost" href="${escapeAttr(site.hero.secondaryButton.url)}">
+          <a class="btn btn--ghost" href="${escapeAttr(site.hero.secondaryButton.url)}"${scrollLinkAttrs(site.hero.secondaryButton.url)}>
             <span>${escapeHtml(site.hero.secondaryButton.label)}</span>${icon(site.hero.secondaryButton.icon)}
           </a>
         </div>
@@ -153,6 +170,7 @@ export function renderHero(site: SiteSettings): string {
               src="${escapeAttr(site.hero.imagePng)}"
               alt="${escapeAttr(site.hero.imageAlt)}"
               width="${site.hero.imageWidth}" height="${site.hero.imageHeight}"
+              sizes="(min-width: 768px) 540px, 100vw"
               loading="lazy" decoding="async">
           </picture>
           ${badges}
@@ -261,19 +279,18 @@ export function renderSkills(site: SiteSettings): string {
 
 function renderProjectCard(project: Project): string {
   const techBadges = project.technologies.map((tech) => `<li class="project-card__tech">${escapeHtml(tech)}</li>`).join("");
-  const featuredBadge = project.featured ? `<span class="project-card__featured">${icon("fa-solid fa-star")}Featured</span>` : "";
 
   return `
-    <article class="project-card reveal" data-category="${escapeAttr(project.category)}" data-featured="${project.featured ? "true" : "false"}">
+    <article class="project-card reveal" data-category="${escapeAttr(project.category)}">
       <div class="project-card__media">
         <picture>
           <source srcset="${escapeAttr(project.image)}" type="image/webp">
           <img src="${escapeAttr(project.imagePng)}"
             alt="${escapeAttr(project.imageAlt)}"
-            width="800" height="500" loading="lazy" decoding="async">
+            width="800" height="500" loading="lazy" decoding="async"
+            sizes="(min-width: 900px) 33vw, (min-width: 600px) 50vw, 100vw">
         </picture>
         <div class="project-card__flags">
-          ${featuredBadge}
           <span class="project-card__status">${escapeHtml(project.status)}</span>
         </div>
       </div>
@@ -304,21 +321,17 @@ export function renderProjectsGrid(projects: Project[]): string {
   return `<div class="projects-grid">${projects.map(renderProjectCard).join("")}</div>`;
 }
 
-export function renderFeaturedProjects(site: SiteSettings): string {
-  const featured = allProjects.filter((project) => project.featured);
+export function renderProjectsSection(site: SiteSettings): string {
   return `
-    <section class="section" id="featured-projects" aria-labelledby="featured-projects-heading">
+    <section class="section" id="projects" aria-labelledby="projects-heading">
       <div class="section__inner">
-        ${sectionHeading(
-          "Featured Work",
-          "Projects I'm proud of",
-          "featured-projects",
-          "A selection of my favourite builds. Explore the full collection for more.",
-        )}
-        ${renderProjectsGrid(featured)}
-        <div class="section-actions reveal">
-          <a class="btn btn--primary" href="/projects">
-            <span>View All Projects</span>${icon("fa-solid fa-folder-open")}
+        ${sectionHeading("Portfolio", "All Projects", "projects", site.pages.projects.description)}
+        ${renderProjectsGrid(allProjects)}
+        <div class="projects-cta reveal">
+          <h2 id="projects-cta-heading">Like what you see?</h2>
+          <p>Have an idea you'd like to bring to life? Let's talk about it.</p>
+          <a class="btn btn--primary" href="/#contact"${scrollLinkAttrs("/#contact")}>
+            <span>Contact Me</span>${icon("fa-solid fa-envelope")}
           </a>
         </div>
       </div>
@@ -514,77 +527,14 @@ export function renderAiWidget(site: SiteSettings): string {
     </div>`;
 }
 
-export function renderBreadcrumbs(site: SiteSettings, items: Array<{ name: string; url: string }>): string {
-  const crumbs = items
-    .map((item, index) => {
-      const isLast = index === items.length - 1;
-      return isLast
-        ? `<li aria-current="page">${escapeHtml(item.name)}</li>`
-        : `<li><a href="${escapeAttr(item.url)}">${escapeHtml(item.name)}</a></li>`;
-    })
-    .join("");
-  return `<nav class="breadcrumbs" aria-label="Breadcrumb"><ol>${crumbs}</ol></nav>`;
-}
-
 export function renderHomeContent(site: SiteSettings): string {
   return [
     renderHero(site),
     renderAbout(site),
     renderSkills(site),
-    renderFeaturedProjects(site),
+    renderProjectsSection(site),
     renderContactSection(site),
   ].join("");
-}
-
-export function renderProjectsPageContent(site: SiteSettings): string {
-  return `
-    <header class="page-hero">
-      ${renderBreadcrumbs(site, [
-        { name: "Home", url: "/" },
-        { name: "Projects", url: "/projects" },
-      ])}
-      <p class="page-hero__eyebrow">My Work</p>
-      <h1 class="page-hero__title">Projects</h1>
-      <p class="page-hero__description">${escapeHtml(site.pages.projects.description)}</p>
-    </header>
-    <section class="section" aria-labelledby="all-projects-heading">
-      <div class="section__inner">
-        ${sectionHeading("Portfolio", "All Projects", "all-projects", "")}
-        <div data-projects-grid>${renderProjectsGrid(allProjects)}</div>
-        <div class="projects-cta reveal">
-          <h2 id="projects-cta-heading">Like what you see?</h2>
-          <p>Have an idea you'd like to bring to life? Let's talk about it.</p>
-          <a class="btn btn--primary" href="/contact">
-            <span>Contact Me</span>${icon("fa-solid fa-envelope")}
-          </a>
-        </div>
-      </div>
-    </section>`;
-}
-
-export function renderContactPageContent(site: SiteSettings): string {
-  return `
-    <header class="page-hero">
-      ${renderBreadcrumbs(site, [
-        { name: "Home", url: "/" },
-        { name: "Contact", url: "/contact" },
-      ])}
-      <p class="page-hero__eyebrow">${escapeHtml(site.contact.eyebrow)}</p>
-      <h1 class="page-hero__title">${escapeHtml(site.contact.heading)}</h1>
-      <p class="page-hero__description">${escapeHtml(site.contact.description)}</p>
-    </header>
-    <section class="section" aria-labelledby="contact-options-heading">
-      <div class="section__inner">
-        <div class="contact-grid">
-          <div class="contact-cards">
-            ${site.contact.cards.map(renderContactCard).join("")}
-          </div>
-          <div class="contact-form-wrap reveal">
-            ${renderContactForm(site)}
-          </div>
-        </div>
-      </div>
-    </section>`;
 }
 
 export function renderNotFoundContent(site: SiteSettings): string {
@@ -601,7 +551,7 @@ export function renderNotFoundContent(site: SiteSettings): string {
         <a class="btn btn--primary" href="/">
           ${icon("fa-solid fa-house")}<span>Back to Home</span>
         </a>
-        <a class="btn btn--ghost" href="/projects">
+        <a class="btn btn--ghost" href="/#projects"${scrollLinkAttrs("/#projects")}>
           ${icon("fa-solid fa-folder-open")}<span>Search Projects</span>
         </a>
       </div>

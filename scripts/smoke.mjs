@@ -71,8 +71,6 @@ async function main() {
     /* Pages */
     for (const [route, marker, expectedStatus] of [
       ["/", "data-nav-action", 200],
-      ["/projects", "page-projects", 200],
-      ["/contact", "page-contact", 200],
       ["/nope-missing-page", "page-404", 404],
     ]) {
       const { response, text } = await fetchText(BASE + route);
@@ -81,12 +79,16 @@ async function main() {
       check(`${route} JSON-LD`, text.includes('application/ld+json'), "no JSON-LD");
     }
 
-    /* Canonical redirects */
+    /* Legacy pages are now home sections: 301 redirects to their anchors */
     for (const [from, to] of [
-      ["/projects.html", "/projects"],
+      ["/projects", "/#projects"],
+      ["/projects/", "/#projects"],
+      ["/projects.html", "/#projects"],
+      ["/contact", "/#contact"],
+      ["/contact/", "/#contact"],
+      ["/contact.html", "/#contact"],
       ["/home", "/"],
-      ["/projects/", "/projects"],
-      ["/contact.html", "/contact"],
+      ["/index.html", "/"],
     ]) {
       const response = await fetch(BASE + from, { redirect: "manual" });
       check(`redirect ${from} -> ${to}`, response.status === 301 && response.headers.get("location")?.endsWith(to), `status ${response.status} location ${response.headers.get("location")}`);
@@ -153,29 +155,31 @@ async function main() {
     check("ai.json faqs count >= 100", aiData.faqs.length >= 100, `${aiData.faqs.length}`);
     check("ai.json unique ids", new Set(aiData.faqs.map((f) => f.id)).size === aiData.faqs.length);
     check("projects.json unique ids", new Set(projects.map((p) => p.id)).size === projects.length);
-    check("projects.json has a featured project", projects.filter((p) => p.featured).length >= 1, `${projects.filter((p) => p.featured).length}`);
     check("settings nav sections unique", new Set(settings.nav.map((n) => n.section)).size === settings.nav.length);
     check("settings socials >= 6", settings.socials.length >= 6);
 
-    /* Nav active state */
-    const projectsPage = await fetchText(BASE + "/projects");
-    check("nav active on /projects", projectsPage.text.includes('class="site-nav__link is-active"') && projectsPage.text.includes('aria-label="Projects"'), "no active nav link");
-    const contactPage = await fetchText(BASE + "/contact");
-    check("nav active on /contact", contactPage.text.includes('class="site-nav__link is-active"') && contactPage.text.includes('aria-label="Contact"'), "no active nav link");
-
-    /* Page content completeness */
-    const allProjectsHtml = projectsPage.text;
-    const cardCount = (allProjectsHtml.match(/data-category="/g) ?? []).length;
-    check("projects page renders all 10 cards", cardCount === projects.length, `found ${cardCount}`);
+    /* Nav scroll targets */
     const homeHtml = home.text;
-    for (const section of ["about", "skills", "featured-projects", "contact"]) {
-      check(`home has #${section}`, homeHtml.includes(`id="${section}"`));
+    for (const section of ["about", "skills", "projects", "contact"]) {
+      check(`nav has data-nav-scroll="${section}"`, homeHtml.includes(`data-nav-scroll="${section}"`), "missing scroll target");
     }
-    const featuredCount = (homeHtml.match(/class="project-card reveal"/g) ?? []).length;
-    check("home shows featured projects", featuredCount === projects.filter((p) => p.featured).length, `found ${featuredCount}`);
+
+    /* Page content completeness: Projects and Contact live on the home page */
+    for (const section of ["about", "skills", "projects", "contact"]) {
+      check(`home has #${section}`, homeHtml.includes(`id="${section}"`), "missing section");
+    }
+    check("only one #projects section", (homeHtml.match(/id="projects"/g) ?? []).length === 1, "duplicate #projects section");
+    check("no featured-projects section", !homeHtml.includes('id="featured-projects"'), "featured section still present");
+    check("home has projects heading", homeHtml.includes('id="projects-heading"') && homeHtml.includes("All Projects"), "no All Projects heading");
+    check("home has contact form", homeHtml.includes('data-contact-form'), "no contact form");
+    check("home has projects CTA", homeHtml.includes('id="projects-cta-heading"'), "no projects CTA");
+    const projectsSection = homeHtml.slice(homeHtml.indexOf('id="projects"'), homeHtml.indexOf('id="contact"'));
+    const allCards = (projectsSection.match(/data-category="/g) ?? []).length;
+    check("home shows all project cards", allCards === projects.length, `found ${allCards} in #projects, expected ${projects.length}`);
 
     /* No duplicate element ids */
-    for (const [route, html] of [["/", home.text], ["/projects", allProjectsHtml], ["/contact", contactPage.text]]) {
+    const missingPage = await fetchText(BASE + "/nope-missing-page");
+    for (const [route, html] of [["/", home.text], ["/nope-missing-page", missingPage.text]]) {
       const ids = [...html.matchAll(/\sid="([^"]+)"/g)].map((m) => m[1]);
       const duplicates = ids.filter((id, index) => ids.indexOf(id) !== index);
       check(`no duplicate ids on ${route}`, duplicates.length === 0, `dupes: ${[...new Set(duplicates)].join(", ")}`);
@@ -183,7 +187,7 @@ async function main() {
 
     /* Forbidden content rules */
     const forbidden = ["offline", "localhost", "TODO", "lorem ipsum", "placeholder image"];
-    for (const route of ["/", "/projects", "/contact", "/nope-missing-page"]) {
+    for (const route of ["/", "/nope-missing-page"]) {
       const { text } = await fetchText(BASE + route);
       for (const word of forbidden) {
         check(`no "${word}" on ${route}`, !text.toLowerCase().includes(word));

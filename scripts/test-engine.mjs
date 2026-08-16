@@ -1,5 +1,5 @@
 import { readFileSync } from "node:fs";
-import { findBestAnswer, formatAnswer } from "../client/public/js/components/AI/engine.js";
+import { buildAnswer, findBestAnswer, formatAnswer } from "../client/public/js/components/AI/engine.js";
 
 const kb = JSON.parse(readFileSync("client/data/ai.json", "utf8"));
 
@@ -144,6 +144,54 @@ const groups = [
     faq: "location",
     queries: ["Location", "where are you", "where do you live", "which city", "based in"],
   },
+  {
+    label: "greetings",
+    faq: "hello",
+    queries: [
+      "Hello",
+      "hey",
+      "hi",
+      "assalamualaikum",
+      "assalam o alaikum",
+      "walaikum assalam",
+      "walaikum salam",
+    ],
+  },
+  {
+    label: "small talk",
+    faq: "how-are-you",
+    queries: ["How are you", "hw are u", "how r u doin", "how have you been", "whats up"],
+  },
+  {
+    label: "goodbye",
+    faq: "thanks-goodbye",
+    queries: ["bye", "goodbye", "take care", "gtg", "cya"],
+  },
+  {
+    label: "thanks",
+    faq: "thanks",
+    queries: ["thank u", "thx", "thanks a lot", "appreciate it", "much obliged"],
+  },
+  {
+    label: "informal who-are-you",
+    faq: "who-are-you",
+    queries: ["who r u", "who are u", "tell me abt u", "tell me abt him", "wats ur identity"],
+  },
+  {
+    label: "full name (informal)",
+    faq: "full-name",
+    queries: ["wats ur name", "whats your name", "what is ur name", "ur full name"],
+  },
+  {
+    label: "informal github",
+    faq: "github",
+    queries: ["show me ur github", "wats ur github link", "where can i find ur code"],
+  },
+  {
+    label: "who created MAX",
+    faq: "what-is-max-ai",
+    queries: ["wh made u", "what made you", "who created you", "who built you", "who developed you", "r u a bot"],
+  },
 ];
 
 const singles = [
@@ -159,6 +207,11 @@ const singles = [
   ["what is max ai", "faq"],
   ["hello there", "faq"],
   ["how much do you charge", "faq"],
+  ["good morning", "faq"],
+  ["good evening", "faq"],
+  ["good night", "faq"],
+  ["hey there", "faq"],
+  ["see you later", "faq"],
   ["random gibberish xyzzy", "intent-or-null"],
 ];
 
@@ -206,6 +259,12 @@ for (const [q, expected] of singles) {
 const sample = formatAnswer(kb.faqs.find((f) => f.answer.includes("\u2022"))?.answer ?? "• one\n• two\n\nplain text with https://example.com link");
 console.log("\nformatAnswer sample:");
 console.log(sample);
+
+/* Multi-question messages must be answered together, one topic per section. */
+const merged = buildAnswer("Who are you, where are you from and show me your GitHub", kb);
+const topics = (merged.match(/^## .+$/gm) ?? []).length;
+check(topics >= 2, `multi-question message merged ${topics} topics (expected >= 2)`);
+check(!merged.includes("couldn't find"), "multi-question message does not hit the unknown fallback");
 
 const faqCount = kb.faqs.length;
 const keywordCount = kb.faqs.reduce((sum, f) => sum + f.keywords.length, 0);

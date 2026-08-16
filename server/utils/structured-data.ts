@@ -120,7 +120,7 @@ export function buildBreadcrumbList(site: SiteSettings, items: Array<{ name: str
 export function buildCreativeWork(site: SiteSettings, project: Project): JsonObject {
   return {
     "@type": "CreativeWork",
-    "@id": `${site.site.domain}/projects#${project.id}`,
+    "@id": `${site.site.domain}/#${project.id}`,
     name: project.title,
     description: project.description,
     url: project.liveDemo || project.github,

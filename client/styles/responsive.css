@@ -9,6 +9,39 @@
   }
 }
 
+/* ---------- Big screens (4K / 5K / ultrawide) ---------- */
+@media (min-width: 1920px) {
+  :root {
+    --content-max: 1180px;
+  }
+}
+
+/* ---------- 8K monitors ---------- */
+@media (min-width: 3840px) {
+  :root {
+    --content-max: 1240px;
+  }
+}
+
+/* ---------- Touch devices: comfortable 44px tap targets ---------- */
+@media (max-width: 1024px), (pointer: coarse) {
+  .btn,
+  .btn--small {
+    min-height: 44px;
+  }
+
+  .nav-toggle,
+  .ai-chat__send {
+    width: 48px;
+    height: 48px;
+  }
+
+  .back-to-top {
+    width: 48px;
+    height: 48px;
+  }
+}
+
 /* ---------- Desktop / laptop ---------- */
 @media (max-width: 1280px) {
   .hero {
@@ -96,7 +129,7 @@ html.max-ai-open .social-rail {
   .skills-grid,
   .projects-grid,
   .contact-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .about-stats {
@@ -465,5 +498,312 @@ html.max-ai-open .social-rail {
   [data-ai-help-toggle],
   [data-help-panel] {
     display: none !important;
+  }
+}
+
+/* ---------- Ultra-small phones (≤360px) ---------- */
+@media (max-width: 360px) {
+  body {
+    font-size: 14.5px;
+  }
+
+  .site-main {
+    padding-inline: 12px;
+  }
+
+  .section {
+    padding-block: 48px;
+  }
+
+  .section-heading__eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+  }
+
+  .section-heading__title {
+    font-size: clamp(1.55rem, 8.5vw, 2rem);
+  }
+
+  .hero {
+    padding-top: 88px;
+    gap: 36px;
+  }
+
+  .hero__greeting {
+    font-size: 13px;
+  }
+
+  .hero__name {
+    font-size: clamp(1.9rem, 11vw, 2.5rem);
+  }
+
+  .hero__description {
+    font-size: 13.5px;
+    line-height: 1.65;
+  }
+
+  .btn {
+    padding: 10px 14px;
+    font-size: 13.5px;
+    gap: 8px;
+  }
+
+  .about-stat {
+    padding: 14px 8px;
+    gap: 4px;
+  }
+
+  .about-stat__value {
+    font-size: clamp(1.25rem, 7vw, 1.6rem);
+  }
+
+  .about-stat__label {
+    font-size: 11px;
+  }
+
+  .timeline-item {
+    gap: 12px;
+  }
+
+  .timeline-item__icon {
+    width: 32px;
+    height: 32px;
+    font-size: 13px;
+  }
+
+  .timeline-item__period {
+    font-size: 11.5px;
+  }
+
+  .timeline-item__title {
+    font-size: 15px;
+  }
+
+  .skills-card,
+  .about-card {
+    padding: 20px 16px;
+  }
+
+  .skill__name {
+    font-size: 13.5px;
+  }
+
+  .projects-cta {
+    padding: 30px 16px;
+  }
+
+  .projects-cta h2 {
+    font-size: 1.3rem;
+  }
+
+  /* Long emails / handles must wrap instead of pushing past the edge */
+  .contact-card__value,
+  .site-footer__contact a,
+  .site-footer__bio {
+    overflow-wrap: anywhere;
+  }
+
+  .contact-card {
+    padding: 14px;
+    gap: 12px;
+  }
+
+  .contact-card__icon {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    flex: 0 0 40px;
+  }
+
+  .contact-card__value {
+    font-size: 12.5px;
+  }
+
+  .contact-form-wrap {
+    padding: 20px 14px;
+  }
+
+  .contact-form__field label {
+    font-size: 13px;
+  }
+
+  .site-footer__grid {
+    gap: 24px;
+  }
+
+  .site-footer__socials-list {
+    gap: 8px;
+  }
+
+  /* Drawer: wider relative width, tighter rows so every item stays tappable */
+  .mobile-drawer {
+    width: min(280px, 92vw);
+  }
+
+  .mobile-drawer__link {
+    font-size: 14px;
+    padding: 13px 14px;
+    gap: 12px;
+  }
+
+  .not-found__illustration .not-found__code,
+  .not-found__illustration .not-found__zero {
+    font-size: 72px;
+  }
+
+  /* MAX AI: keep the full-screen chat comfortable on tiny screens */
+  .ai-widget {
+    right: 10px;
+    bottom: 10px;
+  }
+
+  .ai-chat__header {
+    padding: max(10px, env(safe-area-inset-top)) 10px 10px;
+    gap: 10px;
+  }
+
+  .ai-chat__heading h2 {
+    font-size: 15px;
+  }
+
+  .ai-chat__heading p {
+    font-size: 11px;
+  }
+
+  .ai-chat__action {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+
+  .ai-chat__messages {
+    padding: 14px 10px;
+  }
+
+  .ai-msg {
+    max-width: 96%;
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .ai-chat__composer {
+    padding: 8px 10px max(10px, env(safe-area-inset-bottom));
+    gap: 8px;
+  }
+
+  .ai-chat__input {
+    font-size: 15px;
+    min-height: 44px;
+  }
+
+  .ai-widget__toggle {
+    padding: 0;
+    width: 48px;
+    height: 48px;
+    justify-content: center;
+  }
+
+  .ai-tour {
+    padding: 12px;
+  }
+
+  .toast-container {
+    right: 8px;
+    bottom: 8px;
+    left: 8px;
+  }
+
+  .toast {
+    font-size: 13px;
+    padding: 10px 14px;
+  }
+}
+
+/* ---------- Smartwatch (180-280px) ---------- */
+@media (max-width: 280px) {
+  .site-main {
+    padding-inline: 8px;
+  }
+
+  .hero__actions,
+  .not-found__actions {
+    max-width: 100%;
+  }
+
+  .hero__actions {
+    gap: 10px;
+  }
+
+  .section-heading {
+    margin-bottom: 24px;
+  }
+
+  .about-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  /* Skills: tighten card so icon rows stay inside the viewport */
+  .skills-card {
+    padding: 14px 12px;
+    gap: 14px;
+  }
+
+  .skills-card__header {
+    gap: 10px;
+  }
+
+  .skills-card__icon {
+    width: 38px;
+    height: 38px;
+    font-size: 15px;
+  }
+
+  .skills-card__list {
+    gap: 12px;
+  }
+
+  .skill {
+    gap: 10px;
+  }
+
+  .skill__icon {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+
+  .skill__top {
+    flex-wrap: wrap;
+    row-gap: 2px;
+  }
+
+  /* Contact: drop decorative elements so cards fit and values wrap */
+  .contact-card {
+    padding: 12px 10px;
+    gap: 10px;
+  }
+
+  .contact-card__icon {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+    flex-basis: 36px;
+  }
+
+  .contact-card__copy,
+  .contact-card > i {
+    display: none;
+  }
+
+  .site-footer__bottom {
+    font-size: 11.5px;
+  }
+
+  .back-to-top {
+    left: 10px;
+    bottom: 10px;
+    width: 44px;
+    height: 44px;
   }
 }

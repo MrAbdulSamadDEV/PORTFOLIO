@@ -145,7 +145,6 @@ export interface Project {
   technologies: string[];
   github: string;
   liveDemo: string;
-  featured: boolean;
   status: "Live" | "In Progress" | "Archived";
   completedDate: string;
 }

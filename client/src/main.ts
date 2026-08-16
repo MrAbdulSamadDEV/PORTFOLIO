@@ -319,7 +319,7 @@ function boot(): void {
   initKeyboardShortcuts();
   initMagneticButtons();
 
-  // The contact form exists on the home page and the /contact page.
+  // The contact form lives in the home contact section.
   initContactForm();
 
   // MAX AI is booted lazily so first paint and the main thread stay fast on
